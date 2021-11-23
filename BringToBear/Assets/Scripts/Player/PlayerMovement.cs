@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(driftMode);
         driftMode = false;
 
         lookDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * -1;
@@ -55,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             turnSpeed = 3;
+            Stabilize();
         }
 
     }
@@ -69,9 +71,6 @@ public class PlayerMovement : MonoBehaviour
             newRotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
         transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * turnSpeed);
-
-        if(!driftMode)
-        Stabilize();
     }
 
     public void Thrust()
