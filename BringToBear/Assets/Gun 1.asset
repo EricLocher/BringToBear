@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e8579f39b9106049b0f4c2b8bbe011a, type: 3}
-  m_Name: Gun
+  m_Name: Gun 1
   m_EditorClassIdentifier: 
-  damage: 1
-  fireRate: 0.001
+  damage: 7
+  fireRate: 0.2
   ammo: 0
-  bulletSpeed: 60
-  bullet: {fileID: 4682512664618086701, guid: 8a8939fdb0b8b9343b9e14b352fab791, type: 3}
+  bulletSpeed: 100
+  bullet: {fileID: 8215515287612754749, guid: 0fd3675cc59cf39468481b5a6a65a52a, type: 3}

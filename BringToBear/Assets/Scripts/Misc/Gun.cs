@@ -8,5 +8,6 @@ public class Gun : ScriptableObject
     public int damage;
     public float fireRate;
     public int ammo;
+    public float bulletSpeed;
     public GameObject bullet;
 }

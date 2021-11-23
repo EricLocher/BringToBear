@@ -11,12 +11,12 @@ public class PlayerAttack : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        //TODO: Change input to RIGHT TRIGGER
-        if (Input.GetMouseButton(0) && timer > myGun.fireRate)
+        if (Input.GetAxis("R2") > 0 && timer > myGun.fireRate)
         {
+            
             GameObject Bullet = Instantiate(myGun.bullet, transform.position, transform.rotation);
-            Bullet.GetComponent<Rigidbody2D>().velocity = Bullet.transform.up * 10;
-            Destroy(Bullet, 100f);
+            Bullet.GetComponent<Rigidbody2D>().velocity = Bullet.transform.up * myGun.bulletSpeed;
+            Destroy(Bullet, 10f);
             timer = 0;
         }
     }
