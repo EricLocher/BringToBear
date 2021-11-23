@@ -1,11 +1,18 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour, IEntity
+public class PlayerController : MonoBehaviour
 {
-    public void Damage()
-    {
+    [SerializeField]
+    PlayerMovement movement;
 
+    void Start()
+    {
+        
     }
+
+
+
+
 
 
 }
