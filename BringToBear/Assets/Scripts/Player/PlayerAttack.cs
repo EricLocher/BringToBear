@@ -10,8 +10,8 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        //Input.GetAxis("R2") > 0
-        if (Input.GetMouseButton(0) && timer > myGun.fireRate)
+
+        if (Input.GetAxis("R2") > 0 && timer > myGun.fireRate)
         {
             float _spacing = 2/(float)myGun.amountOfGuns;
 

@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894ae775d8ded544ab1d085b3f968a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 8
-  acceleration: 7
+  maxSpeed: 45
+  acceleration: 30
   rb: {fileID: 3754400719634352350}
   trackRadius: 5
 --- !u!50 &3754400719634352350
