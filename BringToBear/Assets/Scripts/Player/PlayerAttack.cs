@@ -10,8 +10,8 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-
-        if (Input.GetAxis("R2") > 0 && timer > myGun.fireRate)
+        //Input.GetAxis("R2") > 0
+        if (Input.GetMouseButton(0) && timer > myGun.fireRate)
         {
             float _spacing = 2/(float)myGun.amountOfGuns;
 
@@ -20,9 +20,8 @@ public class PlayerAttack : MonoBehaviour
             {
                 GameObject _Bullet = Instantiate(myGun.bullet, transform.position + _Pos, transform.rotation);
                 _Bullet.transform.position = transform.rotation * (_Bullet.transform.position - transform.position) + transform.position;
-                _Bullet.GetComponent<Rigidbody2D>().velocity = _Bullet.transform.up * myGun.bulletSpeed;
-                Destroy(_Bullet, 100f);
-
+                _Bullet.GetComponent<IBullet>().SetOwner(transform.gameObject);
+                Destroy(_Bullet, 10f);
                 timer = 0;
 
                 _Pos.x += _spacing;
