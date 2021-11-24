@@ -43,7 +43,7 @@ public class TrafficBehaviour : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            trafficThrust = 4f;
+            trafficThrust = 100f;
             maxVel = 55;
         }
     }
