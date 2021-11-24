@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e8579f39b9106049b0f4c2b8bbe011a, type: 3}
   m_Name: Gun 1
   m_EditorClassIdentifier: 
-  amountOfGuns: 10
+  amountOfGuns: 2
   ammo: 0
-  fireRate: 0.02
-  bullet: {fileID: 2630224805546908485, guid: 253883e97b3a8214d993266de0515c9d, type: 3}
-  spread: 0.75
+  fireRate: 0.2
+  bullet: {fileID: 8215515287612754749, guid: 0fd3675cc59cf39468481b5a6a65a52a, type: 3}

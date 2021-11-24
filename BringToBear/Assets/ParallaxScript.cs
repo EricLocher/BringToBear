@@ -31,8 +31,6 @@ public class ParallaxScript : MonoBehaviour
         xOffset = Random.Range(-17, 17);
         yOffset = Random.Range(30, 120);
 
-        int randomParticle = Random.Range(0, 3);
-
         GameObject newParticle0 = Instantiate(Particle0, new Vector3(xOffset, yOffset, 0), Quaternion.identity);
         GameObject newParticle1 = Instantiate(Particle1, new Vector3(xOffset, yOffset, 0), Quaternion.identity);
         GameObject newParticle2 = Instantiate(Particle2, new Vector3(xOffset, yOffset, 0), Quaternion.identity);
