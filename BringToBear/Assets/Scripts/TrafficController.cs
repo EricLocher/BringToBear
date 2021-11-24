@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrafficController : MonoBehaviour
 {
     public GameObject TrafficVehicle;
+    public GameObject Particle;
     float xOffset;
     float yOffset;
     // Start is called before the first frame update
@@ -29,13 +30,11 @@ public class TrafficController : MonoBehaviour
     {
         if (other.CompareTag("Traffic"))
         {
-            Debug.Log("Dingus");
             Destroy(other.gameObject);
             xOffset = Random.Range(-17, 17);
             yOffset = Random.Range(30, 70);
             GameObject newTrafficVehicle = Instantiate(TrafficVehicle, new Vector3(xOffset, yOffset, 0), Quaternion.identity);
         }
-
 
     }
 

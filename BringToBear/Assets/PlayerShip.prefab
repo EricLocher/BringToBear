@@ -95,9 +95,10 @@ GameObject:
   - component: {fileID: 5640912145538070939}
   - component: {fileID: 5640912145538070940}
   - component: {fileID: 2312424755723544961}
+  - component: {fileID: -2136068319367295009}
   m_Layer: 0
   m_Name: PlayerShip
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,7 +199,7 @@ Rigidbody2D:
   m_Mass: 4
   m_LinearDrag: 0.07
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -217,3 +218,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myGun: {fileID: 11400000, guid: b88bff255f397144ab2b6d2646d5d65e, type: 2}
+--- !u!70 &-2136068319367295009
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5640912145538070936}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
