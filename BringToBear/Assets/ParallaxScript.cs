@@ -5,26 +5,37 @@ using UnityEngine;
 public class ParallaxScript : MonoBehaviour
 {
 
-    public GameObject Particle;
-    SpriteRenderer sr;
+    public GameObject Particle0;
+    public GameObject Particle1;
+    public GameObject Particle2;
     float xOffset;
     float yOffset;
-    // Start is called before the first frame update
+
+    SpriteRenderer spriteRenderer;
+
+    
     void Start()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        InvokeRepeating("SpawnParticle", 0.1f, 0.001f);
     }
         
-    // Update is called once per frame
+
     void Update()
     {
-        InvokeRepeating("SpawnParticle", 0, 8);
+        
     }
 
     public void SpawnParticle()
     {
         xOffset = Random.Range(-17, 17);
         yOffset = Random.Range(30, 120);
-        GameObject newParticle = Instantiate(Particle, new Vector3(xOffset, yOffset, 0), Quaternion.identity);
+
+        int randomParticle = Random.Range(0, 3);
+
+        GameObject newParticle0 = Instantiate(Particle0, new Vector3(xOffset, yOffset, 0), Quaternion.identity);
+        GameObject newParticle1 = Instantiate(Particle1, new Vector3(xOffset, yOffset, 0), Quaternion.identity);
+        GameObject newParticle2 = Instantiate(Particle2, new Vector3(xOffset, yOffset, 0), Quaternion.identity);
+
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class TrafficController : MonoBehaviour
 {
     public GameObject TrafficVehicle;
-    public GameObject Particle;
     float xOffset;
     float yOffset;
     // Start is called before the first frame update

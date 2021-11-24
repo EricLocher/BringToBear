@@ -9,7 +9,7 @@ public class ParticleMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        yScroll = Random.Range(-0.6f, -1);
+        yScroll = Random.Range(-1.2f, -3);
         
     }
 
@@ -18,6 +18,9 @@ public class ParticleMovement : MonoBehaviour
     {
         xScroll = Random.Range(-0.2f, 0.2f);
         transform.Translate(xScroll, yScroll, 0);
-        Destroy(gameObject, 0.5f);
+        if (transform.position.y <= -50)
+        {
+            Destroy(gameObject);
+        }
     }
 }
