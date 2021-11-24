@@ -7,15 +7,33 @@ public class TrafficController : MonoBehaviour
     public GameObject TrafficVehicle;
     float xOffset;
     float yOffset;
+
+    public static TrafficController INSTANCE;
+
+    List<Transform> Vehicles;
+
+
+    private void Awake()
+    {
+        if (INSTANCE == null) INSTANCE = this;
+        else Destroy(this.gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        Vehicles = new List<Transform>();
+
         for (int i = 0; i < 10; i++)
         {
-            xOffset = Random.Range(-17, 17);
-            yOffset = Random.Range(30, 120);
-            GameObject newTrafficVehicle = Instantiate(TrafficVehicle, new Vector3(xOffset, yOffset, 0), Quaternion.identity);
+            Vector3 newPos = GetFreeVehiclePosition(0);
+            GameObject newTrafficVehicle = Instantiate(TrafficVehicle, newPos, Quaternion.identity);
+
+            Vehicles.Add(newTrafficVehicle.transform);
+
         }
+        Debug.Log(Vehicles.Count);
+
 
     }
 
@@ -29,13 +47,39 @@ public class TrafficController : MonoBehaviour
     {
         if (other.CompareTag("Traffic"))
         {
-            Destroy(other.gameObject);
-            xOffset = Random.Range(-17, 17);
-            yOffset = Random.Range(30, 70);
-            GameObject newTrafficVehicle = Instantiate(TrafficVehicle, new Vector3(xOffset, yOffset, 0), Quaternion.identity);
+          
+         
         }
 
     }
 
+    public Vector3 GetFreeVehiclePosition(int escape)
+    {
 
+
+        xOffset = Random.Range(-17, 17);
+        yOffset = Random.Range(30, 120);
+        Vector3 pos = new Vector3(xOffset, yOffset);
+
+        bool allowed = true;
+
+        if (escape > 200)
+        {
+            Debug.Log("forced escape");
+            return pos;
+        }
+
+        foreach (Transform item in Vehicles)
+        {
+            if (Vector3.Distance(item.position, pos) < 7)
+            {
+                allowed = false;
+                break;
+            }
+        }
+
+
+
+        return allowed ? pos : GetFreeVehiclePosition(escape + 1);
+    }
 }
