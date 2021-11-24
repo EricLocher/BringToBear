@@ -9,4 +9,5 @@ public class Gun : ScriptableObject
     public int ammo;
     public float fireRate;
     public GameObject bullet;
+    public float spread;
 }
