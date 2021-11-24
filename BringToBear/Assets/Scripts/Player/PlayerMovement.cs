@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float thrust;
+    float thrust = 200;
     float turnSpeed;
     public float stabilizeSpeed;
+    
+    public bool boost;
     bool driftMode;
 
     float angle;
@@ -25,17 +27,23 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(driftMode);
         driftMode = false;
 
         lookDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * -1;
 
         Rotate();
 
-        if (Input.GetButton("Fire2"))
+
+        if (Input.GetButton("Fire2") || Input.GetAxis("R2") > 0)
         {
             Thrust();
         }
+
+        if (Input.GetAxis("L2") > 0)
+        {
+            Brake();
+        }
+                     
 
         if (Input.GetButton("Jump"))
         {
@@ -75,8 +83,24 @@ public class PlayerMovement : MonoBehaviour
 
     public void Thrust()
     {
+        if (Input.GetAxis("R2") > 0)
+        {
+            thrust = 300;
+        }
+        else
+            thrust = 200;
+
         rb.AddForce(transform.up * thrust * Time.deltaTime, ForceMode2D.Impulse);
     }
+
+    private void Brake()
+    {
+        Debug.Log("Braking!");
+
+        
+        rb.AddForce(Vector3.up * -100 * Time.deltaTime, ForceMode2D.Impulse);
+    }
+
 
     public void Respawn()
     {
