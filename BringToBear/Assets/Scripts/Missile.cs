@@ -23,10 +23,8 @@ public class Missile : MonoBehaviour, IBullet
         }
     }
 
-
     void Update()
     {
-
         foreach (GameObject _player in Players)
         {
             if (_player == Owner) { continue; }
@@ -48,7 +46,6 @@ public class Missile : MonoBehaviour, IBullet
         }
 
         Track();
-
     }
 
     void Track()
@@ -60,8 +57,8 @@ public class Missile : MonoBehaviour, IBullet
             direction.Normalize();
 
             float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, rotZ - 90), Time.deltaTime * 10f);
-            rb.AddForce(transform.up * Time.deltaTime * (acceleration * dist), ForceMode2D.Impulse);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, rotZ - 90), Time.deltaTime * 20f);
+            rb.AddForce(transform.up * Time.deltaTime * (acceleration), ForceMode2D.Impulse);
         }
         else
         {
