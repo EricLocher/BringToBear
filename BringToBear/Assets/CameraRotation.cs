@@ -7,17 +7,21 @@ public class CameraRotation : MonoBehaviour
 
     bool clockWise;
     float rotationSpeed = 0.02f;
+    bool zoomOut;
+    public Transform player0;
+    public Transform player1;
+
     void Start()
     {
         transform.Rotate(0, 0, 0);
-        InvokeRepeating("Rotate", 3, 0.01f);
-        InvokeRepeating("ChangeDirection", 5, 3f);
+        InvokeRepeating("Rotate", 20, 0.01f);
+        InvokeRepeating("ChangeDirection", 40, 15f);
     }
 
     // Update is called once per frame
     void Update()
     {
-                       
+        CameraZoom();
     }
 
     public void Rotate()
@@ -55,8 +59,39 @@ public class CameraRotation : MonoBehaviour
         else
         {
             Debug.Log("newSpeed");
-            float randomRotation = Random.Range(-1f, 1f);
-            rotationSpeed = Mathf.Lerp(rotationSpeed, randomRotation, 0.1f);
+            float randomRotation = Random.Range(-3f, 3f);
+            rotationSpeed = Mathf.Lerp(rotationSpeed, randomRotation, 0.01f);
         }
     }
+
+    public void CameraZoom()
+    {
+        float distance = Vector3.Distance(player0.position, player1.position);
+        float zoomLevel = Mathf.Clamp(distance, 10, 20);
+        Camera.main.orthographicSize = zoomLevel;
+
+
+        //if (Camera.main.orthographicSize >= 20)
+        //{
+        //    zoomOut = false;
+        //}
+        //if (Camera.main.orthographicSize <= 8)
+        //{
+        //    zoomOut = true;
+        //}
+
+        //if (zoomOut)
+        //{
+        //    Camera.main.orthographicSize += 0.001f;
+        //}
+        //else if (!zoomOut)
+        //{
+        //    Camera.main.orthographicSize -= 0.001f;
+        //}
+
+
+
+    }
+
+
 }
