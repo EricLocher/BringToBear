@@ -32,7 +32,6 @@ public class TrafficController : MonoBehaviour
             Vehicles.Add(newTrafficVehicle.transform);
 
         }
-        Debug.Log(Vehicles.Count);
 
 
     }
