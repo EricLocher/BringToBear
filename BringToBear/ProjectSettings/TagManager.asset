@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Traffic
   - Particle
+  - Projectile
   layers:
   - Default
   - TransparentFX

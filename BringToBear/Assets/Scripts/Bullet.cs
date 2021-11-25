@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour, IBullet
     public float speed;
     public int damage;
     GameObject Owner;
+    List<GameObject> Players = new List<GameObject>();
 
     public void SetOwner(GameObject player)
     {

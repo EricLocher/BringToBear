@@ -29,7 +29,7 @@ public class TESTPlayer2Movement : MonoBehaviour
     {
         driftMode = false;
 
-        lookDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * -1;
+        lookDirection = new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2")) * -1;
 
         Rotate();
 

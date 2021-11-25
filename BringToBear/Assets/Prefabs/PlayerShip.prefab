@@ -564,6 +564,7 @@ GameObject:
   - component: {fileID: 5640912145538070940}
   - component: {fileID: 2312424755723544961}
   - component: {fileID: -2136068319367295009}
+  - component: {fileID: 8245381916860689196}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Player
@@ -688,7 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342ea8dc067fc97428dd065560787a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myGun: {fileID: 11400000, guid: 23b108737d1cf59498f60dc00564fdd7, type: 2}
+  myGun: {fileID: 11400000, guid: 0baec91194c297e49b37f165c0c11ecd, type: 2}
 --- !u!70 &-2136068319367295009
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -705,3 +706,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &8245381916860689196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5640912145538070936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f2930853f94274d92de65430d778b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 0}
