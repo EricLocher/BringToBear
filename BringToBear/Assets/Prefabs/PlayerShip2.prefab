@@ -560,12 +560,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5640912145538070941}
   - component: {fileID: 5640912145538070938}
-  - component: {fileID: 5640912145538070939}
   - component: {fileID: 5640912145538070940}
   - component: {fileID: 2312424755723544961}
   - component: {fileID: -2136068319367295009}
+  - component: {fileID: 4718097933262167032}
   m_Layer: 0
-  m_Name: PlayerShip
+  m_Name: PlayerShip2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -640,21 +640,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5640912145538070939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5640912145538070936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc63bf4e2749bf5409452ec8ca5c4eea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stabilizeSpeed: 150
-  boost: 0
-  playerShip: {fileID: 5640912145538070936}
 --- !u!50 &5640912145538070940
 Rigidbody2D:
   serializedVersion: 4
@@ -705,3 +690,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &4718097933262167032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5640912145538070936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bad16cad2d8a9143a1d2bdf7c86c60e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stabilizeSpeed: 0
+  boost: 0
+  playerShip: {fileID: 0}

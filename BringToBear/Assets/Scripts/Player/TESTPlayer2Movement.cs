@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class TESTPlayer2Movement : MonoBehaviour
 {
     float thrust = 200;
     float turnSpeed;
@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         Quaternion newRotation = Quaternion.Euler(0, 0, 0);
         if (lookDirection != Vector2.zero)
         {
-            newRotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            newRotation = Quaternion.Euler(new Vector3(0, 0, -angle));
         }
         transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * turnSpeed);
     }
@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Respawn()
     {
-        transform.position = new Vector3(-10, 0, 0);
+        transform.position = new Vector3(10, 0, 0);
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         GetComponent<Rigidbody2D>().angularVelocity = 0;
         transform.rotation = Quaternion.Euler(Vector3.zero);

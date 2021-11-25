@@ -123,6 +123,68 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &958539143
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5640912145538070936, guid: 3c9e4f164b01d414ab9d496147966946, type: 3}
+      propertyPath: m_Name
+      value: PlayerShip2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 3c9e4f164b01d414ab9d496147966946, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 3c9e4f164b01d414ab9d496147966946, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 3c9e4f164b01d414ab9d496147966946, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 3c9e4f164b01d414ab9d496147966946, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 3c9e4f164b01d414ab9d496147966946, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 3c9e4f164b01d414ab9d496147966946, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 3c9e4f164b01d414ab9d496147966946, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 3c9e4f164b01d414ab9d496147966946, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 3c9e4f164b01d414ab9d496147966946, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 3c9e4f164b01d414ab9d496147966946, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 3c9e4f164b01d414ab9d496147966946, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3c9e4f164b01d414ab9d496147966946, type: 3}
+--- !u!4 &1055448796 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5640912145538070941, guid: 3c9e4f164b01d414ab9d496147966946, type: 3}
+  m_PrefabInstance: {fileID: 958539143}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1149461456
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5640912145538070941, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0033180714
+      value: -3.85
       objectReference: {fileID: 0}
     - target: {fileID: 5640912145538070941, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -266,6 +328,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+--- !u!4 &1492312778 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5640912145538070941, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+  m_PrefabInstance: {fileID: 1327390057}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1527850657
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +477,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -452,3 +519,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f08a30054aa9354baab95dc909f86b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player0: {fileID: 1492312778}
+  player1: {fileID: 1055448796}
