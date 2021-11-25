@@ -23,7 +23,7 @@ public class TrafficBehaviour : MonoBehaviour
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVel);
         rb.AddForce(transform.up * trafficThrust);
         
-        if (transform.position.y < -50 || Mathf.Abs(transform.position.x) > 50)
+        if (transform.position.y < -50 || transform.position.y > 140 || Mathf.Abs(transform.position.x) > 50)
         {
             ResetMe();
         }
@@ -36,6 +36,7 @@ public class TrafficBehaviour : MonoBehaviour
         transform.rotation = Quaternion.Euler(Vector3.zero);
         Vector3 newPos = TrafficController.INSTANCE.GetFreeVehiclePosition(0);
         transform.position = newPos;
+        trafficThrust = 1;
         maxVel = 25;
     }
 
