@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetAxis("R2") > 0)
         {
-            thrust = 300;
+            thrust = 300 * Input.GetAxis("R2");
         }
         else
             thrust = 200;
@@ -95,9 +95,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Brake()
     {
-        Debug.Log("Braking!");
-
-        
         rb.AddForce(Vector3.up * -100 * Time.deltaTime, ForceMode2D.Impulse);
     }
 
