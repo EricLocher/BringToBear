@@ -23,11 +23,15 @@ public class CameraRotation : MonoBehaviour
 
     public void Rotate()
     {
-        
+
         if (clockWise)
-        transform.Rotate(0, 0, rotationSpeed);
+        {
+            transform.Rotate(0, 0, rotationSpeed);
+        }
         else
+        {
             transform.Rotate(0, 0, -rotationSpeed);
+        }
 
     }
 
@@ -44,6 +48,7 @@ public class CameraRotation : MonoBehaviour
         }
 
         float randomRotation = Random.Range(-0.1f, 0.1f);
-        rotationSpeed += randomRotation;
+        rotationSpeed = Mathf.Lerp(rotationSpeed, randomRotation, 0.001f);
+        
     }
 }
