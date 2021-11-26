@@ -21,15 +21,19 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         CameraZoom();
+        
     }
 
     public void Rotate()
     {
+        Debug.Log(transform.localRotation.w);
 
         if (clockWise)
         {
             transform.Rotate(0, 0, rotationSpeed);
+            //transform.localRotation = new Quaternion(transform.localRotation.x, transform.localRotation.y, Mathf.Clamp(transform.localRotation.z, -0.7f, 0.7f), 0);
         }
         else
         {
@@ -76,26 +80,6 @@ public class CameraController : MonoBehaviour
         {
             Camera.main.orthographicSize = 18;
         }
-
-        //if (Camera.main.orthographicSize >= 20)
-        //{
-        //    zoomOut = false;
-        //}
-        //if (Camera.main.orthographicSize <= 8)
-        //{
-        //    zoomOut = true;
-        //}
-
-        //if (zoomOut)
-        //{
-        //    Camera.main.orthographicSize += 0.001f;
-        //}
-        //else if (!zoomOut)
-        //{
-        //    Camera.main.orthographicSize -= 0.001f;
-        //}
-
-
 
     }
 

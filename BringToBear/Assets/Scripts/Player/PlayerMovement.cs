@@ -6,8 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     float thrust = 200;
     float turnSpeed;
+
     public float stabilizeSpeed;
-    
+
     public bool boost;
     bool driftMode;
 
@@ -38,14 +39,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButton("Fire2") || Input.GetAxis("R2") > 0)
         {
             Thrust();
-
         }
 
         if (Input.GetAxis("L2") > 0)
         {
             Brake();
         }
-                     
+
 
         if (Input.GetButton("Jump"))
         {
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
             Stabilize();
         }
 
-        Drag();
+        GravityAdjuster();
 
     }
 
@@ -87,6 +87,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Thrust()
     {
+       
+
         if (Input.GetAxis("R2") > 0)
         {
             thrust = 300 * Input.GetAxis("R2");
@@ -99,7 +101,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Brake()
     {
-        rb.AddForce(Vector3.up * -100 * Time.deltaTime, ForceMode2D.Impulse);
+        //rb.AddForce(Vector3.up * -100 * Time.deltaTime, ForceMode2D.Impulse);
+        rb.AddForce(-rb.velocity * 5);        
     }
 
 
@@ -142,7 +145,8 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void Drag()
+    
+    public void GravityAdjuster()
     {
         Bounds _bg = background.GetComponent<SpriteRenderer>().bounds;
         float _Posx = transform.position.x - _bg.center.x;
@@ -150,17 +154,33 @@ public class PlayerMovement : MonoBehaviour
 
         if (Mathf.Abs(_Posx) > _bg.extents.x)
         {
+
             if (rb.gravityScale < 6)
                 rb.gravityScale = 6;
             else
                 rb.gravityScale += Time.deltaTime;
+        }
+        //TODO: Make this dynamic to the viewport rather than hard-coded y-values
+        else if (transform.position.y < -15)
+        {
+            if (rb.gravityScale < 1)
+                rb.gravityScale = 1;
+            else
+                rb.gravityScale -= Time.deltaTime * 2;
+        }
+        else if (transform.position.y > 9)
+        {
+            if (rb.gravityScale > 6)
+                rb.gravityScale = 6;
+            else
+                rb.gravityScale += Time.deltaTime * 10;
         }
         else
         {
             rb.gravityScale = 3;
         }
     }
-    
+
 
 
 }
