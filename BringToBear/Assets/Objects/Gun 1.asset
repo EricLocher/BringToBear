@@ -16,4 +16,4 @@ MonoBehaviour:
   ammo: 0
   fireRate: 0.2
   bullet: {fileID: 8215515287612754749, guid: 0fd3675cc59cf39468481b5a6a65a52a, type: 3}
-  spread: 0
+  spread: 2

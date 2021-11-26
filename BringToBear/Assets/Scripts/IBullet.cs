@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IBullet
 {
     public void SetOwner(GameObject player);
+    public GameObject GetOwner();
 }

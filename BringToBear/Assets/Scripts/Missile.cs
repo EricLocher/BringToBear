@@ -80,4 +80,8 @@ public class Missile : MonoBehaviour, IBullet
             Gizmos.DrawWireSphere(transform.position, trackRadius);
     }
 
+    public GameObject GetOwner()
+    {
+        return Owner;
+    }
 }

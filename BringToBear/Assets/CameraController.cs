@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraRotation : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
 
     bool clockWise;
@@ -66,10 +66,16 @@ public class CameraRotation : MonoBehaviour
 
     public void CameraZoom()
     {
-        float distance = Vector3.Distance(player0.position, player1.position);
-        float zoomLevel = Mathf.Clamp(distance, 10, 20);
-        Camera.main.orthographicSize = zoomLevel;
-
+        if (player1 != null)
+        {
+            float distance = Vector3.Distance(player0.position, player1.position);
+            float zoomLevel = Mathf.Clamp(distance, 10, 20);
+            Camera.main.orthographicSize = zoomLevel;
+        }
+        else
+        {
+            Camera.main.orthographicSize = 18;
+        }
 
         //if (Camera.main.orthographicSize >= 20)
         //{

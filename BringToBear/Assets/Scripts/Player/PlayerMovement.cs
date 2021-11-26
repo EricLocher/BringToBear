@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 lookDirection;
     Rigidbody2D rb;
     public GameObject playerShip;
+    public GameObject background;
 
 
     void Start()
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButton("Fire2") || Input.GetAxis("R2") > 0)
         {
             Thrust();
+
         }
 
         if (Input.GetAxis("L2") > 0)
@@ -66,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
             turnSpeed = 3;
             Stabilize();
         }
+
+        Drag();
 
     }
 
@@ -137,6 +141,26 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(stabilizeVector * stabilizeSpeed * Time.deltaTime, ForceMode2D.Impulse);
 
     }
+
+    public void Drag()
+    {
+        Bounds _bg = background.GetComponent<SpriteRenderer>().bounds;
+        float _Posx = transform.position.x - _bg.center.x;
+
+
+        if (Mathf.Abs(_Posx) > _bg.extents.x)
+        {
+            if (rb.gravityScale < 6)
+                rb.gravityScale = 6;
+            else
+                rb.gravityScale += Time.deltaTime;
+        }
+        else
+        {
+            rb.gravityScale = 3;
+        }
+    }
+    
 
 
 }
