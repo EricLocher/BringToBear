@@ -14,8 +14,8 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         transform.Rotate(0, 0, 0);
-        InvokeRepeating("Rotate", 20, 0.01f);
-        InvokeRepeating("ChangeDirection", 40, 15f);
+        InvokeRepeating("Rotate", 1, 0.01f);
+        InvokeRepeating("ChangeDirection", 10, 15f);
     }
 
     // Update is called once per frame
@@ -28,7 +28,6 @@ public class CameraController : MonoBehaviour
 
     public void Rotate()
     {
-        Debug.Log(transform.localRotation.w);
 
         if (clockWise)
         {
@@ -63,7 +62,7 @@ public class CameraController : MonoBehaviour
         else
         {
             Debug.Log("newSpeed");
-            float randomRotation = Random.Range(-3f, 3f);
+            float randomRotation = Random.Range(-5f, 5f);
             rotationSpeed = Mathf.Lerp(rotationSpeed, randomRotation, 0.01f);
         }
     }

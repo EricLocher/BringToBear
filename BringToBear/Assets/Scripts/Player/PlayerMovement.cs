@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
     bool driftMode;
 
     float angle;
-
+    float cameraAngle;
+    
     Vector2 lookDirection;
     Rigidbody2D rb;
     public GameObject playerShip;
@@ -24,11 +25,13 @@ public class PlayerMovement : MonoBehaviour
     {
         turnSpeed = 5;
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(angle);
         driftMode = false;
 
         lookDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * -1;
@@ -62,10 +65,12 @@ public class PlayerMovement : MonoBehaviour
         if (driftMode)
         {
             turnSpeed = 10;
+            cameraAngle = Camera.main.transform.eulerAngles.z;
         }
         else
         {
             turnSpeed = 3;
+            cameraAngle = 0;
             Stabilize();
         }
 
@@ -76,11 +81,13 @@ public class PlayerMovement : MonoBehaviour
     public void Rotate()
     {
 
+        //TODO: Fix issue where direction gets screwy. Seems to be an issue where we need to differentiate between -180 / 180 etc.
+
         angle = Mathf.Atan2(lookDirection.x, lookDirection.y) * Mathf.Rad2Deg;
         Quaternion newRotation = Quaternion.Euler(0, 0, 0);
         if (lookDirection != Vector2.zero)
         {
-            newRotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            newRotation = Quaternion.Euler(new Vector3(0, 0, angle + cameraAngle));
         }
         transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * turnSpeed);
     }
@@ -161,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.gravityScale += Time.deltaTime;
         }
         //TODO: Make this dynamic to the viewport rather than hard-coded y-values
-        else if (transform.position.y < -15)
+        else if (transform.position.y < -12)
         {
             if (rb.gravityScale < 1)
                 rb.gravityScale = 1;
