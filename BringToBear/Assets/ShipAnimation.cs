@@ -5,23 +5,22 @@ using UnityEngine;
 public class ShipAnimation : MonoBehaviour
 {
     Animator animator;
+    float rotation = 0;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+
     }
 
     private void Update()
     {
-        float v = Input.GetAxis("Horizontal");
-        animator.SetFloat("Rotation", v);
-        /*
+        //float v = Input.GetAxis("Horizontal");
+        animator.SetFloat("Rotation", rotation);
+    }
 
-        if (Input.GetKey(KeyCode.RightShift))
-        {
-            Debug.Log("Hello");
-            animator.Play("FlipShipLeft");
-            return;
-        }*/
+    public void updateRotation(float value)
+    {
+        rotation = value;
     }
 }
