@@ -2,25 +2,27 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     public GameObject playerShip;
     public GameObject background;
     public Rigidbody2D rb;
-
     public float stabilizeSpeed;
     public float thrust = 200;
     public float turnSpeed = 5;
 
-    Vector2 lookDirection;
+    public Vector2 lookDirection;
+    public bool boost;
 
+    bool driftMode;
+    float thrust = 200;
+    float turnSpeed = 5;
     float angle;
     float cameraAngle;
-
-    bool boost;
-    bool driftMode;
+    
 
     void Start()
     {
-
+        lookDirection = Vector2.zero;
     }
 
     void Update()
@@ -31,29 +33,6 @@ public class PlayerMovement : MonoBehaviour
         lookDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * -1;
 
         Rotate();
-
-        if (Input.GetButton("Fire2")){
-            Thrust(1);
-        }
-        else if(Input.GetAxis("R2") > 0)
-        {
-            Thrust(Input.GetAxis("R2"));
-        }
-
-        if (Input.GetAxis("L2") > 0)
-        {
-            Brake();
-        }
-
-        if (Input.GetButton("Jump"))
-        {
-            Respawn();
-        }
-
-        if (Input.GetButton("Fire3"))
-        {
-            driftMode = true;
-        }
 
         if (driftMode)
         {
@@ -67,13 +46,14 @@ public class PlayerMovement : MonoBehaviour
             Stabilize();
         }
 
-        GravityAdjuster();
+       // GravityAdjuster();
 
     }
 
+    
+
     public void Rotate()
     {
-
         //TODO: Fix issue where direction gets screwy. Seems to be an issue where we need to differentiate between -180 / 180 etc.
 
         angle = Mathf.Atan2(lookDirection.x, lookDirection.y) * Mathf.Rad2Deg;
@@ -88,22 +68,32 @@ public class PlayerMovement : MonoBehaviour
 
     public void Thrust(float thrustPower)
     {
-        if (thrustPower > 0)
-        {
-            thrust = 300 * thrustPower;
-        }
-        else 
-        { 
-            thrust = 200; 
-        }
+        lookDirection = dir;
+        Debug.Log(lookDirection);
+        Rotate();
+    }
+
+    public void SetDriftMode(bool state)
+    {
+        driftMode = state;
+    }
+
+    public bool GetDriftMode()
+    {
+        return driftMode;
+    }
+
+    public void Thrust(float thrustPower)
+    {
+        if (thrustPower > 0) { thrust = 300 * thrustPower; }
+        else { thrust = 200; }
 
         rb.AddForce(transform.up * thrust * Time.deltaTime, ForceMode2D.Impulse);
     }
 
-    private void Brake()
+    public void Brake(float brakePower)
     {
-        //rb.AddForce(Vector3.up * -100 * Time.deltaTime, ForceMode2D.Impulse);
-        rb.AddForce(-rb.velocity * 5);
+        rb.AddForce(-rb.velocity * (5 * brakePower));        
     }
 
 
@@ -120,14 +110,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Stabilize()
     {
-        if (angle == 0 || angle == 180 || angle == -180)
-        {
-            return;
-        }
-        else if ((angle < -90 && angle > -180) || (angle > 90 && angle < 180))
-        {
-            return;
-        }
+        if (angle == 0 || angle == 180 || angle == -180) { return; }
+        else if ((angle < -90 && angle > -180) || (angle > 90 && angle < 180)) { return; }
 
         Vector2 stabilizeVector = Vector2.zero;
         Vector2 vel = rb.velocity.normalized;
@@ -152,7 +136,6 @@ public class PlayerMovement : MonoBehaviour
         Bounds _bg = background.GetComponent<SpriteRenderer>().bounds;
         float _Posx = transform.position.x - _bg.center.x;
 
-
         if (Mathf.Abs(_Posx) > _bg.extents.x)
         {
 
@@ -161,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
             else
                 rb.gravityScale += Time.deltaTime;
         }
+
         //TODO: Make this dynamic to the viewport rather than hard-coded y-values
         else if (transform.position.y < -12)
         {
