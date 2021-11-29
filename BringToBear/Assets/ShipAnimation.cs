@@ -9,7 +9,7 @@ public class ShipAnimation : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
 
     }
 

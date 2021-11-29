@@ -68,8 +68,30 @@
                 },
                 {
                     "name": "",
+                    "id": "11052dbd-61c5-4735-9d0b-6c26332ff2a8",
+                    "path": "<XInputController>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f628a3c4-7cbd-48e8-8507-0e12402f2d4c",
                     "path": "<DualShockGamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "Thrust",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7daa5128-d8f6-44c5-ad33-d50f3a343785",
+                    "path": "<XInputController>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "PS4",
@@ -90,8 +112,30 @@
                 },
                 {
                     "name": "",
+                    "id": "1a3d6f0e-d395-4454-9e28-dac7d08da9e6",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2ec5a72f-e7b1-40ab-b613-8ff4f68d239b",
                     "path": "<DualShockGamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "Drift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b245680-da2c-423b-a0a1-10df5333ae61",
+                    "path": "<XInputController>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "PS4",
@@ -112,8 +156,30 @@
                 },
                 {
                     "name": "",
+                    "id": "dd513aff-fbbe-4078-a663-633ba4ab6b4c",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "Respawn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "188b5689-5e5e-4ccb-ab87-ec2d8b4e1f9d",
                     "path": "<DualShockGamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fd00be37-7acf-489d-9f71-cc4873ae9044",
+                    "path": "<XInputController>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "PS4",
@@ -136,6 +202,11 @@
                 },
                 {
                     "devicePath": "<DualShockGamepad>",
+                    "isOptional": true,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<XInputController>",
                     "isOptional": true,
                     "isOR": false
                 }
