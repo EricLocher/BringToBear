@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] PlayerMovement movement;
     [SerializeField] PlayerAttack attack;
+    [SerializeField] ShipAnimation anim;
 
     bool isThrust = false, isBrake = false, isAttacking = false;
     float playerDamage = 0;
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
         if(movement.GetDriftMode()) { return; }
         Vector2 _dir = value.ReadValue<Vector2>();
         _dir.x *= -1;
+        anim.updateRotation(_dir.x *-1);
         movement.UpdateDirection(_dir);
     }
 

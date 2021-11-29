@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShipAnimation : MonoBehaviour
 {
-    Animator animator;
+    public Animator animator;
     float rotation = 0;
 
     void Start()
