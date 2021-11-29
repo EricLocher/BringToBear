@@ -14,8 +14,6 @@ public class PlayerMovement : MonoBehaviour
     public bool boost;
 
     bool driftMode;
-    float thrust = 200;
-    float turnSpeed = 5;
     float angle;
     float cameraAngle;
     
@@ -27,11 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(angle);
         driftMode = false;
-
-        lookDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * -1;
-
         Rotate();
 
         if (driftMode)
@@ -66,10 +60,9 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, _newRotation, Time.deltaTime * turnSpeed);
     }
 
-    public void Thrust(float thrustPower)
+    public void UpdateDirection(Vector2 dir)
     {
         lookDirection = dir;
-        Debug.Log(lookDirection);
         Rotate();
     }
 

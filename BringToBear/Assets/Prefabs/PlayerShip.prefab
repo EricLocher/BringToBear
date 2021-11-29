@@ -560,11 +560,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5640912145538070941}
   - component: {fileID: 5640912145538070938}
-  - component: {fileID: 5640912145538070939}
-  - component: {fileID: 5640912145538070940}
-  - component: {fileID: 2312424755723544961}
-  - component: {fileID: -2136068319367295009}
   - component: {fileID: 8245381916860689196}
+  - component: {fileID: 5640912145538070939}
+  - component: {fileID: 2312424755723544961}
+  - component: {fileID: 2223364314247379409}
+  - component: {fileID: 5640912145538070940}
+  - component: {fileID: -2136068319367295009}
   - component: {fileID: 1005931443}
   - component: {fileID: 1005931442}
   m_Layer: 0
@@ -643,6 +644,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8245381916860689196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5640912145538070936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f2930853f94274d92de65430d778b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 5640912145538070939}
+  attack: {fileID: 2312424755723544961}
 --- !u!114 &5640912145538070939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,9 +670,153 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc63bf4e2749bf5409452ec8ca5c4eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabilizeSpeed: 150
-  boost: 0
   playerShip: {fileID: 5640912145538070936}
+  background: {fileID: 0}
+  rb: {fileID: 5640912145538070940}
+  stabilizeSpeed: 150
+  thrust: 200
+  turnSpeed: 5
+  lookDirection: {x: 0, y: 0}
+  boost: 0
+--- !u!114 &2312424755723544961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5640912145538070936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342ea8dc067fc97428dd065560787a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myGun: {fileID: 11400000, guid: b88bff255f397144ab2b6d2646d5d65e, type: 2}
+--- !u!114 &2223364314247379409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5640912145538070936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 915b257a05e4da04d9cc0567b2823b84, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8245381916860689196}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Movement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 47f82a1f-0f89-466b-aeb0-e399c29cfb43
+    m_ActionName: Controls/Movement[/DualShock4GamepadHID/leftStick]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8245381916860689196}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Thrust
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e0818084-57fb-4980-b616-8926727e17f4
+    m_ActionName: Controls/Thrust[/DualShock4GamepadHID/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8245381916860689196}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f346b66f-f90b-4721-b784-708d735de7ad
+    m_ActionName: Controls/Fire[/DualShock4GamepadHID/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8245381916860689196}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Drift
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9e395765-fbfb-45af-8dec-b2422d19698d
+    m_ActionName: Controls/Drift[/DualShock4GamepadHID/rightStick]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8245381916860689196}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Respawn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 08bfbfd6-4451-4c54-a32b-1b5b8a393d9e
+    m_ActionName: Controls/Respawn[/DualShock4GamepadHID/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8245381916860689196}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Brake
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 688bfea2-ab7f-44ec-9992-e264cc114896
+    m_ActionName: Controls/Brake[/DualShock4GamepadHID/leftTrigger]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: PS4
+  m_DefaultActionMap: Controls
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!50 &5640912145538070940
 Rigidbody2D:
   serializedVersion: 4
@@ -679,19 +838,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2312424755723544961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5640912145538070936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342ea8dc067fc97428dd065560787a08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myGun: {fileID: 11400000, guid: b88bff255f397144ab2b6d2646d5d65e, type: 2}
 --- !u!70 &-2136068319367295009
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -708,18 +854,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!114 &8245381916860689196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5640912145538070936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4f2930853f94274d92de65430d778b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!198 &1005931443
 ParticleSystem:
   m_ObjectHideFlags: 0
