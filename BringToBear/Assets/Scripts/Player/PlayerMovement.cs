@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -9,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject background;
     public Rigidbody2D rb;
     public float stabilizeSpeed;
+    public float thrust = 200;
+    public float turnSpeed = 5;
 
     public Vector2 lookDirection;
     public bool boost;
@@ -27,7 +27,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(angle);
         driftMode = false;
+
+        lookDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * -1;
 
         Rotate();
 
@@ -54,15 +57,16 @@ public class PlayerMovement : MonoBehaviour
         //TODO: Fix issue where direction gets screwy. Seems to be an issue where we need to differentiate between -180 / 180 etc.
 
         angle = Mathf.Atan2(lookDirection.x, lookDirection.y) * Mathf.Rad2Deg;
-        Quaternion newRotation = Quaternion.Euler(0, 0, 0);
+
+        Quaternion _newRotation = Quaternion.Euler(0, 0, 0);
         if (lookDirection != Vector2.zero)
         {
-            newRotation = Quaternion.Euler(new Vector3(0, 0, angle + cameraAngle));
+            _newRotation = Quaternion.Euler(new Vector3(0, 0, angle + cameraAngle));
         }
-        transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * turnSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, _newRotation, Time.deltaTime * turnSpeed);
     }
 
-    public void UpdateDirection(Vector2 dir)
+    public void Thrust(float thrustPower)
     {
         lookDirection = dir;
         Debug.Log(lookDirection);
@@ -92,6 +96,18 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(-rb.velocity * (5 * brakePower));        
     }
 
+
+    public void Respawn()
+    {
+        transform.position = new Vector3(-10, 0, 0);
+        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        GetComponent<Rigidbody2D>().angularVelocity = 0;
+        transform.rotation = Quaternion.Euler(Vector3.zero);
+
+        //GameObject newShip = Instantiate(playerShip, new Vector3(0, 0, 0), Quaternion.identity);
+        //Destroy(gameObject);
+    }
+
     private void Stabilize()
     {
         if (angle == 0 || angle == 180 || angle == -180) { return; }
@@ -113,7 +129,8 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(stabilizeVector * stabilizeSpeed * Time.deltaTime, ForceMode2D.Impulse);
 
     }
-    
+
+
     public void GravityAdjuster()
     {
         Bounds _bg = background.GetComponent<SpriteRenderer>().bounds;
