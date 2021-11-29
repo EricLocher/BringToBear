@@ -9,13 +9,15 @@ public class PlayerMovement : MonoBehaviour
 
     public float stabilizeSpeed;
 
+    public PlayerControls input;
+
     public bool boost;
     bool driftMode;
 
     float angle;
     float cameraAngle;
     
-    Vector2 lookDirection;
+    public Vector2 lookDirection;
     Rigidbody2D rb;
     public GameObject playerShip;
     public GameObject background;
@@ -25,41 +27,33 @@ public class PlayerMovement : MonoBehaviour
     {
         turnSpeed = 5;
         rb = GetComponent<Rigidbody2D>();
-        
+        input = new PlayerControls();
+        lookDirection = Vector2.zero;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(angle);
         driftMode = false;
-
-        lookDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * -1;
 
         Rotate();
 
-
-        if (Input.GetButton("Fire2") || Input.GetAxis("R2") > 0)
-        {
-            Thrust();
-        }
-
-        if (Input.GetAxis("L2") > 0)
-        {
-            Brake();
-        }
+        //if (Input.GetAxis("L2") > 0)
+        //{
+        //    Brake();
+        //}
 
 
-        if (Input.GetButton("Jump"))
-        {
-            Respawn();
-        }
+        //if (Input.GetButton("Jump"))
+        //{
+        //    Respawn();
+        //}
 
-        if (Input.GetButton("Fire3"))
-        {
+        //if (Input.GetButton("Fire3"))
+        //{
 
-            driftMode = true;
-        }
+        //    driftMode = true;
+        //}
 
 
         if (driftMode)
@@ -92,13 +86,24 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * turnSpeed);
     }
 
-    public void Thrust()
+    public void UpdateDirection(Vector2 dir)
     {
-       
+        lookDirection = dir;
+        Debug.Log(lookDirection);
+        Rotate();
+    }
 
-        if (Input.GetAxis("R2") > 0)
+    public void UpdateThrust(float thrustPower)
+    {
+        Thrust(thrustPower);
+    }
+
+    private void Thrust(float thrustPower)
+    {
+
+        if (thrustPower > 0)
         {
-            thrust = 300 * Input.GetAxis("R2");
+            thrust = 300 * thrustPower;
         }
         else
             thrust = 200;
@@ -110,18 +115,6 @@ public class PlayerMovement : MonoBehaviour
     {
         //rb.AddForce(Vector3.up * -100 * Time.deltaTime, ForceMode2D.Impulse);
         rb.AddForce(-rb.velocity * 5);        
-    }
-
-
-    public void Respawn()
-    {
-        transform.position = new Vector3(-10, 0, 0);
-        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        GetComponent<Rigidbody2D>().angularVelocity = 0;
-        transform.rotation = Quaternion.Euler(Vector3.zero);
-
-        //GameObject newShip = Instantiate(playerShip, new Vector3(0, 0, 0), Quaternion.identity);
-        //Destroy(gameObject);
     }
 
     private void Stabilize()
@@ -151,7 +144,6 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(stabilizeVector * stabilizeSpeed * Time.deltaTime, ForceMode2D.Impulse);
 
     }
-
     
     public void GravityAdjuster()
     {
