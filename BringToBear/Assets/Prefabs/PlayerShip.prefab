@@ -206,7 +206,7 @@ MonoBehaviour:
   background: {fileID: 0}
   rb: {fileID: 2938840014140346345}
   stabilizeSpeed: 150
-  lookDirection: {x: -0.0013619608, y: 0.015889462}
+  lookDirection: {x: -0, y: 0}
   boost: 0
 --- !u!114 &5086590147098124276
 MonoBehaviour:
