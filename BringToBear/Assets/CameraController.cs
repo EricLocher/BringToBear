@@ -45,7 +45,7 @@ public class CameraController : MonoBehaviour
         maxTilt = Mathf.Clamp(maxTilt, 1, 60);
         
 
-        Debug.Log(maxTilt);
+        //Debug.Log(maxTilt);
 
         time += Time.deltaTime * 0.1f;
         time = Mathf.Clamp(time, 0f, 1f);

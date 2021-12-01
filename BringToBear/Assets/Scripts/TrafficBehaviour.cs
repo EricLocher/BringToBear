@@ -9,7 +9,6 @@ public class TrafficBehaviour : MonoBehaviour
     public float trafficThrust = 1;
     public float maxVel = 25;
    
-    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

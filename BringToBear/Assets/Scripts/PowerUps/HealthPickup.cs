@@ -6,7 +6,7 @@ public class HealthPickup : MonoBehaviour, IInteractable
 {
     public void Interact(PlayerController player)
     {
-        Debug.Log(player);
+        Debug.Log(player + "Hej");
         //TODO: Give health to player who collided with pickup
     }  
 }
