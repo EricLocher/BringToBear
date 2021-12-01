@@ -79,6 +79,17 @@
                 },
                 {
                     "name": "",
+                    "id": "cf1a908a-2d2e-4147-8367-e0f21333db15",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f628a3c4-7cbd-48e8-8507-0e12402f2d4c",
                     "path": "<DualShockGamepad>/rightTrigger",
                     "interactions": "",
@@ -101,6 +112,17 @@
                 },
                 {
                     "name": "",
+                    "id": "5565c6a7-a34e-42e8-a51d-49036e0c7636",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "Thrust",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e432a12a-569d-400e-8fd0-2260dc2afceb",
                     "path": "<DualShockGamepad>/buttonWest",
                     "interactions": "",
@@ -114,6 +136,17 @@
                     "name": "",
                     "id": "1a3d6f0e-d395-4454-9e28-dac7d08da9e6",
                     "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f7fcbe86-0f22-494b-bea9-498988c09565",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "PS4",
@@ -167,6 +200,17 @@
                 },
                 {
                     "name": "",
+                    "id": "eaa4b92a-5523-4fb1-80f3-a767b2bb7482",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "Respawn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "188b5689-5e5e-4ccb-ab87-ec2d8b4e1f9d",
                     "path": "<DualShockGamepad>/leftTrigger",
                     "interactions": "",
@@ -186,6 +230,17 @@
                     "action": "Brake",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8e698019-1607-4cb7-9ccc-2db1a63a4081",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
@@ -197,6 +252,11 @@
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
                     "isOptional": false,
                     "isOR": false
                 },

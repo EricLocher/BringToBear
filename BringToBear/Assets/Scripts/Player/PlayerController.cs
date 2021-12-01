@@ -8,14 +8,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerMovement movement;
     [SerializeField] PlayerAttack attack;
     [SerializeField] ShipAnimation anim;
+    [SerializeField] Camera mainCam;
 
     bool isThrust = false, isBrake = false, isAttacking = false;
     float playerDamage = 0;
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -31,12 +27,19 @@ public class PlayerController : MonoBehaviour
 
     #region Inputs
     public void Movement(InputAction.CallbackContext value)
-    {
+    {  
         if(movement.GetDriftMode()) { return; }
         Vector2 _dir = value.ReadValue<Vector2>();
+
+        if (value.control.device.name == "Mouse")
+        {
+            _dir = mainCam.ScreenToWorldPoint(_dir);
+        }
+
         _dir.x *= -1;
-        anim.updateRotation(_dir.x *-1);
         movement.UpdateDirection(_dir);
+        _dir.Normalize();
+        anim.updateRotation(GetComponent<Rigidbody2D>().velocity.x * -1);
     }
 
     public void Thrust(InputAction.CallbackContext value)
@@ -100,6 +103,14 @@ public class PlayerController : MonoBehaviour
             {
                 playerDamage += other.GetComponent<Bullet>().damage;
                 Destroy(other.gameObject);
+            }
+        }
+        else
+        {
+            if(other.GetComponent<IInteractable>() != null)
+            {
+                IInteractable _interactable = other.GetComponent<IInteractable>();
+                _interactable.Interact(this);
             }
         }
     }

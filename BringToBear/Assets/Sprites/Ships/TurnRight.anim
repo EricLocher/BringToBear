@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FlipShipRight
+  m_Name: TurnRight
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 100766c86ac1ea2438316cc629a84604, type: 3}
+      value: {fileID: 21300000, guid: 396e8faf84c4e8d4b8a9972df31797d1, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: 015769c3c6049a14aa807a5da92b6590, type: 3}
+      value: {fileID: 21300000, guid: 04ece887aeb13a64c81bcca23f3db2cb, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -42,8 +42,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 100766c86ac1ea2438316cc629a84604, type: 3}
-    - {fileID: 21300000, guid: 015769c3c6049a14aa807a5da92b6590, type: 3}
+    - {fileID: 21300000, guid: 396e8faf84c4e8d4b8a9972df31797d1, type: 3}
+    - {fileID: 21300000, guid: 04ece887aeb13a64c81bcca23f3db2cb, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
