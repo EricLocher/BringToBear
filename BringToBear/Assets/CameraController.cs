@@ -5,8 +5,9 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 
-    public Transform player0;
-    public Transform player1;
+    public GameController GameController;
+    List<GameObject> Players;
+
     public float minRotation;
     public float maxRotation;
 
@@ -17,16 +18,20 @@ public class CameraController : MonoBehaviour
     bool zoomOut;
     private float time;
     float maxTilt = 0;
+    Vector3 center;
 
     public AnimationCurve cameraAcceleration;
 
     void Start()
     {
+        Players = GameController.Players;
+
         transform.Rotate(0, 0, 0);
         targetRot = Quaternion.identity;
         prevRot = targetRot;
+        Camera.main.orthographicSize = 18;
         Invoke("SetNewRotationTarget", 3);
-        
+
     }
 
 
@@ -41,9 +46,11 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        CameraZoom();
+
         maxTilt += Time.deltaTime / 4;
         maxTilt = Mathf.Clamp(maxTilt, 1, 60);
-        
+
 
         //Debug.Log(maxTilt);
 
@@ -54,11 +61,17 @@ public class CameraController : MonoBehaviour
 
     public void CameraZoom()
     {
-        if (player1 != null)
+        if (Players.Count != 0)
         {
-            float distance = Vector3.Distance(player0.position, player1.position);
+            float distance = Vector3.Distance(Players[0].transform.position, Players[1].transform.position);
             float zoomLevel = Mathf.Clamp(distance, 10, 20);
-            Camera.main.orthographicSize = zoomLevel;
+            float prevZoom = Camera.main.orthographicSize;
+            Camera.main.orthographicSize = Mathf.Lerp(prevZoom, zoomLevel, 0.01f);
+
+            center = ((Players[0].transform.position + Players[1].transform.position) / 2);
+
+            center.y = Mathf.Clamp(center.y, -10.5f, 10.5f);
+            transform.position = new Vector3(center.x, center.y, -10);
         }
         else
         {

@@ -72,21 +72,76 @@
                     "path": "<XInputController>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PS4",
+                    "groups": "XBOX",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "cf1a908a-2d2e-4147-8367-e0f21333db15",
+                    "id": "7a64a5a6-cb01-483a-9cd0-b84f47775fa1",
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PS4",
+                    "groups": "Mouse & Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "WASD",
+                    "id": "d453d0ba-4e73-4fcc-9323-d9a07848d8ab",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "c60f91f6-08a9-4069-a2cc-07f0ae5b9721",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse & Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "04faf6a6-a432-418e-9c4c-b3a1c31612bb",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse & Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "cdfd21d8-c23e-443b-8a03-4f672a3f7d44",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse & Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "399c8544-5643-4501-a97d-ba34df236cbc",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse & Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -105,7 +160,7 @@
                     "path": "<XInputController>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PS4",
+                    "groups": "XBOX",
                     "action": "Thrust",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -116,7 +171,7 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PS4",
+                    "groups": "Mouse & Keyboard",
                     "action": "Thrust",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -138,7 +193,7 @@
                     "path": "<XInputController>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PS4",
+                    "groups": "XBOX",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -149,7 +204,7 @@
                     "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PS4",
+                    "groups": "Mouse & Keyboard",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -171,7 +226,7 @@
                     "path": "<XInputController>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PS4",
+                    "groups": "XBOX",
                     "action": "Drift",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -193,7 +248,7 @@
                     "path": "<XInputController>/buttonNorth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PS4",
+                    "groups": "XBOX",
                     "action": "Respawn",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -204,7 +259,7 @@
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PS4",
+                    "groups": "Mouse & Keyboard",
                     "action": "Respawn",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -226,7 +281,7 @@
                     "path": "<XInputController>/leftTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PS4",
+                    "groups": "XBOX",
                     "action": "Brake",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -237,7 +292,7 @@
                     "path": "<Keyboard>/v",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PS4",
+                    "groups": "Mouse & Keyboard",
                     "action": "Brake",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -251,23 +306,35 @@
             "bindingGroup": "PS4",
             "devices": [
                 {
+                    "devicePath": "<DualShockGamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Mouse & Keyboard",
+            "bindingGroup": "Mouse & Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": true,
+                    "isOR": false
+                },
+                {
                     "devicePath": "<Keyboard>",
                     "isOptional": false,
                     "isOR": false
-                },
-                {
-                    "devicePath": "<Mouse>",
-                    "isOptional": false,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<DualShockGamepad>",
-                    "isOptional": true,
-                    "isOR": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "XBOX",
+            "bindingGroup": "XBOX",
+            "devices": [
                 {
                     "devicePath": "<XInputController>",
-                    "isOptional": true,
+                    "isOptional": false,
                     "isOR": false
                 }
             ]

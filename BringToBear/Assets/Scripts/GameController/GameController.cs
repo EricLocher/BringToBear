@@ -5,33 +5,14 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public GameStates gameState;
+    public List<GameObject> Players = new List<GameObject>();
 
-    public void ChangeSate(GameStates state)
+    void Start()
     {
-        gameState = state;
-        UpdateState();
-    }
-
-    private void UpdateState()
-    {
-        switch (gameState)
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
         {
-            case GameStates.Paused:
-                //TODO: Add pause function.
-                break;
-            case GameStates.Playing:
-                //TODO: Add play function.
-                break;
-            case GameStates.GameOver:
-                //TODO: Add gameover function.
-                break;
-            default:
-                break;
+            Players.Add(GameObject.FindGameObjectsWithTag("Player")[i]);
         }
-
     }
-
-
-
 
 }
