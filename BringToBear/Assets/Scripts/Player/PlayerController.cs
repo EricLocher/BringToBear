@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerAttack attack;
     [SerializeField] ShipAnimation anim;
     [SerializeField] Camera mainCam;
-
+        
     bool isThrust = false, isBrake = false, isAttacking = false;
     float playerDamage = 0;
 
