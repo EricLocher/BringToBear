@@ -13,6 +13,11 @@ public class PlayerController : MonoBehaviour
     bool isThrust = false, isBrake = false, isAttacking = false;
     float playerDamage = 0;
 
+    private void Start()
+    {
+        mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
+    }
+
     void Update()
     {
         if (isThrust)
@@ -25,9 +30,11 @@ public class PlayerController : MonoBehaviour
             attack.Attack();
     }
 
+
     #region Inputs
     public void Movement(InputAction.CallbackContext value)
     {  
+
         if(movement.GetDriftMode()) { return; }
         Vector2 _dir = value.ReadValue<Vector2>();
 
@@ -39,7 +46,7 @@ public class PlayerController : MonoBehaviour
         _dir.x *= -1;
         movement.UpdateDirection(_dir);
         _dir.Normalize();
-        anim.updateRotation(GetComponent<Rigidbody2D>().velocity.x * -1);
+        //anim.updateRotation(GetComponent<Rigidbody2D>().velocity.x * -1);
     }
 
     public void Thrust(InputAction.CallbackContext value)
@@ -82,8 +89,8 @@ public class PlayerController : MonoBehaviour
         Vector2 _dir = value.ReadValue<Vector2>();
         _dir.x *= -1;
 
-        if (
-            _dir != Vector2.zero) { movement.SetDriftMode(true);
+        if (_dir != Vector2.zero) { 
+            movement.SetDriftMode(true);
             movement.UpdateDirection(_dir);
         }
         else { movement.SetDriftMode(false); }

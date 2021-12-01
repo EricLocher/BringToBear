@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4609636035319852600
 Transform:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4609636036104633861
 Transform:
   m_ObjectHideFlags: 0
@@ -328,7 +328,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4609636036257281224
 Transform:
   m_ObjectHideFlags: 0
@@ -501,7 +501,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8192113936881418722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -10, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 1, z: 1}
   m_Children:
   - {fileID: 5358508824434824813}
@@ -577,6 +577,7 @@ MonoBehaviour:
   movement: {fileID: 5128374685029486709}
   attack: {fileID: 2301292805602611707}
   anim: {fileID: 5898193861526960226}
+  mainCam: {fileID: 0}
 --- !u!114 &5128374685029486709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,9 +594,9 @@ MonoBehaviour:
   background: {fileID: 0}
   rb: {fileID: 8192113936881418726}
   stabilizeSpeed: 150
-  thrust: 180
+  thrust: 200
   turnSpeed: 5
-  lookDirection: {x: 0, y: 0}
+  lookDirection: {x: -0, y: 0}
   boost: 0
 --- !u!114 &2301292805602611707
 MonoBehaviour:
@@ -731,7 +732,7 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 688bfea2-ab7f-44ec-9992-e264cc114896
     m_ActionName: Controls/Brake
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Controls
   m_SplitScreenIndex: -1

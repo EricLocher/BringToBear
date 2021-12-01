@@ -887,6 +887,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle
       objectReference: {fileID: 0}
+    - target: {fileID: 4082340895704006444, guid: 82a8e87e223f7a14f8252a64fb144bea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4876726644738682899, guid: 82a8e87e223f7a14f8252a64fb144bea, type: 3}
       propertyPath: m_RootOrder
       value: 5
