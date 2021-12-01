@@ -4,26 +4,15 @@ using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
 {
-    public int p1Score;
-    public int p2Score;
-
-    public List<GameObject> ScoreKeeping = new List<GameObject>();
-
+    public List<PlayerController> ScoreKeeping;
+    public GameController gameController;
     private void Start()
     {
-        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
-        {
-            ScoreKeeping.Add(GameObject.FindGameObjectsWithTag("Player")[i]);
-
-        }
+        ScoreKeeping = gameController.Players;
     }
 
-    public void Scorekeeping()
+    public void AddScore(PlayerController player, int score)
     {
-        foreach (GameObject player in ScoreKeeping)
-        {
-
-        }
+        player.score += score;
     }
-   
 }

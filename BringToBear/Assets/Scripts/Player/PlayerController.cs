@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerAttack attack;
     [SerializeField] ShipAnimation anim;
     [SerializeField] Camera mainCam;
+
+    public int score = 0;
         
     bool isThrust = false, isBrake = false, isAttacking = false;
     float playerDamage = 0;

@@ -24,7 +24,10 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        Players = GameController.Players;
+        foreach (PlayerController player in GameController.Players)
+        {
+            Players.Add(player.transform.gameObject);
+        }
 
         transform.Rotate(0, 0, 0);
         targetRot = Quaternion.identity;
@@ -33,8 +36,6 @@ public class CameraController : MonoBehaviour
         Invoke("SetNewRotationTarget", 3);
 
     }
-
-
 
     private void SetNewRotationTarget()
     {
