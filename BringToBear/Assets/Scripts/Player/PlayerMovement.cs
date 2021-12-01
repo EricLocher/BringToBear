@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
             Stabilize();
         }
 
-       // GravityAdjuster();
+        //GravityAdjuster();
 
     }
 
@@ -86,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Brake(float brakePower)
     {
-        rb.AddForce(-rb.velocity * (5 * brakePower));        
+        rb.AddForce(-rb.velocity * (0.5f * brakePower));        
     }
 
 
@@ -97,8 +97,6 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<Rigidbody2D>().angularVelocity = 0;
         transform.rotation = Quaternion.Euler(Vector3.zero);
 
-        //GameObject newShip = Instantiate(playerShip, new Vector3(0, 0, 0), Quaternion.identity);
-        //Destroy(gameObject);
     }
 
     private void Stabilize()

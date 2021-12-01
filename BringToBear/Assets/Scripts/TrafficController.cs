@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrafficController : MonoBehaviour
 {
     public GameObject TrafficVehicle;
+    
     float xOffset;
     float yOffset;
 
@@ -57,7 +58,7 @@ public class TrafficController : MonoBehaviour
 
 
         xOffset = Random.Range(-17, 17);
-        yOffset = Random.Range(30, 120);
+        yOffset = Random.Range(40, 150);
         Vector3 pos = new Vector3(xOffset, yOffset);
 
         bool allowed = true;
@@ -70,7 +71,7 @@ public class TrafficController : MonoBehaviour
 
         foreach (Transform item in Vehicles)
         {
-            if (Vector3.Distance(item.position, pos) < 7)
+            if (Vector3.Distance(item.position, pos) < 10)
             {
                 allowed = false;
                 break;
