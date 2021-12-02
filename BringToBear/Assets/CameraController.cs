@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
 {
 
     public GameController GameController;
-    List<GameObject> Players;
+    List<PlayerController> Players;
 
     public float minRotation;
     public float maxRotation;
@@ -23,10 +23,8 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        foreach (PlayerController player in GameController.Players)
-        {
-            Players.Add(player.transform.gameObject);
-        }
+
+        Players = GameController.Players;
 
         transform.Rotate(0, 0, 0);
         targetRot = Quaternion.identity;
