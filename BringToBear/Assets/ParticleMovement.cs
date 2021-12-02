@@ -16,7 +16,7 @@ public class ParticleMovement : MonoBehaviour
     {
         xScroll = Random.Range(-0.2f, 0.2f);
         transform.Translate(xScroll, yScroll, 0);
-        if (transform.position.y <= -50)
+        if (transform.position.y <= -110)
         {
             Destroy(gameObject);
         }
