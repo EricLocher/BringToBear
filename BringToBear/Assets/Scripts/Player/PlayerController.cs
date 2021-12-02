@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] PlayerMovement movement;
-    [SerializeField] PlayerAttack attack;
+    public PlayerAttack attack;
     [SerializeField] ShipAnimation anim;
     [SerializeField] Camera mainCam;
 

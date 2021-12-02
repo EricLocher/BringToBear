@@ -59,7 +59,6 @@ public class CameraController : MonoBehaviour
 
     public void CameraZoom()
     {
-        
 
         if (Players.Count > 1)
         {
