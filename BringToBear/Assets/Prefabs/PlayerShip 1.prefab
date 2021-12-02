@@ -482,7 +482,6 @@ GameObject:
   - component: {fileID: 5128374685029486709}
   - component: {fileID: 2301292805602611707}
   - component: {fileID: 6205237278568856883}
-  - component: {fileID: 4768764180278933941}
   - component: {fileID: 8192113936881418726}
   - component: {fileID: 6747411090663421861}
   - component: {fileID: 676435149646668381}
@@ -579,6 +578,7 @@ MonoBehaviour:
   attack: {fileID: 2301292805602611707}
   anim: {fileID: 5898193861526960226}
   mainCam: {fileID: 0}
+  score: 0
 --- !u!114 &5128374685029486709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,18 +738,6 @@ MonoBehaviour:
   m_DefaultActionMap: Controls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &4768764180278933941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8192113936881418722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ceb12b1f0fe9b143a534fb2f0cc49d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &8192113936881418726
 Rigidbody2D:
   serializedVersion: 4
