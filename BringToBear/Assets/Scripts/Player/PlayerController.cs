@@ -11,13 +11,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Camera mainCam;
 
     public int score = 0;
+
+    Rigidbody2D rb;
         
     bool isThrust = false, isBrake = false, isAttacking = false;
-    float playerDamage = 0;
+    public float playerDamage = 0;
 
     private void Start()
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -114,9 +117,15 @@ public class PlayerController : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
+        if (other.CompareTag("Player"))
+        {
+            Rigidbody2D _otherRb = other.GetComponent<Rigidbody2D>();
+            CollisionHandler.DoCollision(rb, _otherRb);
+        }
+
         else
         {
-            if(other.GetComponent<IInteractable>() != null)
+            if (other.GetComponent<IInteractable>() != null)
             {
                 IInteractable _interactable = other.GetComponent<IInteractable>();
                 _interactable.Interact(this);
