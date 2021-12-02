@@ -10,7 +10,7 @@ public class ScoreKeeperUI : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(scoreKeeper.ScoreKeeping.Count);
+
         string str = "";
         for (int i = 0; i < scoreKeeper.ScoreKeeping.Count; i++)
         {

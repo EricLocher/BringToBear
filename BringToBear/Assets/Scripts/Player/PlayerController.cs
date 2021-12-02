@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
         if (isThrust)
             movement.Thrust(1);
 
@@ -122,7 +123,6 @@ public class PlayerController : MonoBehaviour
             Rigidbody2D _otherRb = other.GetComponent<Rigidbody2D>();
             CollisionHandler.DoCollision(rb, _otherRb);
         }
-
         else
         {
             if (other.GetComponent<IInteractable>() != null)
