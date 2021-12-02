@@ -660,6 +660,8 @@ MonoBehaviour:
   attack: {fileID: 2312424755723544961}
   anim: {fileID: 0}
   mainCam: {fileID: 0}
+  score: 0
+  playerDamage: 0
 --- !u!114 &5640912145538070939
 MonoBehaviour:
   m_ObjectHideFlags: 0
