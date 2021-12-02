@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         _dir.x *= -1;
         movement.UpdateDirection(_dir);
         _dir.Normalize();
-        //anim.updateRotation(GetComponent<Rigidbody2D>().velocity.x * -1);
+        anim.updateRotation(GetComponent<Rigidbody2D>().velocity.x * -1);
     }
 
     public void Thrust(InputAction.CallbackContext value)
