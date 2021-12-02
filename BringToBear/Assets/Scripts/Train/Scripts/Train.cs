@@ -9,15 +9,15 @@ public class Train : MonoBehaviour
     public float Margin;
 
     float trainHeight = 0;
-
+    Bounds cartBound;
     public GameObject CartPrefab;
     public List<GameObject> Carts = new List<GameObject>();
 
     private float cartMargin;
     private void Start()
     {
-        Bounds _cartBound = CartPrefab.GetComponent<SpriteRenderer>().bounds;
-        trainHeight = ((_cartBound.extents.y * 2) * amountOfCarts);
+        cartBound = CartPrefab.GetComponent<SpriteRenderer>().bounds;
+        trainHeight = ((cartBound.extents.y * 2) * amountOfCarts);
 
         cartMargin = trainHeight / amountOfCarts;
         PopulateCarts();
@@ -26,13 +26,14 @@ public class Train : MonoBehaviour
     private void Update()
     {
         RePopulate();
+        MoveCarts();
     }
 
     private void PopulateCarts()
     {
         float _startPos = trainHeight;
-        Bounds _cartBound = CartPrefab.GetComponent<SpriteRenderer>().bounds;
-        _startPos -= _cartBound.extents.y;
+        cartBound = CartPrefab.GetComponent<SpriteRenderer>().bounds;
+        _startPos -= cartBound.extents.y;
 
         for (int i = 0; i < amountOfCarts; i++)
         {
@@ -45,16 +46,26 @@ public class Train : MonoBehaviour
 
     private void RePopulate()
     {
-        if (Carts.Count == amountOfCarts) { return; }
+        if (Carts.Count >= amountOfCarts) { return; }
 
         int _cartsToAdd = amountOfCarts - Carts.Count;
 
-        for (int i = 0; i < _cartsToAdd; i++)
+        for (int i = 1; i < _cartsToAdd + 1; i++)
         {
-
-
-
-
+            Vector2 _topPos = Carts[Carts.Count - 1].transform.position;
+            Debug.Log(cartBound.extents.y * 2);
+            Carts.Add(Instantiate(CartPrefab, new Vector3(_topPos.x, _topPos.y + (cartBound.extents.y * 2) + Margin, 0), Quaternion.identity, transform));
+            _topPos.y += cartBound.extents.y * 2;
+        }
+    }
+    private void MoveCarts()
+    {
+        if (Carts[0].transform.localPosition.y - cartBound.extents.y > -(trainHeight + Margin) + 0.001)
+        {
+            foreach (GameObject cart in Carts)
+            {
+                cart.transform.position -= new Vector3(0, 0.1f, 0);
+            }
         }
     }
 

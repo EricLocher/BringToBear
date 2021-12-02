@@ -44,8 +44,6 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    
-
     public void Rotate()
     {
         //TODO: Fix issue where direction gets screwy. Seems to be an issue where we need to differentiate between -180 / 180 etc.
