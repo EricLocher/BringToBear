@@ -584,7 +584,7 @@ Transform:
   m_GameObject: {fileID: 5640912145538070936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_Children:
   - {fileID: 8477332437743463959}
   - {fileID: 1907873346}
@@ -675,7 +675,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerShip: {fileID: 5640912145538070936}
-  background: {fileID: 0}
   rb: {fileID: 5640912145538070940}
   stabilizeSpeed: 150
   thrust: 200
@@ -694,7 +693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342ea8dc067fc97428dd065560787a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myGun: {fileID: 11400000, guid: b88bff255f397144ab2b6d2646d5d65e, type: 2}
+  myGun: {fileID: 11400000, guid: 0baec91194c297e49b37f165c0c11ecd, type: 2}
 --- !u!114 &2223364314247379409
 MonoBehaviour:
   m_ObjectHideFlags: 0
