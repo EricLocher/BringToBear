@@ -478,6 +478,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8477332437743463959}
   - component: {fileID: 4857576086568900271}
+  - component: {fileID: 3624307764016058014}
   m_Layer: 0
   m_Name: Player_spaceship_illustration
   m_TagString: Untagged
@@ -550,6 +551,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3624307764016058014
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4944578356672656841}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b79c87fd06de44b4389d719c9859a8ee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5640912145538070936
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +586,7 @@ GameObject:
   - component: {fileID: 2223364314247379409}
   - component: {fileID: 5640912145538070940}
   - component: {fileID: -2136068319367295009}
+  - component: {fileID: 5692274162524159692}
   - component: {fileID: 1005931443}
   - component: {fileID: 1005931442}
   m_Layer: 0
@@ -856,6 +877,22 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
+  m_Direction: 0
+--- !u!70 &5692274162524159692
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5640912145538070936}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 2, y: 3}
   m_Direction: 0
 --- !u!198 &1005931443
 ParticleSystem:
@@ -5603,7 +5640,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0.05

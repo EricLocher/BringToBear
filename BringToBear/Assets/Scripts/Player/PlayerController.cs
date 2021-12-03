@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour
 
         if (isAttacking)
             attack.Attack();
+
+
+        //this.GetComponent<Rigidbody2D>().velocity = new Vector2(this.GetComponent<Rigidbody2D>().velocity.x,Mathf.Clamp(this.GetComponent<Rigidbody2D>().velocity.y, -8, 8));
     }
 
 
@@ -52,7 +55,7 @@ public class PlayerController : MonoBehaviour
         _dir.x *= -1;
         movement.UpdateDirection(_dir);
         _dir.Normalize();
-        anim.updateRotation(GetComponent<Rigidbody2D>().velocity.x * -1);
+        //anim.updateRotation(GetComponent<Rigidbody2D>().velocity.x * -1);
     }
 
     public void Thrust(InputAction.CallbackContext value)
@@ -80,6 +83,7 @@ public class PlayerController : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         GetComponent<Rigidbody2D>().angularVelocity = 0;
         transform.rotation = Quaternion.Euler(Vector3.zero);
+        playerDamage = 0;
     }
 
     public void Attack(InputAction.CallbackContext value)

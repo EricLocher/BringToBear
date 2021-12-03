@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GravityController : MonoBehaviour
 {
     public GameObject tunnel;
-    public float highGravityHeight;
-    public float lowGravityHeight;
+    [SerializeField, Range(0, 300)]
+    float highGravityHeight = 90;
+    [SerializeField, Range(0, 300)]
+    float lowGravityHeight = 130;
     public GameController gameController;
     Bounds tunnelBounds;
 
@@ -19,23 +19,35 @@ public class GravityController : MonoBehaviour
     {
         foreach (PlayerController player in gameController.Players)
         {
-            Vector2 playerPos = player.transform.position;
-            if (playerPos.x > (tunnelBounds.center.x + tunnelBounds.extents.x) || playerPos.x < (tunnelBounds.center.x - tunnelBounds.extents.x))
+            Vector2 _playerPos = player.transform.position;
+            Rigidbody2D _rb = player.GetComponent<Rigidbody2D>();
+
+            if (_playerPos.x > (tunnelBounds.center.x + tunnelBounds.extents.x) || _playerPos.x < (tunnelBounds.center.x - tunnelBounds.extents.x))
             {
-                player.GetComponent<Rigidbody2D>().gravityScale = 6;
+
+                if (_playerPos.y < (tunnelBounds.min.y + lowGravityHeight))
+                    _rb.gravityScale = 3;
+                else
+                   _rb.gravityScale = 6;
+
+
+                Vector3 _dis = (Vector2)tunnelBounds.center - _playerPos;
+                _dis = _dis.normalized;
+                _rb.AddForce(new Vector3(_dis.x * 25, 0, 0));
             }
-            else if (playerPos.y > (tunnelBounds.max.y - highGravityHeight))
+            else if (_playerPos.y < (tunnelBounds.min.y + lowGravityHeight))
             {
-                player.GetComponent<Rigidbody2D>().gravityScale = 6;
+                _rb.gravityScale = 1;
             }
-            else if (playerPos.y < (tunnelBounds.min.y + lowGravityHeight))
+            else if (_playerPos.y > (tunnelBounds.max.y - highGravityHeight))
             {
-                player.GetComponent<Rigidbody2D>().gravityScale = 1;
+                _rb.gravityScale = 6;
             }
             else
             {
-                player.GetComponent<Rigidbody2D>().gravityScale = 3;
-            } 
+
+                _rb.gravityScale = 3;
+            }
         }
     }
 
@@ -46,8 +58,8 @@ public class GravityController : MonoBehaviour
         Gizmos.color = Color.green;
         Vector2 lowGravCenter = new Vector2(_tunnelBounds.center.x, _tunnelBounds.min.y);
 
-        Gizmos.DrawWireCube(new Vector2(lowGravCenter.x, lowGravCenter.y + (lowGravityHeight/2)), new Vector3(_tunnelBounds.extents.x*2, lowGravityHeight, 0));
-        
+        Gizmos.DrawWireCube(new Vector2(lowGravCenter.x, lowGravCenter.y + (lowGravityHeight / 2)), new Vector3(1000, lowGravityHeight, 0));
+
         Gizmos.color = Color.red;
         Vector2 highGravCenter = new Vector2(_tunnelBounds.center.x, _tunnelBounds.max.y);
 
