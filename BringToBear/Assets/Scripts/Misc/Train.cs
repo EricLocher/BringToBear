@@ -28,6 +28,20 @@ public class Train : MonoBehaviour
         RePopulate();
         MoveCarts();
     }
+    public void DestroyedCart(GameObject cart)
+    {
+        for (int i = 0; i < Carts.Count; i++)
+        {
+            if(Carts[i] == cart)
+            {
+                Carts.Remove(Carts[i]);
+                for (int j = i; j > 0; j--)
+                {
+                    Carts.Remove(Carts[j]);
+                }
+            }
+        }
+    }
 
     private void PopulateCarts()
     {
@@ -42,6 +56,16 @@ public class Train : MonoBehaviour
             _startPos -= cartMargin + Margin;
             //blop blip blap
         }
+        //for (int i = 0; i < Carts.Count; i++)
+        //{
+        //    Debug.Log(i);
+        //    if (i == Carts.Count - 1) { continue; }
+        //    else
+        //    {
+        //        Carts[i].GetComponent<Cart>().connectedCart = Carts[i + 1].GetComponent<Rigidbody2D>();
+        //        //Carts[i].GetComponent<HingeJoint2D>().connectedBody = Carts[i + 1].GetComponent<Rigidbody2D>();
+        //    }
+        //}
     }
 
     private void RePopulate()

@@ -7,6 +7,8 @@ public class Missile : MonoBehaviour, IBullet
     public Rigidbody2D rb;
     public float trackRadius;
 
+    public int damage = 10;
+
     float currentTrackRadius = 0;
     GameObject Owner;
     GameObject currentTarget;
@@ -83,5 +85,10 @@ public class Missile : MonoBehaviour, IBullet
     public GameObject GetOwner()
     {
         return Owner;
+    }
+
+    public int GetDamage()
+    {
+        return damage;
     }
 }

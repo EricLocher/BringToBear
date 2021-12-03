@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 242339731377709709}
   - component: {fileID: 4984551657163697312}
   - component: {fileID: 8113046081956651627}
+  - component: {fileID: 1017816792744281037}
   m_Layer: 0
   m_Name: Cart
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6766391050481951622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.01, y: 3.71, z: 0}
   m_LocalScale: {x: 4.5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -118,7 +119,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6766391050481951622}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -131,3 +132,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1017816792744281037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6766391050481951622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdbb9285a9356f24da0182d66cbca51b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connectedCart: {fileID: 0}
+  cartHP: 100
+  Pickups:
+  - {fileID: 7205129169322551079, guid: 39d8e1f623883d54d9e8ef1a553042ef, type: 3}
+  - {fileID: 7205129169322551079, guid: 39d8e1f623883d54d9e8ef1a553042ef, type: 3}
+  - {fileID: 7205129169322551079, guid: 39d8e1f623883d54d9e8ef1a553042ef, type: 3}

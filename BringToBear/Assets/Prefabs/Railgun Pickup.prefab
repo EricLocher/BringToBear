@@ -14,12 +14,12 @@ GameObject:
   - component: {fileID: 7205129169322551081}
   - component: {fileID: 7205129169322551078}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Railgun Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7205129169322551082
 Transform:
   m_ObjectHideFlags: 0
@@ -41,7 +41,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7205129169322551079}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 110
   m_Sprite: {fileID: -2413806693520163455, guid: a0e23952890327348aa3cea5de923c55, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.1271038, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
