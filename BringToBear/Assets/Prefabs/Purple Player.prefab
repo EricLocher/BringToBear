@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 676435149646668380}
   - component: {fileID: 5999201507200335080}
   m_Layer: 0
-  m_Name: Player 2
+  m_Name: Purple Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5659,7 +5659,7 @@ Animator:
   m_GameObject: {fileID: 8891825695973264819}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b79c87fd06de44b4389d719c9859a8ee, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5fff77e177801cb4f95bbbf8dd9b322f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

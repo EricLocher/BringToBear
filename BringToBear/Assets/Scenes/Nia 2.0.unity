@@ -5118,6 +5118,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4609636036654643320, guid: 1368161cb11f7ad40bbd836dff6e9941, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5fff77e177801cb4f95bbbf8dd9b322f, type: 2}
     - target: {fileID: 8192113936881418722, guid: 1368161cb11f7ad40bbd836dff6e9941, type: 3}
       propertyPath: m_Name
       value: Player 1
@@ -10203,6 +10207,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5640912145538070936, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070940, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8192113936881418722, guid: 1368161cb11f7ad40bbd836dff6e9941, type: 3}
       propertyPath: m_Name
       value: PlayerShip
@@ -10249,14 +10261,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8192113936881418727, guid: 1368161cb11f7ad40bbd836dff6e9941, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5640912145538070936, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5640912145538070940, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
-      propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

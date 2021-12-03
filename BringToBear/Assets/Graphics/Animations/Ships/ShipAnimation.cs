@@ -7,15 +7,8 @@ public class ShipAnimation : MonoBehaviour
     public Animator animator;
     float rotation = 0;
 
-    void Start()
-    {
-        //animator = GetComponent<Animator>();
-
-    }
-
     private void Update()
     {
-        //float v = Input.GetAxis("Horizontal");
         animator.SetFloat("Rotation", rotation);
     }
 
