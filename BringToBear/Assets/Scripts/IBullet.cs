@@ -6,4 +6,5 @@ public interface IBullet
 {
     public void SetOwner(GameObject player);
     public GameObject GetOwner();
+    public int GetDamage();
 }

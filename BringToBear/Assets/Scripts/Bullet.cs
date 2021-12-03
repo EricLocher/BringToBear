@@ -9,6 +9,11 @@ public class Bullet : MonoBehaviour, IBullet
     GameObject Owner;
     List<GameObject> Players = new List<GameObject>();
 
+    public int GetDamage()
+    {
+        return damage;
+    }
+
     public GameObject GetOwner()
     {
         return Owner;
