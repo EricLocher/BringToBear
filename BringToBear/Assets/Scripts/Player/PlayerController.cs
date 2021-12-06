@@ -16,8 +16,12 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
 
     bool isThrust = false, isBrake = false, isAttacking = false;
+<<<<<<< Updated upstream
     bool shielded = false;
 
+=======
+    public bool invincible;
+>>>>>>> Stashed changes
     public float playerDamage = 0;
 
     private void Start()
@@ -149,6 +153,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+<<<<<<< Updated upstream
 
     IEnumerator ShieldTime()
     {
@@ -158,4 +163,13 @@ public class PlayerController : MonoBehaviour
     }
 
 
+=======
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            invincible = false;
+        }
+    }
+>>>>>>> Stashed changes
 }

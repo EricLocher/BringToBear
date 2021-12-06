@@ -37,6 +37,8 @@ public class CollisionHandler : MonoBehaviour
 		p1.AddForce(p2Speed * p2Angle * p1damagePercentage, ForceMode2D.Impulse);
 		p2.AddForce(p1Speed * p1Angle * p2damagePercentage, ForceMode2D.Impulse);
 
+		p1.GetComponent<PlayerController>().invincible = true;
+
 		Debug.Log(p2Speed * p2Angle * p1damagePercentage);
 	}
 
