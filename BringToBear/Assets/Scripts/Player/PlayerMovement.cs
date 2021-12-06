@@ -4,7 +4,6 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public GameObject playerShip;
-    public GameObject background;
     public Rigidbody2D rb;
     public float stabilizeSpeed;
     public float thrust = 200;
@@ -16,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     bool driftMode;
     float angle;
     float cameraAngle;
-    
+
 
     void Start()
     {
@@ -40,11 +39,8 @@ public class PlayerMovement : MonoBehaviour
             Stabilize();
         }
 
-        //GravityAdjuster();
 
     }
-
-    
 
     public void Rotate()
     {
@@ -86,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Brake(float brakePower)
     {
-        rb.AddForce(-rb.velocity * (0.5f * brakePower));        
+        rb.AddForce(-rb.velocity * (0.5f * brakePower));
     }
 
 
@@ -120,43 +116,5 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(stabilizeVector * stabilizeSpeed * Time.deltaTime, ForceMode2D.Impulse);
 
     }
-
-
-    public void GravityAdjuster()
-    {
-        Bounds _bg = background.GetComponent<SpriteRenderer>().bounds;
-        float _Posx = transform.position.x - _bg.center.x;
-
-        if (Mathf.Abs(_Posx) > _bg.extents.x)
-        {
-
-            if (rb.gravityScale < 6)
-                rb.gravityScale = 6;
-            else
-                rb.gravityScale += Time.deltaTime;
-        }
-
-        //TODO: Make this dynamic to the viewport rather than hard-coded y-values
-        else if (transform.position.y < -12)
-        {
-            if (rb.gravityScale < 1)
-                rb.gravityScale = 1;
-            else
-                rb.gravityScale -= Time.deltaTime * 2;
-        }
-        else if (transform.position.y > 9)
-        {
-            if (rb.gravityScale > 6)
-                rb.gravityScale = 6;
-            else
-                rb.gravityScale += Time.deltaTime * 10;
-        }
-        else
-        {
-            rb.gravityScale = 3;
-        }
-    }
-
-
 
 }
