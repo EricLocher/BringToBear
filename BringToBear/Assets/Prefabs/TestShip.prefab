@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5640912145538070941}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &662210176
 TrailRenderer:
@@ -185,7 +185,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5640912145538070941}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &945278131
 TrailRenderer:
@@ -341,7 +341,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5640912145538070941}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &1907873347
 TrailRenderer:
@@ -608,6 +608,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_Children:
   - {fileID: 8477332437743463959}
+  - {fileID: 3841131823115436785}
   - {fileID: 1907873346}
   - {fileID: 945278130}
   - {fileID: 662210175}
@@ -678,10 +679,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 5640912145538070939}
-  attack: {fileID: 2312424755723544961}
   anim: {fileID: 0}
   mainCam: {fileID: 0}
+  attack: {fileID: 2312424755723544961}
   score: 0
+  shielded: 0
   playerDamage: 0
 --- !u!114 &5640912145538070939
 MonoBehaviour:
@@ -836,6 +838,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 688bfea2-ab7f-44ec-9992-e264cc114896
     m_ActionName: Controls/Brake[/DualShock4GamepadHID/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8245381916860689196}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Shield
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 19de7e6d-9ac2-41af-a7b7-55782373f067
+    m_ActionName: Controls/Shield[/DualShock4GamepadHID/leftShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: PS4
   m_DefaultActionMap: Controls
@@ -5666,3 +5684,81 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1001 &8627212574769798112
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5640912145538070941}
+    m_Modifications:
+    - target: {fileID: 4824609924150548753, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824609924150548753, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.5645232
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824609924150548753, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.9704359
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824609924150548753, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.5645232
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824609924150548753, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824609924150548753, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824609924150548753, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824609924150548753, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824609924150548753, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824609924150548753, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824609924150548753, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824609924150548753, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824609924150548753, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824609924150548753, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824609924150548754, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+      propertyPath: m_Color.a
+      value: 0.34117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824609924150548755, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+      propertyPath: m_Name
+      value: Shield
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+--- !u!4 &3841131823115436785 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4824609924150548753, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+  m_PrefabInstance: {fileID: 8627212574769798112}
+  m_PrefabAsset: {fileID: 0}

@@ -52,6 +52,14 @@
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Shield",
+                    "type": "Button",
+                    "id": "19de7e6d-9ac2-41af-a7b7-55782373f067",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -294,6 +302,17 @@
                     "processors": "",
                     "groups": "Mouse & Keyboard",
                     "action": "Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "245e5724-d69c-4100-b343-80291bf0a3ec",
+                    "path": "<DualShockGamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "Shield",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

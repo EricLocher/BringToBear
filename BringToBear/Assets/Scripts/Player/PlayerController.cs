@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,15 +6,18 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] PlayerMovement movement;
-    public PlayerAttack attack;
     [SerializeField] ShipAnimation anim;
     [SerializeField] Camera mainCam;
+    [SerializeField] GameObject Shield;
+    public PlayerAttack attack;
 
     public int score = 0;
 
     Rigidbody2D rb;
-        
+
     bool isThrust = false, isBrake = false, isAttacking = false;
+    bool shielded = false;
+
     public float playerDamage = 0;
 
     private void Start()
@@ -25,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
 
         if (isThrust)
             movement.Thrust(1);
@@ -42,9 +46,9 @@ public class PlayerController : MonoBehaviour
 
     #region Inputs
     public void Movement(InputAction.CallbackContext value)
-    {  
+    {
 
-        if(movement.GetDriftMode()) { return; }
+        if (movement.GetDriftMode()) { return; }
         Vector2 _dir = value.ReadValue<Vector2>();
 
         if (value.control.device.name == "Mouse")
@@ -61,7 +65,7 @@ public class PlayerController : MonoBehaviour
     public void Thrust(InputAction.CallbackContext value)
     {
         float _thrustPower = value.ReadValue<float>();
-        if(_thrustPower >= 1) { isThrust = true; } 
+        if (_thrustPower >= 1) { isThrust = true; }
         else { isThrust = false; }
 
         movement.Thrust(_thrustPower);
@@ -69,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
     public void Brake(InputAction.CallbackContext value)
     {
-        
+
         float _brakePower = value.ReadValue<float>();
         if (_brakePower >= 1) { isBrake = true; }
         else { isBrake = false; }
@@ -88,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext value)
     {
-        if(value.ReadValue<float>() >= 1) { isAttacking = true; }
+        if (value.ReadValue<float>() >= 1) { isAttacking = true; }
         else { isAttacking = false; }
 
         attack.Attack();
@@ -99,12 +103,20 @@ public class PlayerController : MonoBehaviour
         Vector2 _dir = value.ReadValue<Vector2>();
         _dir.x *= -1;
 
-        if (_dir != Vector2.zero) { 
+        if (_dir != Vector2.zero)
+        {
             movement.SetDriftMode(true);
             movement.UpdateDirection(_dir);
         }
         else { movement.SetDriftMode(false); }
-          
+
+    }
+
+    public void ToggleShield(InputAction.CallbackContext value)
+    {
+        shielded = true;
+        Shield.SetActive(true);
+        StartCoroutine(ShieldTime());
     }
     #endregion
 
@@ -114,7 +126,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Projectile"))
         {
             IBullet _bullet = other.GetComponent<IBullet>();
-            if(_bullet == null) { Debug.LogError("THE OBJECT DOES NOT HAVE THE BULLET INTERFACE");  return; }
+            if (_bullet == null) { Debug.LogError("THE OBJECT DOES NOT HAVE THE BULLET INTERFACE"); return; }
 
             if (transform.gameObject != _bullet.GetOwner())
             {
@@ -136,4 +148,14 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+
+    IEnumerator ShieldTime()
+    {
+        yield return new WaitForSeconds(1);
+        Shield.SetActive(false);
+        shielded = false;
+    }
+
+
 }
