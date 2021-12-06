@@ -63,7 +63,7 @@ public class CameraController : MonoBehaviour
         if (Players.Count > 1)
         {
             float distance = Vector3.Distance(Players[0].transform.position, Players[1].transform.position);
-            float zoomLevel = Mathf.Clamp(distance, 15, 20);
+            float zoomLevel = Mathf.Clamp(distance, 18, 45);
             float prevZoom = Camera.main.orthographicSize;
             Camera.main.orthographicSize = Mathf.Lerp(prevZoom, zoomLevel, 0.01f);
 

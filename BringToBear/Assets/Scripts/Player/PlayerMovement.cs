@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector2 lookDirection;
     public bool boost;
+    bool dash = false;
 
     bool driftMode;
     float angle;
@@ -39,7 +41,20 @@ public class PlayerMovement : MonoBehaviour
             Stabilize();
         }
 
+    }
 
+    private void FixedUpdate()
+    {
+
+        
+        if (dash)
+        {
+            rb.AddForce(transform.up * 600, ForceMode2D.Impulse);
+            StartCoroutine(Dasher());
+            dash = false;
+        }
+        //else
+        //rb.velocity = Vector2.ClampMagnitude(rb.velocity, 100);
     }
 
     public void Rotate()
@@ -74,8 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Thrust(float thrustPower)
     {
-        if (thrustPower > 0) { thrust = 300 * thrustPower; }
-        else { thrust = 200; }
+        if (thrustPower > 0) { thrust = 400 * thrustPower; }
 
         rb.AddForce(transform.up * thrust * Time.deltaTime, ForceMode2D.Impulse);
     }
@@ -85,6 +99,10 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(-rb.velocity * (0.5f * brakePower));
     }
 
+    public void Dash()
+    {
+        dash = true;
+    }
 
     public void Respawn()
     {
@@ -117,4 +135,10 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    IEnumerator Dasher()
+    {
+        yield return new WaitForSeconds(0.1f);
+        rb.AddForce(transform.up * -400, ForceMode2D.Impulse);
+        //rb.velocity = Vector2.zero;
+    }
 }

@@ -10,18 +10,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Camera mainCam;
     [SerializeField] GameObject Shield;
     public PlayerAttack attack;
+    public CapsuleCollider2D playerCollider;
 
     public int score = 0;
 
     Rigidbody2D rb;
 
     bool isThrust = false, isBrake = false, isAttacking = false;
-<<<<<<< Updated upstream
-    bool shielded = false;
-
-=======
+    bool shielded = false, dashing = false;
     public bool invincible;
->>>>>>> Stashed changes
+
     public float playerDamage = 0;
 
     private void Start()
@@ -122,6 +120,16 @@ public class PlayerController : MonoBehaviour
         Shield.SetActive(true);
         StartCoroutine(ShieldTime());
     }
+
+    public void Dash(InputAction.CallbackContext value)
+    {
+        if (!dashing)
+        {
+            movement.Dash();
+            dashing = true;
+            StartCoroutine(DashTime());
+        }
+    }
     #endregion
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -141,7 +149,12 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Rigidbody2D _otherRb = other.GetComponent<Rigidbody2D>();
+            
+            if (!invincible && !other.GetComponent<PlayerController>().invincible)
             CollisionHandler.DoCollision(rb, _otherRb);
+            
+            invincible = true;
+            StartCoroutine(InvinceTime());
         }
         else
         {
@@ -153,7 +166,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-<<<<<<< Updated upstream
+
 
     IEnumerator ShieldTime()
     {
@@ -162,8 +175,18 @@ public class PlayerController : MonoBehaviour
         shielded = false;
     }
 
+    IEnumerator DashTime()
+    {
+        yield return new WaitForSeconds(1);
+        dashing = false;
+    }
 
-=======
+    IEnumerator InvinceTime()
+    {
+        yield return new WaitForSeconds(0.2f);
+        invincible = false;
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -171,5 +194,5 @@ public class PlayerController : MonoBehaviour
             invincible = false;
         }
     }
->>>>>>> Stashed changes
+
 }

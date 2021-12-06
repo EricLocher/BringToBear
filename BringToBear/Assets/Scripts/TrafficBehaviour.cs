@@ -8,7 +8,8 @@ public class TrafficBehaviour : MonoBehaviour
     Rigidbody2D rb;
     public float trafficThrust = 1;
     public float maxVel = 25;
-   
+    public SpriteRenderer spriteRenderer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -17,12 +18,12 @@ public class TrafficBehaviour : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(rb.transform.eulerAngles.z);
         Stabilize();
         GravityAdjuster();
-
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVel);
         rb.AddForce(transform.up * trafficThrust);
-        
+
         if (transform.position.y < -110 || transform.position.y > 140 || Mathf.Abs(transform.position.x) > 50)
         {
             ResetMe();
@@ -45,27 +46,29 @@ public class TrafficBehaviour : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
 
+        
 
         if (other.gameObject.CompareTag("Player"))
         {
-            trafficThrust = 50f;
+            trafficThrust = 150f;
             maxVel = 55;
         }
         
             
     }
-    
+
     private void Stabilize()
     {
-        if (rb.angularVelocity != 0)
-        {
-            rb.AddTorque(-rb.angularVelocity * 0.05f);
-        }
+        Quaternion _newRotation = Quaternion.Euler(0, 0, 0);
+        transform.rotation = Quaternion.Slerp(transform.rotation, _newRotation, Time.deltaTime * 2);
+
+        rb.angularVelocity = Mathf.Lerp(rb.angularVelocity, 0, 1 * Time.deltaTime);
+
     }
 
     private void GravityAdjuster()
     {
-        if (Mathf.Abs(transform.position.x) > 22)
+        if (Mathf.Abs(transform.position.x - spriteRenderer.bounds.center.x) > spriteRenderer.bounds.extents.x)
         {
             rb.gravityScale += Time.deltaTime * 100;
         }

@@ -10,6 +10,7 @@ public class TrafficController : MonoBehaviour
     float yOffset;
 
     public static TrafficController INSTANCE;
+    public SpriteRenderer spriteRenderer;
 
     List<Transform> Vehicles;
 
@@ -25,11 +26,11 @@ public class TrafficController : MonoBehaviour
     {
         Vehicles = new List<Transform>();
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 20; i++)
         {
             Vector3 newPos = GetFreeVehiclePosition(0);
             GameObject newTrafficVehicle = Instantiate(TrafficVehicle, newPos, Quaternion.identity);
-
+            newTrafficVehicle.GetComponent<TrafficBehaviour>().spriteRenderer = spriteRenderer;
             Vehicles.Add(newTrafficVehicle.transform);
 
         }
@@ -40,7 +41,7 @@ public class TrafficController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(spriteRenderer.bounds.min);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -57,8 +58,8 @@ public class TrafficController : MonoBehaviour
     {
 
 
-        xOffset = Random.Range(-17, 17);
-        yOffset = Random.Range(100, 200);
+        xOffset = Random.Range(spriteRenderer.bounds.min.x, spriteRenderer.bounds.max.x);
+        yOffset = Random.Range(100, 300);
         Vector3 pos = new Vector3(xOffset, yOffset);
 
         bool allowed = true;
