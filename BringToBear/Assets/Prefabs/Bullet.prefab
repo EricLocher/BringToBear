@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 150
   damage: 10
+  ExplosionSmall: {fileID: 8334939523296961542, guid: 669706ec098549c41beb1fd04aedc142, type: 3}
 --- !u!50 &7065673439052456109
 Rigidbody2D:
   serializedVersion: 4

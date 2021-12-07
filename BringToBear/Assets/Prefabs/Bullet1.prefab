@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 120
   damage: 5
+  ExplosionSmall: {fileID: 8334939523296961542, guid: 669706ec098549c41beb1fd04aedc142, type: 3}
 --- !u!61 &-1035715228593571686
 BoxCollider2D:
   m_ObjectHideFlags: 0

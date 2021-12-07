@@ -8,6 +8,8 @@ public class TrafficController : MonoBehaviour
     
     float xOffset;
     float yOffset;
+    float minYSpawn = 100;
+    float maxYSpawn = 300;
 
     public static TrafficController INSTANCE;
     public SpriteRenderer spriteRenderer;
@@ -43,7 +45,7 @@ public class TrafficController : MonoBehaviour
 
 
         xOffset = Random.Range(spriteRenderer.bounds.min.x, spriteRenderer.bounds.max.x);
-        yOffset = Random.Range(100, 300);
+        yOffset = Random.Range(minYSpawn, maxYSpawn);
         Vector3 pos = new Vector3(xOffset, yOffset);
 
         bool allowed = true;
