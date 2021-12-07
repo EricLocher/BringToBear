@@ -26,8 +26,7 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
         if (transform.position.y < -110 || transform.position.y > 300 || Mathf.Abs(transform.position.x) > 70)
         {
             ResetMe();
-        }
-        
+        }   
     }
 
     private void ResetMe()

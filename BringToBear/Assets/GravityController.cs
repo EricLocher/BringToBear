@@ -7,7 +7,6 @@ public class GravityController : MonoBehaviour
     float highGravityHeight = 90;
     [SerializeField, Range(0, 300)]
     float lowGravityHeight = 130;
-    public GameController gameController;
     Bounds tunnelBounds;
 
     private void Start()
@@ -17,7 +16,7 @@ public class GravityController : MonoBehaviour
 
     private void Update()
     {
-        foreach (PlayerController player in gameController.Players)
+        foreach (PlayerController player in GameController.Players)
         {
             Vector2 _playerPos = player.transform.position;
             Rigidbody2D _rb = player.GetComponent<Rigidbody2D>();

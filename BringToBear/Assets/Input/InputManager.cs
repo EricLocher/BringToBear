@@ -37,7 +37,7 @@ public class InputManager : MonoBehaviour
     {
         Debug.Log("Player Joined The Game!");
         playerList.Add(playerInput);
-        gameController.Players.Add(playerInput.GetComponent<PlayerController>());
+        GameController.Players.Add(playerInput.GetComponent<PlayerController>());
 
         if(PlayerJoinedGame != null)
         {
