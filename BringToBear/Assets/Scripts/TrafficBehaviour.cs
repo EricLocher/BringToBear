@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrafficBehaviour : MonoBehaviour
+public class TrafficBehaviour : MonoBehaviour, ICharacter
 {
     Rigidbody2D rb;
     public float trafficThrust;
@@ -65,6 +65,11 @@ public class TrafficBehaviour : MonoBehaviour
         {
             rb.gravityScale += Time.deltaTime * 100;
         }
+    }
+
+    public void Damage(int amount)
+    {
+        return;
     }
 }
 
