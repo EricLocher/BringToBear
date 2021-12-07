@@ -3,24 +3,21 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, ICharacter
 {
     [SerializeField] PlayerMovement movement;
     [SerializeField] ShipAnimation anim;
     [SerializeField] Camera mainCam;
     [SerializeField] GameObject Shield;
+    public bool invincible;
     public PlayerAttack attack;
-    public CapsuleCollider2D playerCollider;
-
-    public int score = 0;
-
     Rigidbody2D rb;
+
+    public float playerDamage = 0;
+    public int score = 0;
 
     bool isThrust = false, isBrake = false, isAttacking = false;
     bool shielded = false, dashing = false;
-    public bool invincible;
-
-    public float playerDamage = 0;
 
     private void Start()
     {
@@ -129,19 +126,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
-        if (other.CompareTag("Projectile"))
-        {
-            IBullet _bullet = other.GetComponent<IBullet>();
-            if (_bullet == null) { Debug.LogError("THE OBJECT DOES NOT HAVE THE BULLET INTERFACE"); return; }
-
-            if (transform.gameObject != _bullet.GetOwner())
-            {
-                playerDamage += other.GetComponent<Bullet>().damage;
-                Destroy(other.gameObject);
-            }
-        }
-
         if (other.CompareTag("Player"))
         {
             Rigidbody2D _otherRb = other.GetComponent<Rigidbody2D>();
@@ -189,4 +173,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Damage(int amount)
+    {
+        playerDamage += amount;
+    }
 }

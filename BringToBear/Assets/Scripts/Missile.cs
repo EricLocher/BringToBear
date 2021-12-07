@@ -4,8 +4,9 @@ using UnityEngine;
 public class Missile : MonoBehaviour, IBullet
 {
     public float maxSpeed, acceleration;
-    public Rigidbody2D rb;
     public float trackRadius;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] GameObject Explosion;
 
     public int damage = 10;
 
@@ -18,7 +19,7 @@ public class Missile : MonoBehaviour, IBullet
     {
         currentTrackRadius = trackRadius;
         GameObject[] _players = GameObject.FindGameObjectsWithTag("Player");
-
+        rb.AddForce(transform.forward * 2000, ForceMode2D.Impulse);
         for (int i = 0; i < _players.Length; i++)
         {
             Players.Add(_players[i]);
@@ -46,10 +47,8 @@ public class Missile : MonoBehaviour, IBullet
                 }
             }
         }
-
         Track();
     }
-
     void Track()
     {
         if (currentTarget != null)
@@ -69,17 +68,26 @@ public class Missile : MonoBehaviour, IBullet
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
     }
 
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Projectile")) { return; }
+
+
+        if (other.gameObject != Owner)
+        {
+            if (other.GetComponent<ICharacter>() != null)
+            {
+                other.GetComponent<ICharacter>().Damage(damage);
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    #region Getters & Setters
     public void SetOwner(GameObject player)
     {
         Owner = player;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (currentTrackRadius != 0)
-            Gizmos.DrawWireSphere(transform.position, currentTrackRadius);
-        else
-            Gizmos.DrawWireSphere(transform.position, trackRadius);
     }
 
     public GameObject GetOwner()
@@ -91,4 +99,20 @@ public class Missile : MonoBehaviour, IBullet
     {
         return damage;
     }
+    #endregion
+
+    private void OnDestroy()
+    {
+        Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+        Instantiate(Explosion, transform.position, _rotation);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (currentTrackRadius != 0)
+            Gizmos.DrawWireSphere(transform.position, currentTrackRadius);
+        else
+            Gizmos.DrawWireSphere(transform.position, trackRadius);
+    }
+
 }

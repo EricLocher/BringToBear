@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +5,8 @@ public class Bullet : MonoBehaviour, IBullet
 {
     public float speed;
     public int damage;
+    public GameObject ExplosionSmall;
+
     GameObject Owner;
     List<GameObject> Players = new List<GameObject>();
 
@@ -28,6 +29,21 @@ public class Bullet : MonoBehaviour, IBullet
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Projectile")) { return; }
+
+
+        if (other.gameObject != Owner)
+        {
+            if (other.GetComponent<ICharacter>() != null)
+            {
+                other.GetComponent<ICharacter>().Damage(damage);
+                Destroy(gameObject);
+            }
+        }
+    }
+
     public int GetDamage()
     {
         return damage;
@@ -36,5 +52,11 @@ public class Bullet : MonoBehaviour, IBullet
     public GameObject GetOwner()
     {
         return Owner;
+    }
+
+    private void OnDestroy()
+    {
+        Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+        Instantiate(ExplosionSmall, transform.position, _rotation);
     }
 }

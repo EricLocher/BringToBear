@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,14 +5,15 @@ using UnityEngine;
 public class TrafficBehaviour : MonoBehaviour
 {
     Rigidbody2D rb;
-    public float trafficThrust = 1;
-    public float maxVel = 25;
+    public float trafficThrust;
+    public float maxVel = 35;
     public SpriteRenderer spriteRenderer;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 2;
+        trafficThrust = Random.Range(1, 100);
     }
 
     void Update()
@@ -24,7 +24,7 @@ public class TrafficBehaviour : MonoBehaviour
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVel);
         rb.AddForce(transform.up * trafficThrust);
 
-        if (transform.position.y < -110 || transform.position.y > 140 || Mathf.Abs(transform.position.x) > 50)
+        if (transform.position.y < -110 || transform.position.y > 300 || Mathf.Abs(transform.position.x) > 70)
         {
             ResetMe();
         }
@@ -55,7 +55,7 @@ public class TrafficBehaviour : MonoBehaviour
     private void Stabilize()
     {
         Quaternion _newRotation = Quaternion.Euler(0, 0, 0);
-        transform.rotation = Quaternion.Slerp(transform.rotation, _newRotation, Time.deltaTime * 2);
+        transform.rotation = Quaternion.Slerp(transform.rotation, _newRotation, Time.deltaTime * 16);
 
         rb.angularVelocity = Mathf.Lerp(rb.angularVelocity, 0, 1 * Time.deltaTime);
     }

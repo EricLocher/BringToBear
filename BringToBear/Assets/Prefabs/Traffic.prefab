@@ -429,7 +429,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 20
+  m_Mass: 15
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -452,6 +452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trafficThrust: 1
   maxVel: 25
+  spriteRenderer: {fileID: 0}
 --- !u!70 &3504918699717287793
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

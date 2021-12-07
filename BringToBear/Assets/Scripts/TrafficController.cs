@@ -8,6 +8,8 @@ public class TrafficController : MonoBehaviour
     
     float xOffset;
     float yOffset;
+    float minYSpawn = 100;
+    float maxYSpawn = 300;
 
     public static TrafficController INSTANCE;
     public SpriteRenderer spriteRenderer;
@@ -38,28 +40,12 @@ public class TrafficController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(spriteRenderer.bounds.min);
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Traffic"))
-        {
-          
-         
-        }
-
-    }
-
     public Vector3 GetFreeVehiclePosition(int escape)
     {
 
 
         xOffset = Random.Range(spriteRenderer.bounds.min.x, spriteRenderer.bounds.max.x);
-        yOffset = Random.Range(100, 300);
+        yOffset = Random.Range(minYSpawn, maxYSpawn);
         Vector3 pos = new Vector3(xOffset, yOffset);
 
         bool allowed = true;
