@@ -11,6 +11,7 @@ public class TrafficController : MonoBehaviour
     float minYSpawn = 100;
     float maxYSpawn = 300;
 
+    public float trafficAmount;
     public static TrafficController INSTANCE;
     public SpriteRenderer spriteRenderer;
 
@@ -28,7 +29,7 @@ public class TrafficController : MonoBehaviour
     {
         Vehicles = new List<Transform>();
 
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < trafficAmount; i++)
         {
             Vector3 newPos = GetFreeVehiclePosition(0);
             GameObject newTrafficVehicle = Instantiate(TrafficVehicle, newPos, Quaternion.identity);

@@ -18,7 +18,6 @@ public class TrafficBehaviour : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(rb.transform.eulerAngles.z);
         Stabilize();
         GravityAdjuster();
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVel);
