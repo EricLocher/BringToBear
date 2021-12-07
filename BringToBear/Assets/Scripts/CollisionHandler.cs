@@ -5,15 +5,6 @@ using UnityEngine;
 public class CollisionHandler : MonoBehaviour
 {
 
-	
-
-    private void Start()
-    {
-    }
-
-    private void Update()
-    {
-    }
     public static void DoCollision(Rigidbody2D p1, Rigidbody2D p2)
 	{
 		float p1Speed = p1.velocity.magnitude;
@@ -46,8 +37,4 @@ public class CollisionHandler : MonoBehaviour
 	//{
 	//	return damage / maxDamage;
 	//}
-
-
-
-
 }

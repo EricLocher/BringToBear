@@ -44,9 +44,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
-
-        
+    {   
         if (dash)
         {
             rb.AddForce(transform.up * 600, ForceMode2D.Impulse);

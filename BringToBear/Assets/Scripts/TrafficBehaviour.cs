@@ -45,16 +45,11 @@ public class TrafficBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-
-        
-
         if (other.gameObject.CompareTag("Player"))
         {
             trafficThrust = 150f;
             maxVel = 55;
-        }
-        
-            
+        }      
     }
 
     private void Stabilize()
@@ -63,7 +58,6 @@ public class TrafficBehaviour : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, _newRotation, Time.deltaTime * 2);
 
         rb.angularVelocity = Mathf.Lerp(rb.angularVelocity, 0, 1 * Time.deltaTime);
-
     }
 
     private void GravityAdjuster()

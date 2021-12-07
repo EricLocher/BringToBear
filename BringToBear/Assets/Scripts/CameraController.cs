@@ -22,7 +22,6 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-
         Players = GameController.Players;
 
         transform.Rotate(0, 0, 0);
@@ -47,8 +46,6 @@ public class CameraController : MonoBehaviour
 
         maxTilt += Time.deltaTime / 4;
         maxTilt = Mathf.Clamp(maxTilt, 1, 60);
-
-
 
         time += Time.deltaTime * 0.1f;
         time = Mathf.Clamp(time, 0f, 1f);
@@ -82,13 +79,16 @@ public class CameraController : MonoBehaviour
 
         Vector2 cameraCenter = new Vector2(((minX + maxX) / 2), ((minY + maxY) / 2));
         float cameraSize;
+
         if (maxX - minX > maxY - minY)
         {
             cameraSize = (maxX - minX) / 2;
             cameraSize /= Camera.main.aspect;
         }
         else
+        {
             cameraSize = (maxY - minY) / 2;
+        }
 
         cameraSize *= 2;
         float zoomLevel = Mathf.Clamp(cameraSize, 18, 45);
@@ -97,6 +97,7 @@ public class CameraController : MonoBehaviour
 
         cameraCenter.y = Mathf.Clamp(cameraCenter.y, -60.5f, 75f);
         cameraCenter.x = Mathf.Clamp(cameraCenter.x, -30f, 30f);
+
         transform.position = new Vector3(cameraCenter.x, cameraCenter.y, -10);
 
 

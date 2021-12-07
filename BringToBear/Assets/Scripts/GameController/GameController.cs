@@ -14,6 +14,4 @@ public class GameController : MonoBehaviour
             Players.Add(GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerController>());
         }
     }
-
-
 }

@@ -154,7 +154,7 @@
                 {
                     "name": "",
                     "id": "f628a3c4-7cbd-48e8-8507-0e12402f2d4c",
-                    "path": "<DualShockGamepad>/rightTrigger",
+                    "path": "<DualShockGamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "PS4",
@@ -187,7 +187,7 @@
                 {
                     "name": "",
                     "id": "e432a12a-569d-400e-8fd0-2260dc2afceb",
-                    "path": "<DualShockGamepad>/buttonWest",
+                    "path": "<DualShockGamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "PS4",
@@ -275,7 +275,7 @@
                 {
                     "name": "",
                     "id": "188b5689-5e5e-4ccb-ab87-ec2d8b4e1f9d",
-                    "path": "<DualShockGamepad>/leftTrigger",
+                    "path": "<DualShockGamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "PS4",

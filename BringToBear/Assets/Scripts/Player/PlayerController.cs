@@ -30,8 +30,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
-
         if (isThrust)
             movement.Thrust(1);
 
@@ -40,11 +38,8 @@ public class PlayerController : MonoBehaviour
 
         if (isAttacking)
             attack.Attack();
-
-
         //this.GetComponent<Rigidbody2D>().velocity = new Vector2(this.GetComponent<Rigidbody2D>().velocity.x,Mathf.Clamp(this.GetComponent<Rigidbody2D>().velocity.y, -8, 8));
     }
-
 
     #region Inputs
     public void Movement(InputAction.CallbackContext value)
@@ -146,6 +141,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
+
         if (other.CompareTag("Player"))
         {
             Rigidbody2D _otherRb = other.GetComponent<Rigidbody2D>();
@@ -165,8 +161,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-
 
     IEnumerator ShieldTime()
     {

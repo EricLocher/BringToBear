@@ -9,16 +9,6 @@ public class Bullet : MonoBehaviour, IBullet
     GameObject Owner;
     List<GameObject> Players = new List<GameObject>();
 
-    public int GetDamage()
-    {
-        return damage;
-    }
-
-    public GameObject GetOwner()
-    {
-        return Owner;
-    }
-
     public void SetOwner(GameObject player)
     {
         Owner = player;
@@ -38,4 +28,13 @@ public class Bullet : MonoBehaviour, IBullet
         }
     }
 
+    public int GetDamage()
+    {
+        return damage;
+    }
+
+    public GameObject GetOwner()
+    {
+        return Owner;
+    }
 }
