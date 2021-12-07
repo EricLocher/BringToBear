@@ -71,8 +71,9 @@ public class Missile : MonoBehaviour, IBullet
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Projectile")) { return; }
 
-        if(!other.CompareTag("Projectile"))
+
         if (other.gameObject != Owner)
         {
             if (other.GetComponent<ICharacter>() != null)
