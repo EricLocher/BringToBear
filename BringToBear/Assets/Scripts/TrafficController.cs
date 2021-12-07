@@ -38,22 +38,6 @@ public class TrafficController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(spriteRenderer.bounds.min);
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Traffic"))
-        {
-          
-         
-        }
-
-    }
-
     public Vector3 GetFreeVehiclePosition(int escape)
     {
 
