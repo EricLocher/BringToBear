@@ -113,7 +113,6 @@ public class CameraController : MonoBehaviour
         float zoomLevel = Mathf.Clamp(cameraSize, minSize, maxSize);
         float prevZoom = Camera.main.orthographicSize;
         Camera.main.orthographicSize = Mathf.Lerp(prevZoom, zoomLevel, 2f * Time.deltaTime);
-
         cameraCenter.y = Mathf.Clamp(cameraCenter.y, viewMinY, viewMaxY);
         cameraCenter.x = Mathf.Clamp(cameraCenter.x, viewMinX, viewMaxX);
 

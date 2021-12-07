@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour, IBullet
 {
     public float speed;
     public int damage;
-    public GameObject ExplosionSmall;
+    public GameObject Explosion;
 
     GameObject Owner;
     List<GameObject> Players = new List<GameObject>();
@@ -57,6 +57,6 @@ public class Bullet : MonoBehaviour, IBullet
     private void OnDestroy()
     {
         Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
-        Instantiate(ExplosionSmall, transform.position, _rotation);
+        Instantiate(Explosion, transform.position, _rotation);
     }
 }

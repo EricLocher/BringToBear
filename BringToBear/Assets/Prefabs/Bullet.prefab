@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 631ed8782882cb844a9a130498a8378f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 150
   damage: 10
-  ExplosionSmall: {fileID: 8334939523296961542, guid: 669706ec098549c41beb1fd04aedc142, type: 3}
+  Explosion: {fileID: 1500794946509206753, guid: be9faa3897fc047478cf72c8fe7835ba, type: 3}
 --- !u!50 &7065673439052456109
 Rigidbody2D:
   serializedVersion: 4

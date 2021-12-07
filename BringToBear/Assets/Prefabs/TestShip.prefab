@@ -120,8 +120,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 0.67058825}
-      key1: {r: 1, g: 0, b: 0, a: 0.25882354}
+      key0: {r: 1, g: 0, b: 0, a: 0.11764706}
+      key1: {r: 1, g: 0, b: 0, a: 0.03529412}
       key2: {r: 1, g: 0, b: 0, a: 0}
       key3: {r: 1, g: 0.73831457, b: 0.73831457, a: 0}
       key4: {r: 1, g: 1, b: 1, a: 0}
@@ -137,7 +137,7 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 3662
-      atime1: 16962
+      atime1: 30069
       atime2: 63608
       atime3: 63608
       atime4: 63608
@@ -276,12 +276,12 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 0.67058825}
-      key1: {r: 1, g: 0, b: 0, a: 0.25882354}
+      key0: {r: 1, g: 0, b: 0, a: 0.11764706}
+      key1: {r: 1, g: 0, b: 0, a: 0.03529412}
       key2: {r: 1, g: 0, b: 0, a: 0}
       key3: {r: 1, g: 0.73831457, b: 0.73831457, a: 0}
       key4: {r: 1, g: 1, b: 1, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 1, g: 1, b: 1, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
@@ -289,16 +289,16 @@ TrailRenderer:
       ctime2: 54163
       ctime3: 59367
       ctime4: 65535
-      ctime5: 0
+      ctime5: 65535
       ctime6: 0
       ctime7: 0
       atime0: 3662
-      atime1: 16962
+      atime1: 30069
       atime2: 63608
       atime3: 63608
-      atime4: 0
-      atime5: 0
-      atime6: 0
+      atime4: 63608
+      atime5: 63608
+      atime6: 63608
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 5
@@ -432,12 +432,12 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 0.67058825}
-      key1: {r: 1, g: 0, b: 0, a: 0.25882354}
+      key0: {r: 1, g: 0, b: 0, a: 0.11764706}
+      key1: {r: 1, g: 0, b: 0, a: 0.03529412}
       key2: {r: 1, g: 0, b: 0, a: 0}
       key3: {r: 1, g: 0.73831457, b: 0.73831457, a: 0}
       key4: {r: 1, g: 1, b: 1, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 1, g: 1, b: 1, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
@@ -445,16 +445,16 @@ TrailRenderer:
       ctime2: 54163
       ctime3: 59367
       ctime4: 65535
-      ctime5: 0
+      ctime5: 65535
       ctime6: 0
       ctime7: 0
       atime0: 3662
-      atime1: 16962
+      atime1: 30069
       atime2: 63608
       atime3: 63608
-      atime4: 0
-      atime5: 0
-      atime6: 0
+      atime4: 63608
+      atime5: 63608
+      atime6: 63608
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 5
@@ -708,7 +708,7 @@ Transform:
   m_GameObject: {fileID: 5640912145538070936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.2, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.4, z: 1}
   m_Children:
   - {fileID: 8477332437743463959}
   - {fileID: 3841131823115436785}
@@ -805,6 +805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerShip: {fileID: 5640912145538070936}
   rb: {fileID: 5640912145538070940}
+  spriteRenderer: {fileID: 2155439634259927583}
   stabilizeSpeed: 150
   thrust: 400
   turnSpeed: 5
@@ -822,7 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342ea8dc067fc97428dd065560787a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myGun: {fileID: 11400000, guid: 0baec91194c297e49b37f165c0c11ecd, type: 2}
+  myGun: {fileID: 11400000, guid: 61be2829006f4894186c476209e192c4, type: 2}
 --- !u!114 &2223364314247379409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,7 +981,7 @@ Rigidbody2D:
   m_Mass: 5
   m_LinearDrag: 0.07
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -5887,6 +5888,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9061581820918986584, guid: 124ee8eff55f966409133449510d68a7, type: 3}
   m_PrefabInstance: {fileID: 6928959870597010756}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &2155439634259927583 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9061581820918986587, guid: 124ee8eff55f966409133449510d68a7, type: 3}
+  m_PrefabInstance: {fileID: 6928959870597010756}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8627212574769798112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5964,13 +5970,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
---- !u!4 &3841131823115436785 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4824609924150548753, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
-  m_PrefabInstance: {fileID: 8627212574769798112}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3841131823115436787 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4824609924150548755, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+  m_PrefabInstance: {fileID: 8627212574769798112}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3841131823115436785 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4824609924150548753, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
   m_PrefabInstance: {fileID: 8627212574769798112}
   m_PrefabAsset: {fileID: 0}
