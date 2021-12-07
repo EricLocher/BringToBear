@@ -11023,7 +11023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1723231801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11064,6 +11064,7 @@ GameObject:
   - component: {fileID: 1816057602}
   - component: {fileID: 1816057601}
   - component: {fileID: 1816057605}
+  - component: {fileID: 1816057604}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -11136,6 +11137,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1816057604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816057600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fa5ba6c2e6cf04ea457dcb413a253c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  height: 300
+  width: 500
 --- !u!114 &1816057605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11149,8 +11164,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameController: {fileID: 1891402964}
+  map: {fileID: 346540498}
   minRotation: 0.001
   maxRotation: 0.009
+  minSize: 18
+  maxSize: 45
+  viewMinX: -30
+  viewMaxX: 30
+  viewMinY: -60.75
+  viewMaxY: 75
   cameraAcceleration:
     serializedVersion: 2
     m_Curve:
@@ -16089,7 +16111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 0
-  Players: []
 --- !u!4 &1891402965
 Transform:
   m_ObjectHideFlags: 0
@@ -16117,7 +16138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreKeeping: []
-  gameController: {fileID: 1891402964}
 --- !u!114 &1891402967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16133,7 +16153,6 @@ MonoBehaviour:
   tunnel: {fileID: 346540498}
   highGravityHeight: 90
   lowGravityHeight: 130
-  gameController: {fileID: 1891402964}
 --- !u!1 &1912459960
 GameObject:
   m_ObjectHideFlags: 0

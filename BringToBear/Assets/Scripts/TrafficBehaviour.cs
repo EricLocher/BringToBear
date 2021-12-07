@@ -18,7 +18,6 @@ public class TrafficBehaviour : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(rb.transform.eulerAngles.z);
         Stabilize();
         GravityAdjuster();
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVel);
@@ -27,8 +26,7 @@ public class TrafficBehaviour : MonoBehaviour
         if (transform.position.y < -110 || transform.position.y > 300 || Mathf.Abs(transform.position.x) > 70)
         {
             ResetMe();
-        }
-        
+        }   
     }
 
     private void ResetMe()
