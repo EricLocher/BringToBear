@@ -48,7 +48,6 @@ public class CameraController : MonoBehaviour
     void Update()
     {
 
-
         maxTilt += Time.deltaTime / 4;
         maxTilt = Mathf.Clamp(maxTilt, 1, 60);
 
@@ -78,6 +77,7 @@ public class CameraController : MonoBehaviour
                 ||
                 Mathf.Abs(transform.position.x - player.transform.position.x) > (maxSize) * Camera.main.aspect
                )
+
             {
                 continue;
             }
@@ -94,6 +94,8 @@ public class CameraController : MonoBehaviour
 
             else if (playerPos.y < minY)
                 minY = playerPos.y;
+
+
         }
 
         Vector2 cameraCenter = new Vector2(((minX + maxX) / 2), ((minY + maxY) / 2));
