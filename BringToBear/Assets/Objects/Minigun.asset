@@ -18,4 +18,4 @@ MonoBehaviour:
   fireRate: 0.01
   spread: 0
   spreadMode: 1
-  spreadRotation: 3
+  spreadRotation: 4
