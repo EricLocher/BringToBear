@@ -35,17 +35,20 @@ public class Train : MonoBehaviour
     }
     public void DestroyedCart(GameObject cart)
     {
-        for (int i = 0; i < Carts.Count; i++)
+
+        int _cartIndex = Carts.FindIndex(a => a.gameObject == cart);
+        if(_cartIndex == -1) { Debug.LogError("Something went wrong..."); return; }
+
+        Carts.Remove(Carts[_cartIndex]);
+        for (int i = _cartIndex - 1; i >= 0; i--)
         {
-            if(Carts[i] == cart)
-            {
-                Carts.Remove(Carts[i]);
-                for (int j = i; j > 0; j--)
-                {
-                    Carts.Remove(Carts[j]);
-                }
-            }
+            Rigidbody2D _rb = Carts[i].GetComponent<Rigidbody2D>();
+            _rb.gravityScale = 3;
+            _rb.angularVelocity = Random.Range(-30, 30);
+            Destroy(Carts[i], 10f);
+            Carts.Remove(Carts[i]);
         }
+
     }
 
     private void PopulateCarts()
@@ -68,11 +71,10 @@ public class Train : MonoBehaviour
 
         for (int i = Carts.Count - 1; i >= 0; i--)
         {
-            if(i == Carts.Count - 1) { continue; }
+            if (i == Carts.Count - 1) { continue; }
             Carts[i].GetComponent<Cart>().connectedCart = Carts[i + 1].GetComponent<Cart>();
 
         }
-
     }
 
     private void RePopulate()
@@ -91,6 +93,7 @@ public class Train : MonoBehaviour
             _topPos.y += cartBound.extents.y * 2;
         }
     }
+
     private void MoveCarts()
     {
         if (Carts[0].transform.localPosition.y - cartBound.extents.y > -(trainHeight + Margin) + 0.001)

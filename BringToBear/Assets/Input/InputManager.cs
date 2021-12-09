@@ -44,6 +44,6 @@ public class InputManager : MonoBehaviour
 
     void OnPlayerLeft(PlayerInput playerInput)
     {
-        Debug.LogError("FUNCTION NOT IMPLEMENTED");
+        Debug.LogWarning("FUNCTION NOT IMPLEMENTED -- Don't mind this for now...");
     }
 }
