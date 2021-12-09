@@ -13,8 +13,6 @@ public class InputManager : MonoBehaviour
 
     [SerializeField] InputAction joinAction, leaveAction;
 
-    [SerializeField] List<PlayerInput> playerList = new List<PlayerInput>();
-
     public event System.Action<PlayerInput> PlayerJoinedGame;
     public event System.Action<PlayerInput> PlayerLeftGame;
 

@@ -11,8 +11,9 @@ public class Missile : MonoBehaviour, IBullet
     public int damage = 10;
 
     float currentTrackRadius = 0;
-    GameObject Owner;
     GameObject currentTarget;
+
+    public GameObject Owner { get; set; }
 
     void Start()
     {
@@ -91,22 +92,5 @@ public class Missile : MonoBehaviour, IBullet
         else
             Gizmos.DrawWireSphere(transform.position, trackRadius);
     }
-
-    #region Getters & Setters
-    public void SetOwner(GameObject player)
-    {
-        Owner = player;
-    }
-
-    public GameObject GetOwner()
-    {
-        return Owner;
-    }
-
-    public int GetDamage()
-    {
-        return damage;
-    }
-    #endregion
 
 }

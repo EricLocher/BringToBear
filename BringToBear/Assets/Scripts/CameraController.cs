@@ -125,6 +125,7 @@ public class CameraController : MonoBehaviour
 
         if (Mathf.Abs(cameraCenter.x - transform.position.x) > 10f && Mathf.Abs(cameraCenter.y - transform.position.y) > 10f)
         {
+            transform.DOKill();
             transform.DOMoveX(cameraCenter.x, 0.2f);
             transform.DOMoveY(cameraCenter.y, 0.2f);
         } 
@@ -135,7 +136,7 @@ public class CameraController : MonoBehaviour
 
     void UpdateEdges()
     {
-        cameraEdges.transform.localScale = Vector2.one * Camera.main.orthographicSize / maxSize;
+        //cameraEdges.transform.localScale = Vector2.one * Camera.main.orthographicSize / maxSize;
     }
 
 

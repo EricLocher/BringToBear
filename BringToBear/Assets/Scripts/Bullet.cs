@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour, IBullet
     public int damage;
     public GameObject Explosion;
 
-    GameObject Owner;
+    public GameObject Owner { get; set; }
 
     void Start()
     {
@@ -43,21 +43,5 @@ public class Bullet : MonoBehaviour, IBullet
         Instantiate(Explosion, transform.position, _rotation);
     }
 
-    #region Getters & Setters
-    public void SetOwner(GameObject player)
-    {
-        Owner = player;
-    }
-
-    public int GetDamage()
-    {
-        return damage;
-    }
-
-    public GameObject GetOwner()
-    {
-        return Owner;
-    }
-    #endregion
 
 }
