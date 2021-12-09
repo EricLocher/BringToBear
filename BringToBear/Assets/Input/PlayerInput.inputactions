@@ -54,12 +54,20 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Shield",
+                    "name": "Dash",
                     "type": "Button",
                     "id": "19de7e6d-9ac2-41af-a7b7-55782373f067",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Hold(duration=1,pressPoint=0.1)"
+                },
+                {
+                    "name": "Shield",
+                    "type": "Button",
+                    "id": "47d251ee-fcb1-46de-8a22-29bdb9df9e6a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -309,7 +317,18 @@
                     "name": "",
                     "id": "245e5724-d69c-4100-b343-80291bf0a3ec",
                     "path": "<DualShockGamepad>/leftShoulder",
-                    "interactions": "",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "668b689d-55dd-4275-92a1-7c416e7dd385",
+                    "path": "<DualShockGamepad>/buttonWest",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "PS4",
                     "action": "Shield",

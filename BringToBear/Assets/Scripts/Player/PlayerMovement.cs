@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject playerShip;
     public Rigidbody2D rb;
-    public SpriteRenderer spriteRenderer;
+    public SpriteRenderer trailBlaze;
     public float stabilizeSpeed;
     public float thrust = 200;
     public float turnSpeed = 5;
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         lookDirection = Vector2.zero;
-        spriteRenderer.enabled = false;
+        trailBlaze.enabled = false;
     }
 
     void Update()
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     {   
         if (dash)
         {
-            spriteRenderer.enabled = true;
+            trailBlaze.enabled = true;
             rb.AddForce(transform.up * 600, ForceMode2D.Impulse);
             StartCoroutine(Dasher());
             dash = false;
@@ -139,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator Dasher()
     {
         yield return new WaitForSeconds(0.15f);
-        spriteRenderer.enabled = false;
+        trailBlaze.enabled = false;
         rb.AddForce(transform.up * -200, ForceMode2D.Impulse);
         
         //rb.velocity = Vector2.zero;
