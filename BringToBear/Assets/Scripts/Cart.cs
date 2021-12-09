@@ -46,12 +46,19 @@ public class Cart : MonoBehaviour, ICharacter
     {
         if (connectedCart == null) { return; }
 
-        Vector2 _cartAnchor = connectedCart.anchor.transform.position;
-        Vector2 diff = _cartAnchor - (Vector2)transform.position;
-        diff.Normalize();
+        try
+        {
+            Vector2 _cartAnchor = connectedCart.anchor.transform.position;
+            Vector2 diff = _cartAnchor - (Vector2)transform.position;
+            diff.Normalize();
 
-        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+            float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+        }
+        catch (System.Exception e)
+        {
+            return;
+        }
     }
 
     public void Damage(int amount)
