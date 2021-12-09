@@ -6,12 +6,14 @@ public class GameController : MonoBehaviour
 {
     public GameStates gameState;
     public static List<PlayerController> Players = new List<PlayerController>();
+    public static List<GameObject> Indicators = new List<GameObject>();
 
     void Start()
     {
         for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
         {
             Players.Add(GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerController>());
+            Indicators.Add(GameObject.FindGameObjectsWithTag("Indicator")[i].GetComponent<GameObject>());
         }
     }
 }

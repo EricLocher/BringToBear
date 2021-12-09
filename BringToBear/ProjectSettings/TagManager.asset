@@ -12,6 +12,7 @@ TagManager:
   - RearAssist
   - ForwardAssist
   - CameraField
+  - Indicator
   layers:
   - Default
   - TransparentFX

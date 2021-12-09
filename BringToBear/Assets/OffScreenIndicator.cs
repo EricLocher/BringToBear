@@ -8,31 +8,23 @@ public class OffScreenIndicator : MonoBehaviour
     Vector2 center;
     SpriteRenderer PlayerRenderer;
     SpriteRenderer[] IndicatorRenderers;
-
+    [SerializeField] LayerMask layer;
 
     private void Start()
     {
-        Player = GameController.Players[0].gameObject;
         PlayerRenderer = Player.GetComponentInChildren<SpriteRenderer>();
-        IndicatorRenderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
+        IndicatorRenderers = GetComponentsInChildren<SpriteRenderer>();
     }
 
     private void Update()
     {
 
 
-        Debug.Log(Player);
         transform.rotation = Player.transform.rotation;
 
-        if (Player == null)
-        {
-            Player = GameController.Players[0].gameObject;
-            return;
-        }
-
         center = (Vector2)Camera.main.transform.position;
-
-        if (PlayerRenderer.isVisible == false)
+        Vector2 playerPosRelCam = Camera.main.WorldToViewportPoint(Player.transform.position);
+        if (playerPosRelCam.x < 0 || playerPosRelCam.x > 1 || playerPosRelCam.y < 0 || playerPosRelCam.y > 1)
         {
 
 
@@ -43,11 +35,11 @@ public class OffScreenIndicator : MonoBehaviour
 
 
             Vector2 direction = center - new Vector2(Player.transform.position.x, Player.transform.position.y);
-            //direction = direction.normalized;
+            Debug.DrawRay(center, -direction, Color.red);
+            direction = direction.normalized;
 
-            RaycastHit2D ray = Physics2D.Raycast(center, -direction, 80);
-
-
+            RaycastHit2D ray = Physics2D.Raycast(center, -direction, 80, layer);
+            Debug.Log(ray.point);
 
 
             if (ray.collider != null)
