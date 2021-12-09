@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject playerShip;
     public Rigidbody2D rb;
+    public SpriteRenderer spriteRenderer;
     public float stabilizeSpeed;
     public float thrust = 200;
     public float turnSpeed = 5;
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         lookDirection = Vector2.zero;
+        spriteRenderer.enabled = false;
     }
 
     void Update()
@@ -47,12 +49,13 @@ public class PlayerMovement : MonoBehaviour
     {   
         if (dash)
         {
+            spriteRenderer.enabled = true;
             rb.AddForce(transform.up * 600, ForceMode2D.Impulse);
             StartCoroutine(Dasher());
             dash = false;
         }
         //else
-        //rb.velocity = Vector2.ClampMagnitude(rb.velocity, 100);
+        //    rb.velocity = Vector2.ClampMagnitude(rb.velocity, 300);
     }
 
     public void Rotate()
@@ -135,8 +138,10 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator Dasher()
     {
-        yield return new WaitForSeconds(0.1f);
-        rb.AddForce(transform.up * -400, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.15f);
+        spriteRenderer.enabled = false;
+        rb.AddForce(transform.up * -200, ForceMode2D.Impulse);
+        
         //rb.velocity = Vector2.zero;
     }
 }

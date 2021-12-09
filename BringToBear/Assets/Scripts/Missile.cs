@@ -18,12 +18,11 @@ public class Missile : MonoBehaviour, IBullet
     void Start()
     {
         currentTrackRadius = trackRadius;
-        GameObject[] _players = GameObject.FindGameObjectsWithTag("Player");
-        rb.AddForce(transform.forward * 2000, ForceMode2D.Impulse);
-        for (int i = 0; i < _players.Length; i++)
+        foreach (PlayerController player in GameController.Players)
         {
-            Players.Add(_players[i]);
+            Players.Add(player.gameObject);
         }
+        rb.AddForce(transform.forward * 2000, ForceMode2D.Impulse);
     }
 
     void Update()

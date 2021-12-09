@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrafficBehaviour : MonoBehaviour
+public class TrafficBehaviour : MonoBehaviour, ICharacter
 {
     Rigidbody2D rb;
     public float trafficThrust;
@@ -23,11 +23,10 @@ public class TrafficBehaviour : MonoBehaviour
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVel);
         rb.AddForce(transform.up * trafficThrust);
 
-        if (transform.position.y < -110 || transform.position.y > 300 || Mathf.Abs(transform.position.x) > 70)
+        if (transform.position.y < -200 || transform.position.y > 300 || Mathf.Abs(transform.position.x) > 70)
         {
             ResetMe();
-        }
-        
+        }   
     }
 
     private void ResetMe()
@@ -65,6 +64,11 @@ public class TrafficBehaviour : MonoBehaviour
         {
             rb.gravityScale += Time.deltaTime * 100;
         }
+    }
+
+    public void Damage(int amount)
+    {
+        return;
     }
 }
 

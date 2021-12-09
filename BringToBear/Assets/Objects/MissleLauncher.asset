@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e8579f39b9106049b0f4c2b8bbe011a, type: 3}
   m_Name: MissleLauncher
   m_EditorClassIdentifier: 
-  bullet: {fileID: 3754400719634352349, guid: 0f83cd34cada7674cb4ac73f1fc70f28, type: 3}
-  amountOfGuns: 3
+  bullet: {fileID: 7692297022714145645, guid: 9552855e2f3263147a1a0aa78c353395, type: 3}
+  amountOfGuns: 1
   ammo: 0
-  fireRate: 0.5
+  fireRate: 0.15
   spread: 0
-  spreadMode: 0
-  spreadRotation: 0
+  spreadMode: 1
+  spreadRotation: 35

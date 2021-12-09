@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class CameraController : MonoBehaviour
 {
 
     public GameController GameController;
     List<PlayerController> Players;
+    public GameObject map;
+    public EdgeCollider2D cameraEdges;
 
     public float minRotation;
     public float maxRotation;
 
+    public int minSize, maxSize;
+    public float viewMinX, viewMaxX;
+    public float viewMinY, viewMaxY;
 
     Quaternion targetRot;
     Quaternion prevRot;
@@ -23,7 +29,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         Players = GameController.Players;
-
+        cameraEdges = GetComponentInChildren<EdgeCollider2D>();
         transform.Rotate(0, 0, 0);
         targetRot = Quaternion.identity;
         prevRot = targetRot;
@@ -42,7 +48,6 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        CameraZoom();
 
         maxTilt += Time.deltaTime / 4;
         maxTilt = Mathf.Clamp(maxTilt, 1, 60);
@@ -52,16 +57,32 @@ public class CameraController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(prevRot, targetRot, cameraAcceleration.Evaluate(time));
     }
 
+    private void FixedUpdate()
+    {
+        CameraZoom();
+        UpdateEdges();
+    }
     public void CameraZoom()
     {
-        float minX = Players[0].transform.position.x, 
-              maxX = Players[0].transform.position.x, 
+
+        if (Players.Count <= 0) { return; }
+        float minX = Players[0].transform.position.x,
+              maxX = Players[0].transform.position.x,
               minY = Players[0].transform.position.y,
               maxY = Players[0].transform.position.y;
 
         foreach (PlayerController player in Players)
         {
-            if(player == Players[0]) { continue; }
+            if (player == Players[0]) { continue; }
+            if (
+                Mathf.Abs(transform.position.y - player.transform.position.y) > (maxSize)
+                ||
+                Mathf.Abs(transform.position.x - player.transform.position.x) > (maxSize) * Camera.main.aspect
+               )
+
+            {
+                continue;
+            }
             Vector2 playerPos = player.transform.position;
 
             if (playerPos.x > maxX)
@@ -75,6 +96,8 @@ public class CameraController : MonoBehaviour
 
             else if (playerPos.y < minY)
                 minY = playerPos.y;
+
+
         }
 
         Vector2 cameraCenter = new Vector2(((minX + maxX) / 2), ((minY + maxY) / 2));
@@ -91,36 +114,25 @@ public class CameraController : MonoBehaviour
         }
 
         cameraSize *= 2;
-        float zoomLevel = Mathf.Clamp(cameraSize, 18, 45);
+        float zoomLevel = Mathf.Clamp(cameraSize, minSize, maxSize);
         float prevZoom = Camera.main.orthographicSize;
         Camera.main.orthographicSize = Mathf.Lerp(prevZoom, zoomLevel, 2f * Time.deltaTime);
+        cameraCenter.y = Mathf.Clamp(cameraCenter.y, viewMinY, viewMaxY);
+        cameraCenter.x = Mathf.Clamp(cameraCenter.x, viewMinX, viewMaxX);
 
-        cameraCenter.y = Mathf.Clamp(cameraCenter.y, -60.5f, 75f);
-        cameraCenter.x = Mathf.Clamp(cameraCenter.x, -30f, 30f);
-
+        if (Mathf.Abs(cameraCenter.x - transform.position.x) > 10f && Mathf.Abs(cameraCenter.y - transform.position.y) > 10f)
+        {
+            transform.DOMoveX(cameraCenter.x, 0.5f);
+            transform.DOMoveY(cameraCenter.y, 0.5f);
+        } 
+        else
         transform.position = new Vector3(cameraCenter.x, cameraCenter.y, -10);
+    }
 
 
-        //if (Players.Count > 1)
-        //{
-        //    float distance = Vector3.Distance(Players[0].transform.position, Players[1].transform.position);
-        //    float zoomLevel = Mathf.Clamp(distance, 18, 45);
-        //    float prevZoom = Camera.main.orthographicSize;
-        //    Camera.main.orthographicSize = Mathf.Lerp(prevZoom, zoomLevel, 0.01f);
-
-        //    center = ((Players[0].transform.position + Players[1].transform.position) / 2);
-        //    center.x = Mathf.Clamp(center.x, -12f, 12f);
-        //}
-        //else if(Players.Count != 0)
-        //{
-        //    center = Players[0].transform.position;
-        //    Camera.main.orthographicSize = 18;
-        //    center.x = Mathf.Clamp(center.x, -30f, 30f);
-        //}
-
-        //center.y = Mathf.Clamp(center.y, -60.5f, 75f);
-        //transform.position = new Vector3(center.x, center.y, -10);
-
+    void UpdateEdges()
+    {
+        cameraEdges.transform.localScale = Vector2.one * Camera.main.orthographicSize / maxSize;
     }
 
 

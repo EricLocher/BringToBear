@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e8579f39b9106049b0f4c2b8bbe011a, type: 3}
   m_Name: Railgun
   m_EditorClassIdentifier: 
+  bullet: {fileID: 7879188271389689260, guid: a72129f94f8a2d74d90d154ac7ae9444, type: 3}
   amountOfGuns: 1
   ammo: 0
   fireRate: 1
-  bullet: {fileID: 7879188271389689260, guid: a72129f94f8a2d74d90d154ac7ae9444, type: 3}
   spread: 0
+  spreadMode: 0
+  spreadRotation: 0

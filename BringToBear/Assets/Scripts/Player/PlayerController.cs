@@ -77,13 +77,17 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     public void Respawn(InputAction.CallbackContext value)
     {
+        res();
+    }
+
+    public void res()
+    {
         transform.position = new Vector3(-10, 0, 0);
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         GetComponent<Rigidbody2D>().angularVelocity = 0;
         transform.rotation = Quaternion.Euler(Vector3.zero);
         playerDamage = 0;
     }
-
     public void Attack(InputAction.CallbackContext value)
     {
         if (value.ReadValue<float>() >= 1) { isAttacking = true; }
