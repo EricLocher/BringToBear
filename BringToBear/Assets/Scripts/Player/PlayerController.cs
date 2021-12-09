@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     void Update()
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour, ICharacter
         _dir.x *= -1;
         movement.UpdateDirection(_dir);
         _dir.Normalize();
-        //anim.updateRotation(GetComponent<Rigidbody2D>().velocity.x * -1);
+        anim.updateRotation(GetComponent<Rigidbody2D>().velocity.x * -1);
     }
 
     public void Thrust(InputAction.CallbackContext value)

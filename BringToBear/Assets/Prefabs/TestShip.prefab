@@ -794,6 +794,7 @@ GameObject:
   - component: {fileID: 1005931443}
   - component: {fileID: 1005931442}
   - component: {fileID: 903453633957880356}
+  - component: {fileID: 2360870025788018867}
   m_Layer: 0
   m_Name: TestShip
   m_TagString: Player
@@ -886,7 +887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 5640912145538070939}
-  anim: {fileID: 0}
+  anim: {fileID: 2360870025788018867}
   mainCam: {fileID: 0}
   Shield: {fileID: 3841131823115436787}
   attack: {fileID: 2312424755723544961}
@@ -925,7 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342ea8dc067fc97428dd065560787a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myGun: {fileID: 11400000, guid: 19f261aaf5375774ba4f3ee20878a3ec, type: 2}
+  myGun: {fileID: 11400000, guid: 0baec91194c297e49b37f165c0c11ecd, type: 2}
 --- !u!114 &2223364314247379409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5928,6 +5929,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2360870025788018867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5640912145538070936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f632cf5694e7c4f909bb01067a8723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 3624307764016058014}
 --- !u!1001 &8627212574769798112
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -45,9 +45,14 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            trafficThrust = 150f;
-            maxVel = 55;
-        }      
+            Panic();
+        }
+    }
+
+    private void Panic()
+    {
+        trafficThrust = 150f;
+        maxVel = 55;
     }
 
     private void Stabilize()
@@ -68,7 +73,8 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
 
     public void Damage(int amount)
     {
-        return;
+        rb.angularVelocity = Random.Range(-200, 200);
+        Panic();
     }
 }
 

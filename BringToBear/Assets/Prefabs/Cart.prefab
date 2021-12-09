@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectedCart: {fileID: 0}
-  cartHP: 100
+  cartHP: 1000
   Pickups:
   - {fileID: 7205129169322551079, guid: 39d8e1f623883d54d9e8ef1a553042ef, type: 3}
   - {fileID: 7205129169322551079, guid: 39d8e1f623883d54d9e8ef1a553042ef, type: 3}
