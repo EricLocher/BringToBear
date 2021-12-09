@@ -7,6 +7,10 @@ public class InputManager : MonoBehaviour
 {
 
     [SerializeField] PlayerInputManager PlayerManager;
+    public List<PlayerInput> playerList = new List<PlayerInput>();
+    public GameController gameController;
+    public GameObject indicator;
+
     [SerializeField] InputAction joinAction, leaveAction;
 
     [SerializeField] List<PlayerInput> playerList = new List<PlayerInput>();
@@ -30,7 +34,9 @@ public class InputManager : MonoBehaviour
         Debug.Log("Player Joined The Game!");
         playerList.Add(playerInput);
         GameController.Players.Add(playerInput.GetComponent<PlayerController>());
-
+        
+        GameObject _temp = Instantiate(indicator);
+        _temp.GetComponent<OffScreenIndicator>().Player = playerInput.gameObject;
         if(PlayerJoinedGame != null)
         {
             PlayerJoinedGame(playerInput);

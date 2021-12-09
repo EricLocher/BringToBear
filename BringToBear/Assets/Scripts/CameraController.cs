@@ -7,6 +7,7 @@ public class CameraController : MonoBehaviour
 {
     public GameController GameController;
     public GameObject map;
+    public EdgeCollider2D cameraEdges;
 
     List<PlayerController> Players;
 
@@ -28,7 +29,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         Players = GameController.Players;
-
+        cameraEdges = GetComponentInChildren<EdgeCollider2D>();
         transform.Rotate(0, 0, 0);
         targetRot = Quaternion.identity;
         prevRot = targetRot;
@@ -56,6 +57,11 @@ public class CameraController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(prevRot, targetRot, cameraAcceleration.Evaluate(time));
     }
 
+    private void FixedUpdate()
+    {
+        CameraZoom();
+        UpdateEdges();
+    }
     public void CameraZoom()
     {
 
@@ -74,6 +80,7 @@ public class CameraController : MonoBehaviour
                 ||
                 Mathf.Abs(transform.position.x - player.transform.position.x) > (maxSize) * Camera.main.aspect
                )
+
             {
                 continue;
             }
@@ -91,6 +98,8 @@ public class CameraController : MonoBehaviour
 
             else if (playerPos.y < minY)
                 minY = playerPos.y;
+
+
         }
 
         Vector2 cameraCenter = new Vector2(((minX + maxX) / 2), ((minY + maxY) / 2));
@@ -122,5 +131,12 @@ public class CameraController : MonoBehaviour
         else
         transform.position = new Vector3(cameraCenter.x, cameraCenter.y, -10);
     }
+
+
+    void UpdateEdges()
+    {
+        cameraEdges.transform.localScale = Vector2.one * Camera.main.orthographicSize / maxSize;
+    }
+
 
 }
