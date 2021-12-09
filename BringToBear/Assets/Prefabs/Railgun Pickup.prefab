@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6763c42c15c5ef149b16090eae69b08c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  railGun: {fileID: 11400000, guid: 4b72b631976e48945914653699c745cf, type: 2}
+  gun: {fileID: 11400000, guid: 4b72b631976e48945914653699c745cf, type: 2}
 --- !u!70 &7205129169322551081
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

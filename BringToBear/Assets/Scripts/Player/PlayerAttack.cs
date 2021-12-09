@@ -32,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
                     _Bullet.transform.rotation = Quaternion.Euler(0, 0, randomRotation);
                 }
 
-                _Bullet.GetComponent<IBullet>().SetOwner(gameObject);
+                _Bullet.GetComponent<IBullet>().Owner = gameObject;
                 Destroy(_Bullet, 10f);
 
                 _Pos.x += _spacing;
@@ -41,5 +41,8 @@ public class PlayerAttack : MonoBehaviour
             timer = 0;
         }
     }
+
+
 }
+
 

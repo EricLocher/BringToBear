@@ -5,11 +5,11 @@ using DG.Tweening;
 
 public class CameraController : MonoBehaviour
 {
-
     public GameController GameController;
-    List<PlayerController> Players;
     public GameObject map;
     public EdgeCollider2D cameraEdges;
+
+    List<PlayerController> Players;
 
     public float minRotation;
     public float maxRotation;
@@ -35,7 +35,6 @@ public class CameraController : MonoBehaviour
         prevRot = targetRot;
         Camera.main.orthographicSize = 18;
         Invoke("SetNewRotationTarget", 3);
-
     }
 
     private void SetNewRotationTarget()
@@ -48,6 +47,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        CameraZoom();
 
         maxTilt += Time.deltaTime / 4;
         maxTilt = Mathf.Clamp(maxTilt, 1, 60);
@@ -74,6 +74,7 @@ public class CameraController : MonoBehaviour
         foreach (PlayerController player in Players)
         {
             if (player == Players[0]) { continue; }
+
             if (
                 Mathf.Abs(transform.position.y - player.transform.position.y) > (maxSize)
                 ||
@@ -83,6 +84,7 @@ public class CameraController : MonoBehaviour
             {
                 continue;
             }
+
             Vector2 playerPos = player.transform.position;
 
             if (playerPos.x > maxX)
@@ -115,15 +117,17 @@ public class CameraController : MonoBehaviour
 
         cameraSize *= 2;
         float zoomLevel = Mathf.Clamp(cameraSize, minSize, maxSize);
-        float prevZoom = Camera.main.orthographicSize;
-        Camera.main.orthographicSize = Mathf.Lerp(prevZoom, zoomLevel, 2f * Time.deltaTime);
+
+        Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomLevel, 2f * Time.deltaTime);
+
         cameraCenter.y = Mathf.Clamp(cameraCenter.y, viewMinY, viewMaxY);
         cameraCenter.x = Mathf.Clamp(cameraCenter.x, viewMinX, viewMaxX);
 
         if (Mathf.Abs(cameraCenter.x - transform.position.x) > 10f && Mathf.Abs(cameraCenter.y - transform.position.y) > 10f)
         {
-            transform.DOMoveX(cameraCenter.x, 0.5f);
-            transform.DOMoveY(cameraCenter.y, 0.5f);
+            transform.DOKill();
+            transform.DOMoveX(cameraCenter.x, 0.2f);
+            transform.DOMoveY(cameraCenter.y, 0.2f);
         } 
         else
         transform.position = new Vector3(cameraCenter.x, cameraCenter.y, -10);
@@ -132,7 +136,7 @@ public class CameraController : MonoBehaviour
 
     void UpdateEdges()
     {
-        cameraEdges.transform.localScale = Vector2.one * Camera.main.orthographicSize / maxSize;
+        //cameraEdges.transform.localScale = Vector2.one * Camera.main.orthographicSize / maxSize;
     }
 
 

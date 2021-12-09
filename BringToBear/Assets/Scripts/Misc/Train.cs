@@ -5,7 +5,7 @@ public class Train : MonoBehaviour
 {
     [SerializeField, Range(0, 10)]
     private int amountOfCarts = 0;
-    [SerializeField, Range(0, 5)]
+    [SerializeField, Range(-5, 5)]
     public float Margin;
 
     float trainHeight = 0;
@@ -13,9 +13,13 @@ public class Train : MonoBehaviour
     public GameObject CartPrefab;
     public List<GameObject> Carts = new List<GameObject>();
 
+    float test;
+
     private float cartMargin;
     private void Start()
     {
+
+        test = Random.Range(0, 100000);
         cartBound = CartPrefab.GetComponent<SpriteRenderer>().bounds;
         trainHeight = ((cartBound.extents.y * 2) * amountOfCarts);
 
@@ -27,6 +31,7 @@ public class Train : MonoBehaviour
     {
         RePopulate();
         MoveCarts();
+        RandomMove();
     }
     public void DestroyedCart(GameObject cart)
     {
@@ -51,21 +56,23 @@ public class Train : MonoBehaviour
 
         for (int i = 0; i < amountOfCarts; i++)
         {
-            Carts.Add(Instantiate(CartPrefab, new Vector3(transform.position.x, transform.position.y - _startPos, 0), Quaternion.identity, transform));
+            GameObject _cartToAdd = Instantiate(CartPrefab, new Vector3(transform.position.x, transform.position.y - _startPos, 0), Quaternion.identity, transform);
+
+            Carts.Add(_cartToAdd);
 
             _startPos -= cartMargin + Margin;
+
+
             //blop blip blap
         }
-        //for (int i = 0; i < Carts.Count; i++)
-        //{
-        //    Debug.Log(i);
-        //    if (i == Carts.Count - 1) { continue; }
-        //    else
-        //    {
-        //        Carts[i].GetComponent<Cart>().connectedCart = Carts[i + 1].GetComponent<Rigidbody2D>();
-        //        //Carts[i].GetComponent<HingeJoint2D>().connectedBody = Carts[i + 1].GetComponent<Rigidbody2D>();
-        //    }
-        //}
+
+        for (int i = Carts.Count - 1; i >= 0; i--)
+        {
+            if(i == Carts.Count - 1) { continue; }
+            Carts[i].GetComponent<Cart>().connectedCart = Carts[i + 1].GetComponent<Cart>();
+
+        }
+
     }
 
     private void RePopulate()
@@ -77,8 +84,10 @@ public class Train : MonoBehaviour
         for (int i = 1; i < _cartsToAdd + 1; i++)
         {
             Vector2 _topPos = Carts[Carts.Count - 1].transform.position;
-            Debug.Log(cartBound.extents.y * 2);
-            Carts.Add(Instantiate(CartPrefab, new Vector3(_topPos.x, _topPos.y + (cartBound.extents.y * 2) + Margin, 0), Quaternion.identity, transform));
+
+            GameObject _cartToAdd = Instantiate(CartPrefab, new Vector3(_topPos.x, _topPos.y + (cartBound.extents.y * 2) + Margin, 0), Quaternion.identity, transform);
+            Carts[Carts.Count - 1].GetComponent<Cart>().connectedCart = _cartToAdd.GetComponent<Cart>();
+            Carts.Add(_cartToAdd);
             _topPos.y += cartBound.extents.y * 2;
         }
     }
@@ -88,9 +97,24 @@ public class Train : MonoBehaviour
         {
             foreach (GameObject cart in Carts)
             {
-                cart.transform.position -= new Vector3(0, 0.1f, 0);
+                cart.transform.position -= new Vector3(0, 10f * Time.deltaTime, 0);
             }
         }
+    }
+
+    private void RandomMove()
+    {
+        float _moveX = Mathf.PerlinNoise(test, Time.time) - 0.5f;
+        _moveX /= 10;
+
+        _moveX += ((Carts[Carts.Count - 1].transform.position.x - transform.position.x) * -1) * Time.deltaTime;
+
+        Vector2 _newPos = Vector2.zero;
+
+        _newPos.x = Carts[Carts.Count - 1].transform.position.x + _moveX;
+        _newPos.y = Carts[Carts.Count - 1].transform.position.y;
+
+        Carts[Carts.Count - 1].transform.position = _newPos;
     }
 
     private void OnDrawGizmosSelected()
@@ -100,6 +124,6 @@ public class Train : MonoBehaviour
         _gizmoHeight += (Margin * amountOfCarts);
         Gizmos.color = Color.green;
 
-        Gizmos.DrawWireCube(new Vector3(0, transform.position.y - (_gizmoHeight / 2), 0), new Vector3(5, _gizmoHeight, 0));
+        Gizmos.DrawWireCube(new Vector3(transform.position.x, transform.position.y - (_gizmoHeight / 2), 0), new Vector3(5, _gizmoHeight, 0));
     }
 }

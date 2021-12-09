@@ -7,23 +7,16 @@ public class Bullet : MonoBehaviour, IBullet
     public int damage;
     public GameObject Explosion;
 
-    GameObject Owner;
-    List<GameObject> Players = new List<GameObject>();
-
-    public void SetOwner(GameObject player)
-    {
-        Owner = player;
-    }
+    public GameObject Owner { get; set; }
 
     void Start()
     {
         transform.GetComponent<Rigidbody2D>().velocity = transform.up * speed;
-        GameObject[] _players = GameObject.FindGameObjectsWithTag("Player");
     }
 
     void Update()
     {
-        foreach (GameObject _player in Players)
+        foreach (PlayerController _player in GameController.Players)
         {
             if (_player == Owner) { continue; }
         }
@@ -44,19 +37,11 @@ public class Bullet : MonoBehaviour, IBullet
         }
     }
 
-    public int GetDamage()
-    {
-        return damage;
-    }
-
-    public GameObject GetOwner()
-    {
-        return Owner;
-    }
-
     private void OnDestroy()
     {
         Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
         Instantiate(Explosion, transform.position, _rotation);
     }
+
+
 }

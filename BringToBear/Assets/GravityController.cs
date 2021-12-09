@@ -23,12 +23,10 @@ public class GravityController : MonoBehaviour
 
             if (_playerPos.x > (tunnelBounds.center.x + tunnelBounds.extents.x) || _playerPos.x < (tunnelBounds.center.x - tunnelBounds.extents.x))
             {
-
                 if (_playerPos.y < (tunnelBounds.min.y + lowGravityHeight))
                     _rb.gravityScale = 3;
                 else
                    _rb.gravityScale = 6;
-
 
                 Vector3 _dis = (Vector2)tunnelBounds.center - _playerPos;
                 _dis = _dis.normalized;
@@ -44,7 +42,6 @@ public class GravityController : MonoBehaviour
             }
             else
             {
-
                 _rb.gravityScale = 3;
             }
         }

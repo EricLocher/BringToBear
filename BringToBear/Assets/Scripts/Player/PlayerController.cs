@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour, ICharacter
     [SerializeField] ShipAnimation anim;
     [SerializeField] Camera mainCam;
     [SerializeField] GameObject Shield;
+    [SerializeField] PlayerAttack attack;
     public bool invincible;
-    public PlayerAttack attack;
     Rigidbody2D rb;
 
     public float playerDamage = 0;
@@ -181,4 +181,10 @@ public class PlayerController : MonoBehaviour, ICharacter
     {
         playerDamage += amount;
     }
+
+    public void SetWeapon(Gun weapon)
+    {
+        attack.myGun = weapon;
+    }
+
 }

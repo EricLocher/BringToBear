@@ -11,23 +11,19 @@ public class Missile : MonoBehaviour, IBullet
     public int damage = 10;
 
     float currentTrackRadius = 0;
-    GameObject Owner;
     GameObject currentTarget;
-    List<GameObject> Players = new List<GameObject>();
+
+    public GameObject Owner { get; set; }
 
     void Start()
     {
         currentTrackRadius = trackRadius;
-        foreach (PlayerController player in GameController.Players)
-        {
-            Players.Add(player.gameObject);
-        }
         rb.AddForce(transform.forward * 2000, ForceMode2D.Impulse);
     }
 
     void Update()
     {
-        foreach (GameObject _player in Players)
+        foreach (PlayerController _player in GameController.Players)
         {
             if (_player == Owner) { continue; }
 
@@ -39,10 +35,10 @@ public class Missile : MonoBehaviour, IBullet
                 float dist = Vector2.SqrMagnitude(_player.transform.position - transform.position);
                 if(currentTarget == null)
                 {
-                    currentTarget = _player;
+                    currentTarget = _player.gameObject;
                 }
                 else if(dist < Vector2.SqrMagnitude(currentTarget.transform.position - transform.position)) {
-                    currentTarget = _player;
+                    currentTarget = _player.gameObject;
                 }
             }
         }
@@ -82,23 +78,6 @@ public class Missile : MonoBehaviour, IBullet
             }
         }
     }
-
-    #region Getters & Setters
-    public void SetOwner(GameObject player)
-    {
-        Owner = player;
-    }
-
-    public GameObject GetOwner()
-    {
-        return Owner;
-    }
-
-    public int GetDamage()
-    {
-        return damage;
-    }
-    #endregion
 
     private void OnDestroy()
     {
