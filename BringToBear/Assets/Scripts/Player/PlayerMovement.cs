@@ -111,7 +111,6 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         GetComponent<Rigidbody2D>().angularVelocity = 0;
         transform.rotation = Quaternion.Euler(Vector3.zero);
-
     }
 
     private void Stabilize()

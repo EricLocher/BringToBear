@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Cart : MonoBehaviour
 {
-    public Rigidbody2D connectedCart;
+    public Cart connectedCart;
+    public Vector2 anchor;
     public int cartHP = 100;
+
+    public bool active = true;
 
     public List<GameObject> Pickups;
 
@@ -15,9 +18,23 @@ public class Cart : MonoBehaviour
         {
             transform.parent.GetComponent<Train>().DestroyedCart(gameObject);
             int selectedPickup = Random.Range(0, Pickups.Count - 1);
-            Instantiate(Pickups[selectedPickup]);
+            //Instantiate(Pickups[selectedPickup]);
             Destroy(this.gameObject);
         }
+
+        if(active)
+        Move();
+    }
+
+    public void Move()
+    {
+        Vector2 _cartTransform = connectedCart.transform.position;
+        Vector2 _cartAnchor = connectedCart.anchor;
+        Vector2 diff = (_cartTransform + _cartAnchor) - (Vector2)transform.position;
+        diff.Normalize();
+
+        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -30,5 +47,11 @@ public class Cart : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log(cartHP);
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere((Vector2)transform.position + anchor, 0.5f);
     }
 }

@@ -56,6 +56,7 @@ public class Train : MonoBehaviour
             _startPos -= cartMargin + Margin;
             //blop blip blap
         }
+
         //for (int i = 0; i < Carts.Count; i++)
         //{
         //    Debug.Log(i);
@@ -100,6 +101,6 @@ public class Train : MonoBehaviour
         _gizmoHeight += (Margin * amountOfCarts);
         Gizmos.color = Color.green;
 
-        Gizmos.DrawWireCube(new Vector3(0, transform.position.y - (_gizmoHeight / 2), 0), new Vector3(5, _gizmoHeight, 0));
+        Gizmos.DrawWireCube(new Vector3(transform.position.x, transform.position.y - (_gizmoHeight / 2), 0), new Vector3(5, _gizmoHeight, 0));
     }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CollisionHandler : MonoBehaviour
 {
-
     public static void DoCollision(Rigidbody2D p1, Rigidbody2D p2)
 	{
 		float p1Speed = p1.velocity.magnitude;

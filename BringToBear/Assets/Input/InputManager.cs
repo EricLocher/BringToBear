@@ -7,25 +7,17 @@ public class InputManager : MonoBehaviour
 {
 
     [SerializeField] PlayerInputManager PlayerManager;
-    public List<PlayerInput> playerList = new List<PlayerInput>();
-    public GameController gameController;
-
     [SerializeField] InputAction joinAction, leaveAction;
 
+    [SerializeField] List<PlayerInput> playerList = new List<PlayerInput>();
 
     public event System.Action<PlayerInput> PlayerJoinedGame;
     public event System.Action<PlayerInput> PlayerLeftGame;
-
 
     private void Awake()
     {
         joinAction.Enable();
         joinAction.performed += context => JoinAction(context);
-    }
-
-    private void Start()
-    {
-        
     }
 
     void JoinAction(InputAction.CallbackContext context)
@@ -48,6 +40,6 @@ public class InputManager : MonoBehaviour
 
     void OnPlayerLeft(PlayerInput playerInput)
     {
-
+        Debug.LogError("FUNCTION NOT IMPLEMENTED");
     }
 }

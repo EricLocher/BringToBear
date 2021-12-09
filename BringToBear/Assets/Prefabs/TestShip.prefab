@@ -787,8 +787,8 @@ MonoBehaviour:
   anim: {fileID: 0}
   mainCam: {fileID: 0}
   Shield: {fileID: 3841131823115436787}
-  invincible: 0
   attack: {fileID: 2312424755723544961}
+  invincible: 0
   playerDamage: 0
   score: 0
 --- !u!114 &5640912145538070939
@@ -823,7 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342ea8dc067fc97428dd065560787a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myGun: {fileID: 11400000, guid: 4b72b631976e48945914653699c745cf, type: 2}
+  myGun: {fileID: 11400000, guid: b88bff255f397144ab2b6d2646d5d65e, type: 2}
 --- !u!114 &2223364314247379409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -981,7 +981,7 @@ Rigidbody2D:
   m_Mass: 5
   m_LinearDrag: 0.07
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
