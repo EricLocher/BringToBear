@@ -16,9 +16,16 @@ public class CoinsPickup : MonoBehaviour, IInteractable
         transform.rotation = _rotation;
     }
 
+    void Update()
+    {
+        if (transform.position.y < -65)
+            Destroy(gameObject);
+    }
+
     public void Interact(PlayerController player)
     {
         //scoreKeeper.AddScore(player, score);
         Destroy(gameObject);
     }
+
 }

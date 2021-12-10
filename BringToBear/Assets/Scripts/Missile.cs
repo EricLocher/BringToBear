@@ -25,7 +25,7 @@ public class Missile : MonoBehaviour, IBullet
     {
         foreach (PlayerController _player in GameController.Players)
         {
-            if (_player == Owner) { continue; }
+            if (_player.gameObject == Owner) { continue; }
 
             Vector3 _playerPos = _player.transform.position;
 

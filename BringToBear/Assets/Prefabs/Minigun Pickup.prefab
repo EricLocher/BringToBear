@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7205129169322551078}
   - component: {fileID: 6850625177555094209}
   m_Layer: 0
-  m_Name: Railgun Pickup
+  m_Name: Minigun Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c8b4aa68e29a7bf4ba60dadfe3669e4b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a71ef9da35a6f6488eea86507400c11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6763c42c15c5ef149b16090eae69b08c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 11400000, guid: 4b72b631976e48945914653699c745cf, type: 2}
+  gun: {fileID: 11400000, guid: 19f261aaf5375774ba4f3ee20878a3ec, type: 2}
 --- !u!58 &7205129169322551078
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -26,8 +26,8 @@ public class Cart : MonoBehaviour, ICharacter
             for (int i = 0; i < 25; i++)
             {
                 Instantiate(Pickups[0], transform.position, Quaternion.identity);
+               
             }
-
             Destroy(gameObject);
         }
 
@@ -69,15 +69,31 @@ public class Cart : MonoBehaviour, ICharacter
     public void Damage(int amount)
     {
         cartHP = cartHP - amount;
-        int dropTable = Random.Range(0, 21);
+        int dropTable = Random.Range(0, 71);
 
-        if (dropTable < 10)
+        if (dropTable < 30)
         {
             Instantiate(Pickups[0], transform.position, Quaternion.identity);
         }
-        if (dropTable == 11)
-        { 
-            Instantiate(Pickups[1], transform.position, Quaternion.identity);
+        if (dropTable > 31 && dropTable < 35)
+        {
+            int _weapon = Random.Range(0, 3);
+
+            switch (_weapon)
+            {
+                case 0:
+                    Instantiate(Pickups[1], transform.position, Quaternion.identity);
+                    break;
+                case 1:
+                    Instantiate(Pickups[2], transform.position, Quaternion.identity);
+                    break;
+                case 2:
+                    Instantiate(Pickups[3], transform.position, Quaternion.identity);
+                    break;
+                default:
+                    break;
+            }
+
         }
 
     }

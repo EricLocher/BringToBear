@@ -65,15 +65,15 @@ public class CameraController : MonoBehaviour
     public void CameraZoom()
     {
 
-        if (Players.Count <= 0) { return; }
-        float minX = Players[0].transform.position.x,
-              maxX = Players[0].transform.position.x,
-              minY = Players[0].transform.position.y,
-              maxY = Players[0].transform.position.y;
+        //if (Players.Count <= 0) { return; }
+        float minX = 0,
+              maxX = 0,
+              minY = 0,
+              maxY = 0;
 
         foreach (PlayerController player in Players)
         {
-            if (player == Players[0]) { continue; }
+           // if (player == Players[0]) { continue; }
 
             if (
                 Mathf.Abs(transform.position.y - player.transform.position.y) > (maxSize)
@@ -100,6 +100,12 @@ public class CameraController : MonoBehaviour
                 minY = playerPos.y;
 
 
+        }
+
+
+        if (maxY - minY > maxSize)
+        {
+            minY = maxY - maxSize;
         }
 
         Vector2 cameraCenter = new Vector2(((minX + maxX) / 2), ((minY + maxY) / 2));
@@ -139,5 +145,10 @@ public class CameraController : MonoBehaviour
         cameraEdges.transform.localScale = Vector2.one * Camera.main.orthographicSize / maxSize;
     }
 
-
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(new Vector2(viewMinX, viewMaxY), new Vector2(viewMaxX, viewMaxY));
+        Gizmos.DrawLine(new Vector2(viewMinX, viewMinY), new Vector2(viewMaxX, viewMinY));
+    }
 }

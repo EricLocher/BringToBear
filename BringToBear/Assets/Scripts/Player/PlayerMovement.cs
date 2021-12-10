@@ -91,8 +91,18 @@ public class PlayerMovement : MonoBehaviour
     public void Thrust(float thrustPower)
     {
         if (thrustPower > 0) { thrust = 400 * thrustPower; }
+        //rb.AddForce(transform.up * thrust * Time.deltaTime, ForceMode2D.Impulse);
 
-        rb.AddForce(transform.up * thrust * Time.deltaTime, ForceMode2D.Impulse);
+        Vector2 forceToAdd = transform.up * thrust * Time.deltaTime;
+        if (Mathf.Abs(rb.velocity.x + forceToAdd.x) < 75)
+        {
+            rb.AddForce(new Vector2(forceToAdd.x, 0), ForceMode2D.Impulse);
+        }
+
+        if (Mathf.Abs(rb.velocity.y + forceToAdd.y) < 75)
+        {
+            rb.AddForce(new Vector2(0, forceToAdd.y), ForceMode2D.Impulse);
+        }
     }
 
     public void Brake(float brakePower)
