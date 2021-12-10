@@ -13,7 +13,7 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 2;
-        trafficThrust = Random.Range(1, 100);
+        trafficThrust = Random.Range(10, 45);
     }
 
     void Update()

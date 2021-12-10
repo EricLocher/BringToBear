@@ -183,9 +183,5 @@ public class PlayerController : MonoBehaviour, ICharacter
         playerDamage += amount;
     }
 
-    public void SetWeapon(Gun weapon)
-    {
-        attack.myGun = weapon;
-    }
 
 }

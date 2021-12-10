@@ -136,7 +136,7 @@ public class CameraController : MonoBehaviour
 
     void UpdateEdges()
     {
-        //cameraEdges.transform.localScale = Vector2.one * Camera.main.orthographicSize / maxSize;
+        cameraEdges.transform.localScale = Vector2.one * Camera.main.orthographicSize / maxSize;
     }
 
 

@@ -7,6 +7,8 @@ public class Gun : ScriptableObject
 {
     public GameObject bullet;
     public int amountOfGuns;
+    public bool infAmmo;
+    [SerializeField, Range(0, 1000)]
     public int ammo;
     public float fireRate;
     public float spread;

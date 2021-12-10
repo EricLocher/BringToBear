@@ -154,11 +154,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10000
+  m_Mass: 100000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f49e35c21c2c79849af31db6d159a48e, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -178,6 +178,6 @@ MonoBehaviour:
   connectedCart: {fileID: 0}
   cartHP: 1000
   Pickups:
-  - {fileID: 7205129169322551079, guid: 39d8e1f623883d54d9e8ef1a553042ef, type: 3}
+  - {fileID: 9053389110505902517, guid: 794f40cd5446f8a439dcf22abb2dd3a3, type: 3}
   - {fileID: 7205129169322551079, guid: 39d8e1f623883d54d9e8ef1a553042ef, type: 3}
   - {fileID: 7205129169322551079, guid: 39d8e1f623883d54d9e8ef1a553042ef, type: 3}

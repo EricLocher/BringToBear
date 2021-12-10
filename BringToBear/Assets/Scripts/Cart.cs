@@ -22,7 +22,12 @@ public class Cart : MonoBehaviour, ICharacter
         {
             transform.parent.GetComponent<Train>().DestroyedCart(gameObject);
             int selectedPickup = Random.Range(0, Pickups.Count - 1);
-            //Instantiate(Pickups[selectedPickup]);
+
+            for (int i = 0; i < 25; i++)
+            {
+                Instantiate(Pickups[0], transform.position, Quaternion.identity);
+            }
+
             Destroy(gameObject);
         }
 
@@ -32,7 +37,7 @@ public class Cart : MonoBehaviour, ICharacter
 
     public void Move()
     {
-        if(connectedCart == null) { return; }
+        if (connectedCart == null) { return; }
 
         Vector2 _cartPos = connectedCart.transform.position;
 
@@ -64,5 +69,16 @@ public class Cart : MonoBehaviour, ICharacter
     public void Damage(int amount)
     {
         cartHP = cartHP - amount;
+        int dropTable = Random.Range(0, 21);
+
+        if (dropTable < 10)
+        {
+            Instantiate(Pickups[0], transform.position, Quaternion.identity);
+        }
+        if (dropTable == 11)
+        { 
+            Instantiate(Pickups[1], transform.position, Quaternion.identity);
+        }
+
     }
 }

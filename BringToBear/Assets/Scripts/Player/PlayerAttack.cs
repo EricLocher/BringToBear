@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public Gun defaultGun;
     public Gun myGun;
+    public int myAmmo = 0;
     float timer = 0;
 
     void Update()
@@ -12,6 +14,11 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack()
     {
+        if(myAmmo == 0 && !myGun.infAmmo)
+        {
+            myGun = defaultGun;
+        }
+
         if (timer > myGun.fireRate)
         {
             float _spacing = myGun.spread / (float)myGun.amountOfGuns;
@@ -36,13 +43,17 @@ public class PlayerAttack : MonoBehaviour
                 Destroy(_Bullet, 10f);
 
                 _Pos.x += _spacing;
+                myAmmo--;
             }
 
             timer = 0;
         }
     }
 
+    public void SetWeapon(Gun weapon)
+    {
+        myGun = weapon;
+        myAmmo = weapon.ammo;
+    }
 
 }
-
-
