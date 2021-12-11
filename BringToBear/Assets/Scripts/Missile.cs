@@ -4,11 +4,12 @@ using UnityEngine;
 public class Missile : MonoBehaviour, IBullet
 {
     public float maxSpeed, acceleration;
+    public float force;
     public float trackRadius;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject Explosion;
 
-    public int damage = 10;
+    public int damage;
 
     float currentTrackRadius = 0;
     GameObject currentTarget;

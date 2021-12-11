@@ -194,6 +194,4 @@ public class PlayerController : MonoBehaviour, ICharacter
         if (!shielded)
         playerDamage += amount;
     }
-
-
 }

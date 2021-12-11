@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2991280105366608016}
   - component: {fileID: -1035715228593571686}
   m_Layer: 0
-  m_Name: MiniGunBullet
+  m_Name: MachineGunBullet
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8215515287612754749}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0.004, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 631ed8782882cb844a9a130498a8378f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 70ec311ad664b81499d3dbcd608b7a33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1589d06a0afa5d84484fb0a1528d7af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 180
+  speed: 140
   force: 2
   damage: 5
   Explosion: {fileID: 8334939523296961542, guid: 669706ec098549c41beb1fd04aedc142, type: 3}

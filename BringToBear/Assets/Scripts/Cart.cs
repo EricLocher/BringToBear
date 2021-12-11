@@ -75,9 +75,9 @@ public class Cart : MonoBehaviour, ICharacter
         {
             Instantiate(Pickups[0], transform.position, Quaternion.identity);
         }
-        if (dropTable > 31 && dropTable < 35)
+        if (dropTable == 31)
         {
-            int _weapon = Random.Range(0, 3);
+            int _weapon = Random.Range(0, 4);
 
             switch (_weapon)
             {
@@ -89,6 +89,9 @@ public class Cart : MonoBehaviour, ICharacter
                     break;
                 case 2:
                     Instantiate(Pickups[3], transform.position, Quaternion.identity);
+                    break;
+                case 3:
+                    Instantiate(Pickups[4], transform.position, Quaternion.identity);
                     break;
                 default:
                     break;

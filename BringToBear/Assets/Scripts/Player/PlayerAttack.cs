@@ -14,7 +14,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack()
     {
-        if(myAmmo == 0 && !myGun.infAmmo)
+        if(myAmmo <= 0 && !myGun.infAmmo)
         {
             myGun = defaultGun;
         }

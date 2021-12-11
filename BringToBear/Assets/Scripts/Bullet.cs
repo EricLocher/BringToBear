@@ -4,6 +4,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour, IBullet
 {
     public float speed;
+    public float force;
     public int damage;
     public GameObject Explosion;
     Rigidbody2D rb;
@@ -33,15 +34,22 @@ public class Bullet : MonoBehaviour, IBullet
         {
             if (other.GetComponent<ICharacter>() != null)
             {
+                if (other.CompareTag("Player"))
+                {
+                    other.GetComponent<Rigidbody2D>().AddForce(rb.velocity * force * other.GetComponent<PlayerController>().playerDamage / 1000);
+                }
+                
                 other.GetComponent<ICharacter>().Damage(damage);
                 Destroy(gameObject);
             }
         }
-        
+
         if (other.gameObject.CompareTag("Shield") && other.gameObject != OwnerShield)
+        {
             rb.velocity = -rb.velocity;
-        Owner = other.gameObject;
-        OwnerShield = other.transform.GetChild(1).gameObject;
+            Owner = other.gameObject;
+            OwnerShield = other.transform.GetChild(1).gameObject;
+        }
 
 
 
