@@ -10815,7 +10815,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816057600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.5, y: -84.06735, z: -10}
+  m_LocalPosition: {x: 5.5, y: -9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 452514898}
@@ -10851,6 +10851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameController: {fileID: 1891402964}
   map: {fileID: 346540498}
+  cameraEdges: {fileID: 0}
   minRotation: 0.001
   maxRotation: 0.009
   minSize: 30

@@ -14,6 +14,7 @@ public class Missile : MonoBehaviour, IBullet
     GameObject currentTarget;
 
     public GameObject Owner { get; set; }
+    public GameObject OwnerShield { get; set; }
 
     void Start()
     {

@@ -13,6 +13,7 @@ TagManager:
   - ForwardAssist
   - CameraField
   - Indicator
+  - Shield
   layers:
   - Default
   - TransparentFX

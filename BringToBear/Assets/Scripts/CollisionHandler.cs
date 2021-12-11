@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CollisionHandler : MonoBehaviour
 {
-    public static void DoCollision(Rigidbody2D p1, Rigidbody2D p2)
+    public static void DoCollision(Rigidbody2D p1, Rigidbody2D p2, float shieldForce)
 	{
 		float p1Speed = p1.velocity.magnitude;
 		float p2Speed = p2.velocity.magnitude;
@@ -24,8 +24,8 @@ public class CollisionHandler : MonoBehaviour
 			p1Speed *= 0.5f;
 		}
 
-		p1.AddForce(p2Speed * p2Angle * p1damagePercentage, ForceMode2D.Impulse);
-		p2.AddForce(p1Speed * p1Angle * p2damagePercentage, ForceMode2D.Impulse);
+		p1.AddForce(p2Speed * p2Angle * p1damagePercentage * shieldForce, ForceMode2D.Impulse);
+		p2.AddForce(p1Speed * p1Angle * p2damagePercentage * shieldForce, ForceMode2D.Impulse);
 
 		p1.GetComponent<PlayerController>().invincible = true;
 	}

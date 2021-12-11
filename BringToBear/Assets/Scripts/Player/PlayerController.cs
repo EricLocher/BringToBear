@@ -11,13 +11,15 @@ public class PlayerController : MonoBehaviour, ICharacter
     [SerializeField] GameObject Shield;
     [SerializeField] PlayerAttack attack;
     public bool invincible;
+    public bool shielded;
     Rigidbody2D rb;
 
     public float playerDamage = 0;
     public int score = 0;
+    public float shieldForce;
 
     bool isThrust = false, isBrake = false, isAttacking = false;
-    bool shielded = false, dashing = false;
+    bool dashing = false;
 
     private void Start()
     {
@@ -113,9 +115,12 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     public void ToggleShield(InputAction.CallbackContext value)
     {
-        shielded = true;
-        Shield.SetActive(true);
-        StartCoroutine(ShieldTime());
+        if (!shielded)
+        {
+            shielded = true;
+            Shield.SetActive(true);
+            StartCoroutine(ShieldTime());
+        }
     }
 
     public void Dash(InputAction.CallbackContext value)
@@ -131,15 +136,20 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Shield"))
         {
             Rigidbody2D _otherRb = other.GetComponent<Rigidbody2D>();
-            
+
             if (!invincible && !other.GetComponent<PlayerController>().invincible)
-            CollisionHandler.DoCollision(rb, _otherRb);
-            
-            invincible = true;
-            StartCoroutine(InvinceTime());
+            {
+                if (shielded)
+                    shieldForce = 2;
+                else
+                    shieldForce = 1;
+               CollisionHandler.DoCollision(rb, _otherRb, shieldForce);
+               invincible = true;
+               StartCoroutine(InvinceTime());
+            }
         }
         else
         {
@@ -155,6 +165,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     {
         yield return new WaitForSeconds(1);
         Shield.SetActive(false);
+        yield return new WaitForSeconds(1);
         shielded = false;
     }
 
@@ -180,6 +191,7 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     public void Damage(int amount)
     {
+        if (!shielded)
         playerDamage += amount;
     }
 

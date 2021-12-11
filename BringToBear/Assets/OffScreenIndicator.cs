@@ -39,7 +39,6 @@ public class OffScreenIndicator : MonoBehaviour
             direction = direction.normalized;
 
             RaycastHit2D ray = Physics2D.Raycast(center, -direction, 80, layer);
-            Debug.Log(ray.point);
 
 
             if (ray.collider != null)

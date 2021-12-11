@@ -40,6 +40,8 @@ public class PlayerAttack : MonoBehaviour
                 }
 
                 _Bullet.GetComponent<IBullet>().Owner = gameObject;
+                _Bullet.GetComponent<IBullet>().OwnerShield = transform.GetChild(1).gameObject;
+
                 Destroy(_Bullet, 10f);
 
                 _Pos.x += _spacing;

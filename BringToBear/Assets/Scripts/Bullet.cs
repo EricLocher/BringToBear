@@ -6,26 +6,28 @@ public class Bullet : MonoBehaviour, IBullet
     public float speed;
     public int damage;
     public GameObject Explosion;
+    Rigidbody2D rb;
 
     public GameObject Owner { get; set; }
+    public GameObject OwnerShield { get; set; }
 
     void Start()
     {
-        transform.GetComponent<Rigidbody2D>().velocity = transform.up * speed;
+        rb = transform.GetComponent<Rigidbody2D>();
+        rb.velocity = transform.up * speed;
     }
 
     void Update()
     {
         foreach (PlayerController _player in GameController.Players)
         {
-            if (_player == Owner) { continue; }
+            if (_player == Owner || _player == OwnerShield) { continue; }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Projectile")) { return; }
-
 
         if (other.gameObject != Owner)
         {
@@ -35,6 +37,17 @@ public class Bullet : MonoBehaviour, IBullet
                 Destroy(gameObject);
             }
         }
+        
+        if (other.gameObject.CompareTag("Shield") && other.gameObject != OwnerShield)
+            rb.velocity = -rb.velocity;
+        Owner = other.gameObject;
+        OwnerShield = other.transform.GetChild(1).gameObject;
+
+
+
+
+
+
     }
 
     private void OnDestroy()
