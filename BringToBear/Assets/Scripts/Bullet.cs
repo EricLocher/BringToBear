@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour, IBullet
     {
         foreach (PlayerController _player in GameController.Players)
         {
-            if (_player == Owner || _player == OwnerShield) { continue; }
+            if (_player == Owner) { continue; }
         }
     }
 
@@ -44,11 +44,10 @@ public class Bullet : MonoBehaviour, IBullet
             }
         }
 
-        if (other.gameObject.CompareTag("Shield") && other.gameObject != OwnerShield)
+        if (other.gameObject.CompareTag("Shield") && other.transform.parent.gameObject != Owner)
         {
             rb.velocity = -rb.velocity;
-            Owner = other.gameObject;
-            OwnerShield = other.transform.GetChild(1).gameObject;
+            Owner = other.transform.parent.gameObject;
         }
 
 
