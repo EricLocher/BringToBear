@@ -69,13 +69,13 @@ public class Cart : MonoBehaviour, ICharacter
     public void Damage(int amount)
     {
         cartHP = cartHP - amount;
-        int dropTable = Random.Range(0, 71);
+        int dropTable = Random.Range(0, 81);
 
-        if (dropTable < 30)
+        if (dropTable < 35)
         {
             Instantiate(Pickups[0], transform.position, Quaternion.identity);
         }
-        if (dropTable == 31)
+        if (dropTable > 35 && dropTable < 38)
         {
             int _weapon = Random.Range(0, 4);
 
