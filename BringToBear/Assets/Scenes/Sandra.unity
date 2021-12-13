@@ -130,9 +130,49 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7661993737802221630, guid: 20d0fef28e1f7e4449b35cab7783ca46, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.75741607
+      objectReference: {fileID: 0}
+    - target: {fileID: -7661993737802221630, guid: 20d0fef28e1f7e4449b35cab7783ca46, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.611364
+      objectReference: {fileID: 0}
+    - target: {fileID: -6842574686006856225, guid: 20d0fef28e1f7e4449b35cab7783ca46, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.846419
+      objectReference: {fileID: 0}
+    - target: {fileID: -6842574686006856225, guid: 20d0fef28e1f7e4449b35cab7783ca46, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.2307665
+      objectReference: {fileID: 0}
     - target: {fileID: -2868464408433568027, guid: 20d0fef28e1f7e4449b35cab7783ca46, type: 3}
       propertyPath: m_Name
       value: Mama bear ship
+      objectReference: {fileID: 0}
+    - target: {fileID: -1844813183753886615, guid: 20d0fef28e1f7e4449b35cab7783ca46, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.7179794
+      objectReference: {fileID: 0}
+    - target: {fileID: -1844813183753886615, guid: 20d0fef28e1f7e4449b35cab7783ca46, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.618167
+      objectReference: {fileID: 0}
+    - target: {fileID: 373900195851098768, guid: 20d0fef28e1f7e4449b35cab7783ca46, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.05904281
+      objectReference: {fileID: 0}
+    - target: {fileID: 373900195851098768, guid: 20d0fef28e1f7e4449b35cab7783ca46, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.7965145
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739161566914015594, guid: 20d0fef28e1f7e4449b35cab7783ca46, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.8005247
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739161566914015594, guid: 20d0fef28e1f7e4449b35cab7783ca46, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.392021
       objectReference: {fileID: 0}
     - target: {fileID: 4738281942675658875, guid: 20d0fef28e1f7e4449b35cab7783ca46, type: 3}
       propertyPath: m_RootOrder
