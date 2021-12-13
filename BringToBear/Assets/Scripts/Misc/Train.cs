@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Train : MonoBehaviour
 {
@@ -13,13 +14,13 @@ public class Train : MonoBehaviour
     public GameObject CartPrefab;
     public List<GameObject> Carts = new List<GameObject>();
 
-    float test;
+    float seed;
 
     private float cartMargin;
     private void Start()
     {
 
-        test = Random.Range(0, 100000);
+        seed = Random.Range(0, 100000);
         cartBound = CartPrefab.GetComponent<SpriteRenderer>().bounds;
         trainHeight = ((cartBound.extents.y * 2) * amountOfCarts);
 
@@ -100,14 +101,23 @@ public class Train : MonoBehaviour
         {
             foreach (GameObject cart in Carts)
             {
-                cart.transform.position -= new Vector3(0, 10f * Time.deltaTime, 0);
+                //cart.transform.position -= new Vector3(0, 10f * Time.deltaTime, 0);
+                cart.transform.DOMove(cart.transform.position - new Vector3(0, 100, 0), 10f);
+            }
+        }
+        else
+        {
+            foreach (GameObject cart in Carts)
+            {
+                cart.transform.DOKill();
             }
         }
     }
 
     private void RandomMove()
     {
-        float _moveX = Mathf.PerlinNoise(test, Time.time) - 0.5f;
+        float _moveX = Mathf.PerlinNoise(seed, Time.time) - 0.5f;
+
         _moveX /= 10;
 
         _moveX += ((Carts[Carts.Count - 1].transform.position.x - transform.position.x) * -1) * Time.deltaTime;

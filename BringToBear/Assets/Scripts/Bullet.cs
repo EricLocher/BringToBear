@@ -50,11 +50,6 @@ public class Bullet : MonoBehaviour, IBullet
             Owner = other.transform.parent.gameObject;
         }
 
-
-
-
-
-
     }
 
     private void OnDestroy()

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     [SerializeField] Camera mainCam;
     [SerializeField] GameObject Shield;
     [SerializeField] PlayerAttack attack;
+    [SerializeField] PlayerDash dash;
     public bool invincible;
     public bool shielded;
     Rigidbody2D rb;
@@ -19,13 +20,11 @@ public class PlayerController : MonoBehaviour, ICharacter
     public float shieldForce;
 
     bool isThrust = false, isBrake = false, isAttacking = false;
-    bool dashing = false;
 
     private void Start()
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody2D>();
-
     }
 
     void Update()
@@ -38,7 +37,6 @@ public class PlayerController : MonoBehaviour, ICharacter
 
         if (isAttacking)
             attack.Attack();
-        //this.GetComponent<Rigidbody2D>().velocity = new Vector2(this.GetComponent<Rigidbody2D>().velocity.x,Mathf.Clamp(this.GetComponent<Rigidbody2D>().velocity.y, -8, 8));
     }
 
     #region Inputs
@@ -125,12 +123,7 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     public void Dash(InputAction.CallbackContext value)
     {
-        if (!dashing)
-        {
-            movement.Dash();
-            dashing = true;
-            StartCoroutine(DashTime());
-        }
+        dash.Dash();
     }
     #endregion
 
@@ -167,12 +160,6 @@ public class PlayerController : MonoBehaviour, ICharacter
         Shield.SetActive(false);
         yield return new WaitForSeconds(1);
         shielded = false;
-    }
-
-    IEnumerator DashTime()
-    {
-        yield return new WaitForSeconds(1);
-        dashing = false;
     }
 
     IEnumerator InvinceTime()
