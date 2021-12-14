@@ -9,40 +9,48 @@ public class PlayerDash : MonoBehaviour
     float distance;
     [SerializeField] LayerMask layer;
     [SerializeField] float dashTime;
+    IEnumerator currentCoroutine;
 
+    public bool dashing;
     public void Dash()
     {
+        transform.DOKill();
+        if(currentCoroutine != null)
+        StopCoroutine(currentCoroutine);
 
         Vector2 _dir = (transform.up * distance).normalized;
         Rigidbody2D _rb = GetComponent<Rigidbody2D>();
         RaycastHit2D[] _hit = Physics2D.RaycastAll(transform.position, _dir, distance, layer);
-        
+
+        dashing = true;
+
         if(_hit.Length > 1)
         {
             if (_hit[1].collider != null)
             {
 
                 transform.DOMove(_hit[1].point, dashTime * ((_hit[1].point - (Vector2)transform.position).magnitude / distance));
-                StartCoroutine(Dashing(dashTime * ((_hit[1].point - (Vector2)transform.position).magnitude / distance)));
+                currentCoroutine = Dashing(dashTime * ((_hit[1].point - (Vector2)transform.position).magnitude / distance) - 0.01f);
             }
         }
         else
         {
-            transform.DOMove(transform.position + transform.up * distance, dashTime);
-            StartCoroutine(Dashing(dashTime));
+            transform.DOMove(transform.position + transform.up * distance, dashTime - 0.01f);
+            currentCoroutine = Dashing(dashTime);
         }
 
+        StartCoroutine(currentCoroutine);
         _rb.AddForce(transform.up * 1000, ForceMode2D.Impulse);
 
     }
-
 
     IEnumerator Dashing(float time)
     {
         yield return new WaitForSeconds(time);
         Rigidbody2D _rb = GetComponent<Rigidbody2D>();
         _rb.velocity = Vector2.zero;
-        _rb.AddForce(transform.up * 200, ForceMode2D.Impulse);
+        _rb.AddForce(transform.up * 100, ForceMode2D.Impulse);
+        dashing = false;
     }
 
 

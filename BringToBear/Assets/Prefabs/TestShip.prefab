@@ -952,6 +952,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   dashTime: 0.2
+  dashing: 0
 --- !u!114 &2223364314247379409
 MonoBehaviour:
   m_ObjectHideFlags: 0

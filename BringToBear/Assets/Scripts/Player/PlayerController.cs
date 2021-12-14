@@ -22,12 +22,15 @@ public class PlayerController : MonoBehaviour, ICharacter
     public int coinsOnMamaBear = 0;
 
     bool isThrust = false, isBrake = false, isAttacking = false;
-    bool dashing = false;
+    bool dashCoolDown = false, dashButton = false;
+
+    public int amountOfDashes = 3;
 
     private void Start()
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody2D>();
+        StartCoroutine(ReloadDashes());
     }
 
     void Update()
@@ -46,6 +49,7 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     public void Movement(InputAction.CallbackContext value)
     {
+        if (dash.dashing) { return; }
 
         if (movement.GetDriftMode()) { return; }
         Vector2 _dir = value.ReadValue<Vector2>();
@@ -127,12 +131,23 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     public void Dash(InputAction.CallbackContext value)
     {
-        if (!dashing)
+        if (amountOfDashes <= 0) { return; }
+
+        if (dashButton)
         {
-            dash.Dash();
-            dashing = true;
-            StartCoroutine(DashTime());
+            if (value.ReadValue<float>() < 0.5)
+                dashButton = false;
+
+            return;
         }
+
+        dashButton = true;
+        amountOfDashes--;
+
+        dash.Dash();
+        dashCoolDown = true;
+
+
     }
     public void DropHoney(InputAction.CallbackContext value)
     {
@@ -153,9 +168,9 @@ public class PlayerController : MonoBehaviour, ICharacter
                     shieldForce = 2;
                 else
                     shieldForce = 1;
-               CollisionHandler.DoCollision(rb, _otherRb, shieldForce);
-               invincible = true;
-               StartCoroutine(InvinceTime());
+                CollisionHandler.DoCollision(rb, _otherRb, shieldForce);
+                invincible = true;
+                StartCoroutine(InvinceTime());
             }
         }
         else
@@ -179,13 +194,21 @@ public class PlayerController : MonoBehaviour, ICharacter
     IEnumerator DashTime()
     {
         yield return new WaitForSeconds(1);
-        dashing = false;
+        dashCoolDown = false;
     }
 
     IEnumerator InvinceTime()
     {
         yield return new WaitForSeconds(0.2f);
         invincible = false;
+    }
+
+    IEnumerator ReloadDashes()
+    {
+        yield return new WaitForSeconds(1.5f);
+        if (amountOfDashes <= 3)
+            amountOfDashes++;
+        StartCoroutine(ReloadDashes());
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -199,6 +222,6 @@ public class PlayerController : MonoBehaviour, ICharacter
     public void Damage(int amount)
     {
         if (!shielded)
-        playerDamage += amount;
+            playerDamage += amount;
     }
 }
