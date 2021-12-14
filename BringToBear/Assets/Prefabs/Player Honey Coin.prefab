@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 5578517637623206671}
   - component: {fileID: 4922278986506713168}
   m_Layer: 0
-  m_Name: Honey Coin
-  m_TagString: Untagged
+  m_Name: Player Honey Coin
+  m_TagString: PlayerCoin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

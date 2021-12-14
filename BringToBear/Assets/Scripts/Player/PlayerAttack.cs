@@ -28,11 +28,16 @@ public class PlayerAttack : MonoBehaviour
             float playerRotation = transform.eulerAngles.z;
             float randomRotation;
 
+            int fireSound = Random.Range(0, 7);
+
+
+            
+
             for (int i = 0; i < myGun.amountOfGuns; i++)
             {
                 GameObject _Bullet = Instantiate(myGun.bullet, transform.position + _Pos, transform.rotation);
                 _Bullet.transform.position = transform.rotation * (_Bullet.transform.position - transform.position) + transform.position;
-
+                
                 if (myGun.spreadMode)
                 {
                     randomRotation = playerRotation + Random.Range(-myGun.spreadRotation, myGun.spreadRotation);
@@ -45,7 +50,10 @@ public class PlayerAttack : MonoBehaviour
 
                 _Pos.x += _spacing;
                 myAmmo--;
+
             }
+
+            
 
             timer = 0;
         }
