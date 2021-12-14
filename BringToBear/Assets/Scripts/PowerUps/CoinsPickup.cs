@@ -7,6 +7,7 @@ public class CoinsPickup : MonoBehaviour, IInteractable
     public int score;
     float spawnForce;
     GameObject Bullet;
+    public PlayerController owner;
     ScoreKeeper scoreKeeper;
     
     void Start()
@@ -28,6 +29,10 @@ public class CoinsPickup : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController player)
     {
+        if(player = owner)
+        {
+            return;
+        }
         scoreKeeper.AddScore(player, score);
         Destroy(gameObject);
     }

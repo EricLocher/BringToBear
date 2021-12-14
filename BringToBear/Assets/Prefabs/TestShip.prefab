@@ -891,6 +891,7 @@ MonoBehaviour:
   anim: {fileID: 2360870025788018867}
   mainCam: {fileID: 0}
   Shield: {fileID: 3841131823115436787}
+  Coin: {fileID: 9053389110505902517, guid: 4b2b8e49fab1cb1499a8b1532b655990, type: 3}
   attack: {fileID: 2312424755723544961}
   dash: {fileID: 8527375419030901408}
   invincible: 0

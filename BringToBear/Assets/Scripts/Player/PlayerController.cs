@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     [SerializeField] ShipAnimation anim;
     [SerializeField] Camera mainCam;
     [SerializeField] GameObject Shield;
+    [SerializeField] GameObject Coin;
     [SerializeField] PlayerAttack attack;
     [SerializeField] PlayerDash dash;
     public bool invincible;
@@ -135,7 +136,8 @@ public class PlayerController : MonoBehaviour, ICharacter
     }
     public void DropHoney(InputAction.CallbackContext value)
     {
-
+        GameObject _coin = Instantiate(Coin, transform.position, Quaternion.identity);
+        _coin.GetComponent<CoinsPickup>().owner = this;
     }
     #endregion
 
