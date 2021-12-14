@@ -13,7 +13,7 @@ public class ScoreKeeperUI : MonoBehaviour
         string str = "";
         for (int i = 0; i < scoreKeeper.ScoreKeeping.Count; i++)
         {
-            str += "Player" + (i + 1).ToString() + " score: " + scoreKeeper.ScoreKeeping[i].score.ToString() + " "; 
+            str += "Player" + (i + 1).ToString() + " score: " + scoreKeeper.ScoreKeeping[i].coinsOnPlayer.ToString() + " "; 
         }
         scoreText.text = str;
     }
