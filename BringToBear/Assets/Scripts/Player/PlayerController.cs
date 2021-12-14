@@ -15,8 +15,9 @@ public class PlayerController : MonoBehaviour, ICharacter
     Rigidbody2D rb;
 
     public float playerDamage = 0;
-    public int score = 0;
     public float shieldForce;
+    public int coinsOnPlayer = 0;
+    public int coinsOnMamaBear = 0;
 
     bool isThrust = false, isBrake = false, isAttacking = false;
     bool dashing = false;
@@ -131,6 +132,10 @@ public class PlayerController : MonoBehaviour, ICharacter
             dashing = true;
             StartCoroutine(DashTime());
         }
+    }
+    public void DropHoney(InputAction.CallbackContext value)
+    {
+
     }
     #endregion
 

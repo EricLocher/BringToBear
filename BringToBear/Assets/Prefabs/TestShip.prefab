@@ -896,6 +896,8 @@ MonoBehaviour:
   playerDamage: 0
   score: 0
   shieldForce: 0
+  coinsOnPlayer: 0
+  coinsOnMamaBear: 0
 --- !u!114 &5640912145538070939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1084,6 +1086,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 47d251ee-fcb1-46de-8a22-29bdb9df9e6a
     m_ActionName: Controls/Shield[/DualShock4GamepadHID/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5640912145538070936}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7da63ecf-d386-46ac-be33-e9bfc409f562
+    m_ActionName: Controls/Drop Honey
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: PS4
   m_DefaultActionMap: Controls
