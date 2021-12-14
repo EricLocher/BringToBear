@@ -59,7 +59,7 @@ public class GravityController : MonoBehaviour
         Gizmos.color = Color.red;
         Vector2 highGravCenter = new Vector2(_tunnelBounds.center.x, _tunnelBounds.max.y);
 
-        Gizmos.DrawWireCube(new Vector2(highGravCenter.x, highGravCenter.y - (highGravityHeight / 2)), new Vector3(_tunnelBounds.extents.x * 2, highGravityHeight, 0));
+        Gizmos.DrawWireCube(new Vector2(highGravCenter.x, highGravCenter.y - (highGravityHeight / 2)), new Vector3(1000, highGravityHeight, 0));
     }
 
 }
