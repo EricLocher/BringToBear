@@ -325,7 +325,7 @@
                     "name": "",
                     "id": "245e5724-d69c-4100-b343-80291bf0a3ec",
                     "path": "<DualShockGamepad>/leftShoulder",
-                    "interactions": "Press",
+                    "interactions": "",
                     "processors": "",
                     "groups": "PS4",
                     "action": "Dash",
