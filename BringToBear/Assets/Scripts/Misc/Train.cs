@@ -122,6 +122,8 @@ public class Train : MonoBehaviour
 
         _moveX += ((Carts[Carts.Count - 1].transform.position.x - transform.position.x) * -1) * Time.deltaTime;
 
+        _moveX *= 2;
+
         Vector2 _newPos = Vector2.zero;
 
         _newPos.x = Carts[Carts.Count - 1].transform.position.x + _moveX;

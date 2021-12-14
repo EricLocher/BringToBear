@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     public float shieldForce;
 
     bool isThrust = false, isBrake = false, isAttacking = false;
+    bool dashing = false;
 
     private void Start()
     {
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     }
 
     #region Inputs
+
     public void Movement(InputAction.CallbackContext value)
     {
 
@@ -123,7 +125,12 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     public void Dash(InputAction.CallbackContext value)
     {
-        dash.Dash();
+        if (!dashing)
+        {
+            dash.Dash();
+            dashing = true;
+            StartCoroutine(DashTime());
+        }
     }
     #endregion
 
@@ -160,6 +167,12 @@ public class PlayerController : MonoBehaviour, ICharacter
         Shield.SetActive(false);
         yield return new WaitForSeconds(1);
         shielded = false;
+    }
+
+    IEnumerator DashTime()
+    {
+        yield return new WaitForSeconds(1);
+        dashing = false;
     }
 
     IEnumerator InvinceTime()
