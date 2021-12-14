@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     [SerializeField] Camera mainCam;
     [SerializeField] GameObject Shield;
     [SerializeField] PlayerAttack attack;
+    [SerializeField] PlayerDash dash;
     public bool invincible;
     public bool shielded;
     Rigidbody2D rb;
@@ -26,7 +27,6 @@ public class PlayerController : MonoBehaviour, ICharacter
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody2D>();
-
     }
 
     void Update()
@@ -39,10 +39,10 @@ public class PlayerController : MonoBehaviour, ICharacter
 
         if (isAttacking)
             attack.Attack();
-        //this.GetComponent<Rigidbody2D>().velocity = new Vector2(this.GetComponent<Rigidbody2D>().velocity.x,Mathf.Clamp(this.GetComponent<Rigidbody2D>().velocity.y, -8, 8));
     }
 
     #region Inputs
+
     public void Movement(InputAction.CallbackContext value)
     {
 
@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     {
         if (!dashing)
         {
-            movement.Dash();
+            dash.Dash();
             dashing = true;
             StartCoroutine(DashTime());
         }

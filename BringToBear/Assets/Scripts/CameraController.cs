@@ -98,8 +98,6 @@ public class CameraController : MonoBehaviour
 
             else if (playerPos.y < minY)
                 minY = playerPos.y;
-
-
         }
 
 
@@ -129,14 +127,9 @@ public class CameraController : MonoBehaviour
         cameraCenter.y = Mathf.Clamp(cameraCenter.y, viewMinY, viewMaxY);
         cameraCenter.x = Mathf.Clamp(cameraCenter.x, viewMinX, viewMaxX);
 
-        if (Mathf.Abs(cameraCenter.x - transform.position.x) > 10f && Mathf.Abs(cameraCenter.y - transform.position.y) > 10f)
-        {
-            transform.DOKill();
-            transform.DOMoveX(cameraCenter.x, 0.2f);
-            transform.DOMoveY(cameraCenter.y, 0.2f);
-        } 
-        else
-        transform.position = new Vector3(cameraCenter.x, cameraCenter.y, -10);
+        transform.DOKill();
+        transform.DOMove(new Vector3(cameraCenter.x, cameraCenter.y, -10), 1f);
+       
     }
 
 

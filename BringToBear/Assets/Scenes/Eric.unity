@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &334391960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 334391962}
+  - component: {fileID: 334391961}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &334391961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334391960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e6765231d3f684eba92016f0ef9d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: 0
+--- !u!4 &334391962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334391960}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.11833662, y: 108.63258, z: -114.41967}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &478682406
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +259,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8730322225074199393, guid: 5e2e649a36919e94ea0f02a0419bd425, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8730322225074199393, guid: 5e2e649a36919e94ea0f02a0419bd425, type: 3}
       propertyPath: m_LocalPosition.x
@@ -261,5 +305,98 @@ PrefabInstance:
       propertyPath: m_Name
       value: InputManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8730322225074199398, guid: 5e2e649a36919e94ea0f02a0419bd425, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 334391961}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e2e649a36919e94ea0f02a0419bd425, type: 3}
+--- !u!1001 &964192725
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2223364314247379409, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312424755723544961, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360870025788018867, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655007351314209007, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: dashTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070936, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_Name
+      value: TestShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070939, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070940, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640912145538070941, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245381916860689196, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8295824540791933494, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
+      propertyPath: m_Name
+      value: CollisionMask(TEST)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 162c65e5dd5ff6f46bee538fcc1fd9aa, type: 3}
