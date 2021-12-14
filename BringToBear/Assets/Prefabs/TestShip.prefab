@@ -946,11 +946,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9c857d70c25104889ef668dd58b401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 0
+  distance: 20
   layer:
     serializedVersion: 2
     m_Bits: 0
-  dashTime: 0
+  dashTime: 0.2
 --- !u!114 &2223364314247379409
 MonoBehaviour:
   m_ObjectHideFlags: 0
