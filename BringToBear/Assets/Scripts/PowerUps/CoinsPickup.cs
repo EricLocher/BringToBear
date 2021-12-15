@@ -6,15 +6,14 @@ public class CoinsPickup : MonoBehaviour, IInteractable
 {
     public int score;
     float spawnForce;
-    GameObject Bullet;
+
     public PlayerController owner;
-    ScoreKeeper scoreKeeper;
+    public ScoreKeeper scoreKeeper;
     
     void Start()
     {
         spawnForce = Random.Range(5, 15);
-        try { scoreKeeper = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreKeeper>(); }
-        catch (System.Exception) { }
+        scoreKeeper = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreKeeper>();
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.AddForce(Random.insideUnitCircle.normalized * spawnForce, ForceMode2D.Impulse);
         Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
@@ -29,7 +28,7 @@ public class CoinsPickup : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController player)
     {
-        if(player = owner)
+        if(player == owner)
         {
             return;
         }

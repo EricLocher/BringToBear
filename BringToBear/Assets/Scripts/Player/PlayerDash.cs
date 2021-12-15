@@ -22,7 +22,7 @@ public class PlayerDash : MonoBehaviour
         Rigidbody2D _rb = GetComponent<Rigidbody2D>();
         RaycastHit2D[] _hit = Physics2D.RaycastAll(transform.position, _dir, distance, layer);
 
-        dashing = true;
+        //dashing = true;
 
         if(_hit.Length > 1)
         {
@@ -30,12 +30,12 @@ public class PlayerDash : MonoBehaviour
             {
 
                 transform.DOMove(_hit[1].point, dashTime * ((_hit[1].point - (Vector2)transform.position).magnitude / distance));
-                currentCoroutine = Dashing(dashTime * ((_hit[1].point - (Vector2)transform.position).magnitude / distance) - 0.01f);
+                currentCoroutine = Dashing(dashTime * ((_hit[1].point - (Vector2)transform.position).magnitude / distance));
             }
         }
         else
         {
-            transform.DOMove(transform.position + transform.up * distance, dashTime - 0.01f);
+            transform.DOMove(transform.position + transform.up * distance, dashTime);
             currentCoroutine = Dashing(dashTime);
         }
 
