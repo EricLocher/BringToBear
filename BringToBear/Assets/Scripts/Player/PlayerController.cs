@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     public GameObject dashAnimation;
     public SpriteRenderer dashRenderer;
-    
+
     public bool invincible;
     public bool shielded;
     Rigidbody2D rb;
@@ -29,6 +29,11 @@ public class PlayerController : MonoBehaviour, ICharacter
     bool dashCoolDown = false, dashButton = false;
 
     public int amountOfDashes = 3;
+
+    public Gun railgun;
+    public Gun minigun;
+    public Gun broadside;
+    public Gun missile;
 
     private void Start()
     {
@@ -168,6 +173,27 @@ public class PlayerController : MonoBehaviour, ICharacter
         GameObject _coin = Instantiate(Coin, transform.position, Quaternion.identity);
         _coin.GetComponent<CoinsPickup>().owner = this;
     }
+
+    public void SelectRailgun(InputAction.CallbackContext value)
+    {
+        GetComponent<PlayerAttack>().SetWeapon(railgun);
+    }
+
+    public void SelectMinigun(InputAction.CallbackContext value)
+    {
+        GetComponent<PlayerAttack>().SetWeapon(minigun);
+    }
+
+    public void SelectBroadside(InputAction.CallbackContext value)
+    {
+        GetComponent<PlayerAttack>().SetWeapon(broadside);
+    }
+
+    public void SelectMissile(InputAction.CallbackContext value)
+    {
+        GetComponent<PlayerAttack>().SetWeapon(missile);
+    }
+
     #endregion
 
     private void OnTriggerEnter2D(Collider2D other)
