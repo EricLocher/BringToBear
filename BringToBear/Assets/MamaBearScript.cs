@@ -6,7 +6,7 @@ public class MamaBearScript : MonoBehaviour
 {
     public Animator animator;
     float offScreenPos = -200;
-    float collectionPos = -55;
+    float collectionPos = -160;
 
 
     [SerializeField] MamaBearBehaviour state = MamaBearBehaviour.Absent;
