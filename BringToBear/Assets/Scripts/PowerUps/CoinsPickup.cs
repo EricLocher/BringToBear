@@ -28,7 +28,7 @@ public class CoinsPickup : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController player)
     {
-        if(player == owner)
+        if (player == owner)
         {
             return;
         }

@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour, ICharacter
     [SerializeField] GameObject Coin;
     [SerializeField] PlayerAttack attack;
     [SerializeField] PlayerDash dash;
+
+    public GameObject dashAnimation;
+    public SpriteRenderer dashRenderer;
+    
     public bool invincible;
     public bool shielded;
     Rigidbody2D rb;
@@ -35,6 +39,16 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     void Update()
     {
+
+        if (dash.dashing)
+        {
+            dashAnimation.SetActive(true);
+            dashRenderer.flipX = !dashRenderer.flipX;
+
+        }
+        else
+            dashAnimation.SetActive(false);
+
         if (isThrust)
             movement.Thrust(1);
 

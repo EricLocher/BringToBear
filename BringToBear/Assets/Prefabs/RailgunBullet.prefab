@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7879188271389689260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 5, z: 1}
+  m_LocalScale: {x: 0.5, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   speed: 500
   force: 10
   damage: 900
-  Explosion: {fileID: 1500794946509206753, guid: be9faa3897fc047478cf72c8fe7835ba, type: 3}
+  Explosion: {fileID: 8682204598085238733, guid: 3e5786bed1b478749a14d5029f95c2ce, type: 3}
 --- !u!50 &9058646204325824042
 Rigidbody2D:
   serializedVersion: 4

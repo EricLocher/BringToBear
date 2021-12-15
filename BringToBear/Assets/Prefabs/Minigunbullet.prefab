@@ -121,7 +121,7 @@ MonoBehaviour:
   speed: 180
   force: 2
   damage: 5
-  Explosion: {fileID: 8334939523296961542, guid: 669706ec098549c41beb1fd04aedc142, type: 3}
+  Explosion: {fileID: 168974642794765534, guid: d8cf9b6ff8c66c542b3bbd69ce9da1e5, type: 3}
 --- !u!61 &-1035715228593571686
 BoxCollider2D:
   m_ObjectHideFlags: 0
