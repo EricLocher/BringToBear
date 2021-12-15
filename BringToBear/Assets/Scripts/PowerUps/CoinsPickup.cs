@@ -6,7 +6,6 @@ public class CoinsPickup : MonoBehaviour, IInteractable
 {
     public int score;
     float spawnForce;
-    GameObject Bullet;
     public PlayerController owner;
     ScoreKeeper scoreKeeper;
     

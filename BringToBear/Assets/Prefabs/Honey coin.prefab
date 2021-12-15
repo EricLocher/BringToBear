@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 6303598596526107010}
   - component: {fileID: 5578517637623206671}
   - component: {fileID: 4922278986506713168}
-  m_Layer: 0
-  m_Name: Honey Coin
+  m_Layer: 8
+  m_Name: Honey coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  owner: {fileID: 0}
 --- !u!50 &6303598596526107010
 Rigidbody2D:
   serializedVersion: 4
