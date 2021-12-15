@@ -5564,8 +5564,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 969635352}
-  - component: {fileID: 969635354}
   - component: {fileID: 969635353}
+  - component: {fileID: 969635354}
   m_Layer: 8
   m_Name: PointEffector
   m_TagString: Untagged
@@ -5607,8 +5607,8 @@ PointEffector2D:
   m_ForceMode: 0
   m_Drag: 10
   m_AngularDrag: 0
---- !u!58 &969635354
-CircleCollider2D:
+--- !u!60 &969635354
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5617,12 +5617,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 1
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 20
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -4.3397, y: 2.4349012}
+      - {x: -0.8460637, y: -4.450653}
+      - {x: 0.56713444, y: -4.448765}
+      - {x: 4.0995092, y: 2.4158392}
 --- !u!68 &986728381 stripped
 EdgeCollider2D:
   m_CorrespondingSourceObject: {fileID: 1868113240644390098, guid: 95164fba4c14ad843b56edb047c3963b, type: 3}
