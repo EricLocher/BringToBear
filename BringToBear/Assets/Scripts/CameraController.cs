@@ -66,14 +66,14 @@ public class CameraController : MonoBehaviour
     {
 
         //if (Players.Count <= 0) { return; }
-        float minX = 0,
-              maxX = 0,
-              minY = 0,
-              maxY = 0;
+        float minX = GameController.Players[0].transform.position.x,
+              maxX = GameController.Players[0].transform.position.x,
+              minY = GameController.Players[0].transform.position.y,
+              maxY = GameController.Players[0].transform.position.y;
 
         foreach (PlayerController player in Players)
         {
-           // if (player == Players[0]) { continue; }
+            if (player == Players[0]) { continue; }
 
             if (
                 Mathf.Abs(transform.position.y - player.transform.position.y) > (maxSize)
@@ -98,12 +98,6 @@ public class CameraController : MonoBehaviour
 
             else if (playerPos.y < minY)
                 minY = playerPos.y;
-        }
-
-
-        if (maxY - minY > maxSize)
-        {
-            minY = maxY - maxSize;
         }
 
         Vector2 cameraCenter = new Vector2(((minX + maxX) / 2), ((minY + maxY) / 2));
@@ -131,7 +125,6 @@ public class CameraController : MonoBehaviour
         transform.DOMove(new Vector3(cameraCenter.x, cameraCenter.y, -10), 1f);
        
     }
-
 
     void UpdateEdges()
     {

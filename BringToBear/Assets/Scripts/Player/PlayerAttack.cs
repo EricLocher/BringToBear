@@ -28,10 +28,7 @@ public class PlayerAttack : MonoBehaviour
             float playerRotation = transform.eulerAngles.z;
             float randomRotation;
 
-            int fireSound = Random.Range(0, 7);
-
-
-            
+                     
 
             for (int i = 0; i < myGun.amountOfGuns; i++)
             {

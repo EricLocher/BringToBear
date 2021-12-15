@@ -14,13 +14,17 @@ public class PlayerDash : MonoBehaviour
     public bool dashing;
     public void Dash()
     {
+        Rigidbody2D _rb = GetComponent<Rigidbody2D>();
+
+        if(Mathf.Abs(_rb.velocity.y) > 100 || Mathf.Abs(_rb.velocity.x) > 100) { return; }
+
         transform.DOKill();
         if(currentCoroutine != null)
         StopCoroutine(currentCoroutine);
 
         Vector2 _dir = (transform.up * distance).normalized;
-        Rigidbody2D _rb = GetComponent<Rigidbody2D>();
         RaycastHit2D[] _hit = Physics2D.RaycastAll(transform.position, _dir, distance, layer);
+
 
         //dashing = true;
 

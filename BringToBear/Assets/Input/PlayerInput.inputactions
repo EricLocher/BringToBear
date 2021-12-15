@@ -76,6 +76,38 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "SelectRailgun",
+                    "type": "Button",
+                    "id": "dd2dfa93-f366-4b3d-be8f-f4823a70a5ce",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SelectMinigun",
+                    "type": "Button",
+                    "id": "90995460-ab7d-47a8-baae-7c34098d4e18",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SelectBroadside",
+                    "type": "Button",
+                    "id": "619b21ab-220a-41e3-affb-57e13f709d26",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SelectMissile",
+                    "type": "Button",
+                    "id": "17d9b64a-000f-40e7-ad1f-5c55155fc709",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -351,6 +383,50 @@
                     "processors": "",
                     "groups": "PS4",
                     "action": "Drop Honey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c2cb48b2-ef67-48ee-94b9-e22c904a4da8",
+                    "path": "<DualShockGamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "SelectRailgun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "16b7397e-ff3e-4849-922e-2d830c31b305",
+                    "path": "<DualShockGamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "SelectMinigun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b6f6e643-7490-4310-ae70-54c397565255",
+                    "path": "<DualShockGamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "SelectBroadside",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f1b10d2f-471d-4cdf-b86e-82bedd58887c",
+                    "path": "<DualShockGamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "SelectMissile",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

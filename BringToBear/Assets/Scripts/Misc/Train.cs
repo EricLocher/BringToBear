@@ -38,7 +38,7 @@ public class Train : MonoBehaviour
     {
 
         int _cartIndex = Carts.FindIndex(a => a.gameObject == cart);
-        if(_cartIndex == -1) { Debug.LogError("Something went wrong..."); return; }
+        if(_cartIndex == -1) { Debug.LogError("Something went wrong... Ooopsies"); return; }
 
         Carts.Remove(Carts[_cartIndex]);
         for (int i = _cartIndex - 1; i >= 0; i--)
