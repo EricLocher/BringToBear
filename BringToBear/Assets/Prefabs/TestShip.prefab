@@ -891,10 +891,11 @@ MonoBehaviour:
   anim: {fileID: 2360870025788018867}
   mainCam: {fileID: 0}
   Shield: {fileID: 3841131823115436787}
-  Coin: {fileID: 9053389110505902517, guid: 4b2b8e49fab1cb1499a8b1532b655990, type: 3}
+  Coin: {fileID: 9053389110505902517, guid: 794f40cd5446f8a439dcf22abb2dd3a3, type: 3}
   attack: {fileID: 2312424755723544961}
   dash: {fileID: 8527375419030901408}
   dashAnimation: {fileID: 7916113733727940852}
+  dashRenderer: {fileID: 4363813290254420766}
   invincible: 0
   shielded: 0
   playerDamage: 0
@@ -916,7 +917,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerShip: {fileID: 5640912145538070936}
   rb: {fileID: 5640912145538070940}
-  trailBlaze: {fileID: 1019924623802715422}
   stabilizeSpeed: 150
   thrust: 400
   turnSpeed: 5

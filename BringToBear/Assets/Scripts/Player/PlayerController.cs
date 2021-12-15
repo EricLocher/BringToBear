@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     [SerializeField] PlayerDash dash;
 
     public GameObject dashAnimation;
+    public SpriteRenderer dashRenderer;
     
     public bool invincible;
     public bool shielded;
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviour, ICharacter
         if (dash.dashing)
         {
             dashAnimation.SetActive(true);
+            dashRenderer.flipX = !dashRenderer.flipX;
+
         }
         else
             dashAnimation.SetActive(false);
