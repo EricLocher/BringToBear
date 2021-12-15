@@ -12,15 +12,17 @@ public class PlayerController : MonoBehaviour, ICharacter
     [SerializeField] GameObject Coin;
     [SerializeField] PlayerAttack attack;
     [SerializeField] PlayerDash dash;
+    [SerializeField] Gradient healthIndicator;
 
     public GameObject dashAnimation;
     public SpriteRenderer dashRenderer;
-
+    public SpriteRenderer playerOutline;
+    
     public bool invincible;
     public bool shielded;
     Rigidbody2D rb;
 
-    public float playerDamage = 0;
+    public float damageTaken = 0;
     public float shieldForce;
     public int coinsOnPlayer = 0;
     public int coinsOnMamaBear = 0;
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     void Update()
     {
-
+        playerOutline.color = healthIndicator.Evaluate(damageTaken/100);
         if (dash.dashing)
         {
             dashAnimation.SetActive(true);
@@ -114,7 +116,7 @@ public class PlayerController : MonoBehaviour, ICharacter
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         GetComponent<Rigidbody2D>().angularVelocity = 0;
         transform.rotation = Quaternion.Euler(Vector3.zero);
-        playerDamage = 0;
+        damageTaken = 0;
     }
     public void Attack(InputAction.CallbackContext value)
     {
@@ -263,6 +265,6 @@ public class PlayerController : MonoBehaviour, ICharacter
     {
 
         if (!shielded)
-            playerDamage += amount;
+            damageTaken += amount;
     }
 }

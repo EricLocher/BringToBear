@@ -35,10 +35,7 @@ public class TrafficController : MonoBehaviour
             GameObject newTrafficVehicle = Instantiate(TrafficVehicle, newPos, Quaternion.identity);
             newTrafficVehicle.GetComponent<TrafficBehaviour>().spriteRenderer = spriteRenderer;
             Vehicles.Add(newTrafficVehicle.transform);
-
         }
-
-
     }
 
     public Vector3 GetFreeVehiclePosition(int escape)
