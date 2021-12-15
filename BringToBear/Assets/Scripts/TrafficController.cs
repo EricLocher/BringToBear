@@ -66,8 +66,6 @@ public class TrafficController : MonoBehaviour
             }
         }
 
-
-
         return allowed ? pos : GetFreeVehiclePosition(escape + 1);
     }
 }

@@ -100,12 +100,6 @@ public class CameraController : MonoBehaviour
                 minY = playerPos.y;
         }
 
-
-        if (maxY - minY > maxSize)
-        {
-            minY = maxY - maxSize;
-        }
-
         Vector2 cameraCenter = new Vector2(((minX + maxX) / 2), ((minY + maxY) / 2));
         float cameraSize;
 
@@ -131,7 +125,6 @@ public class CameraController : MonoBehaviour
         transform.DOMove(new Vector3(cameraCenter.x, cameraCenter.y, -10), 1f);
        
     }
-
 
     void UpdateEdges()
     {
