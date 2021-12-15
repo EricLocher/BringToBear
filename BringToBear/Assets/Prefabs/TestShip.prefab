@@ -790,6 +790,7 @@ GameObject:
   - component: {fileID: 8527375419030901408}
   - component: {fileID: 2223364314247379409}
   - component: {fileID: 2360870025788018867}
+  - component: {fileID: 7410876964052349162}
   - component: {fileID: 5640912145538070940}
   - component: {fileID: -2136068319367295009}
   - component: {fileID: 5692274162524159692}
@@ -894,11 +895,41 @@ MonoBehaviour:
   Coin: {fileID: 9053389110505902517, guid: 794f40cd5446f8a439dcf22abb2dd3a3, type: 3}
   attack: {fileID: 2312424755723544961}
   dash: {fileID: 8527375419030901408}
+  healthIndicator:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 0.7258382, g: 0, b: 1, a: 1}
+    key2: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
+    key3: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
+    key4: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
+    key5: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
+    key6: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
+    key7: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
+    ctime0: 9638
+    ctime1: 65535
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
   dashAnimation: {fileID: 7916113733727940852}
   dashRenderer: {fileID: 4363813290254420766}
+  playerOutline: {fileID: 4857576086568900271}
   invincible: 0
   shielded: 0
-  playerDamage: 0
+  damageTaken: 0
   shieldForce: 0
   coinsOnPlayer: 0
   coinsOnMamaBear: 0
@@ -1142,6 +1173,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3624307764016058014}
+--- !u!114 &7410876964052349162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5640912145538070936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7976d4803e887c346a0e9a4a25273b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthIndicator:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 0}
+    key1: {r: 0.46226418, g: 0, b: 0, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 1}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 65535
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!50 &5640912145538070940
 Rigidbody2D:
   serializedVersion: 4
