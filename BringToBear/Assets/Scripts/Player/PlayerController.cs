@@ -235,6 +235,7 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     public void Damage(int amount)
     {
+
         if (!shielded)
             playerDamage += amount;
     }
