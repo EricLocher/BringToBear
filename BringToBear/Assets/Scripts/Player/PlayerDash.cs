@@ -26,9 +26,9 @@ public class PlayerDash : MonoBehaviour
         RaycastHit2D[] _hit = Physics2D.RaycastAll(transform.position, _dir, distance, layer);
 
 
-        //dashing = true;
+        dashing = true;
 
-        if(_hit.Length > 1)
+        if (_hit.Length > 1)
         {
             if (_hit[1].collider != null)
             {
