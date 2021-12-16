@@ -102,7 +102,7 @@ public class Train : MonoBehaviour
             foreach (GameObject cart in Carts)
             {
                 //cart.transform.position -= new Vector3(0, 10f * Time.deltaTime, 0);
-                cart.transform.DOMove(cart.transform.position - new Vector3(0, 100, 0), 10f);
+                cart.transform.DOMove(cart.transform.position - new Vector3(0, 100, 0), 100f);
             }
         }
         else
