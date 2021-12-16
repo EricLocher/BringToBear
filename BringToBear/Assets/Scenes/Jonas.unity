@@ -15950,6 +15950,11 @@ AreaEffector2D:
   m_ForceTarget: 0
   m_Drag: 0
   m_AngularDrag: 0
+--- !u!1 &2068858778 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4923279677540332817, guid: b2018f12a1c09074e9480acaad9a3b96, type: 3}
+  m_PrefabInstance: {fileID: 7961386776942640346}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7961386776942640346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15961,6 +15966,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MamaBear
       objectReference: {fileID: 0}
+    - target: {fileID: 7961386776942640349, guid: b2018f12a1c09074e9480acaad9a3b96, type: 3}
+      propertyPath: mouth
+      value: 
+      objectReference: {fileID: 2068858778}
     - target: {fileID: 8121412989697240198, guid: b2018f12a1c09074e9480acaad9a3b96, type: 3}
       propertyPath: m_RootOrder
       value: 5
