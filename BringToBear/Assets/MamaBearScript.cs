@@ -5,7 +5,7 @@ using UnityEngine;
 public class MamaBearScript : MonoBehaviour
 {
     public Animator animator;
-    float offScreenPos = -200;
+    float offScreenPos = -300;
     float collectionPos = -160;
 
 
@@ -68,7 +68,7 @@ public class MamaBearScript : MonoBehaviour
         {
             case MamaBearBehaviour.Absent:
                 state = MamaBearBehaviour.Arriving;
-                StartCoroutine(Timer(10));
+                StartCoroutine(Timer(30));
                 break;
             case MamaBearBehaviour.Arriving:
                 state = MamaBearBehaviour.Collecting;
@@ -76,11 +76,11 @@ public class MamaBearScript : MonoBehaviour
                 break;
             case MamaBearBehaviour.Collecting:
                 state = MamaBearBehaviour.Closing;
-                StartCoroutine(Timer(5));
+                StartCoroutine(Timer(10));
                 break;
             case MamaBearBehaviour.Closing:
                 state = MamaBearBehaviour.Absent;
-                StartCoroutine(Timer(3));
+                StartCoroutine(Timer(10));
                 break;
         }
 

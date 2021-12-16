@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 662210175}
   - component: {fileID: 662210176}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trail (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 945278130}
   - component: {fileID: 945278131}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trail (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1907873346}
   - component: {fileID: 1907873347}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 193561257080877083}
   - component: {fileID: 100665203997591714}
   - component: {fileID: 531340599999986978}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Thruster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +581,7 @@ GameObject:
   - component: {fileID: 8663804581843586966}
   - component: {fileID: 317438455976465763}
   - component: {fileID: 1019924623802715422}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trailblaze_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -683,7 +683,7 @@ GameObject:
   - component: {fileID: 8477332437743463959}
   - component: {fileID: 4857576086568900271}
   - component: {fileID: 3624307764016058014}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player_spaceship_illustration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -797,7 +797,7 @@ GameObject:
   - component: {fileID: 1005931443}
   - component: {fileID: 1005931442}
   - component: {fileID: 903453633957880356}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TestShip
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -987,7 +987,7 @@ MonoBehaviour:
   distance: 20
   layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   dashTime: 0.2
   dashing: 0
 --- !u!114 &2223364314247379409
@@ -6137,7 +6137,7 @@ GameObject:
   - component: {fileID: 5672877060920625859}
   - component: {fileID: 5900515425218169010}
   - component: {fileID: 4363813290254420766}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DashEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6237,7 +6237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5936386034452950102}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6334,6 +6334,10 @@ PrefabInstance:
     - target: {fileID: 4824609924150548755, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
       propertyPath: m_Name
       value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824609924150548755, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4824609924150548755, guid: fd992b917fb40e94b86d5adbca8b7aa5, type: 3}
       propertyPath: m_IsActive
