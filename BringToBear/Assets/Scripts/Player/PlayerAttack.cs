@@ -1,15 +1,18 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
     public Gun defaultGun;
     public Gun myGun;
+    public GameObject muzzleFlash;
     public int myAmmo = 0;
     float timer = 0;
 
     void Update()
     {
         timer += Time.deltaTime;
+        
     }
 
     public void Attack()
@@ -28,13 +31,15 @@ public class PlayerAttack : MonoBehaviour
             float playerRotation = transform.eulerAngles.z;
             float randomRotation;
 
-                     
+               
 
             for (int i = 0; i < myGun.amountOfGuns; i++)
             {
                 GameObject _Bullet = Instantiate(myGun.bullet, transform.position + _Pos, transform.rotation);
                 _Bullet.transform.position = transform.rotation * (_Bullet.transform.position - transform.position) + transform.position;
+
                 
+
                 if (myGun.spreadMode)
                 {
                     randomRotation = playerRotation + Random.Range(-myGun.spreadRotation, myGun.spreadRotation);
@@ -47,14 +52,18 @@ public class PlayerAttack : MonoBehaviour
 
                 _Pos.x += _spacing;
                 myAmmo--;
+                
+
+
 
             }
 
-            
+
 
             timer = 0;
         }
     }
+
 
     public void SetWeapon(Gun weapon)
     {
