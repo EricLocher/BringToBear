@@ -45,6 +45,8 @@ public class Cart : MonoBehaviour, ICharacter
         {
             transform.position = new Vector2(Mathf.Lerp(transform.position.x, _cartPos.x, 0.05f), transform.position.y);
         }
+
+  
     }
 
     public void LookAt()

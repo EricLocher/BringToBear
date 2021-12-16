@@ -47,8 +47,6 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        CameraZoom();
-
         maxTilt += Time.deltaTime / 4;
         maxTilt = Mathf.Clamp(maxTilt, 1, 60);
 
@@ -65,15 +63,16 @@ public class CameraController : MonoBehaviour
     public void CameraZoom()
     {
 
-        //if (Players.Count <= 0) { return; }
-        float minX = 0,
-              maxX = 0,
-              minY = 0,
-              maxY = 0;
+        if (Players.Count <= 0) { return; }
+        float minX = GameController.Players[0].transform.position.x,
+              maxX = GameController.Players[0].transform.position.x,
+              minY = GameController.Players[0].transform.position.y,
+              maxY = GameController.Players[0].transform.position.y;
 
         foreach (PlayerController player in Players)
         {
-           // if (player == Players[0]) { continue; }
+            if (player == Players[0]) { continue; }
+            if (Players.Count < 2) { break; } 
 
             if (
                 Mathf.Abs(transform.position.y - player.transform.position.y) > (maxSize)
@@ -100,11 +99,12 @@ public class CameraController : MonoBehaviour
                 minY = playerPos.y;
         }
 
-
-        if (maxY - minY > maxSize)
+        //TODO: ADD GAME STATE
+        if(minY < maxY - (45 * 1.8))
         {
-            minY = maxY - maxSize;
+            minY = maxY;
         }
+
 
         Vector2 cameraCenter = new Vector2(((minX + maxX) / 2), ((minY + maxY) / 2));
         float cameraSize;
@@ -128,10 +128,9 @@ public class CameraController : MonoBehaviour
         cameraCenter.x = Mathf.Clamp(cameraCenter.x, viewMinX, viewMaxX);
 
         transform.DOKill();
-        transform.DOMove(new Vector3(cameraCenter.x, cameraCenter.y, -10), 1f);
+        transform.DOMove(new Vector3(cameraCenter.x, cameraCenter.y, -10), 0.5f);
        
     }
-
 
     void UpdateEdges()
     {

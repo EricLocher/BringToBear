@@ -9,6 +9,7 @@ public class OffScreenIndicator : MonoBehaviour
     SpriteRenderer PlayerRenderer;
     SpriteRenderer[] IndicatorRenderers;
     [SerializeField] LayerMask layer;
+    public RaycastHit2D ray;
 
     private void Start()
     {
@@ -38,7 +39,7 @@ public class OffScreenIndicator : MonoBehaviour
             Debug.DrawRay(center, -direction, Color.red);
             direction = direction.normalized;
 
-            RaycastHit2D ray = Physics2D.Raycast(center, -direction, 80, layer);
+            ray = Physics2D.Raycast(center, -direction, 80, layer);
 
 
             if (ray.collider != null)

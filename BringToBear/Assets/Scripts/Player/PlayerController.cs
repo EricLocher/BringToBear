@@ -12,22 +12,30 @@ public class PlayerController : MonoBehaviour, ICharacter
     [SerializeField] GameObject Coin;
     [SerializeField] PlayerAttack attack;
     [SerializeField] PlayerDash dash;
+    [SerializeField] Gradient healthIndicator;
 
     public GameObject dashAnimation;
+    public SpriteRenderer dashRenderer;
+    public SpriteRenderer playerOutline;
     
     public bool invincible;
     public bool shielded;
     Rigidbody2D rb;
 
-    public float playerDamage = 0;
+    public float damageTaken = 0;
     public float shieldForce;
     public int coinsOnPlayer = 0;
-    public int coinsOnMamaBear = 0;
+    public int coindsDeposited = 0;
 
     bool isThrust = false, isBrake = false, isAttacking = false;
-    bool dashCoolDown = false, dashButton = false;
+    bool dashButton = false;
 
     public int amountOfDashes = 3;
+
+    public Gun railgun;
+    public Gun minigun;
+    public Gun broadside;
+    public Gun missile;
 
     private void Start()
     {
@@ -38,10 +46,12 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     void Update()
     {
-
+        playerOutline.color = healthIndicator.Evaluate(damageTaken/100);
         if (dash.dashing)
         {
             dashAnimation.SetActive(true);
+            dashRenderer.flipX = !dashRenderer.flipX;
+
         }
         else
             dashAnimation.SetActive(false);
@@ -106,7 +116,7 @@ public class PlayerController : MonoBehaviour, ICharacter
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         GetComponent<Rigidbody2D>().angularVelocity = 0;
         transform.rotation = Quaternion.Euler(Vector3.zero);
-        playerDamage = 0;
+        damageTaken = 0;
     }
     public void Attack(InputAction.CallbackContext value)
     {
@@ -156,15 +166,38 @@ public class PlayerController : MonoBehaviour, ICharacter
         amountOfDashes--;
 
         dash.Dash();
-        dashCoolDown = true;
-
 
     }
     public void DropHoney(InputAction.CallbackContext value)
     {
+        if (coinsOnPlayer <= 0) { return; }
+
         GameObject _coin = Instantiate(Coin, transform.position, Quaternion.identity);
-        _coin.GetComponent<CoinsPickup>().owner = this;
+        _coin.GetComponent<PlayerCoin>().owner = this;
+        _coin.GetComponent<PlayerCoin>().score = 1;
+        coinsOnPlayer--;
     }
+
+    public void SelectRailgun(InputAction.CallbackContext value)
+    {
+        GetComponent<PlayerAttack>().SetWeapon(railgun);
+    }
+
+    public void SelectMinigun(InputAction.CallbackContext value)
+    {
+        GetComponent<PlayerAttack>().SetWeapon(minigun);
+    }
+
+    public void SelectBroadside(InputAction.CallbackContext value)
+    {
+        GetComponent<PlayerAttack>().SetWeapon(broadside);
+    }
+
+    public void SelectMissile(InputAction.CallbackContext value)
+    {
+        GetComponent<PlayerAttack>().SetWeapon(missile);
+    }
+
     #endregion
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -202,12 +235,6 @@ public class PlayerController : MonoBehaviour, ICharacter
         shielded = false;
     }
 
-    IEnumerator DashTime()
-    {
-        yield return new WaitForSeconds(1);
-        dashCoolDown = false;
-    }
-
     IEnumerator InvinceTime()
     {
         yield return new WaitForSeconds(0.2f);
@@ -217,7 +244,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     IEnumerator ReloadDashes()
     {
         yield return new WaitForSeconds(1.5f);
-        if (amountOfDashes <= 3)
+        if (amountOfDashes < 3)
             amountOfDashes++;
         StartCoroutine(ReloadDashes());
     }
@@ -232,7 +259,8 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     public void Damage(int amount)
     {
+
         if (!shielded)
-            playerDamage += amount;
+            damageTaken += amount;
     }
 }

@@ -38,7 +38,7 @@ public class Train : MonoBehaviour
     {
 
         int _cartIndex = Carts.FindIndex(a => a.gameObject == cart);
-        if(_cartIndex == -1) { Debug.LogError("Something went wrong..."); return; }
+        if(_cartIndex == -1) { Debug.LogError("Something went wrong... Ooopsies"); return; }
 
         Carts.Remove(Carts[_cartIndex]);
         for (int i = _cartIndex - 1; i >= 0; i--)
@@ -102,7 +102,7 @@ public class Train : MonoBehaviour
             foreach (GameObject cart in Carts)
             {
                 //cart.transform.position -= new Vector3(0, 10f * Time.deltaTime, 0);
-                cart.transform.DOMove(cart.transform.position - new Vector3(0, 100, 0), 10f);
+                cart.transform.DOMove(cart.transform.position - new Vector3(0, 100, 0), 100f);
             }
         }
         else

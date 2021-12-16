@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class MamaBearScript : MonoBehaviour
 {
+    public GameObject mouth;
     public Animator animator;
-    float offScreenPos = -200;
-    float collectionPos = -160;
+    float offScreenPos = -300;
+    float collectionPos = -120;
 
 
     [SerializeField] MamaBearBehaviour state = MamaBearBehaviour.Absent;
@@ -15,7 +16,8 @@ public class MamaBearScript : MonoBehaviour
     {
         transform.position = new Vector2(0, offScreenPos);
         animator.SetBool("Collect", false);
-        StartCoroutine(Timer(1));
+        mouth.GetComponent<BoxCollider2D>().enabled = false;
+        StartCoroutine(Timer(10));
     }
 
     void Update()
@@ -41,7 +43,7 @@ public class MamaBearScript : MonoBehaviour
 
     void Absent()
     {
-        transform.position = Vector2.Lerp(transform.position, new Vector2(0, offScreenPos), 0.003f);
+        transform.position = Vector2.Lerp(transform.position, new Vector2(0, offScreenPos), 0.0005f);
 
     }
 
@@ -53,11 +55,13 @@ public class MamaBearScript : MonoBehaviour
     void Collecting()
     {
         animator.SetBool("Collect", true);
+        mouth.GetComponent<BoxCollider2D>().enabled = true;
     }
 
     void Closing()
     {
         animator.SetBool("Collect", false);
+        mouth.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     IEnumerator Timer(float time)
@@ -68,11 +72,11 @@ public class MamaBearScript : MonoBehaviour
         {
             case MamaBearBehaviour.Absent:
                 state = MamaBearBehaviour.Arriving;
-                StartCoroutine(Timer(10));
+                StartCoroutine(Timer(5));
                 break;
             case MamaBearBehaviour.Arriving:
                 state = MamaBearBehaviour.Collecting;
-                StartCoroutine(Timer(3));
+                StartCoroutine(Timer(10));
                 break;
             case MamaBearBehaviour.Collecting:
                 state = MamaBearBehaviour.Closing;
@@ -80,7 +84,7 @@ public class MamaBearScript : MonoBehaviour
                 break;
             case MamaBearBehaviour.Closing:
                 state = MamaBearBehaviour.Absent;
-                StartCoroutine(Timer(3));
+                StartCoroutine(Timer(30));
                 break;
         }
 

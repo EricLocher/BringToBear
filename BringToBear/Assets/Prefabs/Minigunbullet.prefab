@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2991280105366608016}
   - component: {fileID: -1035715228593571686}
   m_Layer: 0
-  m_Name: MiniGunBullet
+  m_Name: Minigunbullet
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   speed: 180
   force: 2
   damage: 5
-  Explosion: {fileID: 168974642794765534, guid: d8cf9b6ff8c66c542b3bbd69ce9da1e5, type: 3}
+  Explosion: {fileID: 168974642794765534, guid: c25cf263e9d296d42ae557c0db5444af, type: 3}
 --- !u!61 &-1035715228593571686
 BoxCollider2D:
   m_ObjectHideFlags: 0

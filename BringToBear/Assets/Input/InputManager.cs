@@ -35,6 +35,8 @@ public class InputManager : MonoBehaviour
         
         GameObject _temp = Instantiate(indicator);
         _temp.GetComponent<OffScreenIndicator>().Player = playerInput.gameObject;
+        GameController.Indicators.Add(_temp.GetComponent<OffScreenIndicator>());
+        
         if(PlayerJoinedGame != null)
         {
             PlayerJoinedGame(playerInput);
