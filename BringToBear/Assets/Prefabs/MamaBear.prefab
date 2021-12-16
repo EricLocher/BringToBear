@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe160fcfd341df4ab9efe081958290c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouth: {fileID: 4923279677540332817}
   animator: {fileID: 5641225129198957493}
   state: 0
 --- !u!1001 &757983167866857740
