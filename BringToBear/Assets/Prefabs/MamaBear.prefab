@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1510665860026351402}
   - component: {fileID: 820828689059401791}
   - component: {fileID: 1845547935623601865}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8121412989697240198}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MamaBear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,9 +153,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 487057082873747044, guid: ce07f31dc68eb3846ac9debf4b8a28e1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1091654090696140338, guid: ce07f31dc68eb3846ac9debf4b8a28e1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538431478063469446, guid: ce07f31dc68eb3846ac9debf4b8a28e1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2088657714629295511, guid: ce07f31dc68eb3846ac9debf4b8a28e1, type: 3}
       propertyPath: m_Name
       value: Mama bear ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088657714629295511, guid: ce07f31dc68eb3846ac9debf4b8a28e1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589374413822000459, guid: ce07f31dc68eb3846ac9debf4b8a28e1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3588976951894526384, guid: ce07f31dc68eb3846ac9debf4b8a28e1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597973786727294710, guid: ce07f31dc68eb3846ac9debf4b8a28e1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836342091400722017, guid: ce07f31dc68eb3846ac9debf4b8a28e1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5538672559334805162, guid: ce07f31dc68eb3846ac9debf4b8a28e1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8639522000574974723, guid: ce07f31dc68eb3846ac9debf4b8a28e1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9172914739710940927, guid: ce07f31dc68eb3846ac9debf4b8a28e1, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce07f31dc68eb3846ac9debf4b8a28e1, type: 3}

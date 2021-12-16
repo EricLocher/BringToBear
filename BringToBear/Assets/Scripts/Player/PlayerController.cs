@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     public int coinsOnMamaBear = 0;
 
     bool isThrust = false, isBrake = false, isAttacking = false;
-    bool dashCoolDown = false, dashButton = false;
+    bool dashButton = false;
 
     public int amountOfDashes = 3;
 
@@ -166,8 +166,6 @@ public class PlayerController : MonoBehaviour, ICharacter
         amountOfDashes--;
 
         dash.Dash();
-        dashCoolDown = true;
-
 
     }
     public void DropHoney(InputAction.CallbackContext value)
@@ -233,12 +231,6 @@ public class PlayerController : MonoBehaviour, ICharacter
         shielded = false;
     }
 
-    IEnumerator DashTime()
-    {
-        yield return new WaitForSeconds(1);
-        dashCoolDown = false;
-    }
-
     IEnumerator InvinceTime()
     {
         yield return new WaitForSeconds(0.2f);
@@ -248,7 +240,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     IEnumerator ReloadDashes()
     {
         yield return new WaitForSeconds(1.5f);
-        if (amountOfDashes <= 3)
+        if (amountOfDashes < 3)
             amountOfDashes++;
         StartCoroutine(ReloadDashes());
     }

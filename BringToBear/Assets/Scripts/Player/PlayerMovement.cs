@@ -12,8 +12,6 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector2 lookDirection;
     public bool boost;
-    bool dash = false;
-
     bool driftMode;
     float angle;
     float cameraAngle;
@@ -43,22 +41,8 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
-    {   
-        if (dash)
-        {
-            rb.AddForce(transform.up * 600, ForceMode2D.Impulse);
-            StartCoroutine(Dasher());
-            dash = false;
-        }
-        //else
-        //    rb.velocity = Vector2.ClampMagnitude(rb.velocity, 300);
-    }
-
     public void Rotate()
     {
-        //TODO: Fix issue where direction gets screwy. Seems to be an issue where we need to differentiate between -180 / 180 etc.
-
         angle = Mathf.Atan2(lookDirection.x, lookDirection.y) * Mathf.Rad2Deg;
 
         Quaternion _newRotation = Quaternion.Euler(0, 0, 0);
@@ -107,11 +91,6 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(-rb.velocity * (0.5f * brakePower));
     }
 
-    public void Dash()
-    {
-        dash = true;
-    }
-
     public void Respawn()
     {
         transform.position = new Vector3(-10, 0, 0);
@@ -142,11 +121,4 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    IEnumerator Dasher()
-    {
-        yield return new WaitForSeconds(0.15f);
-        rb.AddForce(transform.up * -200, ForceMode2D.Impulse);
-        
-        //rb.velocity = Vector2.zero;
-    }
 }
