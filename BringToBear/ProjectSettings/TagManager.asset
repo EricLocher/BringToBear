@@ -15,6 +15,7 @@ TagManager:
   - Indicator
   - Shield
   - PlayerCoin
+  - Mouth
   layers:
   - Default
   - TransparentFX
