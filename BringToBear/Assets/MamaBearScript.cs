@@ -41,7 +41,7 @@ public class MamaBearScript : MonoBehaviour
 
     void Absent()
     {
-        transform.position = Vector2.Lerp(transform.position, new Vector2(0, offScreenPos), 0.003f);
+        transform.position = Vector2.Lerp(transform.position, new Vector2(0, offScreenPos), 0.0005f);
 
     }
 
@@ -68,11 +68,11 @@ public class MamaBearScript : MonoBehaviour
         {
             case MamaBearBehaviour.Absent:
                 state = MamaBearBehaviour.Arriving;
-                StartCoroutine(Timer(30));
+                StartCoroutine(Timer(25));
                 break;
             case MamaBearBehaviour.Arriving:
                 state = MamaBearBehaviour.Collecting;
-                StartCoroutine(Timer(3));
+                StartCoroutine(Timer(5));
                 break;
             case MamaBearBehaviour.Collecting:
                 state = MamaBearBehaviour.Closing;
@@ -80,7 +80,7 @@ public class MamaBearScript : MonoBehaviour
                 break;
             case MamaBearBehaviour.Closing:
                 state = MamaBearBehaviour.Absent;
-                StartCoroutine(Timer(10));
+                StartCoroutine(Timer(5));
                 break;
         }
 

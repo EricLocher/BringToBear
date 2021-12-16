@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     public float damageTaken = 0;
     public float shieldForce;
     public int coinsOnPlayer = 0;
-    public int coinsOnMamaBear = 0;
+    public int coindsDeposited = 0;
 
     bool isThrust = false, isBrake = false, isAttacking = false;
     bool dashCoolDown = false, dashButton = false;
@@ -172,8 +172,12 @@ public class PlayerController : MonoBehaviour, ICharacter
     }
     public void DropHoney(InputAction.CallbackContext value)
     {
+        if (coinsOnPlayer <= 0) { return; }
+
         GameObject _coin = Instantiate(Coin, transform.position, Quaternion.identity);
-        _coin.GetComponent<CoinsPickup>().owner = this;
+        _coin.GetComponent<PlayerCoin>().owner = this;
+        _coin.GetComponent<PlayerCoin>().score = 1;
+        coinsOnPlayer--;
     }
 
     public void SelectRailgun(InputAction.CallbackContext value)
