@@ -12,8 +12,6 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector2 lookDirection;
     public bool boost;
-    bool dash = false;
-
     bool driftMode;
     float angle;
     float cameraAngle;
@@ -93,11 +91,6 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(-rb.velocity * (0.5f * brakePower));
     }
 
-    public void Dash()
-    {
-        dash = true;
-    }
-
     public void Respawn()
     {
         transform.position = new Vector3(-10, 0, 0);
@@ -128,11 +121,4 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    IEnumerator Dasher()
-    {
-        yield return new WaitForSeconds(0.15f);
-        rb.AddForce(transform.up * -200, ForceMode2D.Impulse);
-        
-        //rb.velocity = Vector2.zero;
-    }
 }
