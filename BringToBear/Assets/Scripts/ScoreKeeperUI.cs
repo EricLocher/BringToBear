@@ -6,15 +6,23 @@ using UnityEngine.UI;
 public class ScoreKeeperUI : MonoBehaviour
 {
     public ScoreKeeper scoreKeeper;
-    public Text scoreText;
+    public List<GameObject> scoreTexts = new List<GameObject>();
+    public GameObject textPrefab;
 
     private void Update()
     {
-        string str = "";
-        for (int i = 0; i < scoreKeeper.ScoreKeeping.Count; i++)
+        if(scoreTexts.Count < scoreKeeper.ScoreKeeping.Count)
         {
-            str += "Player" + (i + 1).ToString() + " score: " + scoreKeeper.ScoreKeeping[i].coindsDeposited.ToString() + " "; 
+            foreach (PlayerController player in scoreKeeper.ScoreKeeping)
+            {
+                if (scoreTexts.Count == scoreKeeper.ScoreKeeping.Count) { break; }
+                GameObject _text = Instantiate(textPrefab, transform);
+                scoreTexts.Add(_text);
+            }
         }
-        scoreText.text = str;
+        for (int i = 0; i < scoreTexts.Count; i++)
+        {
+            scoreTexts[i].GetComponent<Text>().text = "Player" + (i + 1).ToString() + " score: " + scoreKeeper.ScoreKeeping[i].coinsOnPlayer.ToString() + " ";
+        }
     }
 }
