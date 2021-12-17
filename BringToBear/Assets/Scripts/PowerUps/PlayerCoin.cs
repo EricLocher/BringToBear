@@ -7,14 +7,15 @@ public class PlayerCoin : MonoBehaviour, IInteractable
     public int score;
     float spawnForce;
     public PlayerController owner;
+    Rigidbody2D rb;
     ScoreKeeper scoreKeeper;
 
     void Start()
     {
         Destroy(gameObject, 5f);
-        spawnForce = 50;
+        spawnForce = 25;
         scoreKeeper = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreKeeper>();
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         rb.AddForce(-owner.transform.up * spawnForce, ForceMode2D.Impulse);
         Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
         transform.rotation = _rotation;
@@ -37,6 +38,11 @@ public class PlayerCoin : MonoBehaviour, IInteractable
         {
             Destroy(gameObject);
             scoreKeeper.DepositScore(owner, score);
+        }
+
+        if (other.gameObject.CompareTag("Mandible"))
+        {
+            rb.AddForce((new Vector2(Random.Range(-3, 4), 3)) * 15, ForceMode2D.Impulse);
         }
 
     }

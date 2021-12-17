@@ -16,6 +16,7 @@ TagManager:
   - Shield
   - PlayerCoin
   - Mouth
+  - Mandible
   layers:
   - Default
   - TransparentFX

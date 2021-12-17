@@ -59,6 +59,7 @@ public class MamaBearScript : MonoBehaviour
     void Collecting()
     {
         warning.GetComponent<SpriteRenderer>().enabled = false;
+        GameController.ChangeGameState(GameStates.Collecting);
         animator.SetBool("Collect", true);
         mouth.GetComponent<BoxCollider2D>().enabled = true;
     }
@@ -68,7 +69,7 @@ public class MamaBearScript : MonoBehaviour
         animator.SetBool("Collect", false);
         mouth.GetComponent<BoxCollider2D>().enabled = false;
         GameController.ChangeGameState(GameStates.Playing);
-
+       
     }
 
     IEnumerator Timer(float time)
