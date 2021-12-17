@@ -7,7 +7,6 @@ public class CoinsPickup : MonoBehaviour, IInteractable
     public int score;
     float spawnForce;
     ScoreKeeper scoreKeeper;
-    
     void Start()
     {
         Destroy(gameObject, 15f);
@@ -18,8 +17,6 @@ public class CoinsPickup : MonoBehaviour, IInteractable
         Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
         transform.rotation = _rotation;
     }
-
-
     public void Interact(PlayerController player)
     {
         scoreKeeper.AddScore(player, score);
