@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     [SerializeField] Gradient healthIndicator;
 
     public GameObject dashAnimation;
+    public GameObject musicController;
     public SpriteRenderer dashRenderer;
     public SpriteRenderer playerOutline;
     
@@ -107,7 +108,9 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     public void Respawn(InputAction.CallbackContext value)
     {
-        res();
+
+        //res();
+
     }
 
     public void res()
@@ -196,6 +199,11 @@ public class PlayerController : MonoBehaviour, ICharacter
     public void SelectMissile(InputAction.CallbackContext value)
     {
         GetComponent<PlayerAttack>().SetWeapon(missile);
+    }
+
+    public void ChangeSong(InputAction.CallbackContext value)
+    {
+        musicController.GetComponent<MusicController>().RandomizeSong();
     }
 
     #endregion
