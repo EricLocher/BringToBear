@@ -8,6 +8,7 @@ public class MamaBearScript : MonoBehaviour
     public Animator animator;
     float offScreenPos = -300;
     float collectionPos = -120;
+    public GameObject warning;
 
 
     [SerializeField] MamaBearBehaviour state = MamaBearBehaviour.Absent;
@@ -18,6 +19,7 @@ public class MamaBearScript : MonoBehaviour
         animator.SetBool("Collect", false);
         mouth.GetComponent<BoxCollider2D>().enabled = false;
         StartCoroutine(Timer(10));
+        warning.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     void Update()
@@ -50,10 +52,12 @@ public class MamaBearScript : MonoBehaviour
     void Arriving()
     {
         transform.position = Vector2.Lerp(transform.position, new Vector2(0, collectionPos), 0.003f);
+        warning.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     void Collecting()
     {
+        warning.GetComponent<SpriteRenderer>().enabled = false;
         animator.SetBool("Collect", true);
         mouth.GetComponent<BoxCollider2D>().enabled = true;
     }
