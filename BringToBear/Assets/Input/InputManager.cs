@@ -10,6 +10,7 @@ public class InputManager : MonoBehaviour
     public List<PlayerInput> playerList = new List<PlayerInput>();
     public GameController gameController;
     public GameObject indicator;
+    public GameObject tutorial;
 
     [SerializeField] InputAction joinAction, leaveAction;
 
@@ -36,8 +37,12 @@ public class InputManager : MonoBehaviour
         GameObject _temp = Instantiate(indicator);
         _temp.GetComponent<OffScreenIndicator>().Player = playerInput.gameObject;
         GameController.Indicators.Add(_temp.GetComponent<OffScreenIndicator>());
+
         
-        if(PlayerJoinedGame != null)
+        tutorial.GetComponent<SpriteRenderer>().enabled = false;
+        
+
+        if (PlayerJoinedGame != null)
         {
             PlayerJoinedGame(playerInput);
         }

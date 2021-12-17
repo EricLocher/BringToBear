@@ -10,7 +10,7 @@ public class CoinsPickup : MonoBehaviour, IInteractable
     
     void Start()
     {
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, 15f);
         spawnForce = Random.Range(5, 15);
         scoreKeeper = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreKeeper>();
         Rigidbody2D rb = GetComponent<Rigidbody2D>();

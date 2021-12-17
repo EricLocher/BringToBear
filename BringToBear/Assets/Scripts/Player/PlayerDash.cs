@@ -11,6 +11,8 @@ public class PlayerDash : MonoBehaviour
     [SerializeField] float dashTime;
     IEnumerator currentCoroutine;
 
+    public GameObject Owner { get; set; }
+
     public bool dashing;
     public void Dash()
     {
