@@ -123,7 +123,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1389
+        width: 1390
         height: 1881
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -142,9 +142,9 @@ TextureImporter:
       name: shield_idle_1
       rect:
         serializedVersion: 2
-        x: 1396
+        x: 1390
         y: 0
-        width: 1389
+        width: 1388
         height: 1881
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -289,12 +289,12 @@ TextureImporter:
       name: shield_idle_8
       rect:
         serializedVersion: 2
-        x: 11106
+        x: 11112
         y: 0
         width: 1389
         height: 1881
-      alignment: 9
-      pivot: {x: 0.50630933, y: 0.50051767}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
