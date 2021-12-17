@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 150
-  force: 45
-  damage: 10
+  force: 150
+  damage: 20
   Explosion: {fileID: 1500794946509206753, guid: be9faa3897fc047478cf72c8fe7835ba, type: 3}
 --- !u!50 &7065673439052456109
 Rigidbody2D:

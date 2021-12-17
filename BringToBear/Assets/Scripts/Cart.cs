@@ -71,7 +71,7 @@ public class Cart : MonoBehaviour, ICharacter
     public void Damage(int amount)
     {
         cartHP = cartHP - amount;
-        int dropTable = Random.Range(0, 81);
+        int dropTable = Random.Range(0, 200);
 
         if (dropTable < 35)
         {
