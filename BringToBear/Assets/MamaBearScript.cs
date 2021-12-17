@@ -18,7 +18,7 @@ public class MamaBearScript : MonoBehaviour
         transform.position = new Vector2(0, offScreenPos);
         animator.SetBool("Collect", false);
         mouth.GetComponent<BoxCollider2D>().enabled = false;
-        StartCoroutine(Timer(10));
+        StartCoroutine(Timer(30));
         warning.GetComponent<SpriteRenderer>().enabled = false;
     }
 
