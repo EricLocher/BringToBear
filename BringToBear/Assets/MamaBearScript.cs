@@ -52,6 +52,7 @@ public class MamaBearScript : MonoBehaviour
     void Arriving()
     {
         transform.position = Vector2.Lerp(transform.position, new Vector2(0, collectionPos), 0.003f);
+        GameController.ChangeGameState(GameStates.MamaBearAproaching);
         warning.GetComponent<SpriteRenderer>().enabled = true;
     }
 
@@ -66,6 +67,8 @@ public class MamaBearScript : MonoBehaviour
     {
         animator.SetBool("Collect", false);
         mouth.GetComponent<BoxCollider2D>().enabled = false;
+        GameController.ChangeGameState(GameStates.Playing);
+
     }
 
     IEnumerator Timer(float time)

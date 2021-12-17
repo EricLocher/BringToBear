@@ -5,7 +5,6 @@ using DG.Tweening;
 
 public class CameraController : MonoBehaviour
 {
-    public GameController GameController;
     public GameObject map;
     public EdgeCollider2D cameraEdges;
 
@@ -99,10 +98,13 @@ public class CameraController : MonoBehaviour
                 minY = playerPos.y;
         }
 
-        //TODO: ADD GAME STATE
-        if(minY < maxY - (45 * 1.8))
+        if(minY < maxY - (45 * 1.8) && GameController.GetGamestate() == GameStates.Playing)
         {
             minY = maxY;
+        }
+        else if (maxY > minY + (45 * 1.8) && GameController.GetGamestate() == GameStates.MamaBearAproaching)
+        {
+            maxY = minY;
         }
 
 
