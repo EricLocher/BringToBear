@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
     public GameStates gameState;
     public static List<PlayerController> Players = new List<PlayerController>();
     public static List<OffScreenIndicator> Indicators = new List<OffScreenIndicator>();
-
+    
     void Start()
     {
         for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
@@ -16,4 +16,9 @@ public class GameController : MonoBehaviour
             Indicators.Add(GameObject.FindGameObjectsWithTag("Indicator")[i].GetComponent<OffScreenIndicator>());
         }
     }
+
+
+
+
+
 }

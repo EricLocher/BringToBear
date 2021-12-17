@@ -10,7 +10,7 @@ public class MusicController : MonoBehaviour
 
     void Start()
     {
-        int random = Random.Range(0, 30);
+        int random = Random.Range(0, songList.Length);
         audioSource = GetComponent<AudioSource>();
         RandomizeSong();
     }
@@ -27,6 +27,6 @@ public class MusicController : MonoBehaviour
     {
         audioSource.Stop();
         int random = Random.Range(0, 30);
-        audioSource.PlayOneShot(songList[random]);
+        audioSource.PlayOneShot(songList[random], 0.4f);
     }
 }
