@@ -17,6 +17,6 @@ public class ScoreKeeper : MonoBehaviour
 
     public void DepositScore(PlayerController player, int score)
     {
-        player.coindsDeposited += score;
+        player.coinsDeposited += score;
     }
 }

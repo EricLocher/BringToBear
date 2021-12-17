@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     public float damageTaken = 0;
     public float shieldForce;
     public int coinsOnPlayer = 0;
-    public int coindsDeposited = 0;
+    public int coinsDeposited = 0;
 
     bool isThrust = false, isBrake = false, isAttacking = false;
     bool dashButton = false;
@@ -115,10 +115,11 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     public void res()
     {
-        transform.position = new Vector3(-10, 0, 0);
+        transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         GetComponent<Rigidbody2D>().angularVelocity = 0;
         transform.rotation = Quaternion.Euler(Vector3.zero);
+        coinsOnPlayer = 0;
         damageTaken = 0;
     }
     public void Attack(InputAction.CallbackContext value)
@@ -269,6 +270,6 @@ public class PlayerController : MonoBehaviour, ICharacter
     {
 
         if (!shielded)
-            damageTaken += amount;
+            damageTaken += amount / 5;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public GameStates gameState;
+    public static GameStates gameState;
     public static List<PlayerController> Players = new List<PlayerController>();
     public static List<OffScreenIndicator> Indicators = new List<OffScreenIndicator>();
     
@@ -15,6 +15,16 @@ public class GameController : MonoBehaviour
             Players.Add(GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerController>());
             Indicators.Add(GameObject.FindGameObjectsWithTag("Indicator")[i].GetComponent<OffScreenIndicator>());
         }
+    }
+
+    public static GameStates GetGamestate()
+    {
+        return gameState;
+    }
+
+    public static void ChangeGameState(GameStates state)
+    {
+        gameState = state;
     }
 
 
