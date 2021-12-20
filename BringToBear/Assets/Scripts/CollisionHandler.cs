@@ -12,8 +12,8 @@ public class CollisionHandler : MonoBehaviour
 		Vector3 p1Angle = p1.velocity.normalized;
 		Vector3 p2Angle = p2.velocity.normalized;
 
-		float p1damagePercentage = p1.GetComponent<PlayerController>().damageTaken / 100;
-		float p2damagePercentage = p2.GetComponent<PlayerController>().damageTaken / 100;
+		float p1damagePercentage = p1.GetComponent<PlayerController>().damageTaken / 300;
+		float p2damagePercentage = p2.GetComponent<PlayerController>().damageTaken / 300;
 
 		if (p1Speed > p2Speed)
 		{

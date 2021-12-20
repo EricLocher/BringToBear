@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 70
   acceleration: 250
-  force: 8
+  force: 40
   trackRadius: 20
   rb: {fileID: 1768278439700700181}
   Explosion: {fileID: 1500794946509206753, guid: be9faa3897fc047478cf72c8fe7835ba, type: 3}

@@ -257,7 +257,7 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     IEnumerator ReloadDashes()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.5f);
         if (amountOfDashes < 3)
             amountOfDashes++;
         StartCoroutine(ReloadDashes());

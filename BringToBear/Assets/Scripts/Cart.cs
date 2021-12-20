@@ -71,15 +71,15 @@ public class Cart : MonoBehaviour, ICharacter
     public void Damage(int amount)
     {
         cartHP = cartHP - amount;
-        int dropTable = Random.Range(0, 200);
+        int dropTable = Random.Range(0, 300);
 
-        if (dropTable < 35)
+        if (dropTable < 70)
         {
             Instantiate(Pickups[0], transform.position, Quaternion.identity);
         }
         if (dropTable > 35 && dropTable < 38)
         {
-            int _weapon = Random.Range(0, 4);
+            int _weapon = Random.Range(0, 3);
 
             switch (_weapon)
             {
@@ -92,9 +92,7 @@ public class Cart : MonoBehaviour, ICharacter
                 case 2:
                     Instantiate(Pickups[3], transform.position, Quaternion.identity);
                     break;
-                case 3:
-                    Instantiate(Pickups[4], transform.position, Quaternion.identity);
-                    break;
+               
                 default:
                     break;
             }
