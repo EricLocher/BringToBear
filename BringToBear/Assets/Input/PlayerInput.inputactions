@@ -134,17 +134,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "7a64a5a6-cb01-483a-9cd0-b84f47775fa1",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Mouse & Keyboard",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "WASD",
                     "id": "d453d0ba-4e73-4fcc-9323-d9a07848d8ab",
                     "path": "2DVector",
@@ -213,7 +202,7 @@
                 {
                     "name": "",
                     "id": "7daa5128-d8f6-44c5-ad33-d50f3a343785",
-                    "path": "<XInputController>/rightTrigger",
+                    "path": "<XInputController>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "XBOX",
@@ -246,7 +235,7 @@
                 {
                     "name": "",
                     "id": "1a3d6f0e-d395-4454-9e28-dac7d08da9e6",
-                    "path": "<XInputController>/buttonWest",
+                    "path": "<XInputController>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "XBOX",
@@ -272,17 +261,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PS4",
-                    "action": "Drift",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8b245680-da2c-423b-a0a1-10df5333ae61",
-                    "path": "<XInputController>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XBOX",
                     "action": "Drift",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -334,7 +312,7 @@
                 {
                     "name": "",
                     "id": "fd00be37-7acf-489d-9f71-cc4873ae9044",
-                    "path": "<XInputController>/leftTrigger",
+                    "path": "<XInputController>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "XBOX",
@@ -366,6 +344,28 @@
                 },
                 {
                     "name": "",
+                    "id": "e7751bc3-192f-4e11-b415-013b834b349c",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse & Keyboard",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8d87a6ab-b5a0-4a9c-bf65-babea250c1db",
+                    "path": "<XInputController>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "668b689d-55dd-4275-92a1-7c416e7dd385",
                     "path": "<DualShockGamepad>/buttonWest",
                     "interactions": "Press",
@@ -377,11 +377,55 @@
                 },
                 {
                     "name": "",
+                    "id": "a3c804e8-6613-40bb-9ca1-0028f058de6f",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse & Keyboard",
+                    "action": "Shield",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5b46eed7-c4fb-48d9-be3d-170e568f245d",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shield",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "77428590-62e8-4057-8af2-292ad64cf34c",
                     "path": "<DualShockGamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "PS4",
+                    "action": "Drop Honey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d10b036c-6ab4-477c-81ce-95facbc5ddb8",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse & Keyboard",
+                    "action": "Drop Honey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0ec5fa45-3aa4-4d65-8b22-1a2c68c795e3",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Drop Honey",
                     "isComposite": false,
                     "isPartOfComposite": false
