@@ -40,8 +40,8 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
             RollForWeapon();
             for (int i = 0; i < 7; i++)
             {
-                Instantiate(explosion, new Vector2(transform.position.x + Random.Range(1, 3),
-                                                   transform.position.y + Random.Range(1, 3)), Random.rotation);
+                Instantiate(explosion, new Vector2(transform.position.x + Random.Range(1, 5),
+                                                   transform.position.y + Random.Range(1, 5)), Random.rotation);
             }
             ResetMe();
 
@@ -99,11 +99,11 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
         
         int dropTable = Random.Range(0, 100);
 
-        if (dropTable < 20)
+        if (dropTable < 10)
         {
             Panic();
         }
-        else if (dropTable == 21)
+        else if (dropTable == 11)
             RollForWeapon();
 
 

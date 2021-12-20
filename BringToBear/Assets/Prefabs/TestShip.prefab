@@ -1166,7 +1166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerShip: {fileID: 5640912145538070936}
   rb: {fileID: 5640912145538070940}
-  stabilizeSpeed: 300
+  stabilizeSpeed: 250
   thrust: 400
   turnSpeed: 5
   lookDirection: {x: -0, y: 0}

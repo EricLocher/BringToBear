@@ -7,8 +7,9 @@ public class Cart : MonoBehaviour, ICharacter
 {
     public Cart connectedCart;
     public int cartHP = 100;
-
+    public GameObject explosion;
     public List<GameObject> Pickups;
+
     private GameObject anchor;
 
     private void Start()
@@ -27,6 +28,12 @@ public class Cart : MonoBehaviour, ICharacter
             {
                 Instantiate(Pickups[0], transform.position, Quaternion.identity);
                
+            }
+
+            for (int i = 0; i < 12; i++)
+            {
+                Instantiate(explosion, new Vector2(transform.position.x + Random.Range(1, 8),
+                                                   transform.position.y + Random.Range(1, 8)), Random.rotation);
             }
             Destroy(gameObject);
         }

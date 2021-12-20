@@ -180,7 +180,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     public void DropHoney(InputAction.CallbackContext value)
     {
         if (coinsOnPlayer <= 0) { return; }
-
+        rb.AddForce(Vector2.up * 6, ForceMode2D.Impulse);
         GameObject _coin = Instantiate(Coin, transform.position, Quaternion.identity);
         _coin.GetComponent<PlayerCoin>().owner = this;
         _coin.GetComponent<PlayerCoin>().score = 1;
@@ -257,7 +257,7 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     IEnumerator ReloadDashes()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
         if (amountOfDashes < 3)
             amountOfDashes++;
         StartCoroutine(ReloadDashes());
