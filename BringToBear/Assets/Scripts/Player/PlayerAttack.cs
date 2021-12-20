@@ -8,16 +8,25 @@ public class PlayerAttack : MonoBehaviour
     public GameObject muzzleFlash;
     public int myAmmo = 0;
     float timer = 0;
+    public AudioSource audioSource0;
+    public AudioSource audioSource1;
+
+
+    private void Start()
+    {
+        //audioSource0 = GetComponent<AudioSource>();
+        //audioSource1 = GetComponent<AudioSource>();
+
+    }
 
     void Update()
     {
         timer += Time.deltaTime;
-        
     }
 
     public void Attack()
     {
-        if(myAmmo <= 0 && !myGun.infAmmo)
+        if (myAmmo <= 0 && !myGun.infAmmo)
         {
             myGun = defaultGun;
         }
@@ -31,14 +40,27 @@ public class PlayerAttack : MonoBehaviour
             float playerRotation = transform.eulerAngles.z;
             float randomRotation;
 
-               
+
+            try
+            {
+                audioSource0.PlayOneShot(myGun.gunSounds[Random.Range(0, myGun.gunSounds.Length - 2)], 0.2f);
+                audioSource1.PlayOneShot(myGun.gunSounds[Random.Range(6, 7)], 0.1f);
+                muzzleFlash.SetActive(true);
+
+            }
+            catch (System.Exception)
+            {
+                
+            }
+
+
 
             for (int i = 0; i < myGun.amountOfGuns; i++)
             {
                 GameObject _Bullet = Instantiate(myGun.bullet, transform.position + _Pos, transform.rotation);
                 _Bullet.transform.position = transform.rotation * (_Bullet.transform.position - transform.position) + transform.position;
 
-                
+
 
                 if (myGun.spreadMode)
                 {
@@ -52,7 +74,7 @@ public class PlayerAttack : MonoBehaviour
 
                 _Pos.x += _spacing;
                 myAmmo--;
-                
+
 
 
 

@@ -20,3 +20,12 @@ MonoBehaviour:
   spread: 0
   spreadMode: 1
   spreadRotation: 4
+  gunSounds:
+  - {fileID: 8300000, guid: d3032a3b0ad45f94a87bd9ae9efdd0e4, type: 3}
+  - {fileID: 8300000, guid: 45105ec89166ab147972401714435617, type: 3}
+  - {fileID: 8300000, guid: fb99ccfd4666b9e4088f33fae27d4ad6, type: 3}
+  - {fileID: 8300000, guid: a76cae1cac404b6459b5cabe1909f7ab, type: 3}
+  - {fileID: 8300000, guid: 8602592b39991b745826b3c68ee8d59e, type: 3}
+  - {fileID: 8300000, guid: 5e57c24b9474c484b8ec182c9d387aa4, type: 3}
+  - {fileID: 8300000, guid: 8a06866233e644b47b49ed2052735803, type: 3}
+  - {fileID: 8300000, guid: 8a06866233e644b47b49ed2052735803, type: 3}
