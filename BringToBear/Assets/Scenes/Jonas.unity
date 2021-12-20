@@ -16390,6 +16390,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicController
       objectReference: {fileID: 0}
+    - target: {fileID: 7689472202968569093, guid: 7984063ee855cf7488e2d78a4837e740, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7689472202968569094, guid: 7984063ee855cf7488e2d78a4837e740, type: 3}
       propertyPath: m_Volume
       value: 1

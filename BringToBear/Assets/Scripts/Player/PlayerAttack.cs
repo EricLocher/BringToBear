@@ -14,9 +14,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
-        //audioSource0 = GetComponent<AudioSource>();
-        //audioSource1 = GetComponent<AudioSource>();
-
+   
     }
 
     void Update()
@@ -43,8 +41,8 @@ public class PlayerAttack : MonoBehaviour
 
             try
             {
-                audioSource0.PlayOneShot(myGun.gunSounds[Random.Range(0, myGun.gunSounds.Length - 2)], 0.2f);
-                audioSource1.PlayOneShot(myGun.gunSounds[Random.Range(6, 7)], 0.1f);
+                audioSource0.PlayOneShot(myGun.gunSounds0[Random.Range(0, myGun.gunSounds0.Length)], 0.2f);
+                audioSource1.PlayOneShot(myGun.gunSounds1[Random.Range(0, myGun.gunSounds1.Length)], 0.1f);
                 muzzleFlash.SetActive(true);
 
             }
@@ -74,18 +72,10 @@ public class PlayerAttack : MonoBehaviour
 
                 _Pos.x += _spacing;
                 myAmmo--;
-
-
-
-
             }
-
-
-
             timer = 0;
         }
     }
-
 
     public void SetWeapon(Gun weapon)
     {

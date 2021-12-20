@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     public GameObject musicController;
     public SpriteRenderer dashRenderer;
     public SpriteRenderer playerOutline;
+    public GameObject HitIndicator;
 
     public bool invincible;
     public bool shielded;
@@ -277,7 +278,7 @@ public class PlayerController : MonoBehaviour, ICharacter
         {
             damageTaken += amount / 5;
             audioSource.PlayOneShot(explosion[Random.Range(0, explosion.Length)], 0.5f);
-
+            HitIndicator.gameObject.SetActive(true);
         }
     }
 }
