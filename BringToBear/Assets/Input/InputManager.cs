@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-
     [SerializeField] PlayerInputManager PlayerManager;
     public List<PlayerInput> playerList = new List<PlayerInput>();
     public GameController gameController;
