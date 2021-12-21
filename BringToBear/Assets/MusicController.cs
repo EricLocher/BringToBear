@@ -26,7 +26,7 @@ public class MusicController : MonoBehaviour
     public void RandomizeSong()
     {
         audioSource.Stop();
-        int random = Random.Range(0, songList.Length + 1);
+        int random = Random.Range(0, songList.Length);
         audioSource.PlayOneShot(songList[random], 0.2f);
     }
 }

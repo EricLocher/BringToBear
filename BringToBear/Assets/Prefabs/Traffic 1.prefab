@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7485069294095065454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 3, z: 1}
+  m_LocalPosition: {x: 0, y: -1.05, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 9067242265863298831}
   m_Father: {fileID: 0}
@@ -46,7 +46,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 15
+  m_Mass: 30
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -69,7 +69,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trafficThrust: 1
   maxVel: 25
+  truckStartHP: 80
+  explosion: {fileID: 1500794946509206753, guid: be9faa3897fc047478cf72c8fe7835ba, type: 3}
   spriteRenderer: {fileID: 0}
+  Pickups:
+  - {fileID: 7205129169322551079, guid: 39d8e1f623883d54d9e8ef1a553042ef, type: 3}
+  - {fileID: 7205129169322551079, guid: dc5f67bcbc418b04f8c3a6de9ea0b8e9, type: 3}
+  - {fileID: 7205129169322551079, guid: 988d2578e2e36ea41bda9846d03785dd, type: 3}
+  - {fileID: 7205129169322551079, guid: 36f64ded547dcdd42ae1be2bc8a4651d, type: 3}
+  truckHP: 0
 --- !u!70 &3504918699717287793
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -83,8 +91,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.17527115}
-  m_Size: {x: 1, y: 1.3505423}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 8, y: 20}
   m_Direction: 0
 --- !u!1 &8545421832080162300
 GameObject:
@@ -97,7 +105,7 @@ GameObject:
   - component: {fileID: 9067242265863298831}
   - component: {fileID: 2347797279983102556}
   m_Layer: 9
-  m_Name: Grey car
+  m_Name: Truck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 8545421832080162300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7485069294095065444}
   m_RootOrder: 0
@@ -157,7 +165,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f0b6e21f00372544fa148d805b6054e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bf715e922629b86428b346bbfc1983ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

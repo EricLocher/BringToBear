@@ -20,3 +20,17 @@ MonoBehaviour:
   spread: 4
   spreadMode: 1
   spreadRotation: 1
+  gunSounds0:
+  - {fileID: 8300000, guid: 6c69a219db275b34dafd43a4f658ff2f, type: 3}
+  - {fileID: 8300000, guid: 8c7b30c622e1cfb409c2ef4cc0bed339, type: 3}
+  - {fileID: 8300000, guid: 530ee54d9e7ab414f8e8d7d22e4baf2e, type: 3}
+  - {fileID: 8300000, guid: 14201f0fb1c5fce489a93497f1ebacfb, type: 3}
+  - {fileID: 8300000, guid: fc63bc3149369f7498de7595e6f38b6c, type: 3}
+  - {fileID: 8300000, guid: 1d108b1f74e2b5b4a81d6dd8523ca7a6, type: 3}
+  gunSounds1:
+  - {fileID: 8300000, guid: d3032a3b0ad45f94a87bd9ae9efdd0e4, type: 3}
+  - {fileID: 8300000, guid: 45105ec89166ab147972401714435617, type: 3}
+  - {fileID: 8300000, guid: fb99ccfd4666b9e4088f33fae27d4ad6, type: 3}
+  - {fileID: 8300000, guid: a76cae1cac404b6459b5cabe1909f7ab, type: 3}
+  - {fileID: 8300000, guid: 8602592b39991b745826b3c68ee8d59e, type: 3}
+  - {fileID: 8300000, guid: 5e57c24b9474c484b8ec182c9d387aa4, type: 3}

@@ -18,10 +18,14 @@ public class PlayerController : MonoBehaviour, ICharacter
     public GameObject musicController;
     public SpriteRenderer dashRenderer;
     public SpriteRenderer playerOutline;
-    
+    public GameObject HitIndicator;
+
     public bool invincible;
     public bool shielded;
+
     Rigidbody2D rb;
+    AudioSource audioSource;
+    public AudioClip[] explosion;
 
     public float damageTaken = 0;
     public float shieldForce;
@@ -42,12 +46,13 @@ public class PlayerController : MonoBehaviour, ICharacter
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
         StartCoroutine(ReloadDashes());
     }
 
     void Update()
     {
-        playerOutline.color = healthIndicator.Evaluate(damageTaken/100);
+        playerOutline.color = healthIndicator.Evaluate(damageTaken / 100);
         if (dash.dashing)
         {
             dashAnimation.SetActive(true);
@@ -175,7 +180,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     public void DropHoney(InputAction.CallbackContext value)
     {
         if (coinsOnPlayer <= 0) { return; }
-
+        rb.AddForce(Vector2.up * 6, ForceMode2D.Impulse);
         GameObject _coin = Instantiate(Coin, transform.position, Quaternion.identity);
         _coin.GetComponent<PlayerCoin>().owner = this;
         _coin.GetComponent<PlayerCoin>().score = 1;
@@ -270,6 +275,10 @@ public class PlayerController : MonoBehaviour, ICharacter
     {
 
         if (!shielded)
+        {
             damageTaken += amount / 5;
+            audioSource.PlayOneShot(explosion[Random.Range(0, explosion.Length)], 0.5f);
+            HitIndicator.gameObject.SetActive(true);
+        }
     }
 }

@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class TrafficController : MonoBehaviour
 {
-    public GameObject TrafficVehicle;
-    
+    public GameObject TrafficVehicle1;
+    public GameObject TrafficVehicle2;
+
     float xOffset;
     float yOffset;
     float minYSpawn = 100;
     float maxYSpawn = 300;
 
-    public float trafficAmount;
+    public float traffic0Amount;
+    public float traffic1Amount;
     public static TrafficController INSTANCE;
     public SpriteRenderer spriteRenderer;
 
@@ -29,12 +31,20 @@ public class TrafficController : MonoBehaviour
     {
         Vehicles = new List<Transform>();
 
-        for (int i = 0; i < trafficAmount; i++)
+        for (int i = 0; i < traffic0Amount; i++)
         {
             Vector3 newPos = GetFreeVehiclePosition(0);
-            GameObject newTrafficVehicle = Instantiate(TrafficVehicle, newPos, Quaternion.identity);
+            GameObject newTrafficVehicle = Instantiate(TrafficVehicle1, newPos, Quaternion.identity);
             newTrafficVehicle.GetComponent<TrafficBehaviour>().spriteRenderer = spriteRenderer;
             Vehicles.Add(newTrafficVehicle.transform);
+
+        }
+        for (int i = 0; i < traffic1Amount; i++)
+        {
+            Vector3 newPos = GetFreeVehiclePosition(0);
+            GameObject newTrafficVehicle2 = Instantiate(TrafficVehicle2, newPos, Quaternion.identity);
+            newTrafficVehicle2.GetComponent<TrafficBehaviour>().spriteRenderer = spriteRenderer;
+            Vehicles.Add(newTrafficVehicle2.transform);
         }
     }
 

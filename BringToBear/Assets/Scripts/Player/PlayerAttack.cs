@@ -12,12 +12,14 @@ public class PlayerAttack : MonoBehaviour
     float railGunDistance = 30;
     [SerializeField] int railGunDamage = 1000;
     public int myAmmo = 0;
+    float timer = 0;
+    public AudioSource audioSource0;
+    public AudioSource audioSource1;
     bool chargeUp = false;
 
     //public LayerMask layer;
 
 
-    public float timer = 0;
 
 
     void Update()
@@ -58,6 +60,20 @@ public class PlayerAttack : MonoBehaviour
 
             float playerRotation = transform.eulerAngles.z;
             float randomRotation;
+
+
+
+            try
+            {
+                audioSource0.PlayOneShot(myGun.gunSounds0[Random.Range(0, myGun.gunSounds0.Length)], 0.2f);
+                audioSource1.PlayOneShot(myGun.gunSounds1[Random.Range(0, myGun.gunSounds1.Length)], 0.1f);
+                muzzleFlash.SetActive(true);
+
+            }
+            catch (System.Exception)
+            {
+                
+            }
 
 
 
