@@ -181,7 +181,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     public void DropHoney(InputAction.CallbackContext value)
     {
         if (coinsOnPlayer <= 0) { return; }
-        rb.AddForce(Vector2.up * 3, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.up * 1.6f, ForceMode2D.Impulse);
         GameObject _coin = Instantiate(Coin, transform.position, Quaternion.identity);
         _coin.GetComponent<PlayerCoin>().owner = this;
         _coin.GetComponent<PlayerCoin>().score = 1;

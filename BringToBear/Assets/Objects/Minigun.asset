@@ -15,7 +15,7 @@ MonoBehaviour:
   bullet: {fileID: 8215515287612754749, guid: f5f8a02fa190bc643883c157804fc7ea, type: 3}
   amountOfGuns: 2
   infAmmo: 0
-  ammo: 60
+  ammo: 70
   fireRate: 0.03
   spread: 0.2
   spreadMode: 1

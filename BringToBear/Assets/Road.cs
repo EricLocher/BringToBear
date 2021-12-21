@@ -11,7 +11,7 @@ public class Road : MonoBehaviour
 
     float roadHeight = 99.5f;
     
-    int amountOfRoad = 8;
+    int amountOfRoad = 16;
     int amountOfRings = 1;
 
 
@@ -55,7 +55,7 @@ public class Road : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.down * 200 * Time.deltaTime);
+        transform.Translate(Vector2.down * 300 * Time.deltaTime);
         foreach (GameObject road in Roads)
         {
             if (road.transform.position.y < -199)

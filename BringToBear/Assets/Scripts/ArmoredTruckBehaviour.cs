@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrafficBehaviour : MonoBehaviour, ICharacter
+public class ArmoredTruckBehaviour : MonoBehaviour, ICharacter
 {
     Rigidbody2D rb;
     
@@ -19,12 +19,14 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 2;
+        
         truckHP = truckStartHP;
     }
 
     void Update()
     {
         trafficThrust = Random.Range(80, 110);
+
         Stabilize();
         GravityAdjuster();
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVel);
@@ -37,7 +39,12 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
 
         if (truckHP <= 0)
         {
-            RollForWeapon();
+            Instantiate(Pickups[1], transform.position, Quaternion.identity);
+            for (int i = 0; i < 25; i++)
+            {
+                Instantiate(Pickups[0], transform.position, Quaternion.identity);
+
+            }
             for (int i = 0; i < 7; i++)
             {
                 Instantiate(explosion, new Vector2(transform.position.x + Random.Range(1, 5),
@@ -78,7 +85,6 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
         }
     }
 
-
     private void Panic()
     {
         trafficThrust = 150;
@@ -108,36 +114,12 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
         
         int dropTable = Random.Range(0, 100);
 
-        if (dropTable < 10)
+        if (dropTable < 5)
         {
             Panic();
         }
-        else if (dropTable == 11)
-            RollForWeapon();
-
-
     }
 
-    private void RollForWeapon()
-    {
-        int _weapon = Random.Range(0, 3);
-
-        switch (_weapon)
-        {
-            case 0:
-                Instantiate(Pickups[1], transform.position, Quaternion.identity);
-                break;
-            case 1:
-                Instantiate(Pickups[2], transform.position, Quaternion.identity);
-                break;
-            case 2:
-                Instantiate(Pickups[3], transform.position, Quaternion.identity);
-                break;
-
-            default:
-                break;
-        }
-    }
 }
 
 

@@ -152,14 +152,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trafficThrust: 1
   maxVel: 25
-  truckStartHP: 120
+  truckStartHP: 300
   explosion: {fileID: 1500794946509206753, guid: be9faa3897fc047478cf72c8fe7835ba, type: 3}
   spriteRenderer: {fileID: 0}
   Pickups:
   - {fileID: 7205129169322551079, guid: 39d8e1f623883d54d9e8ef1a553042ef, type: 3}
   - {fileID: 7205129169322551079, guid: dc5f67bcbc418b04f8c3a6de9ea0b8e9, type: 3}
   - {fileID: 7205129169322551079, guid: 988d2578e2e36ea41bda9846d03785dd, type: 3}
-  - {fileID: 7205129169322551079, guid: 36f64ded547dcdd42ae1be2bc8a4651d, type: 3}
   truckHP: 0
 --- !u!70 &3504918699717287793
 CapsuleCollider2D:

@@ -30,10 +30,10 @@ public class Cart : MonoBehaviour, ICharacter
                
             }
 
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 6; i++)
             {
-                Instantiate(explosion, new Vector2(transform.position.x + Random.Range(1, 8),
-                                                   transform.position.y + Random.Range(1, 8)), Random.rotation);
+                Instantiate(explosion, new Vector2(transform.position.x + Random.Range(4, 14),
+                                                   transform.position.y + Random.Range(4, 14)), Random.rotation);
             }
             Destroy(gameObject);
         }

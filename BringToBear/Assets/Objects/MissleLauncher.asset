@@ -19,7 +19,7 @@ MonoBehaviour:
   fireRate: 0.15
   spread: 0
   spreadMode: 1
-  spreadRotation: 35
+  spreadRotation: 15
   gunSounds0:
   - {fileID: 8300000, guid: 1d29393d9ed0bb9478b6be23fe1f4e68, type: 3}
   - {fileID: 8300000, guid: 0b22511bec6e0e0468d471d5eb85a4b3, type: 3}
