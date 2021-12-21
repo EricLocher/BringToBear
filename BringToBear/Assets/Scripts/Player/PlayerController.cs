@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     public int amountOfDashes = 3;
 
+    public Gun machinegun;
     public Gun railgun;
     public Gun minigun;
     public Gun broadside;
@@ -135,19 +136,19 @@ public class PlayerController : MonoBehaviour, ICharacter
         attack.Attack();
     }
 
-    public void Drift(InputAction.CallbackContext value)
-    {
-        Vector2 _dir = value.ReadValue<Vector2>();
-        _dir.x *= -1;
+    //public void Drift(InputAction.CallbackContext value)
+    //{
+    //    Vector2 _dir = value.ReadValue<Vector2>();
+    //    _dir.x *= -1;
 
-        if (_dir != Vector2.zero)
-        {
-            movement.SetDriftMode(true);
-            movement.UpdateDirection(_dir);
-        }
-        else { movement.SetDriftMode(false); }
+    //    if (_dir != Vector2.zero)
+    //    {
+    //        movement.SetDriftMode(true);
+    //        movement.UpdateDirection(_dir);
+    //    }
+    //    else { movement.SetDriftMode(false); }
 
-    }
+    //}
 
     public void ToggleShield(InputAction.CallbackContext value)
     {
@@ -180,11 +181,16 @@ public class PlayerController : MonoBehaviour, ICharacter
     public void DropHoney(InputAction.CallbackContext value)
     {
         if (coinsOnPlayer <= 0) { return; }
-        rb.AddForce(Vector2.up * 6, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.up * 3, ForceMode2D.Impulse);
         GameObject _coin = Instantiate(Coin, transform.position, Quaternion.identity);
         _coin.GetComponent<PlayerCoin>().owner = this;
         _coin.GetComponent<PlayerCoin>().score = 1;
         coinsOnPlayer--;
+    }
+
+    public void DropWeapon(InputAction.CallbackContext value)
+    {
+        GetComponent<PlayerAttack>().SetWeapon(machinegun);
     }
 
     public void SelectRailgun(InputAction.CallbackContext value)

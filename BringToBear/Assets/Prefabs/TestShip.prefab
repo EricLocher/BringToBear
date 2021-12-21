@@ -1148,6 +1148,7 @@ MonoBehaviour:
   coinsOnPlayer: 0
   coinsDeposited: 0
   amountOfDashes: 3
+  machinegun: {fileID: 11400000, guid: 0baec91194c297e49b37f165c0c11ecd, type: 2}
   railgun: {fileID: 11400000, guid: 4b72b631976e48945914653699c745cf, type: 2}
   minigun: {fileID: 11400000, guid: 19f261aaf5375774ba4f3ee20878a3ec, type: 2}
   broadside: {fileID: 11400000, guid: 61be2829006f4894186c476209e192c4, type: 2}
@@ -1300,7 +1301,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8245381916860689196}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: Respawn
+        m_MethodName: DropWeapon
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

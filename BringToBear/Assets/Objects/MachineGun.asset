@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e8579f39b9106049b0f4c2b8bbe011a, type: 3}
-  m_Name: MachineGuns
+  m_Name: MachineGun
   m_EditorClassIdentifier: 
   bullet: {fileID: 8215515287612754749, guid: 0fd3675cc59cf39468481b5a6a65a52a, type: 3}
   amountOfGuns: 2

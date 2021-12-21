@@ -38,7 +38,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Respawn",
+                    "name": "Drop Weapon",
                     "type": "Button",
                     "id": "08bfbfd6-4451-4c54-a32b-1b5b8a393d9e",
                     "expectedControlType": "Button",
@@ -272,7 +272,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PS4",
-                    "action": "Respawn",
+                    "action": "Drop Weapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -283,7 +283,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XBOX",
-                    "action": "Respawn",
+                    "action": "Drop Weapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -294,7 +294,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Mouse & Keyboard",
-                    "action": "Respawn",
+                    "action": "Drop Weapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
