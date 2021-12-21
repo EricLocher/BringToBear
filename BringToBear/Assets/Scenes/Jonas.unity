@@ -10916,7 +10916,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roadPrefab: {fileID: 6481495300034569205, guid: 343a00bdc6cddfb47aedbc56497fc10f, type: 3}
+  ringPrefab: {fileID: 5456808230074646919, guid: f4681c54b84e7d94687fb9e1069ed3b6, type: 3}
   Roads: []
+  Rings: []
 --- !u!4 &1533804621
 Transform:
   m_ObjectHideFlags: 0
