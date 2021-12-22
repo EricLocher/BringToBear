@@ -10715,6 +10715,10 @@ PrefabInstance:
       propertyPath: Margin
       value: -0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 3281859513998338560, guid: fb494e6d4506ea043b377346c83ae26c, type: 3}
+      propertyPath: amountOfCarts
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3281859513998338561, guid: fb494e6d4506ea043b377346c83ae26c, type: 3}
       propertyPath: m_RootOrder
       value: 9

@@ -20,3 +20,8 @@ MonoBehaviour:
   spread: 0
   spreadMode: 0
   spreadRotation: 0
+  gunSounds0:
+  - {fileID: 8300000, guid: 9b1919e7f13e4964ebe73592ec913143, type: 3}
+  gunSounds1:
+  - {fileID: 8300000, guid: 748ae5e47460a28498dc7656aa23beb8, type: 3}
+  weaponVolume: 1.2

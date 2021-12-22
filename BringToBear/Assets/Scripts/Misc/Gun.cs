@@ -16,5 +16,6 @@ public class Gun : ScriptableObject
     public float spreadRotation;
     public AudioClip[] gunSounds0;
     public AudioClip[] gunSounds1;
+    public float weaponVolume;
 
 }

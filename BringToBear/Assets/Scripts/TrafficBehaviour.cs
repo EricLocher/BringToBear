@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrafficBehaviour : MonoBehaviour, ICharacter
 {
     Rigidbody2D rb;
-    
+
     public float trafficThrust;
     public float maxVel = 35;
     public float truckStartHP;
@@ -45,7 +45,7 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
             }
             ResetMe();
 
-            
+
         }
     }
 
@@ -74,7 +74,7 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
     {
         if (collision.gameObject.CompareTag("Mandible"))
         {
-            rb.AddForce((new Vector2(Random.Range(-3, 4), 3)) * 150, ForceMode2D.Impulse);
+            rb.AddForce((new Vector2(Random.Range(-3, 4), 3)) * 350, ForceMode2D.Impulse);
         }
     }
 
@@ -105,7 +105,7 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
     {
         truckHP -= amount;
         rb.angularVelocity = Random.Range(-200, 200);
-        
+
         int dropTable = Random.Range(0, 100);
 
         if (dropTable < 10)
@@ -133,7 +133,6 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
             case 2:
                 Instantiate(Pickups[3], transform.position, Quaternion.identity);
                 break;
-
             default:
                 break;
         }

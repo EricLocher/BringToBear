@@ -32,3 +32,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8a06866233e644b47b49ed2052735803, type: 3}
   - {fileID: 8300000, guid: 4db21188d11346b4e8ad98f3378ab2c7, type: 3}
   - {fileID: 8300000, guid: 1d108b1f74e2b5b4a81d6dd8523ca7a6, type: 3}
+  weaponVolume: 0.2

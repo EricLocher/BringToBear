@@ -27,3 +27,4 @@ MonoBehaviour:
   gunSounds1:
   - {fileID: 8300000, guid: 3d464e79ededfbd40963c8c6b0a8cc24, type: 3}
   - {fileID: 8300000, guid: ae7c8379bafd6ff49894cea7ea58702f, type: 3}
+  weaponVolume: 0.2

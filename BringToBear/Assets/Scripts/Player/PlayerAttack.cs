@@ -12,18 +12,19 @@ public class PlayerAttack : MonoBehaviour
     float railGunDistance = 30;
     [SerializeField] int railGunDamage = 1000;
     public int myAmmo = 0;
-    float timer = 0;
     public AudioSource audioSource0;
     public AudioSource audioSource1;
     bool chargeUp = false;
+    float timer = 0;
+    float weaponVolume = 0.2f;
 
-    //public LayerMask layer;
 
 
 
 
     void Update()
     {
+        weaponVolume = myGun.weaponVolume;
         if (myGun.name != "Railgun")
             timer += Time.deltaTime;
         else if (!chargeUp && timer != 0)
@@ -39,7 +40,8 @@ public class PlayerAttack : MonoBehaviour
                 railGunCharge.SetActive(true);
                 railGunCharge.GetComponent<Animator>().Update(-Time.deltaTime * 2);
             }
-        } else if(chargeUp)
+        }
+        else if (chargeUp)
         {
             timer += Time.deltaTime;
         }
@@ -65,14 +67,14 @@ public class PlayerAttack : MonoBehaviour
 
             try
             {
-                audioSource0.PlayOneShot(myGun.gunSounds0[Random.Range(0, myGun.gunSounds0.Length)], 0.2f);
-                audioSource1.PlayOneShot(myGun.gunSounds1[Random.Range(0, myGun.gunSounds1.Length)], 0.1f);
+                audioSource0.PlayOneShot(myGun.gunSounds0[Random.Range(0, myGun.gunSounds0.Length)], weaponVolume);
+                audioSource1.PlayOneShot(myGun.gunSounds1[Random.Range(0, myGun.gunSounds1.Length)], weaponVolume / 2);
                 muzzleFlash.SetActive(true);
 
             }
             catch (System.Exception)
             {
-                
+
             }
 
 
@@ -103,17 +105,19 @@ public class PlayerAttack : MonoBehaviour
             timer = 0;
         }
 
-        else if(myGun.name == "Railgun")
+        else if (myGun.name == "Railgun")
         {
             StopAllCoroutines();
             StartCoroutine(ChargeUp());
             chargeUp = true;
 
-            
-            if(timer < 0.5f)
+
+            if (timer < 0.5f)
             {
                 railGunCharge.SetActive(true);
                 railGunCharge.GetComponent<Animator>().Update(Time.deltaTime);
+                if (!audioSource1.isPlaying)
+                    audioSource1.PlayOneShot(myGun.gunSounds1[0], weaponVolume);
             }
             else
             {
@@ -124,7 +128,7 @@ public class PlayerAttack : MonoBehaviour
                 {
                     for (int i = 0; i < _hit.Length; i++)
                     {
-                        if(_hit[i].collider != null) { break; }
+                        if (_hit[i].collider != null) { break; }
 
                         GameObject other = _hit[i].collider.gameObject;
 
@@ -135,6 +139,7 @@ public class PlayerAttack : MonoBehaviour
                         }
                     }
 
+                    audioSource0.PlayOneShot(myGun.gunSounds0[0], weaponVolume);
                     GameObject _beam = Instantiate(railGunBeam, transform.position, Quaternion.identity);
                     _beam.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + 90);
                     myAmmo--;
@@ -143,6 +148,8 @@ public class PlayerAttack : MonoBehaviour
 
 
                 railGunCharge.SetActive(false);
+                audioSource1.Stop();
+
             }
 
         }
@@ -160,6 +167,7 @@ public class PlayerAttack : MonoBehaviour
     {
         myGun = weapon;
         myAmmo = weapon.ammo;
+        weaponVolume = weapon.weaponVolume;
         timer = 0;
     }
 
