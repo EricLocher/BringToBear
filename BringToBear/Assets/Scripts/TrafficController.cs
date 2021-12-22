@@ -18,9 +18,7 @@ public class TrafficController : MonoBehaviour
     public float traffic3Amount;
     public static TrafficController INSTANCE;
     public SpriteRenderer spriteRenderer;
-
-    List<Transform> Vehicles;
-
+    public static List<Transform> Vehicles;
 
     private void Awake()
     {

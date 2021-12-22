@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour, IBullet
+public class RailGunBeam : MonoBehaviour, IBullet
 {
     public float speed;
     public float force;
@@ -14,9 +14,9 @@ public class Bullet : MonoBehaviour, IBullet
 
     void Start()
     {
-        rb = transform.GetComponent<Rigidbody2D>();
-        rb.velocity = transform.up * speed;
+        
     }
+
 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -27,19 +27,15 @@ public class Bullet : MonoBehaviour, IBullet
         {
             if (other.GetComponent<ICharacter>() != null)
             {
-                if (other.CompareTag("Player"))
-                {
-                    other.GetComponent<Rigidbody2D>().AddForce(rb.velocity * force * other.GetComponent<PlayerController>().damageTaken / 1000);
-                }
-                
+
                 other.GetComponent<ICharacter>().Damage(damage);
+                Instantiate(Explosion, other.transform.position, Random.rotation);
                 Destroy(gameObject);
             }
         }
 
         if (other.gameObject.CompareTag("Shield") && other.transform.parent.gameObject != Owner)
         {
-            rb.velocity = -rb.velocity;
             Owner = other.transform.parent.gameObject;
         }
 
@@ -48,7 +44,7 @@ public class Bullet : MonoBehaviour, IBullet
     private void OnDestroy()
     {
         Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
-        Instantiate(Explosion, transform.position, _rotation);
+        
     }
 
 

@@ -245,11 +245,11 @@
                 },
                 {
                     "name": "",
-                    "id": "f7fcbe86-0f22-494b-bea9-498988c09565",
-                    "path": "<Keyboard>/space",
+                    "id": "0d0a265e-e6ba-4fc3-abad-ff23662c3a04",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mouse & Keyboard",
+                    "groups": "",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -366,6 +366,17 @@
                 },
                 {
                     "name": "",
+                    "id": "309081ac-8c26-413f-9c6c-d27b145f7b6d",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "668b689d-55dd-4275-92a1-7c416e7dd385",
                     "path": "<DualShockGamepad>/buttonWest",
                     "interactions": "Press",
@@ -390,6 +401,17 @@
                     "name": "",
                     "id": "5b46eed7-c4fb-48d9-be3d-170e568f245d",
                     "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shield",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b51767a-005b-41df-af12-0948121c08f1",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

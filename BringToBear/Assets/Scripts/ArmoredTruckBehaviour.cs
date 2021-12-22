@@ -25,7 +25,7 @@ public class ArmoredTruckBehaviour : MonoBehaviour, ICharacter
 
     void Update()
     {
-        trafficThrust = Random.Range(80, 110);
+        trafficThrust = Random.Range(80, 100);
 
         Stabilize();
         GravityAdjuster();

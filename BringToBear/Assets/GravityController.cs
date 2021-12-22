@@ -45,7 +45,38 @@ public class GravityController : MonoBehaviour
                 _rb.gravityScale = 3;
             }
         }
+
+        foreach (Transform traffic in TrafficController.Vehicles)
+        {
+            Vector2 _trafficPos = traffic.transform.position;
+            Rigidbody2D _rb = traffic.GetComponent<Rigidbody2D>();
+
+            if (_trafficPos.x > (tunnelBounds.center.x + tunnelBounds.extents.x) || _trafficPos.x < (tunnelBounds.center.x - tunnelBounds.extents.x))
+            {
+                if (_trafficPos.y < (tunnelBounds.min.y + lowGravityHeight))
+                    _rb.gravityScale = 3;
+                else
+                    _rb.gravityScale = 6;
+
+                Vector3 _dis = (Vector2)tunnelBounds.center - _trafficPos;
+                _dis = _dis.normalized;
+                _rb.AddForce(new Vector3(_dis.x * 25, 0, 0));
+            }
+            else if (_trafficPos.y < (tunnelBounds.min.y + lowGravityHeight))
+            {
+                _rb.gravityScale = 1;
+            }
+            else if (_trafficPos.y > (tunnelBounds.max.y - highGravityHeight))
+            {
+                _rb.gravityScale = 6;
+            }
+            else
+            {
+                _rb.gravityScale = 3;
+            }
+        }
     }
+
 
     private void OnDrawGizmos()
     {

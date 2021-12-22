@@ -24,7 +24,7 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
 
     void Update()
     {
-        trafficThrust = Random.Range(80, 110);
+        trafficThrust = Random.Range(80, 100);
         Stabilize();
         GravityAdjuster();
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVel);
