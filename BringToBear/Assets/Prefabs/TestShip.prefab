@@ -971,9 +971,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f2930853f94274d92de65430d778b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: {fileID: 0}
+  characterController: {fileID: 0}
   movement: {fileID: 5640912145538070939}
   anim: {fileID: 2360870025788018867}
-  mainCam: {fileID: 0}
   Shield: {fileID: 3841131823115436787}
   Coin: {fileID: 9053389110505902517, guid: 469719e21cb66c54e90fd047edfb610a, type: 3}
   attack: {fileID: 2312424755723544961}
@@ -981,15 +982,15 @@ MonoBehaviour:
   healthIndicator:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 0.7258382, g: 0, b: 1, a: 1}
+    key1: {r: 0.4433962, g: 0.03825379, b: 0, a: 1}
     key2: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
     key3: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
     key4: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
     key5: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
     key6: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
     key7: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
-    ctime0: 9638
-    ctime1: 65535
+    ctime0: 0
+    ctime1: 48573
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -1007,6 +1008,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  mainCam: {fileID: 0}
   dashAnimation: {fileID: 7916113733727940852}
   musicController: {fileID: 0}
   dashRenderer: {fileID: 4363813290254420766}
@@ -1016,7 +1018,7 @@ MonoBehaviour:
   damageTaken: 0
   shieldForce: 0
   coinsOnPlayer: 0
-  coindsDeposited: 0
+  coinsDeposited: 0
   amountOfDashes: 3
   railgun: {fileID: 11400000, guid: 4b72b631976e48945914653699c745cf, type: 2}
   minigun: {fileID: 11400000, guid: 19f261aaf5375774ba4f3ee20878a3ec, type: 2}
@@ -1308,6 +1310,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 17d9b64a-000f-40e7-ad1f-5c55155fc709
     m_ActionName: Controls/SelectMissile[/DualShock4GamepadHID/dpad/down]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1c517f56-8c6a-4e90-8071-56edc9e03174
+    m_ActionName: Menu/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: PS4
   m_DefaultActionMap: Controls

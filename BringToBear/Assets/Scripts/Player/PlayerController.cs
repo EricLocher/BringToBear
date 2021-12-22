@@ -5,14 +5,19 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour, ICharacter
 {
+    [Header("Reference")]
+    [SerializeField] PlayerInput playerInput = null;
+
+    [Header("Player Components")]
     [SerializeField] PlayerMovement movement;
     [SerializeField] ShipAnimation anim;
-    [SerializeField] Camera mainCam;
     [SerializeField] GameObject Shield;
     [SerializeField] GameObject Coin;
     [SerializeField] PlayerAttack attack;
     [SerializeField] PlayerDash dash;
     [SerializeField] Gradient healthIndicator;
+
+    [SerializeField] Camera mainCam;
 
     public GameObject dashAnimation;
     public GameObject musicController;
@@ -37,6 +42,8 @@ public class PlayerController : MonoBehaviour, ICharacter
     public Gun minigun;
     public Gun broadside;
     public Gun missile;
+
+    public PlayerInput PlayerInput => playerInput;
 
     private void Start()
     {
