@@ -962,7 +962,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4944578356672656841}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b79c87fd06de44b4389d719c9859a8ee, type: 2}
   m_CullingMode: 0
@@ -1094,7 +1094,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 0}
-  characterController: {fileID: 0}
   movement: {fileID: 5640912145538070939}
   anim: {fileID: 2360870025788018867}
   Shield: {fileID: 3841131823115436787}
@@ -1450,8 +1449,44 @@ MonoBehaviour:
     m_ActionName: Controls/SelectMissile[/DualShock4GamepadHID/dpad/down]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 1c517f56-8c6a-4e90-8071-56edc9e03174
-    m_ActionName: Menu/New action
+    m_ActionId: 2dd45de5-1f7b-4ee1-909d-c1ce644dc928
+    m_ActionName: Menu/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6874efcf-226b-44a4-8342-265c3ad30dca
+    m_ActionName: Menu/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f6e5f9b7-c574-4aee-a132-384f32d4cad6
+    m_ActionName: Menu/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bf8ecdad-c539-486b-9dcb-62eb5e8ffd14
+    m_ActionName: Menu/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4803fa84-9663-4618-8b83-e6abac219aea
+    m_ActionName: Menu/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 930bd6a4-7d0a-4d66-84dc-e38266c5328e
+    m_ActionName: Menu/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4f8c1132-8af6-43eb-bd33-13f248aed79b
+    m_ActionName: Menu/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9f6a134a-d398-419c-b588-39d575150df5
+    m_ActionName: Menu/Cancel[/Keyboard/escape,/DualShock4GamepadHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 38796d45-2612-420c-96b6-43710325375b
+    m_ActionName: Menu/Submit[/Keyboard/enter,/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3fcf4558-2e3a-478d-82c2-93a3e3a34a6e
+    m_ActionName: Menu/Navigate[/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/rightStick/up,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/rightStick/down,/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID/rightStick/left,/DualShock4GamepadHID/leftStick/right,/DualShock4GamepadHID/rightStick/right,/DualShock4GamepadHID/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: PS4
   m_DefaultActionMap: Controls
