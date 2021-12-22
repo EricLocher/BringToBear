@@ -43,7 +43,7 @@ PointEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1024
   m_ForceMagnitude: -50
   m_ForceVariation: 0
   m_DistanceScale: 0.01
@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4608c896d20abb46a4dd35dea51344c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  suction: {fileID: 0}
 --- !u!1 &5796653516838742426
 GameObject:
   m_ObjectHideFlags: 0

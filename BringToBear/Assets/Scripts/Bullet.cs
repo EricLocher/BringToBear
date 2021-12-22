@@ -18,13 +18,6 @@ public class Bullet : MonoBehaviour, IBullet
         rb.velocity = transform.up * speed;
     }
 
-    void Update()
-    {
-        foreach (PlayerController _player in GameController.Players)
-        {
-            if (_player == Owner) { continue; }
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

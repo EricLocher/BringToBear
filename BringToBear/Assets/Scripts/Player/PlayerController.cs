@@ -23,10 +23,14 @@ public class PlayerController : MonoBehaviour, ICharacter
     public GameObject musicController;
     public SpriteRenderer dashRenderer;
     public SpriteRenderer playerOutline;
-    
+    public GameObject HitIndicator;
+
     public bool invincible;
     public bool shielded;
+
     Rigidbody2D rb;
+    AudioSource audioSource;
+    public AudioClip[] explosion;
 
     public float damageTaken = 0;
     public float shieldForce;
@@ -38,6 +42,7 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     public int amountOfDashes = 3;
 
+    public Gun machinegun;
     public Gun railgun;
     public Gun minigun;
     public Gun broadside;
@@ -49,12 +54,13 @@ public class PlayerController : MonoBehaviour, ICharacter
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
         StartCoroutine(ReloadDashes());
     }
 
     void Update()
     {
-        playerOutline.color = healthIndicator.Evaluate(damageTaken/100);
+        playerOutline.color = healthIndicator.Evaluate(damageTaken / 100);
         if (dash.dashing)
         {
             dashAnimation.SetActive(true);
@@ -89,9 +95,9 @@ public class PlayerController : MonoBehaviour, ICharacter
         }
 
         _dir.x *= -1;
-        movement.UpdateDirection(_dir);
         _dir.Normalize();
-        anim.updateRotation(GetComponent<Rigidbody2D>().velocity.x * -1);
+        movement.UpdateDirection(_dir);
+        //anim.updateRotation(GetComponent<Rigidbody2D>().velocity.x * -1);
     }
 
     public void Thrust(InputAction.CallbackContext value)
@@ -137,19 +143,19 @@ public class PlayerController : MonoBehaviour, ICharacter
         attack.Attack();
     }
 
-    public void Drift(InputAction.CallbackContext value)
-    {
-        Vector2 _dir = value.ReadValue<Vector2>();
-        _dir.x *= -1;
+    //public void Drift(InputAction.CallbackContext value)
+    //{
+    //    Vector2 _dir = value.ReadValue<Vector2>();
+    //    _dir.x *= -1;
 
-        if (_dir != Vector2.zero)
-        {
-            movement.SetDriftMode(true);
-            movement.UpdateDirection(_dir);
-        }
-        else { movement.SetDriftMode(false); }
+    //    if (_dir != Vector2.zero)
+    //    {
+    //        movement.SetDriftMode(true);
+    //        movement.UpdateDirection(_dir);
+    //    }
+    //    else { movement.SetDriftMode(false); }
 
-    }
+    //}
 
     public void ToggleShield(InputAction.CallbackContext value)
     {
@@ -182,11 +188,16 @@ public class PlayerController : MonoBehaviour, ICharacter
     public void DropHoney(InputAction.CallbackContext value)
     {
         if (coinsOnPlayer <= 0) { return; }
-
+        rb.AddForce(Vector2.up * 1.6f, ForceMode2D.Impulse);
         GameObject _coin = Instantiate(Coin, transform.position, Quaternion.identity);
         _coin.GetComponent<PlayerCoin>().owner = this;
         _coin.GetComponent<PlayerCoin>().score = 1;
         coinsOnPlayer--;
+    }
+
+    public void DropWeapon(InputAction.CallbackContext value)
+    {
+        GetComponent<PlayerAttack>().SetWeapon(machinegun);
     }
 
     public void SelectRailgun(InputAction.CallbackContext value)
@@ -277,6 +288,10 @@ public class PlayerController : MonoBehaviour, ICharacter
     {
 
         if (!shielded)
+        {
             damageTaken += amount / 5;
+            audioSource.PlayOneShot(explosion[Random.Range(0, explosion.Length)], 0.5f);
+            HitIndicator.gameObject.SetActive(true);
+        }
     }
 }

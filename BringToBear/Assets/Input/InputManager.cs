@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-
     [SerializeField] PlayerInputManager PlayerManager;
     public List<PlayerInput> playerList = new List<PlayerInput>();
     public GameController gameController;
@@ -16,6 +15,7 @@ public class InputManager : MonoBehaviour
 
     public event System.Action<PlayerInput> PlayerJoinedGame;
     public event System.Action<PlayerInput> PlayerLeftGame;
+    public List<Sprite> playerSprite;
 
     private void Awake()
     {
@@ -32,7 +32,9 @@ public class InputManager : MonoBehaviour
     {
         Debug.Log("Player Joined The Game!");
         playerList.Add(playerInput);
+
         GameController.Players.Add(playerInput.GetComponent<PlayerController>());
+        playerInput.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = playerSprite[GameController.Players.Count - 1];
         
         GameObject _temp = Instantiate(indicator);
         _temp.GetComponent<OffScreenIndicator>().Player = playerInput.gameObject;

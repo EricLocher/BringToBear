@@ -17,6 +17,7 @@ TagManager:
   - PlayerCoin
   - Mouth
   - Mandible
+  - Magnet
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - CollisionMask
   - Coins
   - Character
-  - 
+  - Player Coins
   - 
   - 
   - 

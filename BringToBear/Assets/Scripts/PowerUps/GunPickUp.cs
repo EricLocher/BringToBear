@@ -19,7 +19,10 @@ public class GunPickUp : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController player)
     {
-        player.GetComponent<PlayerAttack>().SetWeapon(gun);
-        Destroy(gameObject);
+        if (player.GetComponent<PlayerAttack>().myGun.infAmmo == true)
+        {
+            player.GetComponent<PlayerAttack>().SetWeapon(gun);
+            Destroy(gameObject);
+        }
     }
 }

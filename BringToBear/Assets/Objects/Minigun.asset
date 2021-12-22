@@ -13,10 +13,22 @@ MonoBehaviour:
   m_Name: Minigun
   m_EditorClassIdentifier: 
   bullet: {fileID: 8215515287612754749, guid: f5f8a02fa190bc643883c157804fc7ea, type: 3}
-  amountOfGuns: 1
+  amountOfGuns: 2
   infAmmo: 0
-  ammo: 120
-  fireRate: 0.01
-  spread: 0
+  ammo: 70
+  fireRate: 0.03
+  spread: 0.2
   spreadMode: 1
   spreadRotation: 4
+  gunSounds0:
+  - {fileID: 8300000, guid: d3032a3b0ad45f94a87bd9ae9efdd0e4, type: 3}
+  - {fileID: 8300000, guid: 45105ec89166ab147972401714435617, type: 3}
+  - {fileID: 8300000, guid: fb99ccfd4666b9e4088f33fae27d4ad6, type: 3}
+  - {fileID: 8300000, guid: a76cae1cac404b6459b5cabe1909f7ab, type: 3}
+  - {fileID: 8300000, guid: 8602592b39991b745826b3c68ee8d59e, type: 3}
+  - {fileID: 8300000, guid: 5e57c24b9474c484b8ec182c9d387aa4, type: 3}
+  gunSounds1:
+  - {fileID: 8300000, guid: 4f6684a72a0de004791d73091e135a63, type: 3}
+  - {fileID: 8300000, guid: 8a06866233e644b47b49ed2052735803, type: 3}
+  - {fileID: 8300000, guid: 4db21188d11346b4e8ad98f3378ab2c7, type: 3}
+  - {fileID: 8300000, guid: 1d108b1f74e2b5b4a81d6dd8523ca7a6, type: 3}
