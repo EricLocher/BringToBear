@@ -27,7 +27,6 @@ public class RailGunBeam : MonoBehaviour, IBullet
         {
             if (other.GetComponent<ICharacter>() != null)
             {
-
                 other.GetComponent<ICharacter>().Damage(damage);
                 Instantiate(Explosion, other.transform.position, Random.rotation);
                 Destroy(gameObject);

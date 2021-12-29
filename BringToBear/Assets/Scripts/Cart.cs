@@ -9,6 +9,8 @@ public class Cart : MonoBehaviour, ICharacter
     public int cartHP = 100;
     public GameObject explosion;
     public List<GameObject> Pickups;
+    public GameObject HitIndicator;
+
 
     private GameObject anchor;
 
@@ -79,6 +81,7 @@ public class Cart : MonoBehaviour, ICharacter
     {
         cartHP = cartHP - amount;
         int dropTable = Random.Range(0, 300);
+        HitIndicator.gameObject.SetActive(true);
 
         if (dropTable < 70)
         {
