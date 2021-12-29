@@ -20,7 +20,7 @@ public class MenuController : MonoBehaviour
     }
     public void OptionsMenu()
     {
-        //SceneManager.LoadScene("Options");
+        SceneManager.LoadScene(3);
     }
     public void Gallery()
     {
@@ -30,5 +30,10 @@ public class MenuController : MonoBehaviour
     public void Jonas()
     {
         SceneManager.LoadScene(2);
+    }
+    
+    public void Back()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
