@@ -6,7 +6,7 @@ public class GravityController : MonoBehaviour
     [SerializeField, Range(0, 300)]
     float highGravityHeight = 90;
     [SerializeField, Range(0, 300)]
-    float lowGravityHeight = 130;
+    float lowGravityHeight = 100;
     Bounds tunnelBounds;
 
     private void Start()
@@ -34,7 +34,7 @@ public class GravityController : MonoBehaviour
             }
             else if (_playerPos.y < (tunnelBounds.min.y + lowGravityHeight))
             {
-                _rb.gravityScale = 3;
+                _rb.gravityScale = 1;
             }
             else if (_playerPos.y > (tunnelBounds.max.y - highGravityHeight))
             {

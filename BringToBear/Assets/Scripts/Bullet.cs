@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour, IBullet
             {
                 if (other.CompareTag("Player"))
                 {
-                    other.GetComponent<Rigidbody2D>().AddForce(rb.velocity * force * other.GetComponent<PlayerController>().damageTaken / 1000);
+                    other.GetComponent<Rigidbody2D>().AddForce(rb.velocity * force * other.GetComponent<PlayerController>().damageTaken / 2000);
                 }
                 
                 other.GetComponent<ICharacter>().Damage(damage);

@@ -145,6 +145,7 @@ public class PlayerAttack : MonoBehaviour
                     audioSource0.PlayOneShot(myGun.gunSounds0[0], weaponVolume);
                     GameObject _beam = Instantiate(railGunBeam, transform.position, Quaternion.identity);
                     _beam.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + 90);
+                    _beam.GetComponent<RailGunBeam>().Owner = gameObject;
                     myAmmo--;
 
                 }

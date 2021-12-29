@@ -70,13 +70,27 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
         {
             Panic();
         }
+
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Mama Bear"))
+        {
+            trafficThrust = 0;
+            rb.AddForce((new Vector2(Random.Range(-3, 4), 3)) * 50, ForceMode2D.Impulse);
+            rb.AddTorque(Random.Range(-50, 50) * 1000, ForceMode2D.Impulse);
+            Damage(20);
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Mandible"))
         {
-            rb.AddForce((new Vector2(Random.Range(-3, 4), 3)) * 350, ForceMode2D.Impulse);
+            trafficThrust = 0;
+            rb.AddForce((new Vector2(Random.Range(-3, 4), 3)) * 50, ForceMode2D.Impulse);
+            rb.AddTorque(Random.Range(-50, 50) * 1000, ForceMode2D.Impulse);
+            Damage(20);
         }
     }
 
@@ -129,13 +143,13 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
         switch (_weapon)
         {
             case 0:
-                Instantiate(Pickups[1], transform.position, Quaternion.identity);
+                Instantiate(Pickups[0], transform.position, Quaternion.identity);
                 break;
             case 1:
-                Instantiate(Pickups[2], transform.position, Quaternion.identity);
+                Instantiate(Pickups[1], transform.position, Quaternion.identity);
                 break;
             case 2:
-                Instantiate(Pickups[3], transform.position, Quaternion.identity);
+                Instantiate(Pickups[2], transform.position, Quaternion.identity);
                 break;
             default:
                 break;

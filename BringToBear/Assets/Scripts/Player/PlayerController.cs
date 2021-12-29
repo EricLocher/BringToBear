@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     void Update()
     {
-        playerOutline.color = healthIndicator.Evaluate(damageTaken / 3000);
+        //playerOutline.color = healthIndicator.Evaluate(damageTaken / 2000);
         if (dash.dashing)
         {
             dashAnimation.SetActive(true);
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour, ICharacter
         if (isAttacking)
             attack.Attack();
 
-        if (damageTaken >= 800)
+        if (damageTaken >= 2000)
         {
             for (int i = 0; i < 6; i++)
             {
@@ -145,6 +145,7 @@ public class PlayerController : MonoBehaviour, ICharacter
         coinsOnPlayer = 0;
         damageTaken = 0;
         GetComponent<PlayerAttack>().SetWeapon(machinegun);
+        GetComponent<PlayerAttack>().SetWeapon(machinegun);
     }
     public void Attack(InputAction.CallbackContext value)
     {
@@ -202,8 +203,14 @@ public class PlayerController : MonoBehaviour, ICharacter
         rb.AddForce(Vector2.up * 1.6f, ForceMode2D.Impulse);
         GameObject _coin = Instantiate(Coin, transform.position, Quaternion.identity);
         _coin.GetComponent<PlayerCoin>().owner = this;
-        _coin.GetComponent<PlayerCoin>().score = 1;
-        coinsOnPlayer--;
+        if (coinsOnPlayer > 10)
+        {
+            _coin.GetComponent<PlayerCoin>().score = 10;
+            coinsOnPlayer -= 10;
+        }
+        else
+            _coin.GetComponent<PlayerCoin>().score = 1;
+            coinsOnPlayer--;
     }
 
     public void DropWeapon(InputAction.CallbackContext value)
@@ -235,11 +242,20 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
         if (other.CompareTag("Player") || other.CompareTag("Shield"))
         {
-            Rigidbody2D _otherRb = other.GetComponent<Rigidbody2D>();
 
-            if (!invincible && !other.GetComponent<PlayerController>().invincible)
+            PlayerController _playerController = other.GetComponent<PlayerController>();
+
+           
+            if (other.CompareTag("Shield"))
+            {
+                _playerController = other.GetComponentInParent<PlayerController>();
+            }
+            Rigidbody2D _otherRb = _playerController.GetComponent<Rigidbody2D>();
+
+            if (!invincible && !_playerController.invincible)
             {
                 if (shielded)
                     shieldForce = 2;

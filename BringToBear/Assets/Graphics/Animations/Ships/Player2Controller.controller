@@ -100,7 +100,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ec6407b02b2defd43b0940296fb1b3d6, type: 2}
+  m_Motion: {fileID: 7400000, guid: f94aa262638db104b99cd018c20efab7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -112,7 +112,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: OrangeAnims
+  m_Name: Player2Controller
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Rotation
@@ -155,7 +155,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: df6409b3ed6c6eb4bb2680a1c5fe97ca, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1157cc71867a0f242a383b33cc304f46, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -232,7 +232,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c12ce9e2cc6c6e748825d0b17b7d0768, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4ee3ccda915b1f34792e3c381bfbbf77, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

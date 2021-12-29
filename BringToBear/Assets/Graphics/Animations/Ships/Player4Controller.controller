@@ -100,7 +100,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 16c1c1bdedc0d5449851e87113b4405b, type: 2}
+  m_Motion: {fileID: 7400000, guid: 56bf244b5638ec240a54adb8ce5ba5fa, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -112,7 +112,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PurpleAnims
+  m_Name: Player4Controller
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Rotation
@@ -155,7 +155,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9d5717dfc6e628d4599ee9bcf18d09e1, type: 2}
+  m_Motion: {fileID: 7400000, guid: ef8244d97d6aa62488c7e11955505167, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -232,7 +232,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 3f09e477202bae948a151a48a89a1306, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7cc2537066b914c42be39d700b655fa0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
