@@ -63,13 +63,16 @@ public class PlayerAttack : MonoBehaviour
             float playerRotation = transform.eulerAngles.z;
             float randomRotation;
 
-
+            if (myGun == defaultGun)
+            {
+                muzzleFlash.SetActive(true);
+            }
 
             try
             {
                 audioSource0.PlayOneShot(myGun.gunSounds0[Random.Range(0, myGun.gunSounds0.Length)], weaponVolume);
                 audioSource1.PlayOneShot(myGun.gunSounds1[Random.Range(0, myGun.gunSounds1.Length)], weaponVolume / 2);
-                muzzleFlash.SetActive(true);
+                
 
             }
             catch (System.Exception)

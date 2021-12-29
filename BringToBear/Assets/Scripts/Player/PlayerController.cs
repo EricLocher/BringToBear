@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour, ICharacter
     [SerializeField] Camera mainCam;
 
     public GameObject dashAnimation;
-    public GameObject musicController;
     public SpriteRenderer dashRenderer;
     public SpriteRenderer playerOutline;
     public GameObject HitIndicator;
@@ -30,7 +29,8 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     Rigidbody2D rb;
     AudioSource audioSource;
-    public AudioClip[] explosion;
+    public AudioClip[] boom;
+    public GameObject explosion;
 
     public float damageTaken = 0;
     public float shieldForce;
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     void Update()
     {
-        playerOutline.color = healthIndicator.Evaluate(damageTaken / 100);
+        playerOutline.color = healthIndicator.Evaluate(damageTaken / 3000);
         if (dash.dashing)
         {
             dashAnimation.SetActive(true);
@@ -78,6 +78,16 @@ public class PlayerController : MonoBehaviour, ICharacter
 
         if (isAttacking)
             attack.Attack();
+
+        if (damageTaken >= 800)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                Instantiate(explosion, new Vector2(transform.position.x + Random.Range(4, 14),
+                                                   transform.position.y + Random.Range(4, 14)), Random.rotation);
+            }
+            res();
+        }
     }
 
     #region Inputs
@@ -97,7 +107,7 @@ public class PlayerController : MonoBehaviour, ICharacter
         _dir.x *= -1;
         _dir.Normalize();
         movement.UpdateDirection(_dir);
-        //anim.updateRotation(GetComponent<Rigidbody2D>().velocity.x * -1);
+        anim.updateRotation(GetComponent<Rigidbody2D>().velocity.x * -1);
     }
 
     public void Thrust(InputAction.CallbackContext value)
@@ -220,11 +230,6 @@ public class PlayerController : MonoBehaviour, ICharacter
         GetComponent<PlayerAttack>().SetWeapon(missile);
     }
 
-    public void ChangeSong(InputAction.CallbackContext value)
-    {
-        musicController.GetComponent<MusicController>().RandomizeSong();
-    }
-
     #endregion
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -289,8 +294,8 @@ public class PlayerController : MonoBehaviour, ICharacter
 
         if (!shielded)
         {
-            damageTaken += amount / 5;
-            audioSource.PlayOneShot(explosion[Random.Range(0, explosion.Length)], 0.5f);
+            damageTaken += amount;
+            audioSource.PlayOneShot(boom[Random.Range(0, boom.Length)], 0.5f);
             HitIndicator.gameObject.SetActive(true);
         }
     }
