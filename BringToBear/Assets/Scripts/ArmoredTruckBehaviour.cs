@@ -139,6 +139,3 @@ public class ArmoredTruckBehaviour : MonoBehaviour, ICharacter
     }
 
 }
-
-
-

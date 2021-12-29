@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class PlayerDash : MonoBehaviour
 {
-    [SerializeField, Range(0, 20)]
+    [SerializeField, Range(0, 40)]
     float distance;
     [SerializeField] LayerMask layer;
     [SerializeField] float dashTime;

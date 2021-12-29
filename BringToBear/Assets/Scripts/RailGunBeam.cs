@@ -28,7 +28,8 @@ public class RailGunBeam : MonoBehaviour, IBullet
             if (other.GetComponent<ICharacter>() != null)
             {
                 other.GetComponent<ICharacter>().Damage(damage);
-                Instantiate(Explosion, other.transform.position, Random.rotation);
+                Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                Instantiate(Explosion, other.transform.position, _rotation);
                 Destroy(gameObject);
             }
         }
@@ -39,12 +40,4 @@ public class RailGunBeam : MonoBehaviour, IBullet
         }
 
     }
-
-    private void OnDestroy()
-    {
-        Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
-        
-    }
-
-
 }
