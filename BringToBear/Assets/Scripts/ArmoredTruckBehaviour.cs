@@ -12,6 +12,8 @@ public class ArmoredTruckBehaviour : MonoBehaviour, ICharacter
     public GameObject explosion;
     public SpriteRenderer spriteRenderer;
     public List<GameObject> Pickups;
+    public GameObject HitIndicator;
+
 
     public float truckHP;
 
@@ -111,7 +113,9 @@ public class ArmoredTruckBehaviour : MonoBehaviour, ICharacter
     {
         truckHP -= amount;
         rb.angularVelocity = Random.Range(-200, 200);
-        
+        HitIndicator.gameObject.SetActive(true);
+
+
         int dropTable = Random.Range(0, 100);
 
         if (dropTable < 5)
