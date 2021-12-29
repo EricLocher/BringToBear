@@ -34,7 +34,7 @@ public class GravityController : MonoBehaviour
             }
             else if (_playerPos.y < (tunnelBounds.min.y + lowGravityHeight))
             {
-                _rb.gravityScale = 1;
+                _rb.gravityScale = 3;
             }
             else if (_playerPos.y > (tunnelBounds.max.y - highGravityHeight))
             {

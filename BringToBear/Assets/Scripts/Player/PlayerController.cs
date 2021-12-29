@@ -144,6 +144,7 @@ public class PlayerController : MonoBehaviour, ICharacter
         transform.rotation = Quaternion.Euler(Vector3.zero);
         coinsOnPlayer = 0;
         damageTaken = 0;
+        GetComponent<PlayerAttack>().SetWeapon(machinegun);
     }
     public void Attack(InputAction.CallbackContext value)
     {
