@@ -22,7 +22,8 @@ public class ScoreKeeperUI : MonoBehaviour
         }
         for (int i = 0; i < scoreTexts.Count; i++)
         {
-            scoreTexts[i].GetComponent<Text>().text = "Player" + (i + 1).ToString() + " score: " + scoreKeeper.ScoreKeeping[i].coinsDeposited.ToString() + " ";
+            scoreTexts[i].GetComponent<Text>().text = "Player " + (i + 1).ToString() + " \nDeposited: " + scoreKeeper.ScoreKeeping[i].coinsDeposited.ToString();
+            scoreTexts[i].GetComponent<Text>().text += " \nIn Cargo: " + scoreKeeper.ScoreKeeping[i].coinsOnPlayer.ToString();
         }
     }
 }
