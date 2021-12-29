@@ -16054,7 +16054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tunnel: {fileID: 346540498}
   highGravityHeight: 90
-  lowGravityHeight: 130
+  lowGravityHeight: 100
 --- !u!1 &1964244146 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4305516096161167120, guid: 737e5c5a6e49cd34aa892966c145b82a, type: 3}
@@ -16338,6 +16338,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 1619187607264449691, guid: b2018f12a1c09074e9480acaad9a3b96, type: 3}
+      propertyPath: m_TagString
+      value: Mama Bear
+      objectReference: {fileID: 0}
     - target: {fileID: 1845547935623601865, guid: b2018f12a1c09074e9480acaad9a3b96, type: 3}
       propertyPath: suction
       value: 
@@ -16357,6 +16361,10 @@ PrefabInstance:
     - target: {fileID: 5796653516838742426, guid: b2018f12a1c09074e9480acaad9a3b96, type: 3}
       propertyPath: m_Name
       value: MamaBear
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796653516838742426, guid: b2018f12a1c09074e9480acaad9a3b96, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7961386776942640349, guid: b2018f12a1c09074e9480acaad9a3b96, type: 3}
       propertyPath: warning

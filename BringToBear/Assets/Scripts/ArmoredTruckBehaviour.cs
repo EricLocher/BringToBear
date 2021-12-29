@@ -5,7 +5,7 @@ using UnityEngine;
 public class ArmoredTruckBehaviour : MonoBehaviour, ICharacter
 {
     Rigidbody2D rb;
-    
+
     public float trafficThrust;
     public float maxVel = 35;
     public float truckStartHP;
@@ -21,7 +21,7 @@ public class ArmoredTruckBehaviour : MonoBehaviour, ICharacter
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 2;
-        
+
         truckHP = truckStartHP;
     }
 
@@ -54,7 +54,7 @@ public class ArmoredTruckBehaviour : MonoBehaviour, ICharacter
             }
             ResetMe();
 
-            
+
         }
     }
 
@@ -77,13 +77,27 @@ public class ArmoredTruckBehaviour : MonoBehaviour, ICharacter
         {
             Panic();
         }
+
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Mama Bear"))
+        {
+            trafficThrust = 0;
+            rb.AddForce((new Vector2(Random.Range(-3, 4), 3)) * 50, ForceMode2D.Impulse);
+            rb.AddTorque(Random.Range(-50, 50) * 50, ForceMode2D.Impulse);
+            Damage(50);
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Mandible"))
         {
-            rb.AddForce((new Vector2(Random.Range(-3, 4), 3)) * 150, ForceMode2D.Impulse);
+            trafficThrust = 0;
+            rb.AddForce((new Vector2(Random.Range(-3, 4), 3)) * 50, ForceMode2D.Impulse);
+            rb.AddTorque(Random.Range(-50, 50) * 50, ForceMode2D.Impulse);
+            Damage(50);
         }
     }
 

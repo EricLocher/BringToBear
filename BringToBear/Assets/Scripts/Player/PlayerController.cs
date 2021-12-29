@@ -145,6 +145,7 @@ public class PlayerController : MonoBehaviour, ICharacter
         coinsOnPlayer = 0;
         damageTaken = 0;
         GetComponent<PlayerAttack>().SetWeapon(machinegun);
+        GetComponent<PlayerAttack>().SetWeapon(machinegun);
     }
     public void Attack(InputAction.CallbackContext value)
     {
@@ -202,8 +203,14 @@ public class PlayerController : MonoBehaviour, ICharacter
         rb.AddForce(Vector2.up * 1.6f, ForceMode2D.Impulse);
         GameObject _coin = Instantiate(Coin, transform.position, Quaternion.identity);
         _coin.GetComponent<PlayerCoin>().owner = this;
-        _coin.GetComponent<PlayerCoin>().score = 1;
-        coinsOnPlayer--;
+        if (coinsOnPlayer > 10)
+        {
+            _coin.GetComponent<PlayerCoin>().score = 10;
+            coinsOnPlayer -= 10;
+        }
+        else
+            _coin.GetComponent<PlayerCoin>().score = 1;
+            coinsOnPlayer--;
     }
 
     public void DropWeapon(InputAction.CallbackContext value)
