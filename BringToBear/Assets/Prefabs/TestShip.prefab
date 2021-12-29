@@ -680,7 +680,7 @@ Transform:
   m_GameObject: {fileID: 2878756421094232586}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.41, y: 0.31, z: 1}
+  m_LocalScale: {x: 0.61, y: 0.47, z: 1.5124}
   m_Children: []
   m_Father: {fileID: 5640912145538070941}
   m_RootOrder: 1
@@ -1188,7 +1188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultGun: {fileID: 11400000, guid: 0baec91194c297e49b37f165c0c11ecd, type: 2}
   myGun: {fileID: 11400000, guid: 0baec91194c297e49b37f165c0c11ecd, type: 2}
-  muzzleFlash: {fileID: 0}
+  muzzleFlash: {fileID: 6070033572954096813}
   railGunCharge: {fileID: 4652049017166410048}
   railGunBeam: {fileID: 2908350756314679344, guid: 34fe50596791eba4993c4852483a0a5c, type: 3}
   railGunDistance: 30
@@ -6704,7 +6704,7 @@ Transform:
   m_GameObject: {fileID: 6070033572954096813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 2, y: 3, z: 1}
   m_Children:
   - {fileID: 1037091700131282788}
   - {fileID: 5204452825311232026}
