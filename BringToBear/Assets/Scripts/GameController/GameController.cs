@@ -27,8 +27,4 @@ public class GameController : MonoBehaviour
         gameState = state;
     }
 
-
-
-
-
 }

@@ -9,14 +9,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Scenes/MainMenu.unity
     guid: 455e13811a330944ab5d5bcb67be9e2c
   - enabled: 1
+    path: Assets/Scenes/Main Scenes/SettingsMenu.unity
+    guid: 9e1c89b6fc27ca744beefdef2a23c93e
+  - enabled: 1
+    path: Assets/Scenes/Main Scenes/Gallery.unity
+    guid: 043513a91fa317f418a9e041aac87163
+  - enabled: 1
+    path: Assets/Scenes/Main Scenes/Credits.unity
+    guid: 4d6b2aff6fb052848aef01801ef236c6
+  - enabled: 1
     path: Assets/Scenes/Main Scenes/LoadingScreen.unity
     guid: a208f73b7986e9446be345e8ca791293
   - enabled: 1
     path: Assets/Scenes/Main Scenes/Jonas.unity
     guid: da63a93131b776547a8e3c3af8ad635c
-  - enabled: 1
-    path: Assets/Scenes/Main Scenes/SettingsMenu.unity
-    guid: 9e1c89b6fc27ca744beefdef2a23c93e
   - enabled: 1
     path: Assets/Scenes/Main Scenes/Win.unity
     guid: 064bc9cc94b6bf8449ef9292fd0ef20c
