@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     [SerializeField] ShipAnimation anim;
     [SerializeField] GameObject Shield;
     [SerializeField] GameObject Coin;
+    [SerializeField] GameObject droppedCoin;
     [SerializeField] PlayerAttack attack;
     [SerializeField] PlayerDash dash;
     [SerializeField] Gradient healthIndicator;
@@ -85,6 +86,11 @@ public class PlayerController : MonoBehaviour, ICharacter
             {
                 Instantiate(explosion, new Vector2(transform.position.x + Random.Range(4, 14),
                                                    transform.position.y + Random.Range(4, 14)), Random.rotation);
+                
+            }
+            for (int i = 0; i < coinsOnPlayer; i++)
+            {
+                Instantiate(droppedCoin, transform.position, Quaternion.identity);
             }
             res();
         }

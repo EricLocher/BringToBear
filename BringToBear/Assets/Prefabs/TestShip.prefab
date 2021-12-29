@@ -995,6 +995,7 @@ MonoBehaviour:
   anim: {fileID: 2360870025788018867}
   Shield: {fileID: 3841131823115436787}
   Coin: {fileID: 9053389110505902517, guid: 469719e21cb66c54e90fd047edfb610a, type: 3}
+  droppedCoin: {fileID: 9053389110505902517, guid: 794f40cd5446f8a439dcf22abb2dd3a3, type: 3}
   attack: {fileID: 2312424755723544961}
   dash: {fileID: 8527375419030901408}
   healthIndicator:
