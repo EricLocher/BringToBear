@@ -135,6 +135,20 @@ public class CameraController : MonoBehaviour
        
     }
 
+    public void Shake(float amount)
+    {
+        transform.DOKill();
+        Vector3 _shake = Vector3.zero;
+        _shake.x = Random.Range(-1, 1) * amount;
+        _shake.y = Random.Range(-1, 1) * amount;
+
+        Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(-20, 20) * amount);
+
+        transform.DOMove(transform.position + _shake, 0.1f);
+        transform.DORotateQuaternion(_rotation, 0.1f);
+    }
+
+
     void UpdateEdges()
     {
         cameraEdges.transform.localScale = Vector2.one * Camera.main.orthographicSize / maxSize;
