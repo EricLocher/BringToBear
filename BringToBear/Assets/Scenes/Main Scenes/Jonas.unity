@@ -16127,8 +16127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSprite:
-  - {fileID: 9057281798746222917, guid: ebc0a1db22d835043a51183ff1f9d12a, type: 3}
-  - {fileID: 9057281798746222917, guid: f850b5c25faee27409af9d562ca0659b, type: 3}
+  - {fileID: 9057281798746222917, guid: 9af040ce5bb72fd41afa14ddb3aa839e, type: 3}
+  - {fileID: 9057281798746222917, guid: be04ec6023700d54fa3f93491a5139e1, type: 3}
   - {fileID: 9057281798746222917, guid: 9af040ce5bb72fd41afa14ddb3aa839e, type: 3}
   - {fileID: 9057281798746222917, guid: be04ec6023700d54fa3f93491a5139e1, type: 3}
   indicator: {fileID: 2140302671170453777, guid: 290c50755dbefb64883d2b5305eeae5e, type: 3}

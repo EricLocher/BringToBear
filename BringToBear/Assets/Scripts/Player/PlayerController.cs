@@ -85,17 +85,14 @@ public class PlayerController : MonoBehaviour, ICharacter
 
         if (damageTaken >= 2000)
         {
+
             for (int i = 0; i < 6; i++)
             {
                 Instantiate(explosion, new Vector2(transform.position.x + Random.Range(4, 14),
                                                    transform.position.y + Random.Range(4, 14)), Random.rotation);
 
             }
-            for (int i = 0; i < coinsOnPlayer; i++)
-            {
-                Instantiate(droppedCoin, transform.position, Quaternion.identity);
-            }
-            Res();
+            DamageRespawn();
         }
     }
 
@@ -138,8 +135,20 @@ public class PlayerController : MonoBehaviour, ICharacter
         movement.Brake(_brakePower);
     }
 
+    public void DamageRespawn()
+    {
+        state = PlayerState.Dead;
 
-    public void Res()
+        for (int i = 0; i < coinsOnPlayer / 5; i++)
+        {
+            GameObject _coin = Instantiate(Coin, transform.position, Quaternion.identity);
+            _coin.GetComponent<KOCoin>().score = 5;
+        }
+
+        StartCoroutine(RespawnTimer());
+    }
+
+    public void KoRespawn()
     {
         state = PlayerState.Dead;
 
@@ -313,6 +322,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     public void Damage(int amount)
     {
 
+        anim.Hit();
         if (!shielded)
         {
             damageTaken += amount;

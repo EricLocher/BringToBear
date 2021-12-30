@@ -12,7 +12,7 @@ public class KOCoin : MonoBehaviour, IInteractable
 
     void Start()
     {
-        Destroy(gameObject, 15f);
+        Destroy(gameObject, 5f);
         spawnForce = Random.Range(2.4f, 3f);
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         Vector2 direction = Camera.main.transform.position - transform.position;

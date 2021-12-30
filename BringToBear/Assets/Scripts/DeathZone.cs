@@ -36,7 +36,7 @@ public class DeathZone : MonoBehaviour
                         _tempKO.transform.rotation = Quaternion.Euler(new Vector3(0, 0, _angle));
                     }
                 }
-                player.Res();
+                player.KoRespawn();
             }
         }
     }
