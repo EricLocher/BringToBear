@@ -8,6 +8,7 @@ public class VolumeHandler : MonoBehaviour
 {
     public AudioMixer mixer;
     [SerializeField] Slider volumeSlider;
+
     private void Start()
     {
         if(!PlayerPrefs.HasKey("musicVolume"))
