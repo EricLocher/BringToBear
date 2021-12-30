@@ -70,6 +70,7 @@ public class CameraController : MonoBehaviour
 
         foreach (PlayerController player in Players)
         {
+            if (player.state == PlayerState.Dead) { return; }
             if (player == Players[0]) { continue; }
             if (Players.Count < 2) { break; } 
 

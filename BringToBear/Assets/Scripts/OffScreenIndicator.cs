@@ -27,7 +27,14 @@ public class OffScreenIndicator : MonoBehaviour
         Vector2 playerPosRelCam = Camera.main.WorldToViewportPoint(Player.transform.position);
         if (playerPosRelCam.x < 0 || playerPosRelCam.x > 1 || playerPosRelCam.y < 0 || playerPosRelCam.y > 1)
         {
-
+            if (Player.GetComponent<PlayerController>().state == PlayerState.Dead) 
+            {
+                for (int i = 0; i < IndicatorRenderers.Length; i++)
+                {
+                    IndicatorRenderers[i].GetComponent<SpriteRenderer>().enabled = false;
+                }
+                return;
+            }
 
             for (int i = 0; i < IndicatorRenderers.Length; i++)
             {

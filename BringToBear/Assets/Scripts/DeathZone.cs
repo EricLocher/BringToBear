@@ -12,12 +12,15 @@ public class DeathZone : MonoBehaviour
     {
         foreach (PlayerController player in GameController.Players)
         {
+            if (player.state == PlayerState.Dead) { return; }
+
             if (
                 Mathf.Abs((player.transform.position.x - transform.position.x)) > width / 2
                 ||
                 Mathf.Abs((player.transform.position.y - transform.position.y)) > height / 2
               )
             {
+
 
                 foreach (OffScreenIndicator indicator in GameController.Indicators)
                 {
@@ -33,9 +36,7 @@ public class DeathZone : MonoBehaviour
                         _tempKO.transform.rotation = Quaternion.Euler(new Vector3(0, 0, _angle));
                     }
                 }
-
-
-                player.res();
+                player.Res();
             }
         }
     }

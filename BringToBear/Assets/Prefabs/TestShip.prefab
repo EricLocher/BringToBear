@@ -1032,8 +1032,10 @@ MonoBehaviour:
   dashRenderer: {fileID: 4363813290254420766}
   playerOutline: {fileID: 0}
   HitIndicator: {fileID: 2878756421094232586}
+  KOCoin: {fileID: 9053389110505902517, guid: 658f1c29c0b8e264aa9e0c27d911431a, type: 3}
   invincible: 0
   shielded: 0
+  state: 0
   boom:
   - {fileID: 8300000, guid: 1ef35a210efab6f4b9964c896c00bdf8, type: 3}
   - {fileID: 8300000, guid: 56aa3fe8013ed2c4dad763167d92d2d6, type: 3}
@@ -1044,7 +1046,7 @@ MonoBehaviour:
   explosion: {fileID: 1500794946509206753, guid: be9faa3897fc047478cf72c8fe7835ba, type: 3}
   damageTaken: 0
   shieldForce: 0
-  coinsOnPlayer: 0
+  coinsOnPlayer: 200
   coinsDeposited: 0
   amountOfDashes: 3
   machinegun: {fileID: 11400000, guid: 0baec91194c297e49b37f165c0c11ecd, type: 2}
