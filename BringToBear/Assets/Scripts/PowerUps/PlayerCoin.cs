@@ -12,7 +12,7 @@ public class PlayerCoin : MonoBehaviour, IInteractable
 
     void Start()
     {
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, Random.Range(4f, 6f));
         spawnForce = 25;
         scoreKeeper = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreKeeper>();
         rb = GetComponent<Rigidbody2D>();
