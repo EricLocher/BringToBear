@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     }
     public void Attack(InputAction.CallbackContext value)
     {
-       
+        Debug.Log(value.ReadValue<float>());
         if (value.ReadValue<float>() >= 1) { isAttacking = true; }
         else { isAttacking = false; }
 
