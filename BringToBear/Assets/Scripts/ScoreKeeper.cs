@@ -23,7 +23,7 @@ public class ScoreKeeper : MonoBehaviour
         player.coinsDeposited += score;
         if (player.coinsDeposited >= WinCondition)
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(6);
         }
     }
 
