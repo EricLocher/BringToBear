@@ -8,7 +8,9 @@ public class MamaBearScript : MonoBehaviour
     public Animator animator;
     float offScreenPos = -300;
     float collectionPos = -120;
-    public GameObject warning;
+    public GameObject aproaching;
+    public GameObject collecting;
+    public GameObject leaving;
 
 
     [SerializeField] MamaBearBehaviour state = MamaBearBehaviour.Absent;
@@ -19,7 +21,9 @@ public class MamaBearScript : MonoBehaviour
         animator.SetBool("Collect", false);
         mouth.GetComponent<BoxCollider2D>().enabled = false;
         StartCoroutine(Timer(60));
-        warning.GetComponent<SpriteRenderer>().enabled = false;
+        aproaching.GetComponent<SpriteRenderer>().enabled = false;
+        collecting.GetComponent<SpriteRenderer>().enabled = false;
+        leaving.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     void Update()
@@ -45,6 +49,7 @@ public class MamaBearScript : MonoBehaviour
 
     void Absent()
     {
+        leaving.GetComponent<SpriteRenderer>().enabled = false;
         transform.position = Vector2.Lerp(transform.position, new Vector2(0, offScreenPos), 0.0005f);
 
     }
@@ -53,12 +58,13 @@ public class MamaBearScript : MonoBehaviour
     {
         transform.position = Vector2.Lerp(transform.position, new Vector2(0, collectionPos), 0.003f);
         GameController.ChangeGameState(GameStates.MamaBearAproaching);
-        warning.GetComponent<SpriteRenderer>().enabled = true;
+        aproaching.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     void Collecting()
     {
-        warning.GetComponent<SpriteRenderer>().enabled = false;
+        aproaching.GetComponent<SpriteRenderer>().enabled = false;
+        collecting.GetComponent<SpriteRenderer>().enabled = true;
         GameController.ChangeGameState(GameStates.Collecting);
         animator.SetBool("Collect", true);
         mouth.GetComponent<BoxCollider2D>().enabled = true;
@@ -66,6 +72,8 @@ public class MamaBearScript : MonoBehaviour
 
     void Closing()
     {
+        collecting.GetComponent<SpriteRenderer>().enabled = false;
+        leaving.GetComponent<SpriteRenderer>().enabled = true;
         animator.SetBool("Collect", false);
         mouth.GetComponent<BoxCollider2D>().enabled = false;
         GameController.ChangeGameState(GameStates.Playing);

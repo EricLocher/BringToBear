@@ -104,7 +104,7 @@ public class Road : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
         Layer1.Add(Instantiate(Asteroids[Random.Range(0, Asteroids.Count)], new Vector2(Random.Range(-90, 90), 200), _rotation, transform.GetChild(1)));
-        StartCoroutine(SpawnAsteroid(2));
+        StartCoroutine(SpawnAsteroid(0.2f));
     }
 
     IEnumerator SpawnPlanet(float waitTime)

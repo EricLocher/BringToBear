@@ -319,13 +319,13 @@ public class PlayerController : MonoBehaviour, ICharacter
     public void Damage(int amount)
     {
 
-        anim.Hit();
         if (!shielded)
         {
             damageTaken += amount;
             audioSource.PlayOneShot(boom[Random.Range(0, boom.Length)], 0.5f);
             HitIndicator.gameObject.SetActive(true);
         }
+        anim.Hit();
     }
 
 }

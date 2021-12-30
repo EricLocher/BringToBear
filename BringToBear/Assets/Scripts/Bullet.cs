@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour, IBullet
             }
         }
 
-        if (other.gameObject.CompareTag("Shield") && other.transform.parent.gameObject != Owner)
+        if (other.gameObject.CompareTag("Shield") && other.transform.parent.parent.gameObject != Owner)
         {
             rb.velocity = -rb.velocity;
             Owner = other.transform.parent.gameObject;
