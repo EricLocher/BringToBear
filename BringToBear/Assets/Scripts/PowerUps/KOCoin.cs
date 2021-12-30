@@ -31,10 +31,9 @@ public class KOCoin : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController player)
     {
-        if (timer > 0.5f)
-        {
-            scoreKeeper.AddScore(player, score);
-            Destroy(gameObject);
-        }
+        if (player.state == PlayerState.Dead) { return; }
+        scoreKeeper.AddScore(player, score);
+        Destroy(gameObject);
+
     }
 }

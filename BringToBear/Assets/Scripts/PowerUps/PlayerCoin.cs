@@ -24,10 +24,7 @@ public class PlayerCoin : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController player)
     {
-        if (player == owner)
-        {
-            return;
-        }
+        if (player == owner || player.state == PlayerState.Dead) { return; }
         scoreKeeper.AddScore(player, score);
         Destroy(gameObject);
     }

@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     [SerializeField] PlayerMovement movement;
     [SerializeField] ShipAnimation anim;
     [SerializeField] GameObject Shield;
-    [SerializeField] GameObject Coin;
+    [SerializeField] GameObject PlayerCoin;
     [SerializeField] GameObject droppedCoin;
     [SerializeField] PlayerAttack attack;
     [SerializeField] PlayerDash dash;
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour, ICharacter
         if (isAttacking)
             attack.Attack();
 
-        if (damageTaken >= 2000)
+        if (damageTaken >= 2000 && state != PlayerState.Dead)
         {
 
             for (int i = 0; i < 6; i++)
@@ -138,11 +138,12 @@ public class PlayerController : MonoBehaviour, ICharacter
     public void DamageRespawn()
     {
         state = PlayerState.Dead;
-
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(false);
         for (int i = 0; i < coinsOnPlayer / 5; i++)
         {
-            GameObject _coin = Instantiate(Coin, transform.position, Quaternion.identity);
-            _coin.GetComponent<KOCoin>().score = 5;
+            GameObject _coin = Instantiate(PlayerCoin, transform.position, Quaternion.identity);
+            _coin.GetComponent<PlayerCoin>().score = 5;
         }
 
         StartCoroutine(RespawnTimer());
@@ -200,16 +201,10 @@ public class PlayerController : MonoBehaviour, ICharacter
     {
         if (coinsOnPlayer <= 0) { return; }
         rb.AddForce(Vector2.up * 1.6f, ForceMode2D.Impulse);
-        GameObject _coin = Instantiate(Coin, transform.position, Quaternion.identity);
+        GameObject _coin = Instantiate(PlayerCoin, transform.position, Quaternion.identity);
         _coin.GetComponent<PlayerCoin>().owner = this;
-        if (coinsOnPlayer > 5)
-        {
-            _coin.GetComponent<PlayerCoin>().score = 5;
-            coinsOnPlayer -= 5;
-        }
-        else
-            _coin.GetComponent<PlayerCoin>().score = 1;
-        coinsOnPlayer--;
+        _coin.GetComponent<PlayerCoin>().score = 5;
+        coinsOnPlayer -= 1;
     }
 
     public void DropWeapon(InputAction.CallbackContext value)
@@ -309,6 +304,8 @@ public class PlayerController : MonoBehaviour, ICharacter
         GetComponent<PlayerAttack>().SetWeapon(machinegun);
         GetComponent<PlayerAttack>().SetWeapon(machinegun);
         state = PlayerState.Alive;
+        transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(1).gameObject.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
