@@ -31,11 +31,9 @@ public class InputManager : MonoBehaviour
     {
         Debug.Log("Player Joined The Game!");
         playerList.Add(playerInput);
-        tutorial.GetComponent<SpriteRenderer>().enabled = false;
+        //tutorial.GetComponent<SpriteRenderer>().enabled = false;
 
         GameController.NewPlayer(playerInput.GetComponent<PlayerController>());
-        
-        
 
         if (PlayerJoinedGame != null)
         {
