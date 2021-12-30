@@ -5,14 +5,16 @@ using DG.Tweening;
 
 public class Cart : MonoBehaviour, ICharacter
 {
+
+    [SerializeField] Vector2 repulsionField;
+
     public Cart connectedCart;
     public int cartHP = 100;
     public GameObject explosion;
     public List<GameObject> Pickups;
     public GameObject HitIndicator;
-
-
     private GameObject anchor;
+
 
     private void Start()
     {
@@ -42,9 +44,10 @@ public class Cart : MonoBehaviour, ICharacter
 
         LookAt();
         Move();
+        Repulsion();
     }
 
-    public void Move()
+    void Move()
     {
         if (connectedCart == null) { return; }
 
@@ -57,11 +60,10 @@ public class Cart : MonoBehaviour, ICharacter
 
   
     }
-
-    public void LookAt()
+    void LookAt()
     {
         if (connectedCart == null) { return; }
-
+  
         try
         {
             Vector2 _cartAnchor = connectedCart.anchor.transform.position;
@@ -74,6 +76,27 @@ public class Cart : MonoBehaviour, ICharacter
         catch (System.Exception e)
         {
             return;
+        }
+    }
+
+    void Repulsion()
+    {
+        foreach (PlayerController player in GameController.Players)
+        {
+            Vector2 _playerPos = player.transform.position;
+            Vector2 _TopLeft = (Vector2)transform.position + new Vector2(-repulsionField.x, repulsionField.y) / 2;
+
+            if(
+                _playerPos.x > _TopLeft.x && _playerPos.x < (_TopLeft.x + repulsionField.x)
+                &&
+                _playerPos.y < _TopLeft.y && _playerPos.y > (_TopLeft.y - repulsionField.y)
+              )
+            {
+                Vector2 _force = (player.transform.position - transform.position) * 1.2f;
+                _force = Vector2.ClampMagnitude(_force, 4f);
+
+                player.GetComponent<Rigidbody2D>().AddForce(_force, ForceMode2D.Impulse);
+            }
         }
     }
 
@@ -110,4 +133,12 @@ public class Cart : MonoBehaviour, ICharacter
         }
 
     }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(transform.position, repulsionField);
+    }
+
 }

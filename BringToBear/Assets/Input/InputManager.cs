@@ -34,8 +34,6 @@ public class InputManager : MonoBehaviour
         tutorial.GetComponent<SpriteRenderer>().enabled = false;
 
         GameController.NewPlayer(playerInput.GetComponent<PlayerController>());
-        
-        
 
         if (PlayerJoinedGame != null)
         {

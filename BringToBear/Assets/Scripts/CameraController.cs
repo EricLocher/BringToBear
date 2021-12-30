@@ -70,6 +70,7 @@ public class CameraController : MonoBehaviour
 
         foreach (PlayerController player in Players)
         {
+            if (player.state == PlayerState.Dead) { return; }
             if (player == Players[0]) { continue; }
             if (Players.Count < 2) { break; } 
 
@@ -133,6 +134,20 @@ public class CameraController : MonoBehaviour
         transform.DOMove(new Vector3(cameraCenter.x, cameraCenter.y, -10), 0.5f);
        
     }
+
+    public void Shake(float amount)
+    {
+        transform.DOKill();
+        Vector3 _shake = Vector3.zero;
+        _shake.x = Random.Range(-1, 1) * amount;
+        _shake.y = Random.Range(-1, 1) * amount;
+
+        Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(-20, 20) * amount);
+
+        transform.DOMove(transform.position + _shake, 0.1f);
+        transform.DORotateQuaternion(_rotation, 0.1f);
+    }
+
 
     void UpdateEdges()
     {

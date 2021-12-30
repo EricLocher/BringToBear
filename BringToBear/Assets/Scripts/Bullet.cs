@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour, IBullet
             }
         }
 
-        if (other.gameObject.CompareTag("Shield") && other.transform.parent.gameObject != Owner)
+        if (other.gameObject.CompareTag("Shield") && other.transform.parent.parent.gameObject != Owner)
         {
             rb.velocity = -rb.velocity;
             Owner = other.transform.parent.gameObject;
@@ -47,6 +47,7 @@ public class Bullet : MonoBehaviour, IBullet
 
     private void OnDestroy()
     {
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().Shake(0.2f);
         Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
         Instantiate(Explosion, transform.position, _rotation);
     }

@@ -6,6 +6,7 @@ public class ShipAnimation : MonoBehaviour
 {
     public Animator animator;
     float rotation = 0;
+    
 
     private void Update()
     {
@@ -15,5 +16,15 @@ public class ShipAnimation : MonoBehaviour
     public void updateRotation(float value)
     {
         rotation = value;
+    }
+
+    public void Hit()
+    {
+        animator.SetBool("Hit", true);
+    }
+
+    private void LateUpdate()
+    {
+        animator.SetBool("Hit", false);
     }
 }
