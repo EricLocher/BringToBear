@@ -28,6 +28,7 @@ public class RailGunBeam : MonoBehaviour, IBullet
             if (other.GetComponent<ICharacter>() != null)
             {
                 other.GetComponent<ICharacter>().Damage(damage);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().Shake(0.2f);
                 Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
                 Instantiate(Explosion, other.transform.position, _rotation);
                 Destroy(gameObject);

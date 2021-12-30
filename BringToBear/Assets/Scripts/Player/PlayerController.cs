@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     Rigidbody2D rb;
     AudioSource audioSource;
     public AudioClip[] boom;
+    public AudioClip[] dashSound;
     public GameObject explosion;
 
     public float damageTaken = 0;
@@ -196,6 +197,22 @@ public class PlayerController : MonoBehaviour, ICharacter
         }
 
         dashButton = true;
+
+        switch (amountOfDashes)
+        {
+            case 3:
+                audioSource.PlayOneShot(dashSound[0], 0.5f);
+                break;
+            case 2:
+                audioSource.PlayOneShot(dashSound[1], 0.4f);
+                break;
+            case 1:
+                audioSource.PlayOneShot(dashSound[2], 0.2f);
+                break;
+            default:
+                break;
+        }
+
         amountOfDashes--;
 
         dash.Dash();
@@ -207,7 +224,7 @@ public class PlayerController : MonoBehaviour, ICharacter
         rb.AddForce(Vector2.up * 1.6f, ForceMode2D.Impulse);
         GameObject _coin = Instantiate(PlayerCoin, transform.position, Quaternion.identity);
         _coin.GetComponent<PlayerCoin>().owner = this;
-        _coin.GetComponent<PlayerCoin>().score = 5;
+        _coin.GetComponent<PlayerCoin>().score = 1;
         coinsOnPlayer -= 1;
     }
 
