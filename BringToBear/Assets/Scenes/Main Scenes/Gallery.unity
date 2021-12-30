@@ -896,6 +896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
@@ -921,7 +922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 357253563}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1356780439
@@ -1119,6 +1120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88281c2bd3b90a4892cf973a2c75802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NormalCanvas: {fileID: 0}
+  KeybindCanvas: {fileID: 0}
 --- !u!4 &2066063025
 Transform:
   m_ObjectHideFlags: 0

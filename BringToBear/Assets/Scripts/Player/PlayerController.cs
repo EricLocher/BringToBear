@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour, ICharacter
 {
     [Header("Reference")]
     [SerializeField] PlayerInput playerInput = null;
+    //[SerializeField] private PlayerController playerController = null;
+
 
     [Header("Player Components")]
     [SerializeField] PlayerMovement movement;
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     public Gun missile;
 
     public PlayerInput PlayerInput => playerInput;
+
 
     private void Start()
     {

@@ -990,7 +990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f2930853f94274d92de65430d778b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 0}
+  playerInput: {fileID: 2223364314247379409}
   movement: {fileID: 5640912145538070939}
   anim: {fileID: 2360870025788018867}
   Shield: {fileID: 3841131823115436787}
@@ -1052,6 +1052,7 @@ MonoBehaviour:
   minigun: {fileID: 11400000, guid: 19f261aaf5375774ba4f3ee20878a3ec, type: 2}
   broadside: {fileID: 11400000, guid: 61be2829006f4894186c476209e192c4, type: 2}
   missile: {fileID: 11400000, guid: 23b108737d1cf59498f60dc00564fdd7, type: 2}
+  playerController: {fileID: 0}
 --- !u!114 &5640912145538070939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6296,7 +6297,7 @@ AudioSource:
   m_GameObject: {fileID: 5640912145538070936}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: ae98bdd62b9dc90478d12efbecca4650, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -6392,7 +6393,7 @@ AudioSource:
   m_GameObject: {fileID: 5640912145538070936}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: ae98bdd62b9dc90478d12efbecca4650, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -6488,7 +6489,7 @@ AudioSource:
   m_GameObject: {fileID: 5640912145538070936}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: ae98bdd62b9dc90478d12efbecca4650, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

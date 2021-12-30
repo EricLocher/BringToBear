@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    public GameObject NormalCanvas;
+    public GameObject KeybindCanvas;
+    UnityEngine.UI.Button resumeButton;
+
     public void StartGame()
     {
         SceneManager.LoadScene(5);
@@ -30,5 +34,15 @@ public class MenuController : MonoBehaviour
     public void MainMenu()
     {     
     SceneManager.LoadScene(0);
+    }
+    public void Keybinds()
+    {
+        NormalCanvas.SetActive(false);
+        KeybindCanvas.SetActive(true);
+    }
+    public void BackFromKeybinds()
+    {
+        KeybindCanvas.SetActive(false);
+        NormalCanvas.SetActive(true);
     }
 }
