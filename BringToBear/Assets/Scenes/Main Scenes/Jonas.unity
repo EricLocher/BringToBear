@@ -16448,6 +16448,7 @@ GameObject:
   - component: {fileID: 1891402964}
   - component: {fileID: 1891402966}
   - component: {fileID: 1891402967}
+  - component: {fileID: 1891402968}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -16516,6 +16517,19 @@ MonoBehaviour:
   tunnel: {fileID: 346540498}
   highGravityHeight: 90
   lowGravityHeight: 100
+--- !u!114 &1891402968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891402963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d142c7ba71a7cd4baf74e0197d088c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionAnimation: {fileID: 6102612162466691653, guid: 55e6f2a1854429543a22de061bc0cbad, type: 3}
 --- !u!1 &1964244146 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4305516096161167120, guid: 737e5c5a6e49cd34aa892966c145b82a, type: 3}

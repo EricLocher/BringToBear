@@ -166,6 +166,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     }
     public void Attack(InputAction.CallbackContext value)
     {
+       
         if (value.ReadValue<float>() >= 1) { isAttacking = true; }
         else { isAttacking = false; }
 
@@ -258,7 +259,7 @@ public class PlayerController : MonoBehaviour, ICharacter
                     shieldForce = 2;
                 else
                     shieldForce = 1;
-                CollisionHandler.DoCollision(rb, _otherRb, shieldForce);
+                CollisionHandler.DoCollision(rb, _otherRb, shieldForce, other.ClosestPoint(transform.position));
                 invincible = true;
                 StartCoroutine(InvinceTime());
             }

@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class CollisionHandler : MonoBehaviour
 {
-    public static void DoCollision(Rigidbody2D p1, Rigidbody2D p2, float shieldForce)
+	[SerializeField] GameObject CollisionAnimation;
+	static GameObject Collision;
+	private void Start()
+    {
+		Collision = CollisionAnimation;
+    }
+
+	public static void DoCollision(Rigidbody2D p1, Rigidbody2D p2, float shieldForce, Vector2 impactPoint)
 	{
 		float p1Speed = p1.velocity.magnitude;
 		float p2Speed = p2.velocity.magnitude;
@@ -28,6 +35,10 @@ public class CollisionHandler : MonoBehaviour
 		p2.AddForce(p1Speed * p1Angle * p2damagePercentage * shieldForce, ForceMode2D.Impulse);
 
 		p1.GetComponent<PlayerController>().invincible = true;
+
+		Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+		Instantiate(Collision, impactPoint, _rotation);
+
 	}
 
 	//GetKnockBackPercentage()
