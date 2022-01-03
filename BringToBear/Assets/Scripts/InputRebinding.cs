@@ -9,6 +9,9 @@ public class InputRebinding : MonoBehaviour
     [SerializeField] private InputActionReference dashAction = null;
     [SerializeField] private InputActionReference dropAction = null;
     [SerializeField] private InputActionReference shieldAction = null;
+    [SerializeField] private InputActionReference thrustAction = null;
+    [SerializeField] private InputActionReference discardAction = null;
+
     //shoot
     [SerializeField] private TMP_Text bindingUI = null;
     [SerializeField] private GameObject startRebind = null;
@@ -25,6 +28,14 @@ public class InputRebinding : MonoBehaviour
     [SerializeField] private TMP_Text bindingUIText4 = null;
     [SerializeField] private GameObject startRebind4 = null;
     [SerializeField] private GameObject waitingForInput4;
+    //thrust
+    [SerializeField] private TMP_Text bindingUIText5 = null;
+    [SerializeField] private GameObject startRebind5 = null;
+    [SerializeField] private GameObject waitingForInput5;
+    //discard
+    [SerializeField] private TMP_Text bindingUIText6 = null;
+    [SerializeField] private GameObject startRebind6 = null;
+    [SerializeField] private GameObject waitingForInput6;
 
     [SerializeField] private PlayerController playerController = null;
 
@@ -133,5 +144,48 @@ public class InputRebinding : MonoBehaviour
         rebindingOperation.Dispose();
         startRebind4.SetActive(true);
         waitingForInput4.SetActive(false);
+    }
+    public void StartRebindingThrust()
+    {
+        startRebind5.SetActive(false);
+        waitingForInput5.SetActive(true);
+
+        rebindingOperation = thrustAction.action.PerformInteractiveRebinding().OnMatchWaitForAnother(0.1f).OnComplete(operation => RebindCompleteThrust()).Start();
+    }
+
+    private void RebindCompleteThrust()
+    {
+        int bindinngIndex = thrustAction.action.GetBindingIndexForControl(thrustAction.action.controls[0]);
+
+        bindingUIText5.text = InputControlPath.ToHumanReadableString(thrustAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+        //save
+        string rebinds = playerController.PlayerInput.actions.SaveBindingOverridesAsJson();
+        PlayerPrefs.SetString(RebindsKey, rebinds);
+
+        rebindingOperation.Dispose();
+        startRebind5.SetActive(true);
+        waitingForInput5.SetActive(false);
+    }
+
+    public void StartRebindingDiscard()
+    {
+        startRebind6.SetActive(false);
+        waitingForInput6.SetActive(true);
+
+        rebindingOperation = discardAction.action.PerformInteractiveRebinding().OnMatchWaitForAnother(0.1f).OnComplete(operation => RebindCompleteDiscard()).Start();
+    }
+
+    private void RebindCompleteDiscard()
+    {
+        int bindinngIndex = discardAction.action.GetBindingIndexForControl(discardAction.action.controls[0]);
+
+        bindingUIText6.text = InputControlPath.ToHumanReadableString(discardAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+        //save
+        string rebinds = playerController.PlayerInput.actions.SaveBindingOverridesAsJson();
+        PlayerPrefs.SetString(RebindsKey, rebinds);
+
+        rebindingOperation.Dispose();
+        startRebind6.SetActive(true);
+        waitingForInput6.SetActive(false);
     }
 }
