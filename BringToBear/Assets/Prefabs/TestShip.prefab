@@ -886,7 +886,6 @@ GameObject:
   - component: {fileID: 2312424755723544961}
   - component: {fileID: 8527375419030901408}
   - component: {fileID: 2223364314247379409}
-  - component: {fileID: 2360870025788018867}
   - component: {fileID: 7410876964052349162}
   - component: {fileID: 5640912145538070940}
   - component: {fileID: -2136068319367295009}
@@ -982,7 +981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 2223364314247379409}
   movement: {fileID: 5640912145538070939}
-  anim: {fileID: 2360870025788018867}
+  anim: {fileID: 0}
   Shield: {fileID: 3841131823115436787}
   PlayerCoin: {fileID: 9053389110505902517, guid: 469719e21cb66c54e90fd047edfb610a, type: 3}
   droppedCoin: {fileID: 9053389110505902517, guid: 794f40cd5446f8a439dcf22abb2dd3a3, type: 3}
@@ -1385,19 +1384,6 @@ MonoBehaviour:
   m_DefaultActionMap: Controls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &2360870025788018867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5640912145538070936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33f632cf5694e7c4f909bb01067a8723, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
 --- !u!114 &7410876964052349162
 MonoBehaviour:
   m_ObjectHideFlags: 0

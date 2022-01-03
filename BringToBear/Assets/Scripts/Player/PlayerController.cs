@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     [Header("Player Components")]
     [SerializeField] PlayerMovement movement;
-    [SerializeField] ShipAnimation anim;
     [SerializeField] GameObject Shield;
     [SerializeField] GameObject PlayerCoin;
     [SerializeField] GameObject droppedCoin;
@@ -22,6 +21,7 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     [SerializeField] Camera mainCam;
 
+    public ShipAnimation anim;
     public GameObject dashAnimation;
     public SpriteRenderer dashRenderer;
     public SpriteRenderer playerOutline;

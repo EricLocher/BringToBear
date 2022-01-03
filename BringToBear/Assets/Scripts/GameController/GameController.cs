@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
     {   
         Players.Add(player.GetComponent<PlayerController>());
         GameObject _sprite = Instantiate(pSprite[Players.Count - 1], player.transform);
-        player.GetComponent<ShipAnimation>().animator = _sprite.GetComponent<Animator>();
+        player.GetComponent<PlayerController>().anim = _sprite.GetComponent<ShipAnimation>();
 
         GameObject _temp = Instantiate(ind);
         _temp.GetComponent<OffScreenIndicator>().Player = player.gameObject;

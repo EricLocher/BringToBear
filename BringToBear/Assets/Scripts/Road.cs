@@ -30,7 +30,7 @@ public class Road : MonoBehaviour
     void Update()
     {
         transform.GetChild(0).Translate(Vector2.down * 300 * Time.deltaTime);
-        transform.GetChild(1).Translate(Vector2.down * 200 * Time.deltaTime);
+        transform.GetChild(1).Translate(Vector2.down * 100 * Time.deltaTime);
         transform.GetChild(2).Translate(Vector2.down * 30 * Time.deltaTime);
 
         foreach (GameObject road in Roads)
