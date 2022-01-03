@@ -35,16 +35,21 @@ public class GameController : MonoBehaviour
     }
 
     public static void NewPlayer(PlayerController player)
-    {   
+    {
         Players.Add(player.GetComponent<PlayerController>());
-        GameObject _sprite = Instantiate(pSprite[Players.Count - 1], player.transform);
+        GameObject _sprite = Instantiate(pSprite[0], player.transform);
         player.GetComponent<ShipAnimation>().animator = _sprite.GetComponent<Animator>();
-
+        player.playerSprite = _sprite;
         GameObject _temp = Instantiate(ind);
         _temp.GetComponent<OffScreenIndicator>().Player = player.gameObject;
         Indicators.Add(_temp.GetComponent<OffScreenIndicator>());
     }
 
-
-
+    public static void UpdatePlayer(PlayerController player, int selectedPlayer)
+    {
+        Destroy(player.playerSprite.gameObject);
+        GameObject _sprite = Instantiate(pSprite[selectedPlayer], player.transform);
+        player.GetComponent<ShipAnimation>().animator = _sprite.GetComponent<Animator>();
+        player.playerSprite = _sprite;
+    }
 }

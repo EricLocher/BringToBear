@@ -14,7 +14,8 @@ public class InputManager : MonoBehaviour
 
     public event System.Action<PlayerInput> PlayerJoinedGame;
     public event System.Action<PlayerInput> PlayerLeftGame;
-    
+
+    [SerializeField] CharSelectController charSelect;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class InputManager : MonoBehaviour
     {
         Debug.Log("Player Joined The Game!");
         playerList.Add(playerInput);
+        charSelect.newPlayer(playerInput.GetComponent<PlayerController>());
         //tutorial.GetComponent<SpriteRenderer>().enabled = false;
 
         GameController.NewPlayer(playerInput.GetComponent<PlayerController>());

@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour, ICharacter
     public GameObject HitIndicator;
     public GameObject KOCoin;
 
+    public GameObject playerSprite;
+
     public bool invincible;
     public bool shielded;
     public PlayerState state;
