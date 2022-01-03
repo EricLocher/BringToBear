@@ -1033,10 +1033,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f216289af18ea3f40b1ed89376e89589, type: 3}
   - {fileID: 8300000, guid: 432fb40c050ba484e8f27645c5a4e5ea, type: 3}
   - {fileID: 8300000, guid: 9262ea43c6fd9e54e930551f8cf16fe6, type: 3}
+  dashSound:
+  - {fileID: 8300000, guid: 4e54327fee7c0544bbf579c95864bd20, type: 3}
+  - {fileID: 8300000, guid: ac202de4bc9336a478abf44f9366d35f, type: 3}
+  - {fileID: 8300000, guid: 5c7b804d3241e5646b8693cf4e9c17c4, type: 3}
   explosion: {fileID: 1500794946509206753, guid: be9faa3897fc047478cf72c8fe7835ba, type: 3}
   damageTaken: 0
   shieldForce: 0
-  coinsOnPlayer: 200
+  coinsOnPlayer: 0
   coinsDeposited: 0
   amountOfDashes: 3
   machinegun: {fileID: 11400000, guid: 0baec91194c297e49b37f165c0c11ecd, type: 2}
@@ -1044,7 +1048,6 @@ MonoBehaviour:
   minigun: {fileID: 11400000, guid: 19f261aaf5375774ba4f3ee20878a3ec, type: 2}
   broadside: {fileID: 11400000, guid: 61be2829006f4894186c476209e192c4, type: 2}
   missile: {fileID: 11400000, guid: 23b108737d1cf59498f60dc00564fdd7, type: 2}
-  playerController: {fileID: 0}
 --- !u!114 &5640912145538070939
 MonoBehaviour:
   m_ObjectHideFlags: 0

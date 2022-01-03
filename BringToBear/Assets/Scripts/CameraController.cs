@@ -145,7 +145,7 @@ public class CameraController : MonoBehaviour
         Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(-20, 20) * amount);
 
         transform.DOMove(transform.position + _shake, 0.1f);
-        transform.DORotateQuaternion(_rotation, 0.1f);
+        transform.DORotateQuaternion(_rotation, 0.8f);
     }
 
 
