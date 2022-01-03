@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour, ICharacter
     public ShipAnimation anim;
     public GameObject dashAnimation;
     public SpriteRenderer dashRenderer;
-    public SpriteRenderer playerOutline;
     public GameObject HitIndicator;
     public GameObject KOCoin;
 
@@ -68,7 +67,7 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     void Update()
     {
-        //playerOutline.color = healthIndicator.Evaluate(damageTaken / 2000);
+        anim.playerOutline.color = healthIndicator.Evaluate(damageTaken / 2000);
         if (dash.dashing)
         {
             dashAnimation.SetActive(true);
@@ -167,7 +166,6 @@ public class PlayerController : MonoBehaviour, ICharacter
     }
     public void Attack(InputAction.CallbackContext value)
     {
-        Debug.Log(value.ReadValue<float>());
         if (value.ReadValue<float>() >= 1) { isAttacking = true; }
         else { isAttacking = false; }
 

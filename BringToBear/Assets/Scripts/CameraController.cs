@@ -130,9 +130,10 @@ public class CameraController : MonoBehaviour
         cameraCenter.y = Mathf.Clamp(cameraCenter.y, viewMinY, viewMaxY);
         cameraCenter.x = Mathf.Clamp(cameraCenter.x, viewMinX, viewMaxX);
 
-        transform.DOKill();
-        transform.DOMove(new Vector3(cameraCenter.x, cameraCenter.y, -10), 0.5f);
-       
+        Vector3 newPos = Vector2.Lerp(transform.position, cameraCenter, Time.fixedDeltaTime * 2);
+        newPos.z = -10;
+        transform.position = newPos;
+
     }
 
     public void Shake(float amount)

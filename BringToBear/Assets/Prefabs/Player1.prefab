@@ -201,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 820612441396333074}
   outline: {fileID: 700029153349036506}
+  playerOutline: {fileID: 6654064389108170643}
 --- !u!95 &820612441396333074
 Animator:
   serializedVersion: 3

@@ -6,6 +6,7 @@ public class ShipAnimation : MonoBehaviour
 {
     public Animator animator;
     public Animator outline;
+    public SpriteRenderer playerOutline;
     float rotation = 0;
     
 
