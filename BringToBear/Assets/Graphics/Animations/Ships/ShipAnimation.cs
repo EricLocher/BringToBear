@@ -5,12 +5,15 @@ using UnityEngine;
 public class ShipAnimation : MonoBehaviour
 {
     public Animator animator;
+    public Animator outline;
+    public SpriteRenderer playerOutline;
     float rotation = 0;
     
 
     private void Update()
     {
         animator.SetFloat("Rotation", rotation);
+        outline.SetFloat("Rotation", rotation);
     }
 
     public void updateRotation(float value)
