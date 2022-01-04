@@ -22,8 +22,9 @@ public class DeathZone : MonoBehaviour
             {
 
 
-                foreach (GameObject indicator in GameController.Indicators)
+                foreach (GameObject indicator in GameController.playerIndicators)
                 {
+                    Debug.Log(indicator.GetComponent<OffScreenIndicator>().Player);
                     if (player.gameObject == indicator.GetComponent<OffScreenIndicator>().Player)
                     {
                         GameObject _tempKO = Instantiate(KO, indicator.transform.position, Quaternion.identity, transform);

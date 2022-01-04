@@ -17709,6 +17709,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7689472202968569092, guid: 7984063ee855cf7488e2d78a4837e740, type: 3}
+      propertyPath: songList.Array.size
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 7689472202968569093, guid: 7984063ee855cf7488e2d78a4837e740, type: 3}
       propertyPath: m_Name
       value: MusicController
