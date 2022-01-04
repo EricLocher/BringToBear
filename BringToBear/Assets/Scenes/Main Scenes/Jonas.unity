@@ -6455,6 +6455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc592ba179d02c41b08d4a6820feee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portraits: []
   portraitPrefub: {fileID: 1211068603596427626, guid: 0a474c18d5a93e7409cb022c1890e52e, type: 3}
   charSelectScren: {fileID: 552917102}
   pressStart: {fileID: 2035626180}
@@ -17617,7 +17618,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press Start (Space)
+  m_Text: Press Space (Options)
 --- !u!222 &2035626183
 CanvasRenderer:
   m_ObjectHideFlags: 0

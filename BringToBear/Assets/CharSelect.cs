@@ -25,6 +25,13 @@ public class CharSelect : MonoBehaviour
 
     public void RightButton()
     {
+        foreach (GameObject other in transform.parent.GetComponent<CharSelectController>().portraits)
+        {
+            if (other.GetComponent<CharSelect>().selectedChar == selectedChar + 1)
+            {
+                selectedChar++;
+            }
+        }
         selectedChar++;
         if (selectedChar > Characters.Count - 1)
         {
@@ -32,5 +39,4 @@ public class CharSelect : MonoBehaviour
         }
         characterSprite.sprite = Characters[selectedChar];
     }
-
 }

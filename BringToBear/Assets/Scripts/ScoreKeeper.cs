@@ -11,6 +11,7 @@ public class ScoreKeeper : MonoBehaviour
     public AudioClip[] coinDeposit;
     public AudioSource audioSource0;
     public AudioSource audioSource1;
+     
 
     private void Start()
     {

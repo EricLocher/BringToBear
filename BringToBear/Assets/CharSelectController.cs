@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharSelectController : MonoBehaviour
 {
-    List<GameObject> portraits = new List<GameObject>();
+    public List<GameObject> portraits = new List<GameObject>();
     [SerializeField] GameObject portraitPrefub;
     [SerializeField] GameObject charSelectScren;
     [SerializeField] GameObject pressStart;
