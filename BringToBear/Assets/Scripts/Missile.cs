@@ -85,9 +85,12 @@ public class Missile : MonoBehaviour, IBullet
 
     private void OnDestroy()
     {
-        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().Shake(0.2f);
-        Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
-        Instantiate(Explosion, transform.position, _rotation);
+        if (GameController.gameState == GameStates.GameOver) { return; }
+        {
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().Shake(0.2f);
+            Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+            Instantiate(Explosion, transform.position, _rotation);
+        }
     }
 
     private void OnDrawGizmosSelected()

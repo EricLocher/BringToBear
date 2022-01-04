@@ -52,9 +52,38 @@ public class GameController : MonoBehaviour
         GameObject _sprite = Instantiate(pSprite[selectedPlayer], player.transform);
         player.playerSprite = _sprite;
         player.anim = _sprite.GetComponent<ShipAnimation>();
+
+        switch (selectedPlayer)
+        {
+            case 0:
+                player.player = global::Players.player0;
+                break;
+            case 1:
+                player.player = global::Players.player1;
+                break;
+            case 2:
+                player.player = global::Players.player2;
+                break;
+            case 3:
+                player.player = global::Players.player3;
+                break;
+            default:
+                player.player = global::Players.player0;
+                break;
+        }
+
         scoreController.NewPlayer(player, selectedPlayer);
         GameObject _temp = Instantiate(Indicators[selectedPlayer]);
         _temp.GetComponent<OffScreenIndicator>().Player = player.gameObject;
         playerIndicators.Add(_temp);
     }
+}
+
+
+public enum Players
+{
+    player0,
+    player1,
+    player2,
+    player3
 }

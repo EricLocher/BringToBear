@@ -12,6 +12,8 @@ public class PlayerCoin : MonoBehaviour, IInteractable
 
     void Start()
     {
+        if (GameController.gameState == GameStates.GameOver) { return; }
+
         Destroy(gameObject, Random.Range(4f, 6f));
         spawnForce = 25;
         scoreKeeper = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreKeeper>();
