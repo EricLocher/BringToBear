@@ -9,9 +9,10 @@ public class ScoreKeeperUI : MonoBehaviour
     [SerializeField] List<Sprite> sprites = new List<Sprite>();
     [SerializeField] GameObject prefabs;
 
-    void NewPlayer()
+    public void NewPlayer(PlayerController player, int selectedplayer)
     {
-
+        GameObject _temp = Instantiate(prefabs, transform);
+        _temp.GetComponent<PlayerPortrait>().Create(player, sprites[selectedplayer]);
     }
 
 }
