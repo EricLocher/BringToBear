@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour, IBullet
 {
     public float speed;
     public float force;
+    public float cameraShake;
     public int damage;
     public GameObject Explosion;
     Rigidbody2D rb;
@@ -33,7 +34,7 @@ public class Bullet : MonoBehaviour, IBullet
                 }
                 
                 other.GetComponent<ICharacter>().Damage(damage);
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().Shake(0.5f);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().Shake(cameraShake);
                 Destroy(gameObject);
             }
         }
