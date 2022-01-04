@@ -167,6 +167,17 @@
                 },
                 {
                     "name": "",
+                    "id": "c0802ca6-d61d-48f8-92cf-31df48311886",
+                    "path": "<SwitchProControllerHID>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Switch Pro Controller",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f628a3c4-7cbd-48e8-8507-0e12402f2d4c",
                     "path": "<DualShockGamepad>/leftTrigger",
                     "interactions": "",
@@ -200,6 +211,17 @@
                 },
                 {
                     "name": "",
+                    "id": "51daa806-1cfe-4fbc-acb3-86bde94ace41",
+                    "path": "<SwitchProControllerHID>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Switch Pro Controller",
+                    "action": "Thrust",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e432a12a-569d-400e-8fd0-2260dc2afceb",
                     "path": "<DualShockGamepad>/rightTrigger",
                     "interactions": "",
@@ -227,6 +249,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0e683bd6-5d10-40b5-8eeb-ce17a0165b9e",
+                    "path": "<SwitchProControllerHID>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Switch Pro Controller",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -277,6 +310,17 @@
                 },
                 {
                     "name": "",
+                    "id": "c130cd66-fe1e-4ef3-8728-2b4576d6751c",
+                    "path": "<SwitchProControllerHID>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Switch Pro Controller",
+                    "action": "Drop Weapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "188b5689-5e5e-4ccb-ab87-ec2d8b4e1f9d",
                     "path": "<DualShockGamepad>/buttonEast",
                     "interactions": "",
@@ -304,6 +348,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Mouse & Keyboard",
+                    "action": "Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1b26d9fe-6527-4e68-876e-12e5bb483ef8",
+                    "path": "<SwitchProControllerHID>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Switch Pro Controller",
                     "action": "Brake",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -354,6 +409,17 @@
                 },
                 {
                     "name": "",
+                    "id": "070383fa-8336-40dd-ba80-27dcd27e1658",
+                    "path": "<SwitchProControllerHID>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Switch Pro Controller",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "668b689d-55dd-4275-92a1-7c416e7dd385",
                     "path": "<DualShockGamepad>/buttonWest",
                     "interactions": "Press",
@@ -398,6 +464,17 @@
                 },
                 {
                     "name": "",
+                    "id": "acab0277-9c7e-4714-8d5a-d4cabba3b54a",
+                    "path": "<SwitchProControllerHID>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Switch Pro Controller",
+                    "action": "Shield",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "77428590-62e8-4057-8af2-292ad64cf34c",
                     "path": "<DualShockGamepad>/buttonSouth",
                     "interactions": "",
@@ -425,6 +502,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "Drop Honey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "20bc10dc-352c-489d-8241-cf08d62626d9",
+                    "path": "<SwitchProControllerHID>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Switch Pro Controller",
                     "action": "Drop Honey",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -982,6 +1070,17 @@
             "devices": [
                 {
                     "devicePath": "<XInputController>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Switch Pro Controller",
+            "bindingGroup": "Switch Pro Controller",
+            "devices": [
+                {
+                    "devicePath": "<SwitchProControllerHID>",
                     "isOptional": false,
                     "isOR": false
                 }
