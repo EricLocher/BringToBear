@@ -5,6 +5,7 @@ public class RailGunBeam : MonoBehaviour, IBullet
 {
     public float speed;
     public float force;
+    public float cameraShake;
     public int damage;
     public GameObject Explosion;
     Rigidbody2D rb;
@@ -28,7 +29,7 @@ public class RailGunBeam : MonoBehaviour, IBullet
             if (other.GetComponent<ICharacter>() != null)
             {
                 other.GetComponent<ICharacter>().Damage(damage);
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().Shake(0.2f);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().Shake(cameraShake);
                 Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
                 Instantiate(Explosion, other.transform.position, _rotation);
                 Destroy(gameObject);

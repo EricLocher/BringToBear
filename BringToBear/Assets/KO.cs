@@ -7,6 +7,7 @@ public class KO : MonoBehaviour
     AudioSource audioSource;
     public AudioClip koSound;
     public AudioClip loseMoneySound;
+    public float cameraShake;
     float timer;
 
     void Start()
@@ -15,6 +16,7 @@ public class KO : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.PlayOneShot(koSound, 1.5f);
         audioSource.PlayOneShot(loseMoneySound, 0.8f);
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().Shake(cameraShake);
     }
 
     // Update is called once per frame

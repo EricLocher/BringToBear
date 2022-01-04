@@ -6,6 +6,7 @@ public class Missile : MonoBehaviour, IBullet
     public float maxSpeed, acceleration;
     public float force;
     public float trackRadius;
+    public float cameraShake;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject Explosion;
 
@@ -76,6 +77,7 @@ public class Missile : MonoBehaviour, IBullet
             if (other.GetComponent<ICharacter>() != null)
             {
                 other.GetComponent<ICharacter>().Damage(damage);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().Shake(cameraShake);
                 Destroy(gameObject);
             }
         }

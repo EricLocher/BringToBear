@@ -233,26 +233,6 @@ public class PlayerController : MonoBehaviour, ICharacter
         GetComponent<PlayerAttack>().SetWeapon(machinegun);
     }
 
-    public void SelectRailgun(InputAction.CallbackContext value)
-    {
-        GetComponent<PlayerAttack>().SetWeapon(railgun);
-    }
-
-    public void SelectMinigun(InputAction.CallbackContext value)
-    {
-        GetComponent<PlayerAttack>().SetWeapon(minigun);
-    }
-
-    public void SelectBroadside(InputAction.CallbackContext value)
-    {
-        GetComponent<PlayerAttack>().SetWeapon(broadside);
-    }
-
-    public void SelectMissile(InputAction.CallbackContext value)
-    {
-        GetComponent<PlayerAttack>().SetWeapon(missile);
-    }
-
     #endregion
 
     private void OnTriggerEnter2D(Collider2D other)

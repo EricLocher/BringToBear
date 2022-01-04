@@ -6455,6 +6455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc592ba179d02c41b08d4a6820feee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portraits: []
   portraitPrefub: {fileID: 1211068603596427626, guid: 0a474c18d5a93e7409cb022c1890e52e, type: 3}
   charSelectScren: {fileID: 552917102}
   pressStart: {fileID: 2035626180}
@@ -17212,7 +17213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreKeeping: []
-  WinCondition: 300
+  WinCondition: 100
   coinPickup:
   - {fileID: 8300000, guid: f107759db76cbee4dbdc7a7bd27694f2, type: 3}
   - {fileID: 8300000, guid: 94f2bebad12b6424cb078753b9e994a7, type: 3}
@@ -17617,7 +17618,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press Start (Space)
+  m_Text: Press Space (Options)
 --- !u!222 &2035626183
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17709,9 +17710,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7689472202968569092, guid: 7984063ee855cf7488e2d78a4837e740, type: 3}
+      propertyPath: songList.Array.size
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 7689472202968569093, guid: 7984063ee855cf7488e2d78a4837e740, type: 3}
       propertyPath: m_Name
       value: MusicController
+      objectReference: {fileID: 0}
+    - target: {fileID: 7689472202968569093, guid: 7984063ee855cf7488e2d78a4837e740, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7689472202968569094, guid: 7984063ee855cf7488e2d78a4837e740, type: 3}
       propertyPath: Priority

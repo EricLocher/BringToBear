@@ -92,7 +92,7 @@ public class MamaBearScript : MonoBehaviour
                 break;
             case MamaBearBehaviour.Arriving:
                 state = MamaBearBehaviour.Collecting;
-                StartCoroutine(Timer(10));
+                StartCoroutine(Timer(20));
                 break;
             case MamaBearBehaviour.Collecting:
                 state = MamaBearBehaviour.Closing;

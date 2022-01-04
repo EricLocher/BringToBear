@@ -259,3 +259,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   koSound: {fileID: 8300000, guid: f1fa594db22de6f42af44b594a4532a8, type: 3}
   loseMoneySound: {fileID: 8300000, guid: 725d90c7613d5e24288137220f3b1351, type: 3}
+  cameraShake: 2
