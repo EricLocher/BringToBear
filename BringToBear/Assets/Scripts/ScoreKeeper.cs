@@ -11,7 +11,8 @@ public class ScoreKeeper : MonoBehaviour
     public AudioClip[] coinDeposit;
     public AudioSource audioSource0;
     public AudioSource audioSource1;
-     
+
+    public static Players WinPlayer;
 
     private void Start()
     {
@@ -38,25 +39,39 @@ public class ScoreKeeper : MonoBehaviour
 
     public void DepositScore(PlayerController player, int score)
     {
+       
         player.coinsDeposited += score;
+
+        if (player.coinsDeposited >= WinCondition)
+        {
+
+            int randomNum = Random.Range(0, 100);
+            GameController.gameState = GameStates.GameOver;
+            //if(randomNum <= 1)
+            //{
+            //    SceneManager.LoadScene(6);
+            //    return;
+            //}
+
+            //WinPlayer = player.player;
+            //SceneManager.LoadScene(5);
+            //return;
+        }
 
         if (!audioSource0.isPlaying)
         {
             audioSource0.pitch = Random.Range(0.95f, 1.05f);
-            audioSource0.PlayOneShot(coinDeposit[(Random.Range(0, coinPickup.Length))], 0.8f);
+            audioSource0.PlayOneShot(coinDeposit[(Random.Range(0, coinPickup.Length-1))], 0.8f);
         }
         else if (audioSource0.isPlaying && !audioSource1.isPlaying)
         {
             audioSource1.pitch = Random.Range(0.9f, 1.1f);
-            audioSource1.PlayOneShot(coinPickup[(Random.Range(0, coinPickup.Length))], 0.4f);
+            audioSource1.PlayOneShot(coinPickup[(Random.Range(0, coinPickup.Length-1))], 0.4f);
         }
         else
             audioSource0.Stop();
 
-        if (player.coinsDeposited >= WinCondition)
-        {
-            SceneManager.LoadScene(6);
-        }
+
     }
 
 }

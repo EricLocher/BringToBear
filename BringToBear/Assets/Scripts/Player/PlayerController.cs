@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     public SpriteRenderer dashRenderer;
     public GameObject HitIndicator;
     public GameObject KOCoin;
-
+    public Players player;
     public GameObject playerSprite;
 
     public bool invincible;
