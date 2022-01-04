@@ -6,11 +6,10 @@ public class GameController : MonoBehaviour
 {
     public static GameStates gameState;
     public static List<PlayerController> Players = new List<PlayerController>();
-    public static List<OffScreenIndicator> Indicators = new List<OffScreenIndicator>();
+    public static List<GameObject> Indicators = new List<GameObject>();
     static List<GameObject> pSprite;
-    static GameObject ind;
     public List<GameObject> playerSprite;
-    public GameObject indicator;
+    public List<GameObject> offScreenIndicators;
     public ScoreKeeperUI scoreKeeperUI;
     static ScoreKeeperUI scoreController;
     void Start()
@@ -18,11 +17,11 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
         {
             Players.Add(GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<PlayerController>());
-            Indicators.Add(GameObject.FindGameObjectsWithTag("Indicator")[i].GetComponent<OffScreenIndicator>());
+            Indicators.Add(GameObject.FindGameObjectsWithTag("Indicator")[i]);
         }
 
         pSprite = playerSprite;
-        ind = indicator;
+        Indicators = offScreenIndicators;
 
         scoreController = scoreKeeperUI;
     }
@@ -43,9 +42,7 @@ public class GameController : MonoBehaviour
         GameObject _sprite = Instantiate(pSprite[0], player.transform);
         player.playerSprite = _sprite;
         player.anim = _sprite.GetComponent<ShipAnimation>();
-        GameObject _temp = Instantiate(ind);
-        _temp.GetComponent<OffScreenIndicator>().Player = player.gameObject;
-        Indicators.Add(_temp.GetComponent<OffScreenIndicator>());
+        
     }
 
     public static void UpdatePlayer(PlayerController player, int selectedPlayer)
@@ -55,5 +52,8 @@ public class GameController : MonoBehaviour
         player.playerSprite = _sprite;
         player.anim = _sprite.GetComponent<ShipAnimation>();
         scoreController.NewPlayer(player, selectedPlayer);
+        GameObject _temp = Instantiate(Indicators[selectedPlayer]);
+        _temp.GetComponent<OffScreenIndicator>().Player = player.gameObject;
+        Indicators.Add(_temp.GetComponent<GameObject>());
     }
 }
