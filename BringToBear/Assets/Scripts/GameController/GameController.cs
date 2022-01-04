@@ -38,7 +38,6 @@ public class GameController : MonoBehaviour
     {
         Players.Add(player.GetComponent<PlayerController>());
         GameObject _sprite = Instantiate(pSprite[0], player.transform);
-        //player.GetComponent<ShipAnimation>().animator = _sprite.GetComponent<Animator>();
         player.playerSprite = _sprite;
         player.anim = _sprite.GetComponent<ShipAnimation>();
         GameObject _temp = Instantiate(ind);
@@ -50,7 +49,6 @@ public class GameController : MonoBehaviour
     {
         Destroy(player.playerSprite.gameObject);
         GameObject _sprite = Instantiate(pSprite[selectedPlayer], player.transform);
-        //player.GetComponent<ShipAnimation>().animator = _sprite.GetComponent<Animator>();
         player.playerSprite = _sprite;
         player.anim = _sprite.GetComponent<ShipAnimation>();
     }
