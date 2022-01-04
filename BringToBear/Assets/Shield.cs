@@ -28,7 +28,6 @@ public class Shield : MonoBehaviour
 
             if (!player.invincible && !_playerController.invincible)
             {
-                Debug.Log("WHA");
                 CollisionHandler.DoCollision(player.rb, _otherRb, 2, other.ClosestPoint(transform.position));
                 player.invincible = true;
                 StartCoroutine(player.InvinceTime());
