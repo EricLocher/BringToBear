@@ -32,7 +32,7 @@ public class TrafficBehaviour : MonoBehaviour, ICharacter
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVel);
         rb.AddForce(transform.up * trafficThrust);
 
-        if (transform.position.y < -200 || transform.position.y > 300 || Mathf.Abs(transform.position.x) > 70)
+        if (transform.position.y < -200 || transform.position.y > 300 || Mathf.Abs(transform.position.x) > 140)
         {
             ResetMe();
         }
