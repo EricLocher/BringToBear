@@ -251,6 +251,7 @@ MonoBehaviour:
   repulsionField: {x: 20, y: 30}
   connectedCart: {fileID: 0}
   cartHP: 1000
+  cameraShake: 2
   explosion: {fileID: 1500794946509206753, guid: be9faa3897fc047478cf72c8fe7835ba, type: 3}
   Pickups:
   - {fileID: 9053389110505902517, guid: 794f40cd5446f8a439dcf22abb2dd3a3, type: 3}
