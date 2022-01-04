@@ -988,8 +988,8 @@ MonoBehaviour:
   dash: {fileID: 8527375419030901408}
   healthIndicator:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 0.4433962, g: 0.03825379, b: 0, a: 1}
+    key0: {r: 1, g: 1, b: 1, a: 0}
+    key1: {r: 1, g: 0.090090096, b: 0, a: 1}
     key2: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
     key3: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
     key4: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
@@ -997,7 +997,7 @@ MonoBehaviour:
     key6: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
     key7: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
     ctime0: 0
-    ctime1: 48573
+    ctime1: 42020
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -1005,7 +1005,7 @@ MonoBehaviour:
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 65535
+    atime1: 60138
     atime2: 0
     atime3: 0
     atime4: 0
@@ -1021,9 +1021,11 @@ MonoBehaviour:
   dashRenderer: {fileID: 4363813290254420766}
   HitIndicator: {fileID: 2878756421094232586}
   KOCoin: {fileID: 9053389110505902517, guid: 658f1c29c0b8e264aa9e0c27d911431a, type: 3}
+  playerSprite: {fileID: 0}
   invincible: 0
   shielded: 0
   state: 0
+  rb: {fileID: 0}
   boom:
   - {fileID: 8300000, guid: 1ef35a210efab6f4b9964c896c00bdf8, type: 3}
   - {fileID: 8300000, guid: 56aa3fe8013ed2c4dad763167d92d2d6, type: 3}
@@ -1038,7 +1040,7 @@ MonoBehaviour:
   explosion: {fileID: 1500794946509206753, guid: be9faa3897fc047478cf72c8fe7835ba, type: 3}
   damageTaken: 0
   shieldForce: 0
-  coinsOnPlayer: 0
+  coinsOnPlayer: 25
   coinsDeposited: 0
   amountOfDashes: 3
   machinegun: {fileID: 11400000, guid: 0baec91194c297e49b37f165c0c11ecd, type: 2}
@@ -1458,8 +1460,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2, y: 3}
+  m_Offset: {x: -0.00000023841858, y: -0.07241805}
+  m_Size: {x: 2.8193588, y: 4.200073}
   m_Direction: 0
 --- !u!70 &5692274162524159692
 CapsuleCollider2D:
@@ -1474,8 +1476,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 3, y: 4}
+  m_Offset: {x: -0.006207466, y: -0.11380036}
+  m_Size: {x: 4.526987, y: 4.66211}
   m_Direction: 0
 --- !u!95 &903453633957880356
 Animator:
@@ -2459,3 +2461,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86504e2934adf3040bcb18605170ab74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 8245381916860689196}

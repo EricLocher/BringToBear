@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     public bool shielded;
     public PlayerState state;
 
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     AudioSource audioSource;
     public AudioClip[] boom;
     public AudioClip[] dashSound;
@@ -147,8 +147,8 @@ public class PlayerController : MonoBehaviour, ICharacter
         transform.GetChild(1).gameObject.SetActive(false);
         for (int i = 0; i < coinsOnPlayer / 5; i++)
         {
-            GameObject _coin = Instantiate(PlayerCoin, transform.position, Quaternion.identity);
-            _coin.GetComponent<PlayerCoin>().score = 5;
+            GameObject _coin = Instantiate(droppedCoin, transform.position, Quaternion.identity);
+            _coin.GetComponent<CoinsPickup>().score = 5;
         }
 
         StartCoroutine(RespawnTimer());
@@ -299,7 +299,7 @@ public class PlayerController : MonoBehaviour, ICharacter
         shielded = false;
     }
 
-    IEnumerator InvinceTime()
+    public IEnumerator InvinceTime()
     {
         yield return new WaitForSeconds(0.2f);
         invincible = false;
