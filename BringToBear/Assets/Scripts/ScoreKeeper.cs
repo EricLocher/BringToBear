@@ -44,16 +44,14 @@ public class ScoreKeeper : MonoBehaviour
 
         if (player.coinsDeposited >= WinCondition)
         {
-
-            int randomNum = Random.Range(0, 100);
-            GameController.gameState = GameStates.GameOver;
+            LoadWinScreen.win = true;
             //if(randomNum <= 1)
             //{
             //    SceneManager.LoadScene(6);
             //    return;
             //}
 
-            //WinPlayer = player.player;
+            WinPlayer = player.player;
             //SceneManager.LoadScene(5);
             //return;
         }
@@ -70,8 +68,6 @@ public class ScoreKeeper : MonoBehaviour
         }
         else
             audioSource0.Stop();
-
-
     }
 
 }
