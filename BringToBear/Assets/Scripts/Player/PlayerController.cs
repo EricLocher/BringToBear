@@ -147,8 +147,8 @@ public class PlayerController : MonoBehaviour, ICharacter
         transform.GetChild(1).gameObject.SetActive(false);
         for (int i = 0; i < coinsOnPlayer / 5; i++)
         {
-            GameObject _coin = Instantiate(PlayerCoin, transform.position, Quaternion.identity);
-            _coin.GetComponent<PlayerCoin>().score = 5;
+            GameObject _coin = Instantiate(droppedCoin, transform.position, Quaternion.identity);
+            _coin.GetComponent<CoinsPickup>().score = 5;
         }
 
         StartCoroutine(RespawnTimer());

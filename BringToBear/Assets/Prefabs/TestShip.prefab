@@ -989,7 +989,7 @@ MonoBehaviour:
   healthIndicator:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 0}
-    key1: {r: 0.4339623, g: 0.03945112, b: 0, a: 1}
+    key1: {r: 1, g: 0.090090096, b: 0, a: 1}
     key2: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
     key3: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
     key4: {r: 0.13333334, g: 0.5529412, b: 0.8901961, a: 0.3764706}
@@ -1040,7 +1040,7 @@ MonoBehaviour:
   explosion: {fileID: 1500794946509206753, guid: be9faa3897fc047478cf72c8fe7835ba, type: 3}
   damageTaken: 0
   shieldForce: 0
-  coinsOnPlayer: 0
+  coinsOnPlayer: 25
   coinsDeposited: 0
   amountOfDashes: 3
   machinegun: {fileID: 11400000, guid: 0baec91194c297e49b37f165c0c11ecd, type: 2}

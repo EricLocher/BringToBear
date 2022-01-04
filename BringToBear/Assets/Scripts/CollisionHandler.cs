@@ -13,14 +13,14 @@ public class CollisionHandler : MonoBehaviour
 
 	public static void DoCollision(Rigidbody2D p1, Rigidbody2D p2, float shieldForce, Vector2 impactPoint)
 	{
-		float p1Speed = 1 + p1.velocity.magnitude;
-		float p2Speed = 1 + p2.velocity.magnitude;
+		float p1Speed = p1.velocity.magnitude / 10;
+		float p2Speed = p2.velocity.magnitude / 10;
 
 		Vector3 p1Angle = new Vector3(1, 1) + (Vector3)p1.velocity.normalized;
 		Vector3 p2Angle = new Vector3(1, 1) + (Vector3)p2.velocity.normalized;
 
-		float p1damagePercentage = 1 + p1.GetComponent<PlayerController>().damageTaken / 1500;
-		float p2damagePercentage = 1 + p2.GetComponent<PlayerController>().damageTaken / 1500;
+		float p1damagePercentage = 1 + p1.GetComponent<PlayerController>().damageTaken / 800;
+		float p2damagePercentage = 1 + p2.GetComponent<PlayerController>().damageTaken / 800;
 
 		if (p1Speed > p2Speed)
 		{
