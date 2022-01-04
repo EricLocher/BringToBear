@@ -17256,7 +17256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreKeeping: []
-  WinCondition: 10
+  WinCondition: 150
   coinPickup:
   - {fileID: 8300000, guid: f107759db76cbee4dbdc7a7bd27694f2, type: 3}
   - {fileID: 8300000, guid: 94f2bebad12b6424cb078753b9e994a7, type: 3}
