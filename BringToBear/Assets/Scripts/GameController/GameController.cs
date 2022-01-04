@@ -11,7 +11,8 @@ public class GameController : MonoBehaviour
     static GameObject ind;
     public List<GameObject> playerSprite;
     public GameObject indicator;
-
+    public ScoreKeeperUI scoreKeeperUI;
+    static ScoreKeeperUI scoreController;
     void Start()
     {
         for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
@@ -22,6 +23,8 @@ public class GameController : MonoBehaviour
 
         pSprite = playerSprite;
         ind = indicator;
+
+        scoreController = scoreKeeperUI;
     }
 
     public static GameStates GetGamestate()
@@ -51,5 +54,6 @@ public class GameController : MonoBehaviour
         GameObject _sprite = Instantiate(pSprite[selectedPlayer], player.transform);
         player.playerSprite = _sprite;
         player.anim = _sprite.GetComponent<ShipAnimation>();
+        scoreController.NewPlayer(player, selectedPlayer);
     }
 }
