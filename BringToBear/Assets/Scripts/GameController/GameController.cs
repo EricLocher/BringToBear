@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     static List<GameObject> pSprite;
     public List<GameObject> playerSprite;
     public List<GameObject> offScreenIndicators;
+    public static List<GameObject> playerIndicators = new List<GameObject>();
     public ScoreKeeperUI scoreKeeperUI;
     static ScoreKeeperUI scoreController;
     void Start()
@@ -54,6 +55,6 @@ public class GameController : MonoBehaviour
         scoreController.NewPlayer(player, selectedPlayer);
         GameObject _temp = Instantiate(Indicators[selectedPlayer]);
         _temp.GetComponent<OffScreenIndicator>().Player = player.gameObject;
-        Indicators.Add(_temp.GetComponent<GameObject>());
+        playerIndicators.Add(_temp);
     }
 }

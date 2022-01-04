@@ -19,7 +19,7 @@ public class PlayerPortrait : MonoBehaviour
 
     void Update()
     {
-        HP.text = player.damageTaken / 1000 + " ö";
+        HP.text = (int)(player.damageTaken / 20) + " ö";
         score.text = player.coinsDeposited + "";
         scoreOnPlayer.text = player.coinsOnPlayer + "";
     }
