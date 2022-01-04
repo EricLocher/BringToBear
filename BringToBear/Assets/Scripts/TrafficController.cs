@@ -26,7 +26,6 @@ public class TrafficController : MonoBehaviour
         else Destroy(this.gameObject);
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         Vehicles = new List<Transform>();
