@@ -10,6 +10,7 @@ public class GunPickUp : MonoBehaviour, IInteractable
 
     void Start()
     {
+        Destroy(this.gameObject, 5f);
         spawnForce = Random.Range(5, 8);
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.AddForce(Random.insideUnitCircle.normalized * spawnForce, ForceMode2D.Impulse); ;

@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour, IBullet
 {
     public float speed;
     public float force;
+    public float cameraShake;
     public int damage;
     public GameObject Explosion;
     Rigidbody2D rb;
@@ -33,6 +34,7 @@ public class Bullet : MonoBehaviour, IBullet
                 }
                 
                 other.GetComponent<ICharacter>().Damage(damage);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().Shake(cameraShake);
                 Destroy(gameObject);
             }
         }
@@ -47,7 +49,6 @@ public class Bullet : MonoBehaviour, IBullet
 
     private void OnDestroy()
     {
-        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().Shake(0.05f);
         Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
         Instantiate(Explosion, transform.position, _rotation);
     }

@@ -130,7 +130,7 @@ public class CameraController : MonoBehaviour
         cameraCenter.y = Mathf.Clamp(cameraCenter.y, viewMinY, viewMaxY);
         cameraCenter.x = Mathf.Clamp(cameraCenter.x, viewMinX, viewMaxX);
 
-        Vector3 newPos = Vector2.Lerp(transform.position, cameraCenter, Time.fixedDeltaTime * 2);
+        Vector3 newPos = Vector2.Lerp(transform.position, cameraCenter, Time.fixedDeltaTime * 4);
         newPos.z = -10;
         transform.position = newPos;
 
@@ -138,15 +138,14 @@ public class CameraController : MonoBehaviour
 
     public void Shake(float amount)
     {
-        transform.DOKill();
         Vector3 _shake = Vector3.zero;
-        _shake.x = Random.Range(-1, 1) * amount;
-        _shake.y = Random.Range(-1, 1) * amount;
+        _shake.x = Random.Range(-1, 1) * amount/2;
+        _shake.y = Random.Range(-1, 1) * amount/2;
 
-        Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(-20, 20) * amount);
+        Quaternion _rotation = Quaternion.Euler(0, 0, transform.rotation.z + Random.Range(-30, 30) * amount);
 
-        transform.DOMove(transform.position + _shake, 0.1f);
-        transform.DORotateQuaternion(_rotation, 0.8f);
+        transform.position +=  _shake;
+        transform.rotation = _rotation;
     }
 
 
