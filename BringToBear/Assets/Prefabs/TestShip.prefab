@@ -1040,7 +1040,7 @@ MonoBehaviour:
   explosion: {fileID: 1500794946509206753, guid: be9faa3897fc047478cf72c8fe7835ba, type: 3}
   damageTaken: 0
   shieldForce: 0
-  coinsOnPlayer: 25
+  coinsOnPlayer: 0
   coinsDeposited: 0
   amountOfDashes: 3
   machinegun: {fileID: 11400000, guid: 0baec91194c297e49b37f165c0c11ecd, type: 2}
@@ -1276,70 +1276,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7da63ecf-d386-46ac-be33-e9bfc409f562
     m_ActionName: Controls/Drop Honey
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8245381916860689196}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: SelectRailgun
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: dd2dfa93-f366-4b3d-be8f-f4823a70a5ce
-    m_ActionName: Controls/Select Railgun[/DualShock4GamepadHID/dpad/up]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8245381916860689196}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: SelectMinigun
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 90995460-ab7d-47a8-baae-7c34098d4e18
-    m_ActionName: Controls/SelectMinigun[/DualShock4GamepadHID/dpad/right]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8245381916860689196}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: SelectBroadside
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 619b21ab-220a-41e3-affb-57e13f709d26
-    m_ActionName: Controls/SelectBroadside[/DualShock4GamepadHID/dpad/left]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8245381916860689196}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: SelectMissile
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 17d9b64a-000f-40e7-ad1f-5c55155fc709
-    m_ActionName: Controls/SelectMissile[/DualShock4GamepadHID/dpad/down]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 2dd45de5-1f7b-4ee1-909d-c1ce644dc928

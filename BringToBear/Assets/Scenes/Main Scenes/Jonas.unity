@@ -17213,7 +17213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreKeeping: []
-  WinCondition: 300
+  WinCondition: 100
   coinPickup:
   - {fileID: 8300000, guid: f107759db76cbee4dbdc7a7bd27694f2, type: 3}
   - {fileID: 8300000, guid: 94f2bebad12b6424cb078753b9e994a7, type: 3}
@@ -17717,6 +17717,10 @@ PrefabInstance:
     - target: {fileID: 7689472202968569093, guid: 7984063ee855cf7488e2d78a4837e740, type: 3}
       propertyPath: m_Name
       value: MusicController
+      objectReference: {fileID: 0}
+    - target: {fileID: 7689472202968569093, guid: 7984063ee855cf7488e2d78a4837e740, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7689472202968569094, guid: 7984063ee855cf7488e2d78a4837e740, type: 3}
       propertyPath: Priority

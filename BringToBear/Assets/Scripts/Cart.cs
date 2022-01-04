@@ -10,6 +10,7 @@ public class Cart : MonoBehaviour, ICharacter
 
     public Cart connectedCart;
     public int cartHP = 100;
+    public float cameraShake;
     public GameObject explosion;
     public List<GameObject> Pickups;
     public GameObject HitIndicator;
@@ -25,6 +26,7 @@ public class Cart : MonoBehaviour, ICharacter
     {
         if (cartHP <= 0)
         {
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>().Shake(cameraShake);
             transform.parent.GetComponent<Train>().DestroyedCart(gameObject);
             int selectedPickup = Random.Range(0, Pickups.Count - 1);
 

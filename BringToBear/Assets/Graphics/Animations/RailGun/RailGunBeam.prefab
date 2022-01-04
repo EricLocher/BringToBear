@@ -73,6 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   force: 100
+  cameraShake: 2.2
   damage: 2000
   Explosion: {fileID: 8682204598085238733, guid: 3e5786bed1b478749a14d5029f95c2ce, type: 3}
 --- !u!1 &2908350756776659832
