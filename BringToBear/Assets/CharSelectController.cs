@@ -8,7 +8,7 @@ public class CharSelectController : MonoBehaviour
     [SerializeField] GameObject portraitPrefub;
     [SerializeField] GameObject charSelectScren;
     [SerializeField] GameObject pressStart;
-
+    [SerializeField] GameObject readyCheck;
 
     [SerializeField] private PlayerController playerController = null;
 
@@ -24,16 +24,20 @@ public class CharSelectController : MonoBehaviour
         _temp.GetComponent<CharSelect>().playerController = player;
         portraits.Add(_temp);
         pressStart.SetActive(false);
+        readyCheck.SetActive(true);
     }
 
     public void Ready()
     {
-        foreach (GameObject player in portraits)
+        if (readyCheck.activeInHierarchy)
         {
-            GameController.UpdatePlayer(player.GetComponent<CharSelect>().playerController, player.GetComponent<CharSelect>().selectedChar);
+            foreach (GameObject player in portraits)
+            {
+                GameController.UpdatePlayer(player.GetComponent<CharSelect>().playerController, player.GetComponent<CharSelect>().selectedChar);
+            }
+            Time.timeScale = 1;
+            playerController.PlayerInput.SwitchCurrentActionMap("Controls");
+            charSelectScren.SetActive(false);
         }
-        Time.timeScale = 1;
-        playerController.PlayerInput.SwitchCurrentActionMap("Controls");
-        charSelectScren.SetActive(false);
     }
 }
