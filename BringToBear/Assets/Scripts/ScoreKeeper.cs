@@ -30,7 +30,7 @@ public class ScoreKeeper : MonoBehaviour
         else if (audioSource0.isPlaying && !audioSource1.isPlaying)
         {
             audioSource1.pitch = Random.Range(0.9f, 1.1f);
-            audioSource1.PlayOneShot(coinPickup[(Random.Range(0, coinPickup.Length))], 0.4f);
+            audioSource1.PlayOneShot(coinPickup[(Random.Range(0, coinPickup.Length))], 0.25f);
         }
         else
             audioSource0.Stop();
