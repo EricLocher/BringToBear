@@ -11,6 +11,8 @@ public class CharSelect : MonoBehaviour
 
     public List<Sprite> Characters;
 
+    [SerializeField] Text player;
+
     public void LeftButton()
     {
         selectedChar--;
