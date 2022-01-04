@@ -11688,6 +11688,107 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb494e6d4506ea043b377346c83ae26c, type: 3}
+--- !u!1 &1633322079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4923279677540332817, guid: b2018f12a1c09074e9480acaad9a3b96, type: 3}
+  m_PrefabInstance: {fileID: 7961386776942640346}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1633322080
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633322079}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1723231800
 GameObject:
   m_ObjectHideFlags: 0
@@ -17331,6 +17432,34 @@ PrefabInstance:
       propertyPath: suction
       value: 
       objectReference: {fileID: 1234818182}
+    - target: {fileID: 1845547935623601865, guid: b2018f12a1c09074e9480acaad9a3b96, type: 3}
+      propertyPath: depositSounds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845547935623601865, guid: b2018f12a1c09074e9480acaad9a3b96, type: 3}
+      propertyPath: depositSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7bb1d2c49488bfd43bf168beadc8616f, type: 3}
+    - target: {fileID: 1845547935623601865, guid: b2018f12a1c09074e9480acaad9a3b96, type: 3}
+      propertyPath: depositSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: f47f35818f075614c830d78effc34828, type: 3}
+    - target: {fileID: 1845547935623601865, guid: b2018f12a1c09074e9480acaad9a3b96, type: 3}
+      propertyPath: depositSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: f107759db76cbee4dbdc7a7bd27694f2, type: 3}
+    - target: {fileID: 1845547935623601865, guid: b2018f12a1c09074e9480acaad9a3b96, type: 3}
+      propertyPath: depositSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 94f2bebad12b6424cb078753b9e994a7, type: 3}
+    - target: {fileID: 1845547935623601865, guid: b2018f12a1c09074e9480acaad9a3b96, type: 3}
+      propertyPath: depositSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 255d7650873b65d44b3268caa6d11d81, type: 3}
+    - target: {fileID: 1845547935623601865, guid: b2018f12a1c09074e9480acaad9a3b96, type: 3}
+      propertyPath: depositSounds.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 491c5a26d3d8baf4d993ff016f93fc59, type: 3}
     - target: {fileID: 4272365911590117564, guid: b2018f12a1c09074e9480acaad9a3b96, type: 3}
       propertyPath: m_TagString
       value: Untagged
