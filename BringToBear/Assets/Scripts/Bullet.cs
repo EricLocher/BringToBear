@@ -49,8 +49,12 @@ public class Bullet : MonoBehaviour, IBullet
 
     private void OnDestroy()
     {
-        Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
-        Instantiate(Explosion, transform.position, _rotation);
+        if (GameController.gameState == GameStates.GameOver) { return; }
+        else
+        {
+            Quaternion _rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+            Instantiate(Explosion, transform.position, _rotation);
+        }
     }
 
 

@@ -85,6 +85,8 @@ public class Cart : MonoBehaviour, ICharacter
     {
         foreach (PlayerController player in GameController.Players)
         {
+
+            if(player == null) { continue; }
             Vector2 _playerPos = player.transform.position;
             Vector2 _TopLeft = (Vector2)transform.position + new Vector2(-repulsionField.x, repulsionField.y) / 2;
 
