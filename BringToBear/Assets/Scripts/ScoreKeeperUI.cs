@@ -14,5 +14,4 @@ public class ScoreKeeperUI : MonoBehaviour
         GameObject _temp = Instantiate(prefabs, transform);
         _temp.GetComponent<PlayerPortrait>().Create(player, sprites[selectedplayer]);
     }
-
 }
