@@ -11,7 +11,7 @@ public class MenuController : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(3);
     }
     public void QuitGame()
     {
@@ -20,20 +20,15 @@ public class MenuController : MonoBehaviour
     }
     public void Credits()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("Credits");
     }
     public void OptionsMenu()
     {
-        SceneManager.LoadScene(1);
-    }
-    public void Gallery()
-    {
-        SceneManager.LoadScene(2);
-    }
-    
+        SceneManager.LoadScene("SettingsMenu");
+    }   
     public void MainMenu()
     {     
-    SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
     public void Keybinds()
     {

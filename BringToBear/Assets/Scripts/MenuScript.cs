@@ -11,6 +11,4 @@ public class MenuScript : MonoBehaviour
         mousePos = mainCam.ScreenToWorldPoint(mousePos);
         Debug.Log(mousePos);
     }
-
-
 }
