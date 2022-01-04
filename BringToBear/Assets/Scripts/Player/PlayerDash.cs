@@ -29,8 +29,6 @@ public class PlayerDash : MonoBehaviour
         Vector2 _dir = (transform.up * distance).normalized;
         RaycastHit2D[] _hit = Physics2D.RaycastAll(transform.position, _dir, distance, layer);
 
-
-
         dashing = true;
 
         if (_hit.Length > 0)

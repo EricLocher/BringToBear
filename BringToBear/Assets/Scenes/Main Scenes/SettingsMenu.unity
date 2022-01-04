@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 83950444}
   - component: {fileID: 83950448}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasNormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1255,8 +1255,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928f7aa835a5edc4db314f9dfe3d39c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: ae98bdd62b9dc90478d12efbecca4650, type: 2}
-  volumeSlider: {fileID: 344411619}
+  mixer: {fileID: 0}
+  volumeSlider: {fileID: 0}
+  SFXmixer: {fileID: 24100000, guid: ae98bdd62b9dc90478d12efbecca4650, type: 2}
+  sfxSlider: {fileID: 344411619}
 --- !u!114 &344411619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5761,6 +5763,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 635f1cd87888fe0418d83a358614e464, type: 2}
   volumeSlider: {fileID: 1455496258}
+  SFXmixer: {fileID: 0}
+  sfxSlider: {fileID: 0}
 --- !u!114 &1455496258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5842,7 +5846,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1522402862
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5860,7 +5864,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.4, y: -225.8}
+  m_AnchoredPosition: {x: 8.44, y: -258.4}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1522402863
@@ -6078,12 +6082,12 @@ GameObject:
   - component: {fileID: 1565156126}
   - component: {fileID: 1565156125}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: CanvasRebinding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1565156124
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7847,7 +7851,7 @@ PrefabInstance:
     - target: {fileID: 5710518002941889796, guid: 1655c49e1411b4e45b8f7cb91f6bbad0, type: 3}
       propertyPath: m_FirstSelected
       value: 
-      objectReference: {fileID: 472679896}
+      objectReference: {fileID: 1275973995}
     - target: {fileID: 5710518002941889797, guid: 1655c49e1411b4e45b8f7cb91f6bbad0, type: 3}
       propertyPath: m_RootOrder
       value: 1
