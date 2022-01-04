@@ -17177,9 +17177,13 @@ MonoBehaviour:
   playerSprite:
   - {fileID: 9057281798746222917, guid: ebc0a1db22d835043a51183ff1f9d12a, type: 3}
   - {fileID: 9057281798746222917, guid: f850b5c25faee27409af9d562ca0659b, type: 3}
-  - {fileID: 9057281798746222917, guid: be04ec6023700d54fa3f93491a5139e1, type: 3}
   - {fileID: 9057281798746222917, guid: 9af040ce5bb72fd41afa14ddb3aa839e, type: 3}
-  indicator: {fileID: 2140302671170453777, guid: 290c50755dbefb64883d2b5305eeae5e, type: 3}
+  - {fileID: 9057281798746222917, guid: be04ec6023700d54fa3f93491a5139e1, type: 3}
+  offScreenIndicators:
+  - {fileID: 2512470848444169609, guid: 7e29638910bb4cd449e2c75ac19c8401, type: 3}
+  - {fileID: 6333894569270896619, guid: f0a69cc7cf20b8f429a46cb4c5210ceb, type: 3}
+  - {fileID: 8546740900077160433, guid: 7682fca6c33a2304e99727a48ebe9fd8, type: 3}
+  - {fileID: 5237499201567543426, guid: 7d17589e762f3634893971562ffb7147, type: 3}
   scoreKeeperUI: {fileID: 259450134}
 --- !u!4 &1891402965
 Transform:
