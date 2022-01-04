@@ -39,7 +39,6 @@ public class PlayerDash : MonoBehaviour
             {
                 if (_hit[i].collider != null && _hit[i].collider.gameObject != gameObject)
                 {
-                    Debug.Log(_hit[i].collider.name);
                     transform.DOMove(_hit[i].point, dashTime * ((_hit[i].point - (Vector2)transform.position).magnitude / distance));
                     currentCoroutine = Dashing(dashTime * ((_hit[i].point - (Vector2)transform.position).magnitude / distance));
                 }

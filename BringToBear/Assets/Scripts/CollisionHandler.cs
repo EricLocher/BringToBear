@@ -13,14 +13,14 @@ public class CollisionHandler : MonoBehaviour
 
 	public static void DoCollision(Rigidbody2D p1, Rigidbody2D p2, float shieldForce, Vector2 impactPoint)
 	{
-		float p1Speed = p1.velocity.magnitude;
-		float p2Speed = p2.velocity.magnitude;
+		float p1Speed = 1 + p1.velocity.magnitude;
+		float p2Speed = 1 + p2.velocity.magnitude;
 
-		Vector3 p1Angle = p1.velocity.normalized;
-		Vector3 p2Angle = p2.velocity.normalized;
+		Vector3 p1Angle = new Vector3(1, 1) + (Vector3)p1.velocity.normalized;
+		Vector3 p2Angle = new Vector3(1, 1) + (Vector3)p2.velocity.normalized;
 
-		float p1damagePercentage = p1.GetComponent<PlayerController>().damageTaken / 1500;
-		float p2damagePercentage = p2.GetComponent<PlayerController>().damageTaken / 1500;
+		float p1damagePercentage = 1 + p1.GetComponent<PlayerController>().damageTaken / 1500;
+		float p2damagePercentage = 1 + p2.GetComponent<PlayerController>().damageTaken / 1500;
 
 		if (p1Speed > p2Speed)
 		{
@@ -30,9 +30,10 @@ public class CollisionHandler : MonoBehaviour
 		{
 			p1Speed *= 0.5f;
 		}
-
-		p1.AddForce(p2Speed * p2Angle * p1damagePercentage * shieldForce, ForceMode2D.Impulse);
-		p2.AddForce(p1Speed * p1Angle * p2damagePercentage * shieldForce, ForceMode2D.Impulse);
+		Debug.Log(p2Speed + ":"+ p2Angle +":"+ p1damagePercentage +":"+ shieldForce);
+		Debug.Log(p1Speed + ":" + p1Angle + ":" + p2damagePercentage + ":" + shieldForce);
+		p1.AddForce(p2Speed * (Vector2)p2Angle * p1damagePercentage * shieldForce, ForceMode2D.Impulse);
+		p2.AddForce(p1Speed * (Vector2)p1Angle * p2damagePercentage * shieldForce, ForceMode2D.Impulse);
 
 		p1.GetComponent<PlayerController>().invincible = true;
 

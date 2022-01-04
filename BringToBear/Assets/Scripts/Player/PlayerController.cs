@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour, ICharacter
     public bool shielded;
     public PlayerState state;
 
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     AudioSource audioSource;
     public AudioClip[] boom;
     public AudioClip[] dashSound;
@@ -299,7 +299,7 @@ public class PlayerController : MonoBehaviour, ICharacter
         shielded = false;
     }
 
-    IEnumerator InvinceTime()
+    public IEnumerator InvinceTime()
     {
         yield return new WaitForSeconds(0.2f);
         invincible = false;
