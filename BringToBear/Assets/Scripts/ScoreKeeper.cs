@@ -38,8 +38,20 @@ public class ScoreKeeper : MonoBehaviour
     public void DepositScore(PlayerController player, int score)
     {
         player.coinsDeposited += score;
-        audioSource0.pitch = Random.Range(0.95f, 1.05f);
-        audioSource0.PlayOneShot(coinDeposit[(Random.Range(0, coinPickup.Length))], 0.8f);
+
+        if (!audioSource0.isPlaying)
+        {
+            audioSource0.pitch = Random.Range(0.95f, 1.05f);
+            audioSource0.PlayOneShot(coinDeposit[(Random.Range(0, coinPickup.Length))], 0.8f);
+        }
+        else if (audioSource0.isPlaying && !audioSource1.isPlaying)
+        {
+            audioSource1.pitch = Random.Range(0.9f, 1.1f);
+            audioSource1.PlayOneShot(coinPickup[(Random.Range(0, coinPickup.Length))], 0.4f);
+        }
+        else
+            audioSource0.Stop();
+
         if (player.coinsDeposited >= WinCondition)
         {
             SceneManager.LoadScene(6);
