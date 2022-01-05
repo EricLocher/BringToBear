@@ -10,13 +10,11 @@ public class Skipper : MonoBehaviour
     float timer = 0;
 
     public VideoPlayer videoPlayer;
-    // Start is called before the first frame update
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -34,11 +32,9 @@ public class Skipper : MonoBehaviour
 
     }
 
-    //public void Skip(InputAction.CallbackContext value)
     public void Skip()
     {
             SceneManager.LoadScene(3);
-        //videoPlayer.Stop();
     }
 
 }

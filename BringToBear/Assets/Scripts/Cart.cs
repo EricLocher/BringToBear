@@ -96,7 +96,7 @@ public class Cart : MonoBehaviour, ICharacter
                 _playerPos.y < _TopLeft.y && _playerPos.y > (_TopLeft.y - repulsionField.y)
               )
             {
-                Vector2 _force = (player.transform.position - transform.position) * 1.2f;
+                Vector2 _force = (player.transform.position - transform.position) * 1f;
                 _force = Vector2.ClampMagnitude(_force, 4f);
 
                 player.GetComponent<Rigidbody2D>().AddForce(_force, ForceMode2D.Impulse);

@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbb9285a9356f24da0182d66cbca51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  repulsionField: {x: 20, y: 30}
+  repulsionField: {x: 20, y: 20}
   connectedCart: {fileID: 0}
   cartHP: 1000
   cameraShake: 2
