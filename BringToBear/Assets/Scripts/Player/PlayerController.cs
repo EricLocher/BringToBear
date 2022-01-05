@@ -69,8 +69,6 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     void Update()
     {
-        Debug.Log(rb.velocity.magnitude);
-        
         anim.playerOutline.color = healthIndicator.Evaluate(damageTaken / 2000);
         if (dash.dashing)
         {
@@ -220,6 +218,7 @@ public class PlayerController : MonoBehaviour, ICharacter
         dash.Dash();
 
     }
+
     public void DropHoney(InputAction.CallbackContext value)
     {
         if (coinsOnPlayer <= 0) { return; }
