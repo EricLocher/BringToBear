@@ -14,7 +14,7 @@ public class LoadNextScene : MonoBehaviour
     [SerializeField] private Image progressBar;
     IEnumerator LoadScene()
     {
-        AsyncOperation gameScene = SceneManager.LoadSceneAsync(2);
+        AsyncOperation gameScene = SceneManager.LoadSceneAsync(4);
         while (gameScene.progress < 1)
         {
             progressBar.fillAmount = gameScene.progress;

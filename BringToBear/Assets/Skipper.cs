@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
-using UnityEngine.InputSystem;
-
+using UnityEngine.UI;
 
 public class Skipper : MonoBehaviour
 {
@@ -25,16 +24,21 @@ public class Skipper : MonoBehaviour
 
         if (timer > 1 && !videoPlayer.isPlaying || timer > 30)
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(3);
+        }
+
+        if(Input.anyKey)
+        {
+            Skip();
         }
 
     }
 
-    public void Skip(InputAction.CallbackContext value)
+    //public void Skip(InputAction.CallbackContext value)
+    public void Skip()
     {
-
-        videoPlayer.Stop();
-
+            SceneManager.LoadScene(3);
+        //videoPlayer.Stop();
     }
 
 }
