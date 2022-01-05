@@ -218,6 +218,7 @@ public class PlayerController : MonoBehaviour, ICharacter
         dash.Dash();
 
     }
+
     public void DropHoney(InputAction.CallbackContext value)
     {
         if (coinsOnPlayer <= 0) { return; }
