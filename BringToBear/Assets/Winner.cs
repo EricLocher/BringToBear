@@ -8,6 +8,7 @@ public class Winner : MonoBehaviour
     [SerializeField]List<Sprite> playerSprites;
     [SerializeField] Image Image;
 
+
     private void Start()
     {
         switch (ScoreKeeper.WinPlayer)
