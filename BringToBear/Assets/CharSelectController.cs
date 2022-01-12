@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CharSelectController : MonoBehaviour
 {
@@ -15,8 +16,24 @@ public class CharSelectController : MonoBehaviour
     void Start()
     {
         Time.timeScale = 0;
-        playerController.PlayerInput.SwitchCurrentActionMap("Menu");
+        //playerController.PlayerInput.SwitchCurrentActionMap("Menu");
 
+    }
+
+    private void Update()
+    {
+        int readyChk = 0;
+        foreach (GameObject portrait in portraits)
+        {
+            if (portrait.GetComponent<CharSelect>().readyCheck)
+            {
+                readyChk++;
+            }
+        }
+        if (readyChk >= portraits.Count)
+        {
+            Ready();
+        }
     }
     public void newPlayer(PlayerController player)
     {
@@ -24,6 +41,8 @@ public class CharSelectController : MonoBehaviour
         _temp.GetComponent<CharSelect>().playerController = player;
         portraits.Add(_temp);
         pressStart.SetActive(false);
+        player.AssignPlayerRoot(_temp);
+        player.charPortrait = _temp.GetComponent<CharSelect>();
         readyCheck.SetActive(true);
     }
 
@@ -34,9 +53,9 @@ public class CharSelectController : MonoBehaviour
             foreach (GameObject player in portraits)
             {
                 GameController.UpdatePlayer(player.GetComponent<CharSelect>().playerController, player.GetComponent<CharSelect>().selectedChar);
+                
             }
             Time.timeScale = 1;
-            playerController.PlayerInput.SwitchCurrentActionMap("Controls");
             charSelectScren.SetActive(false);
         }
     }

@@ -1,14 +1,16 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
 
 public class PlayerController : MonoBehaviour, ICharacter
 {
     [Header("Reference")]
     [SerializeField] PlayerInput playerInput = null;
     //[SerializeField] private PlayerController playerController = null;
-
+    [SerializeField] InputActionAsset defaultActions;
+    [SerializeField] MultiplayerEventSystem multiplayerEventSystem;
 
     [Header("Player Components")]
     [SerializeField] PlayerMovement movement;
@@ -18,6 +20,8 @@ public class PlayerController : MonoBehaviour, ICharacter
     [SerializeField] PlayerAttack attack;
     [SerializeField] PlayerDash dash;
     [SerializeField] Gradient healthIndicator;
+
+    public CharSelect charPortrait;
 
     [SerializeField] Camera mainCam;
 
@@ -57,7 +61,13 @@ public class PlayerController : MonoBehaviour, ICharacter
 
     public PlayerInput PlayerInput => playerInput;
 
+    /*void Awake()
+    {
+        GetComponent<PlayerInput>().uiInputModule = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<InputSystemUIInputModule>();
 
+        GameObject.FindGameObjectWithTag("EventSystem").GetComponent<InputSystemUIInputModule>().actionsAsset = defaultActions;
+        //GameObject.FindGameObjectWithTag("EventSystem").GetComponent<DefaultInputActions>();
+    }*/
     private void Start()
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -99,6 +109,12 @@ public class PlayerController : MonoBehaviour, ICharacter
             }
             DamageRespawn();
         }
+    }
+
+    public void AssignPlayerRoot(GameObject portrait)
+    {
+        multiplayerEventSystem.playerRoot = portrait;
+        multiplayerEventSystem.firstSelectedGameObject = portrait.transform.GetChild(3).gameObject;
     }
 
     #region Inputs
@@ -232,6 +248,11 @@ public class PlayerController : MonoBehaviour, ICharacter
     public void DropWeapon(InputAction.CallbackContext value)
     {
         GetComponent<PlayerAttack>().SetWeapon(machinegun);
+    }
+
+    public void Navigate(InputAction.CallbackContext value)
+    {
+
     }
 
     #endregion
